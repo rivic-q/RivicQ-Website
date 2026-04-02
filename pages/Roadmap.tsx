@@ -4,17 +4,17 @@ import { Target, Server, Cpu, CreditCard, Activity, BarChart3, Database, Key } f
 
 const Milestone: React.FC<{ date: string, title: string, items: string[], icon: React.ReactNode, isCurrent?: boolean }> = ({ date, title, items, icon, isCurrent }) => (
   <div className="relative pl-12 pb-12 last:pb-0">
-    <div className={`absolute left-0 top-1 w-9 h-9 rounded-full border flex items-center justify-center z-10 shadow-sm transition-all ${isCurrent ? 'bg-blue-600 text-white border-blue-600 ring-4 ring-blue-50 scale-110' : 'bg-white text-slate-400 border-slate-200'}`}>
+    <div className={`absolute left-0 top-1 w-9 h-9 rounded-full border flex items-center justify-center z-10 shadow-sm transition-all ${isCurrent ? 'bg-sky-500 text-white border-sky-600 ring-4 ring-sky-50 scale-110' : 'bg-white text-slate-400 border-slate-200'}`}>
       {icon}
     </div>
     <div className="absolute left-[17px] top-1 w-px h-full bg-slate-100 -z-0"></div>
     <div className="flex flex-col">
-      <span className={`text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-1 ${isCurrent ? 'text-blue-600' : 'text-slate-400'}`}>{date}</span>
+      <span className={`text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-1 ${isCurrent ? 'text-sky-500' : 'text-slate-400'}`}>{date}</span>
       <h3 className={`m-0 text-xl font-serif font-bold mb-3 ${isCurrent ? 'text-slate-900' : 'text-slate-500'}`}>{title}</h3>
       <ul className="space-y-2 m-0 p-0 list-none">
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-3 text-xs text-slate-500">
-            <div className={`w-1 h-1 rounded-full ${isCurrent && i < 2 ? 'bg-blue-500' : 'bg-slate-200'}`}></div> {item}
+            <div className={`w-1 h-1 rounded-full ${isCurrent && i < 2 ? 'bg-sky-500' : 'bg-slate-200'}`}></div> {item}
           </li>
         ))}
       </ul>
@@ -80,7 +80,7 @@ const Roadmap: React.FC = () => {
           </p>
           <div className="grid md:grid-cols-3 gap-8">
              <div className="space-y-1">
-                <span className="block text-2xl font-bold text-blue-400">99.9%</span>
+                <span className="block text-2xl font-bold text-sky-400">99.9%</span>
                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">SLA Objective</span>
              </div>
              <div className="space-y-1">

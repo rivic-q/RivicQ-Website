@@ -10,12 +10,12 @@ const CustomerCard: React.FC<{
   necessity: string,
   badge: string
 }> = ({ title, icon, why, necessity, badge }) => (
-  <div className="p-8 md:p-12 border border-slate-100 bg-white rounded-[3rem] shadow-sm hover:border-blue-200 transition-all group flex flex-col h-full">
+  <div className="p-8 md:p-12 border border-slate-100 bg-white rounded-[3rem] shadow-sm hover:border-sky-200 transition-all group flex flex-col h-full">
     <div className="flex justify-between items-start mb-8">
       <div className="p-4 bg-slate-50 text-slate-900 rounded-2xl group-hover:bg-slate-900 group-hover:text-white transition-all">
         {icon}
       </div>
-      <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest rounded-full">{badge}</span>
+      <span className="px-3 py-1 bg-sky-50 text-sky-500 text-[10px] font-bold uppercase tracking-widest rounded-full">{badge}</span>
     </div>
     <h3 className="text-2xl font-serif font-bold text-slate-900 mb-6">{title}</h3>
     
@@ -25,14 +25,14 @@ const CustomerCard: React.FC<{
         <p className="text-sm text-slate-600 leading-relaxed m-0">{why}</p>
       </div>
       <div>
-        <h4 className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-2">Why RivicQ is Necessary</h4>
+        <h4 className="text-[10px] font-bold text-sky-500 uppercase tracking-widest mb-2">Why RivicQ is Necessary</h4>
         <p className="text-sm text-slate-800 font-medium leading-relaxed m-0">{necessity}</p>
       </div>
     </div>
     
     <div className="mt-10 pt-6 border-t border-slate-50">
        <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
-         <Star size={12} className="text-blue-500" /> High-Assurance Priority
+         <Star size={12} className="text-sky-500" /> High-Assurance Priority
        </div>
     </div>
   </div>
@@ -46,7 +46,7 @@ const IdealCustomer: React.FC = () => {
           Strategic Market Intelligence
         </div>
         <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-          Who We <span className="text-blue-600">Protect.</span>
+          Who We <span className="text-sky-500">Protect.</span>
         </h1>
         <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
           RivicQ is built for organizations whose data value exceeds the 50-year threat horizon. If your security failure means societal failure, you are our ideal customer.
@@ -119,7 +119,7 @@ const IdealCustomer: React.FC = () => {
             "We don't sell to everyone. We protect those who cannot afford to fail."
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/pricing" className="px-10 py-4 bg-blue-600 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20">
+            <Link to="/pricing" className="px-10 py-4 bg-sky-500 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-sky-500/20">
               Request a Consultation
             </Link>
             <Link to="/enterprise" className="px-10 py-4 border border-slate-700 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-white/5 transition-all">

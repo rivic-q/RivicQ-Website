@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="40" fill="#0f172a"/>
+  <circle cx="90" cy="80" r="40" fill="none" stroke="#0ea5e9" stroke-width="3"/>
+  <circle cx="90" cy="80" r="25" fill="none" stroke="#0ea5e9" stroke-width="2"/>
+  <circle cx="90" cy="80" r="10" fill="#0ea5e9"/>
+  <text x="90" y="145" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">RivicQ</text>
+</svg>

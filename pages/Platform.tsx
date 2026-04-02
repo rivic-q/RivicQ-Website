@@ -28,7 +28,7 @@ const Platform: React.FC = () => {
 
       <section className="mb-24">
         <div className="flex items-center gap-4 mb-10">
-          <div className="p-3 bg-blue-600 text-white rounded-2xl shadow-lg">
+          <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
             <Layers size={24} />
           </div>
           <div>
@@ -38,12 +38,12 @@ const Platform: React.FC = () => {
         </div>
 
         <div className="not-prose grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-blue-500 hover:scale-[1.01] transition-all duration-500 group">
+          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-sky-500 hover:scale-[1.01] transition-all duration-500 group">
             <div className="mb-6 flex items-center justify-between">
-              <div className="p-3 bg-blue-50 text-blue-600 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-all">
+              <div className="p-3 bg-sky-50 text-sky-500 rounded-xl group-hover:bg-sky-500 group-hover:text-white transition-all">
                 <Search size={24} />
               </div>
-              <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Find</span>
+              <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">Find</span>
             </div>
             <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">Security Audit (Scanner)</h3>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -66,18 +66,18 @@ const Platform: React.FC = () => {
         </div>
 
         <div className="not-prose grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="p-8 bg-slate-900 text-white border border-slate-800 rounded-[2.5rem] shadow-xl hover:border-blue-400 hover:scale-[1.01] transition-all duration-500 group">
+          <div className="p-8 bg-slate-900 text-white border border-slate-800 rounded-[2.5rem] shadow-xl hover:border-sky-400 hover:scale-[1.01] transition-all duration-500 group">
             <div className="mb-6 flex items-center justify-between">
-              <div className="p-3 bg-blue-600 text-white rounded-xl">
+              <div className="p-3 bg-sky-500 text-white rounded-xl">
                 <Cloud size={24} />
               </div>
-              <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Secure Hardware</span>
+              <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest">Secure Hardware</span>
             </div>
             <h3 className="text-xl font-serif font-bold text-white mb-4">Cloud HSM</h3>
             <p className="text-sm text-slate-400 leading-relaxed mb-6">
               Our secure cloud hardware acts as a "digital vault" for your keys, protected by physical barriers and quantum-safe tech.
             </p>
-            <Link to="/cloud-hsm" className="text-xs font-bold text-blue-400 flex items-center gap-2 hover:text-white transition-colors uppercase tracking-widest">
+            <Link to="/cloud-hsm" className="text-xs font-bold text-sky-400 flex items-center gap-2 hover:text-white transition-colors uppercase tracking-widest">
               See Hardware Details <ArrowRight size={14} />
             </Link>
           </div>
@@ -100,19 +100,19 @@ const Platform: React.FC = () => {
       {/* Quantum Risk Simulation Section */}
       <section className="my-24 not-prose">
         <div className="flex items-center gap-4 mb-12">
-          <div className="p-3 bg-slate-900 text-white rounded-2xl shadow-xl shadow-blue-900/20">
+          <div className="p-3 bg-slate-900 text-white rounded-2xl shadow-xl shadow-sky-900/20">
             <Atom size={24} className="animate-spin-slow" />
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Quantum Benchmarking Core</h2>
-            <p className="text-xs text-blue-600 font-bold uppercase tracking-widest mt-1">Leveraging KIPU Q & Q-CTRL Control Logic</p>
+            <p className="text-xs text-sky-500 font-bold uppercase tracking-widest mt-1">Leveraging KIPU Q & Q-CTRL Control Logic</p>
           </div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
           <div className="bg-slate-950 rounded-[2.5rem] p-8 font-mono text-[11px] text-indigo-200 shadow-2xl relative overflow-hidden border border-slate-800">
             <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
-              <Zap size={14} className="text-blue-400" />
+              <Zap size={14} className="text-sky-400" />
               <span className="text-slate-400">Simulation Kernel v2.1 • KIPU Optimized</span>
             </div>
             <pre className="overflow-x-auto leading-relaxed text-indigo-300 relative z-10">
@@ -139,7 +139,7 @@ analyzer.export_to_policy_service(
             <div className="mt-10 space-y-3 relative z-10">
               <div className="flex justify-between items-center">
                 <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Simulated Attack Power</label>
-                <span className="text-blue-400 font-bold">{complexity} Qubits</span>
+                <span className="text-sky-400 font-bold">{complexity} Qubits</span>
               </div>
               <input 
                 type="range" min="10" max="100" value={complexity} 
@@ -189,15 +189,15 @@ analyzer.export_to_policy_service(
          <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 text-center">Strategic Infrastructure & Partners</h2>
          <div className="flex flex-wrap justify-center gap-6">
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Cpu size={20} className="text-blue-600"/>
+               <Cpu size={20} className="text-sky-500"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">IBM Quantum</span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Cloud size={20} className="text-blue-600"/>
+               <Cloud size={20} className="text-sky-500"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Google Cloud</span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Network size={20} className="text-blue-600"/>
+               <Network size={20} className="text-sky-500"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">AWS Nitro</span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">

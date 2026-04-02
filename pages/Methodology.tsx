@@ -43,7 +43,7 @@ const PillarCard: React.FC<{
   delay?: number 
 }> = ({ icon, title, description, details, color, delay }) => (
   <AnimatedSection delay={delay}>
-    <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 hover:shadow-xl hover:border-blue-200 transition-all duration-300 h-full flex flex-col">
+    <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 hover:shadow-xl hover:border-sky-200 transition-all duration-300 h-full flex flex-col">
       <div className={`w-16 h-16 ${color} rounded-2xl flex items-center justify-center mb-6 text-white`}>
         {icon}
       </div>
@@ -65,7 +65,7 @@ const ProcessStep: React.FC<{ number: string; title: string; description: string
   <AnimatedSection delay={delay}>
     <div className="flex gap-6 group">
       <div className="shrink-0">
-        <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold text-lg group-hover:bg-blue-600 transition-colors">
+        <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold text-lg group-hover:bg-sky-500 transition-colors">
           {number}
         </div>
       </div>
@@ -98,7 +98,7 @@ const Methodology: React.FC = () => {
             <Microscope size={14} /> Scientific Approach
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
-            Our Security <span className="text-blue-600">Methodology</span>
+            Our Security <span className="text-sky-500">Methodology</span>
           </h1>
           <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
             How RivicQ builds quantum-resistant security through rigorous science, peer-reviewed cryptography, and defense-in-depth architecture.
@@ -110,14 +110,14 @@ const Methodology: React.FC = () => {
       <AnimatedSection delay={100}>
         <section className="mb-24">
           <blockquote className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[2.5rem] p-10 md:p-16 text-white">
-            <div className="absolute top-0 left-0 w-24 h-24 bg-blue-600/20 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 left-0 w-24 h-24 bg-sky-500/20 rounded-full blur-3xl"></div>
             <div className="relative z-10">
-              <Scale size={48} className="text-blue-400 mb-6 opacity-50" />
+              <Scale size={48} className="text-sky-400 mb-6 opacity-50" />
               <p className="text-2xl md:text-3xl font-serif italic leading-relaxed mb-8">
                 "Security is not a product, but a process. At RivicQ, we build that process on the foundations of peer-reviewed mathematics, rigorous testing, and continuous verification."
               </p>
               <footer className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold">
+                <div className="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center text-white font-bold">
                   RA
                 </div>
                 <div>
@@ -145,7 +145,7 @@ const Methodology: React.FC = () => {
           <PillarCard 
             icon={<RefreshCw size={28} />}
             title="Hybrid Protection"
-            color="bg-blue-600"
+            color="bg-sky-500"
             description="We use a 'belt and suspenders' approach during the quantum transition, wrapping new quantum-safe algorithms inside proven classical encryption. If one fails, the other still protects you."
             details={[
               'NIST-standardized PQC algorithms (ML-KEM, ML-DSA)',
@@ -235,10 +235,10 @@ const Methodology: React.FC = () => {
 
         <AnimatedSection delay={400}>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex items-center gap-4">
-            <Award size={24} className="text-blue-600 shrink-0" />
+            <Award size={24} className="text-sky-500 shrink-0" />
             <p className="text-sm text-slate-600">
               <strong className="text-slate-900">Academic Rigor:</strong> Our cryptographic protocols are designed in collaboration with researchers from TU Berlin and reviewed against the NIST PQC standardization process. 
-              <a href="mailto:research@rivicq.de" className="text-blue-600 font-bold ml-2">View Research Papers <ExternalLink size={12} className="inline" /></a>
+              <a href="mailto:research@rivicq.de" className="text-sky-500 font-bold ml-2">View Research Papers <ExternalLink size={12} className="inline" /></a>
             </p>
           </div>
         </AnimatedSection>
@@ -331,7 +331,7 @@ const Methodology: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-white mb-3 flex items-center gap-2">
-                      <Lock size={16} className="text-blue-400" /> Secure Boot
+                      <Lock size={16} className="text-sky-400" /> Secure Boot
                     </h4>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       Immutable boot ROM validates each boot stage cryptographically, ensuring the HSM firmware has not been compromised from power-on.
@@ -416,7 +416,7 @@ const Methodology: React.FC = () => {
               </div>
               <h4 className="font-bold text-slate-900 mb-2">TU Berlin</h4>
               <p className="text-sm text-slate-500 mb-4">Cryptography Research Partnership</p>
-              <span className="text-xs text-blue-600 font-medium">Prof. Dr. Jean-Pierre Seifert</span>
+              <span className="text-xs text-sky-500 font-medium">Prof. Dr. Jean-Pierre Seifert</span>
             </div>
           </AnimatedSection>
 
@@ -427,7 +427,7 @@ const Methodology: React.FC = () => {
               </div>
               <h4 className="font-bold text-slate-900 mb-2">Leap Berlin</h4>
               <p className="text-sm text-slate-500 mb-4">Quantum Hub Resident</p>
-              <span className="text-xs text-blue-600 font-medium">Deep-Tech Validation</span>
+              <span className="text-xs text-sky-500 font-medium">Deep-Tech Validation</span>
             </div>
           </AnimatedSection>
 
@@ -438,7 +438,7 @@ const Methodology: React.FC = () => {
               </div>
               <h4 className="font-bold text-slate-900 mb-2">IBM Quantum</h4>
               <p className="text-sm text-slate-500 mb-4">Technology Advisory</p>
-              <span className="text-xs text-blue-600 font-medium">Enterprise Security Strategy</span>
+              <span className="text-xs text-sky-500 font-medium">Enterprise Security Strategy</span>
             </div>
           </AnimatedSection>
         </div>
@@ -447,11 +447,11 @@ const Methodology: React.FC = () => {
       {/* CTA */}
       <AnimatedSection>
         <section className="not-prose bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[3rem] p-10 md:p-16 text-center text-white">
-          <Target size={48} className="mx-auto text-blue-200 mb-6" />
+          <Target size={48} className="mx-auto text-sky-200 mb-6" />
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-white">
             Ready to Implement Our Methodology?
           </h2>
-          <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-sky-100 text-lg mb-8 max-w-xl mx-auto">
             Schedule a technical consultation to discuss how RivicQ's methodology applies to your security requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

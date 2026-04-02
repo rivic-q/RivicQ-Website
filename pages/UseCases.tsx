@@ -13,7 +13,7 @@ const UseCaseCard: React.FC<{
 }> = ({ icon, title, subtitle, problem, solution, reference }) => (
   <div className="border border-slate-100 rounded-2xl p-8 bg-white shadow-sm hover:shadow-md transition-shadow group">
     <div className="flex items-center gap-4 mb-6">
-        <div className="p-3 bg-slate-900 text-white rounded-xl group-hover:bg-blue-600 transition-colors">
+        <div className="p-3 bg-slate-900 text-white rounded-xl group-hover:bg-sky-500 transition-colors">
             {icon}
         </div>
         <div>
@@ -27,12 +27,12 @@ const UseCaseCard: React.FC<{
             <p className="text-sm text-slate-600 leading-relaxed m-0">{problem}</p>
         </div>
         <div>
-            <h4 className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">The RivicQ Solution</h4>
+            <h4 className="text-xs font-bold text-sky-500 uppercase tracking-wider mb-2">The RivicQ Solution</h4>
             <p className="text-sm text-slate-700 leading-relaxed font-medium m-0">{solution}</p>
         </div>
         <div className="pt-4 border-t border-slate-50">
             <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Industry Reference</h4>
-            <a href={reference.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-900 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            <a href={reference.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-900 hover:text-sky-500 flex items-center gap-1 transition-colors">
                 {reference.name} <ExternalLink size={10} />
             </a>
         </div>
@@ -111,7 +111,7 @@ const UseCases: React.FC = () => {
                 If data must stay secret for a decade or more, you are already at risk. Let's design your PQC migration path.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                <Link to="/compliance" className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all">
+                <Link to="/compliance" className="px-8 py-3 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-500 transition-all">
                     View Migration Deadlines
                 </Link>
                 <Link to="/resources" className="px-8 py-3 border border-slate-700 text-white font-bold rounded-xl hover:bg-white/5 transition-all">
@@ -140,7 +140,7 @@ const UseCases: React.FC = () => {
             <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <Scale size={16} className="text-blue-600" /> Intellectual Property
+                  <Scale size={16} className="text-sky-500" /> Intellectual Property
                 </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   All <strong>Patents</strong>, <strong>Designs</strong>, <strong>Protocols</strong>, and <strong>Trademarks</strong> associated with RivicQ Technologies are the exclusive intellectual property of the company. Everything presented belongs strictly to RivicQ.
@@ -148,16 +148,16 @@ const UseCases: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <Lock size={16} className="text-blue-600" /> NDA Enforcement
+                  <Lock size={16} className="text-sky-500" /> NDA Enforcement
                 </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Any unauthorized use, reproduction, or disclosure of these technical use cases, methodology, or architecture constitutes a violation of the NDA and will be prosecuted under the laws of the Federal Republic of Germany.
                 </p>
               </div>
               <div className="sm:col-span-2">
-                <div className="flex items-center gap-3 p-4 bg-blue-50/50 border border-blue-100 rounded-2xl">
-                  <Info size={16} className="text-blue-600 shrink-0" />
-                  <p className="text-[10px] text-blue-700 font-bold uppercase tracking-widest m-0 leading-normal">
+                <div className="flex items-center gap-3 p-4 bg-sky-50/50 border border-sky-100 rounded-2xl">
+                  <Info size={16} className="text-sky-500 shrink-0" />
+                  <p className="text-[10px] text-sky-600 font-bold uppercase tracking-widest m-0 leading-normal">
                     Proprietary Algorithm "RQSP" & CBOM Heuristics are Registered Trademarks of RivicQ Technologies.
                   </p>
                 </div>

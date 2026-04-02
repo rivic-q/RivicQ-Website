@@ -38,7 +38,7 @@ const PitchDeck: React.FC = () => {
           RivicQ Private Placement • Series Pre-Seed • Q1 2026
         </div>
         <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-          Robust Integrated Verified <br/><span className="text-blue-600">Infrastructure Computing & Quantum.</span>
+          Robust Integrated Verified <br/><span className="text-sky-500">Infrastructure Computing & Quantum.</span>
         </h1>
         <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
           Pioneering a full-stack quantum resilience platform bridging software visibility with hardware-native security.
@@ -48,7 +48,7 @@ const PitchDeck: React.FC = () => {
       {/* 1. Market Opportunity & Validation */}
       <section className="mb-24">
         <div className="flex items-center gap-4 mb-10">
-          <div className="p-3 bg-blue-600 text-white rounded-2xl shadow-lg shadow-blue-200">
+          <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg shadow-sky-200">
             <PieChart size={24} />
           </div>
           <div>
@@ -58,9 +58,9 @@ const PitchDeck: React.FC = () => {
         </div>
         
         <div className="not-prose grid md:grid-cols-3 gap-8 mb-10">
-          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-blue-200 transition-all relative group overflow-hidden">
+          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-sky-200 transition-all relative group overflow-hidden">
             <div className="flex justify-between items-start mb-4">
-              <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">TAM (2030)</span>
+              <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">TAM (2030)</span>
               <div className="text-[9px] font-bold text-slate-400">Ref: [1,4]</div>
             </div>
             <h4 className="text-4xl font-bold text-slate-900 mt-2 mb-4">$13.5B</h4>
@@ -76,7 +76,7 @@ const PitchDeck: React.FC = () => {
           </div>
           <div className="p-8 bg-slate-900 text-white rounded-[2.5rem] shadow-xl hover:scale-[1.02] transition-all relative group overflow-hidden">
              <div className="flex justify-between items-start mb-4">
-              <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">SOM (Target)</span>
+              <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest">SOM (Target)</span>
               <div className="text-[9px] font-bold text-slate-500">RivicQ v1.0</div>
             </div>
             <h4 className="text-4xl font-bold text-white mt-2 mb-4">$840M</h4>
@@ -87,31 +87,31 @@ const PitchDeck: React.FC = () => {
         {/* Market Sources */}
         <div className="not-prose bg-slate-50 border border-slate-100 rounded-[2.5rem] p-10">
           <div className="flex items-center gap-3 mb-8">
-            <Quote size={20} className="text-blue-500" />
+            <Quote size={20} className="text-sky-500" />
             <h3 className="text-xl font-serif font-bold text-slate-900 m-0">Market Validation & References</h3>
           </div>
           
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
             <div className="flex gap-4">
-              <span className="font-bold text-blue-600 text-sm">[1]</span>
+              <span className="font-bold text-sky-500 text-sm">[1]</span>
               <p className="text-[11px] text-slate-500 leading-relaxed m-0">
                 <strong>MarketsandMarkets:</strong> Post-Quantum Cryptography Market Report 2024. Projects a surge from $0.3B to $1.8B for pure PQC software, with an additional $11.7B in hardware security module (HSM) upgrades.
               </p>
             </div>
             <div className="flex gap-4">
-              <span className="font-bold text-blue-600 text-sm">[2]</span>
+              <span className="font-bold text-sky-500 text-sm">[2]</span>
               <p className="text-[11px] text-slate-500 leading-relaxed m-0">
                 <strong>EU Commission DORA Impact Assessment:</strong> Estimates €3.2B in initial ICT resilience spending for EU financial entities by 2025, specifically citing cryptographic agility as a core requirement.
               </p>
             </div>
             <div className="flex gap-4">
-              <span className="font-bold text-blue-600 text-sm">[3]</span>
+              <span className="font-bold text-sky-500 text-sm">[3]</span>
               <p className="text-[11px] text-slate-500 leading-relaxed m-0">
                 <strong>Gartner Security & Risk Analysis:</strong> Forecasts that by 2026, 60% of Global 2000 enterprises will have a formal cryptographic inventory (CryptoBOM) as part of their compliance posture.
               </p>
             </div>
             <div className="flex gap-4">
-              <span className="font-bold text-blue-600 text-sm">[4]</span>
+              <span className="font-bold text-sky-500 text-sm">[4]</span>
               <p className="text-[11px] text-slate-500 leading-relaxed m-0">
                 <strong>White House National Security Memorandum (NSM-10):</strong> Mandates all federal agencies to inventory and prioritize PQC migration, establishing a massive government service market (SAM-Gov).
               </p>
@@ -120,9 +120,9 @@ const PitchDeck: React.FC = () => {
           
           <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between">
             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-              <Info size={12} className="text-blue-400" /> Data synthesized from multiple industry sources as of Q4 2025.
+              <Info size={12} className="text-sky-400" /> Data synthesized from multiple industry sources as of Q4 2025.
             </div>
-            <a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-blue-600 hover:text-slate-900 transition-colors uppercase tracking-widest flex items-center gap-1">
+            <a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-sky-500 hover:text-slate-900 transition-colors uppercase tracking-widest flex items-center gap-1">
               Cross-Verify Standards <ExternalLink size={10} />
             </a>
           </div>
@@ -144,7 +144,7 @@ const PitchDeck: React.FC = () => {
         <div className="not-prose grid md:grid-cols-2 gap-6">
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-blue-600" /> Infrastructure Support
+              <CheckCircle2 size={16} className="text-sky-500" /> Infrastructure Support
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Secured <strong>$350K in Google Cloud AI Credits</strong> to build the RivicQ MVP without burning early investor capital.
@@ -152,7 +152,7 @@ const PitchDeck: React.FC = () => {
           </div>
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Landmark size={16} className="text-blue-600" /> Accelerator Backing
+              <Landmark size={16} className="text-sky-500" /> Accelerator Backing
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Active residents of the <strong>Leap Berlin Quantum Accelerator</strong> and validated by <strong>SIB (Scholarship Program)</strong>.
@@ -160,7 +160,7 @@ const PitchDeck: React.FC = () => {
           </div>
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Users size={16} className="text-blue-600" /> Academic Partnerships
+              <Users size={16} className="text-sky-500" /> Academic Partnerships
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Backed by research faculty from <strong>TU Berlin (Prof. Dr. Jean-Pierre Seifert)</strong> focusing on PQC validation.
@@ -168,7 +168,7 @@ const PitchDeck: React.FC = () => {
           </div>
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Shield size={16} className="text-blue-600" /> Open Source Traction
+              <Shield size={16} className="text-sky-500" /> Open Source Traction
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Early modular components live and gaining visibility at <strong>github.com/rivic-q</strong>.
@@ -188,7 +188,7 @@ const PitchDeck: React.FC = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="space-y-1">
-              <span className="text-2xl font-bold text-blue-600">40%</span>
+              <span className="text-2xl font-bold text-sky-500">40%</span>
               <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Product & Eng.</span>
             </div>
             <div className="space-y-1">
@@ -213,7 +213,7 @@ const PitchDeck: React.FC = () => {
           {/* Left: Document Options */}
           <div className="space-y-8">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-blue-600 text-white rounded-2xl shadow-lg">
+              <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
                 <FileDown size={24}/>
               </div>
               <div>
@@ -227,9 +227,9 @@ const PitchDeck: React.FC = () => {
             </p>
 
             <div className="space-y-4">
-              <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-blue-300 transition-all">
+              <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-sky-300 transition-all">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
+                  <div className="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-sky-500 shrink-0">
                     <Presentation size={24}/>
                   </div>
                   <div>
@@ -266,7 +266,7 @@ const PitchDeck: React.FC = () => {
 
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
               <h4 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
-                <ShieldCheck size={16} className="text-blue-600"/> Confidentiality Notice
+                <ShieldCheck size={16} className="text-sky-500"/> Confidentiality Notice
               </h4>
               <p className="text-xs text-slate-500 leading-relaxed">
                 All materials are shared under strict confidentiality. By requesting access, you agree to keep this information confidential and not distribute to third parties without explicit consent from RivicQ.
@@ -286,7 +286,7 @@ const PitchDeck: React.FC = () => {
                   Our investor relations team will review your request and send the materials within 24-48 hours.
                 </p>
                 <p className="text-xs text-slate-400">
-                  Questions? Contact us at <a href="mailto:hello@rivicq.de" className="text-blue-600">hello@rivicq.de</a>
+                  Questions? Contact us at <a href="mailto:hello@rivicq.de" className="text-sky-500">hello@rivicq.de</a>
                 </p>
                 <button 
                   onClick={() => setFormSubmitted(false)} 
@@ -309,7 +309,7 @@ const PitchDeck: React.FC = () => {
                         value={formData.name} 
                         onChange={e => setFormData({...formData, name: e.target.value})} 
                         placeholder="Your Name"
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" 
+                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
                       />
                     </div>
                     <div className="space-y-1">
@@ -320,7 +320,7 @@ const PitchDeck: React.FC = () => {
                         value={formData.email} 
                         onChange={e => setFormData({...formData, email: e.target.value})} 
                         placeholder="name@company.com"
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" 
+                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
                       />
                     </div>
                   </div>
@@ -333,7 +333,7 @@ const PitchDeck: React.FC = () => {
                         value={formData.organization} 
                         onChange={e => setFormData({...formData, organization: e.target.value})} 
                         placeholder="Company / Fund Name"
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" 
+                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
                       />
                     </div>
                     <div className="space-y-1">
@@ -342,7 +342,7 @@ const PitchDeck: React.FC = () => {
                         value={formData.role} 
                         onChange={e => setFormData({...formData, role: e.target.value})} 
                         placeholder="Partner / Analyst / etc."
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" 
+                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
                       />
                     </div>
                   </div>
@@ -359,7 +359,7 @@ const PitchDeck: React.FC = () => {
                           key={doc.value}
                           className={`flex items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${
                             formData.documentType === doc.value 
-                              ? 'border-blue-600 bg-blue-50 text-blue-600' 
+                              ? 'border-sky-600 bg-sky-50 text-sky-500' 
                               : 'border-slate-100 hover:border-slate-300'
                           }`}
                         >
@@ -384,14 +384,14 @@ const PitchDeck: React.FC = () => {
                       value={formData.message} 
                       onChange={e => setFormData({...formData, message: e.target.value})} 
                       placeholder="Tell us about your investment focus or any questions..."
-                      className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm min-h-[100px] resize-none outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" 
+                      className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm min-h-[100px] resize-none outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
                     />
                   </div>
 
                   <button 
                     type="submit" 
                     disabled={isSubmitting} 
-                    className="w-full py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all flex items-center justify-center gap-3 shadow-xl uppercase tracking-widest text-xs disabled:opacity-50"
+                    className="w-full py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-sky-500 transition-all flex items-center justify-center gap-3 shadow-xl uppercase tracking-widest text-xs disabled:opacity-50"
                   >
                     {isSubmitting ? <Loader2 size={16} className="animate-spin"/> : <><Send size={16}/> Request Access</>}
                   </button>
@@ -414,7 +414,7 @@ const PitchDeck: React.FC = () => {
           Ready to join us in building the quantum-safe future?
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-          <a href="mailto:hello@rivicq.de?subject=Investor Inquiry" className="px-10 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all flex items-center gap-2 justify-center shadow-xl shadow-blue-500/20">
+          <a href="mailto:hello@rivicq.de?subject=Investor Inquiry" className="px-10 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-500 transition-all flex items-center gap-2 justify-center shadow-xl shadow-sky-500/20">
             Connect with IR <ArrowRight size={18}/>
           </a>
           <Link to="/team" className="px-10 py-4 border border-slate-700 text-white font-bold rounded-xl hover:bg-white/5 transition-all flex items-center gap-2 justify-center">

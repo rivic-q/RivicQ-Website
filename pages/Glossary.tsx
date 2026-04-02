@@ -288,11 +288,11 @@ const Glossary: React.FC = () => {
     <article className="prose prose-slate max-w-none">
       <header className="mb-16">
         <AnimatedSection>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
             <BookOpen size={14} /> Reference Guide
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
-            Glossary of <span className="text-blue-600">Terms</span>
+            Glossary of <span className="text-sky-500">Terms</span>
           </h1>
           <p className="text-xl text-slate-500 font-serif italic max-w-2xl leading-relaxed">
             The comprehensive technical lexicon of Post-Quantum Cryptography, Hardware Security, AI Security, and Modern Enterprise Infrastructure.
@@ -310,13 +310,13 @@ const Glossary: React.FC = () => {
               placeholder="Search terms, definitions, related concepts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-300 transition-all"
+              className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-300 transition-all"
             />
           </div>
           <select 
             value={activeCategory}
             onChange={(e) => setActiveCategory(e.target.value)}
-            className="px-4 py-4 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+            className="px-4 py-4 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500/20 transition-all"
           >
             <option value="all">All Categories</option>
             {categories.map(cat => (
@@ -335,7 +335,7 @@ const Glossary: React.FC = () => {
           <span className="px-4 py-2 bg-slate-100 rounded-full">
             <strong className="text-slate-900">{categories.length}</strong> categories
           </span>
-          <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full">
+          <span className="px-4 py-2 bg-sky-50 text-sky-600 rounded-full">
             <strong>{filteredEntries.length}</strong> matching your search
           </span>
         </div>
@@ -349,11 +349,11 @@ const Glossary: React.FC = () => {
               <div className="flex items-start gap-6">
                 <div className="flex-grow">
                   <div className="flex items-center gap-3 mb-2 flex-wrap">
-                    <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest bg-sky-50 px-2 py-0.5 rounded-full">
                       {entry.category}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-2xl font-serif font-bold text-slate-900 mb-3 group-hover:text-sky-500 transition-colors">
                     {entry.term}
                   </h3>
                   <p className="text-slate-600 leading-relaxed mb-4">
@@ -372,7 +372,7 @@ const Glossary: React.FC = () => {
                         <button 
                           key={term}
                           onClick={() => setSearchQuery(term)}
-                          className="text-[10px] font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded hover:bg-blue-100 transition-colors"
+                          className="text-[10px] font-mono font-bold text-sky-500 bg-sky-50 px-2 py-0.5 rounded hover:bg-sky-100 transition-colors"
                         >
                           {term}
                         </button>
@@ -409,7 +409,7 @@ const Glossary: React.FC = () => {
             Explore our detailed technical documentation and compliance guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:hello@rivicq.de" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all">
+            <a href="mailto:hello@rivicq.de" className="px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-500 transition-all">
               Request Technical Docs
             </a>
             <Link to="/resources" className="px-8 py-4 border border-slate-700 text-white font-bold rounded-xl hover:bg-white/10 transition-all">

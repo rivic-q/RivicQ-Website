@@ -9,7 +9,7 @@ const ResearchCard: React.FC<{
     children: React.ReactNode, 
     status?: string 
 }> = ({ title, subtitle, icon, children, status }) => (
-    <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 md:p-10 shadow-sm relative overflow-hidden group hover:shadow-xl hover:border-blue-200 transition-all duration-500">
+    <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 md:p-10 shadow-sm relative overflow-hidden group hover:shadow-xl hover:border-sky-200 transition-all duration-500">
         <div className="absolute top-0 right-0 p-8 opacity-[0.03] text-slate-900 pointer-events-none group-hover:scale-110 transition-transform">
             {icon}
         </div>
@@ -19,7 +19,7 @@ const ResearchCard: React.FC<{
                     {icon}
                 </div>
                 {status && (
-                    <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[9px] font-bold uppercase tracking-widest rounded-full">
+                    <span className="px-3 py-1 bg-sky-50 text-sky-500 text-[9px] font-bold uppercase tracking-widest rounded-full">
                         {status}
                     </span>
                 )}
@@ -41,7 +41,7 @@ const QuantumResearch: React.FC = () => {
                     R&D Division • Berlin
                 </div>
                 <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
-                    Quantum <span className="text-blue-600">Research.</span>
+                    Quantum <span className="text-sky-500">Research.</span>
                 </h1>
                 <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
                     Exploring the frontier of cryptographic physics, decentralized trust, and sovereign identity.
@@ -117,7 +117,7 @@ const QuantumResearch: React.FC = () => {
                                    <div className="px-4 py-2 bg-white/10 rounded-lg border border-white/10 text-xs font-mono">Verify: &lt;400µs</div>
                                 </div>
                             </div>
-                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10 font-mono text-[10px] text-blue-300">
+                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10 font-mono text-[10px] text-sky-300">
                                 {`// RivicQ Solana Wrapper
 program_id: PQC_Verify_111111111111111
 instruction: Verify_ML_DSA_Signature
@@ -136,10 +136,10 @@ pub fn process_instruction(
                     </div>
 
                     {/* Arcium & Confidential Computing */}
-                    <div className="p-10 bg-white border border-slate-200 rounded-[2.5rem] relative overflow-hidden group hover:border-blue-300 transition-all">
+                    <div className="p-10 bg-white border border-slate-200 rounded-[2.5rem] relative overflow-hidden group hover:border-sky-300 transition-all">
                         <div className="flex flex-col md:flex-row gap-8 items-start">
                             <div className="md:w-1/3">
-                                <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl w-fit mb-4">
+                                <div className="p-3 bg-sky-50 text-sky-500 rounded-2xl w-fit mb-4">
                                     <Server size={24}/>
                                 </div>
                                 <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">Arcium Integration</h3>

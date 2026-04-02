@@ -1,48 +1,66 @@
 
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Github, Mail, Linkedin, Youtube, Globe, Shield, Lock, Cpu, Globe2, Sparkles, Layout, Building, Users, Scale, ShieldCheck, Microscope, BookOpen, Handshake, Briefcase, Cloud, Box, Atom, Star, Target, FileText, Menu, X } from 'lucide-react';
+import { Github, Mail, Linkedin, Youtube, Globe, Shield, Lock, Cpu, Sparkles, Layout, Users, Scale, ShieldCheck, Microscope, BookOpen, Handshake, Cloud, Box, Atom, Star, Target, FileText, Menu, X, Briefcase, Code2, FileCode, Database, PieChart, ScrollText, GraduationCap } from 'lucide-react';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const groups = [
     {
-      label: 'Corporate',
+      label: 'Getting Started',
       links: [
-        { name: 'Home', path: '/', icon: <Layout size={12}/> },
-        { name: 'Our Story', path: '/story', icon: <Sparkles size={12}/> },
-        { name: 'Products & SaaS', path: '/products', icon: <Box size={12}/> },
-        { name: 'Beta Signup', path: '/beta-signup', icon: <Star size={12}/> },
-        { name: 'Use Cases', path: '/use-cases', icon: <FileText size={12}/> },
+        { name: 'Home', path: '/', icon: <Layout size={14}/> },
+        { name: 'Our Story', path: '/story', icon: <Sparkles size={14}/> },
+        { name: 'Products & SaaS', path: '/products', icon: <Box size={14}/> },
+        { name: 'Beta Signup', path: '/beta-signup', icon: <Star size={14}/> },
+        { name: 'Use Cases', path: '/use-cases', icon: <Target size={14}/> },
+      ]
+    },
+    {
+      label: 'Solutions',
+      links: [
+        { name: 'Solutions', path: '/solutions', icon: <PieChart size={14}/> },
+        { name: 'Services', path: '/services', icon: <Briefcase size={14}/> },
+        { name: 'Pricing', path: '/pricing', icon: <Database size={14}/> },
+        { name: 'Cloud HSM', path: '/cloud-hsm', icon: <Cloud size={14}/> },
       ]
     },
     {
       label: 'Technology',
       links: [
-        { name: 'Cloud HSM', path: '/cloud-hsm', icon: <Cloud size={12}/> },
-        { name: 'Architecture', path: '/platform', icon: <Cpu size={12}/> },
-        { name: 'RQSP Protocol', path: '/rqsp', icon: <Lock size={12}/> },
-        { name: 'Developer SDK', path: '/sdk', icon: <Layout size={12}/> },
+        { name: 'Platform', path: '/platform', icon: <Cpu size={14}/> },
+        { name: 'RQSP Protocol', path: '/rqsp', icon: <Lock size={14}/> },
+        { name: 'Developer SDK', path: '/sdk', icon: <Code2 size={14}/> },
+        { name: 'Compliance', path: '/compliance', icon: <ScrollText size={14}/> },
       ]
     },
     {
-      label: 'Intelligence',
+      label: 'Resources',
       links: [
-        { name: 'Quantum Research', path: '/research', icon: <Atom size={12}/> },
-        { name: 'Trust Center', path: '/trust', icon: <ShieldCheck size={12}/> },
-        { name: 'Methodology', path: '/methodology', icon: <Microscope size={12}/> },
-        { name: 'Resources & Compliance', path: '/resources', icon: <ShieldCheck size={12}/> },
+        { name: 'Blog', path: '/blog', icon: <BookOpen size={14}/> },
+        { name: 'Quantum Research', path: '/research', icon: <Atom size={14}/> },
+        { name: 'Glossary', path: '/glossary', icon: <GraduationCap size={14}/> },
+        { name: 'Resources', path: '/resources', icon: <FileText size={14}/> },
+        { name: 'Methodology', path: '/methodology', icon: <Microscope size={14}/> },
+        { name: 'Trust Center', path: '/trust', icon: <ShieldCheck size={14}/> },
       ]
     },
     {
       label: 'Company',
       links: [
-        { name: 'Partner Program', path: '/partner', icon: <Handshake size={12}/> },
-        { name: 'Roadmap', path: '/roadmap', icon: <Globe2 size={12}/> },
-        { name: 'Pricing', path: '/pricing', icon: <Layout size={12}/> },
-        { name: 'Team', path: '/team', icon: <Users size={12}/> },
-        { name: 'Legal & Rights', path: '/legal', icon: <Scale size={12}/> },
+        { name: 'Team', path: '/team', icon: <Users size={14}/> },
+        { name: 'Careers', path: '/careers', icon: <Briefcase size={14}/> },
+        { name: 'Investors', path: '/investors', icon: <PieChart size={14}/> },
+        { name: 'Partner', path: '/partner', icon: <Handshake size={14}/> },
+        { name: 'Roadmap', path: '/roadmap', icon: <Target size={14}/> },
+      ]
+    },
+    {
+      label: 'Legal',
+      links: [
+        { name: 'Legal & Rights', path: '/legal', icon: <Scale size={14}/> },
+        { name: 'Privacy Policy', path: '/privacy', icon: <Shield size={14}/> },
       ]
     }
   ];
@@ -54,7 +72,7 @@ const Sidebar: React.FC = () => {
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-white/80 backdrop-blur-lg border-b border-slate-200 z-[100] flex items-center justify-between px-6">
         <NavLink to="/" className="font-serif text-xl font-bold tracking-tight text-slate-900">RivicQ</NavLink>
-        <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-slate-600 hover:text-blue-600 transition-colors">
+        <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-slate-600 hover:text-sky-500 transition-colors">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -64,12 +82,12 @@ const Sidebar: React.FC = () => {
         
         <div className="p-8 pb-6 hidden md:block">
           <NavLink to="/" className="group block" aria-label="RivicQ Home">
-            <h1 className="font-serif text-2xl font-bold tracking-tight text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">
+            <h1 className="font-serif text-2xl font-bold tracking-tight text-slate-900 mb-1 group-hover:text-sky-500 transition-colors">
               RivicQ
             </h1>
-            <div className="h-0.5 w-8 bg-blue-600 mb-3 group-hover:w-full transition-all duration-300"></div>
+            <div className="h-0.5 w-8 bg-sky-500 mb-3 group-hover:w-full transition-all duration-300"></div>
             <div className="space-y-0.5">
-              <p className="font-sans text-[9px] uppercase tracking-[0.2em] text-blue-600 font-bold leading-tight">
+              <p className="font-sans text-[9px] uppercase tracking-[0.2em] text-sky-500 font-bold leading-tight">
                 Quantum Safe
               </p>
               <p className="font-sans text-[9px] uppercase tracking-[0.2em] text-slate-400 font-bold leading-tight">
@@ -79,32 +97,30 @@ const Sidebar: React.FC = () => {
           </NavLink>
         </div>
 
-        <nav className="flex-grow overflow-y-auto px-8 py-4 md:py-4 mt-16 md:mt-0 space-y-8 scrollbar-hide" aria-label="Sidebar Sections">
+        <nav className="flex-grow overflow-y-auto px-6 py-4 md:py-4 mt-16 md:mt-0 space-y-6 scrollbar-hide" aria-label="Sidebar Sections">
           {groups.map((group, idx) => (
             <div key={idx} role="group" aria-labelledby={`nav-group-${idx}`}>
-              <h3 id={`nav-group-${idx}`} className="text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-3 border-b border-slate-100/50 pb-1">
+              <h3 id={`nav-group-${idx}`} className="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2 border-b border-slate-100 pb-1">
                 {group.label}
               </h3>
-              <div className="space-y-1">
+              <div className="space-y-0.5">
                 {group.links.map((link) => (
                   <NavLink
                     key={link.path}
                     to={link.path}
                     onClick={closeMenu}
                     className={({ isActive }) =>
-                      `group flex items-center gap-3 py-1.5 text-sm transition-all focus:outline-none focus:ring-1 focus:ring-blue-100 rounded-lg ${
+                      `group flex items-center gap-2.5 py-1.5 text-sm transition-all focus:outline-none rounded-md ${
                         isActive 
-                          ? 'text-slate-900 font-bold' 
-                          : 'text-slate-500 hover:text-slate-900'
+                          ? 'text-sky-600 font-semibold bg-sky-50' 
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                       }`
                     }
                   >
-                    {({ isActive }) => (
-                      <>
-                        <div className={`w-1 h-1 rounded-full transition-all ${isActive ? 'bg-blue-600 scale-150' : 'bg-transparent group-hover:bg-slate-300'}`} aria-hidden="true"></div>
-                        {link.name}
-                      </>
-                    )}
+                    <span className={({ isActive }) => isActive ? 'text-sky-500' : 'text-slate-400 group-hover:text-slate-600'}>
+                      {link.icon}
+                    </span>
+                    {link.name}
                   </NavLink>
                 ))}
               </div>
@@ -112,15 +128,15 @@ const Sidebar: React.FC = () => {
           ))}
         </nav>
 
-        <div className="p-8 pt-4 border-t border-slate-100">
-          <div className="flex gap-4 mb-6">
-            <a href="https://github.com/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors focus:text-slate-900" title="GitHub"><Github size={16} /></a>
-            <a href="https://www.linkedin.com/company/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors focus:text-blue-600" title="LinkedIn"><Linkedin size={16} /></a>
-            <a href="https://www.youtube.com/@RivicQ" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600 transition-colors focus:text-red-600" title="YouTube"><Youtube size={16} /></a>
-            <a href="mailto:hello@rivicq.de" className="text-slate-400 hover:text-slate-900 transition-colors focus:text-slate-900" title="Email Contact"><Mail size={16} /></a>
+        <div className="p-6 pt-4 border-t border-slate-100">
+          <div className="flex gap-4 mb-4">
+            <a href="https://github.com/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors" title="GitHub"><Github size={16} /></a>
+            <a href="https://www.linkedin.com/company/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-sky-500 transition-colors" title="LinkedIn"><Linkedin size={16} /></a>
+            <a href="https://www.youtube.com/@RivicQ" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-500 transition-colors" title="YouTube"><Youtube size={16} /></a>
+            <a href="mailto:hello@rivicq.de" className="text-slate-400 hover:text-slate-900 transition-colors" title="Email"><Mail size={16} /></a>
           </div>
           <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-tight">
-            <Globe size={10} className="text-blue-500" aria-hidden="true"/>
+            <Globe size={10} className="text-sky-400" aria-hidden="true"/>
             <span>Berlin • Leap Quantum</span>
           </div>
         </div>

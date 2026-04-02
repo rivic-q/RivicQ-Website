@@ -44,7 +44,7 @@ const Compliance: React.FC = () => {
   return (
     <article className="prose prose-lg prose-slate max-w-none">
       <header className="mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-6">
           Compliance & Regulatory Intelligence
         </div>
         <h1 className="text-5xl font-bold mb-4 tracking-tight">Governance Reference</h1>
@@ -63,12 +63,12 @@ const Compliance: React.FC = () => {
           { name: "NIST", label: "Global PQC", desc: "ML-KEM / ML-DSA", icon: <Globe size={20}/> },
           { name: "BSI", label: "DE BSI", desc: "TR-02102-1", icon: <ShieldCheck size={20}/> }
         ].map((badge, i) => (
-          <div key={i} className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col items-center text-center group hover:bg-white hover:border-blue-500 transition-all duration-300">
-            <div className="mb-4 p-2 bg-white rounded-lg text-slate-900 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
+          <div key={i} className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col items-center text-center group hover:bg-white hover:border-sky-500 transition-all duration-300">
+            <div className="mb-4 p-2 bg-white rounded-lg text-slate-900 group-hover:bg-sky-500 group-hover:text-white transition-all shadow-sm">
               {badge.icon}
             </div>
             <div className="text-xl font-black text-slate-900 mb-1">{badge.name}</div>
-            <div className="text-[9px] font-bold text-blue-600 uppercase tracking-widest mb-1">{badge.label}</div>
+            <div className="text-[9px] font-bold text-sky-500 uppercase tracking-widest mb-1">{badge.label}</div>
             <div className="text-[8px] font-medium text-slate-400 uppercase tracking-tighter">{badge.desc}</div>
           </div>
         ))}
@@ -77,7 +77,7 @@ const Compliance: React.FC = () => {
       {/* 1. DORA & NIS2 */}
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 bg-blue-100 text-blue-700 rounded-lg">
+          <div className="p-2 bg-sky-100 text-sky-600 rounded-lg">
              <Landmark size={24}/>
           </div>
           <h2 className="text-3xl font-serif font-bold m-0">EU Directives (DORA & NIS2)</h2>
@@ -109,8 +109,8 @@ const Compliance: React.FC = () => {
         </p>
         
         <div className="not-prose grid md:grid-cols-2 gap-6 my-8">
-           <div className="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm group hover:border-blue-500 transition-all">
-              <div className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-2">FIPS 203 (ML-KEM)</div>
+           <div className="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm group hover:border-sky-500 transition-all">
+              <div className="text-[10px] font-bold text-sky-500 uppercase tracking-widest mb-2">FIPS 203 (ML-KEM)</div>
               <h4 className="font-bold text-slate-900 text-xl mb-3 m-0">NIST Kyber</h4>
               <p className="text-sm text-slate-500 leading-relaxed mb-4">Mandatory key exchange replacement for RSA and ECC. RivicQ provides native acceleration for ML-KEM-768.</p>
               <div className="flex items-center gap-2 text-emerald-600 font-bold text-[10px] uppercase tracking-widest">
@@ -145,11 +145,11 @@ const Compliance: React.FC = () => {
            </p>
            <div className="flex flex-col md:flex-row gap-8 relative z-10 border-t border-white/10 pt-8">
               <div>
-                <div className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-1">Status</div>
+                <div className="text-sky-400 font-bold text-xs uppercase tracking-widest mb-1">Status</div>
                 <div className="text-white text-sm font-bold">Compliant via Hybrid RQSP</div>
               </div>
               <div>
-                <div className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-1">Local Residency</div>
+                <div className="text-sky-400 font-bold text-xs uppercase tracking-widest mb-1">Local Residency</div>
                 <div className="text-white text-sm font-bold">Berlin/Frankfurt Node Deployment</div>
               </div>
            </div>
@@ -161,7 +161,7 @@ const Compliance: React.FC = () => {
         <p className="text-slate-500 mb-10 max-w-xl mx-auto italic">
           Request a full regulatory mapping of your infrastructure to NIST and DORA standards.
         </p>
-        <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20">
+        <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-3 px-10 py-5 bg-sky-500 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-sky-500/20">
           Request Compliance Scoping <ArrowRight size={18}/>
         </a>
       </section>

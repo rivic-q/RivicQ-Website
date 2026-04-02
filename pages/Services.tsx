@@ -15,7 +15,7 @@ const ServiceDetail: React.FC<{
         {icon}
       </div>
       {badge && (
-        <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[9px] font-bold uppercase tracking-widest rounded-full">{badge}</span>
+        <span className="px-3 py-1 bg-sky-50 text-sky-500 text-[9px] font-bold uppercase tracking-widest rounded-full">{badge}</span>
       )}
     </div>
     <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4">{title}</h3>
@@ -28,7 +28,7 @@ const ServiceDetail: React.FC<{
       ))}
     </ul>
     <div className="mt-10 pt-6 border-t border-slate-50">
-      <a href="mailto:hello@rivicq.de" className="text-xs font-bold text-blue-600 hover:text-slate-900 flex items-center gap-1 transition-colors uppercase tracking-widest">
+      <a href="mailto:hello@rivicq.de" className="text-xs font-bold text-sky-500 hover:text-slate-900 flex items-center gap-1 transition-colors uppercase tracking-widest">
         Request Scope <ArrowRight size={14}/>
       </a>
     </div>
@@ -170,7 +170,7 @@ const Services: React.FC = () => {
       <section className="text-center mt-24">
          <h2 className="text-3xl font-serif font-bold mb-6">Start a conversation.</h2>
          <p className="text-slate-500 mb-10 max-w-xl mx-auto">Our lead engineers are available to discuss your specific infrastructure security challenges.</p>
-         <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 bg-blue-600 text-white px-10 py-5 rounded-full font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20">
+         <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 bg-sky-500 text-white px-10 py-5 rounded-full font-bold hover:bg-sky-600 transition-all shadow-xl shadow-sky-500/20">
             Consult our Team <ArrowRight size={18}/>
          </a>
       </section>

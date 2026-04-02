@@ -13,12 +13,12 @@ const PricingCard: React.FC<{
   badge?: string
 }> = ({ title, price, description, features, isFeatured, cta, badge }) => (
   <div className={`flex flex-col p-8 rounded-[3rem] border transition-all duration-300 relative ${
-    isFeatured 
-      ? 'border-blue-600 shadow-2xl shadow-blue-100 bg-white ring-2 ring-blue-600 ring-offset-4' 
-      : 'border-slate-100 bg-slate-50 hover:border-slate-300'
+isFeatured 
+        ? 'border-sky-500 shadow-2xl shadow-sky-100 bg-white ring-2 ring-sky-500 ring-offset-4'
+      : 'border-slate-200 bg-white hover:border-slate-300'
   }`}>
     {badge && (
-      <span className="absolute -top-3 left-8 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+      <span className="absolute -top-3 left-8 bg-sky-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
         {badge}
       </span>
     )}
@@ -33,7 +33,7 @@ const PricingCard: React.FC<{
     <div className="flex-grow space-y-4 mb-8">
       {features.map((feature, i) => (
         <div key={i} className="flex items-start gap-3">
-          <div className={`mt-0.5 rounded-full p-0.5 ${isFeatured ? 'bg-blue-100 text-blue-600' : 'bg-slate-200 text-slate-600'}`}>
+          <div className={`mt-0.5 rounded-full p-0.5 ${isFeatured ? 'bg-sky-100 text-sky-600' : 'bg-slate-200 text-slate-600'}`}>
             <Check size={12} />
           </div>
           <span className="text-sm text-slate-700">{feature}</span>
@@ -45,7 +45,7 @@ const PricingCard: React.FC<{
       href="#contact-sales" 
       className={`w-full py-4 rounded-xl font-bold text-xs uppercase tracking-widest text-center transition-all ${
         isFeatured 
-          ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200' 
+          ? 'bg-sky-500 text-white hover:bg-sky-600 shadow-lg' 
           : 'bg-white border border-slate-200 text-slate-900 hover:bg-slate-900 hover:text-white hover:border-slate-900'
       }`}
     >
@@ -79,7 +79,7 @@ const Pricing: React.FC = () => {
 
   return (
     <article className="prose prose-lg prose-slate max-w-none">
-      <h1 className="text-5xl font-bold mb-4 tracking-tight">Access & Pricing</h1>
+      <h1 className="text-5xl font-bold mb-4 tracking-tight">Pricing & Plans</h1>
       <p className="lead font-serif italic text-slate-500 mb-12">
         Infrastructure-grade security, simplified for modern adoption.
       </p>
@@ -87,7 +87,7 @@ const Pricing: React.FC = () => {
       {/* Access Section */}
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-10">
-          <Cloud className="text-blue-600" size={28} />
+          <Cloud className="text-sky-500" size={28} />
           <h2 className="m-0 font-serif text-3xl">Platform Access</h2>
         </div>
         <div className="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -121,7 +121,7 @@ const Pricing: React.FC = () => {
       {/* Advisory Section */}
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-10">
-          <Shield className="text-indigo-600" size={28} />
+          <Shield className="text-sky-500" size={28} />
           <h2 className="m-0 font-serif text-3xl">Expert Services</h2>
         </div>
         <p className="text-slate-600 mb-8">
@@ -152,7 +152,7 @@ const Pricing: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start relative z-10">
             
             <div>
-              <div className="p-3 bg-blue-600 text-white rounded-2xl w-fit mb-6">
+              <div className="p-3 bg-sky-500 text-white rounded-2xl w-fit mb-6">
                 <Mail size={24} />
               </div>
               <h2 className="text-4xl font-serif font-bold mb-6 text-white m-0">Consult our Engineers</h2>
@@ -172,7 +172,7 @@ const Pricing: React.FC = () => {
                  </div>
                  <div className="flex gap-4">
                     <div className="mt-1">
-                      <Clock size={18} className="text-blue-500" />
+                      <Clock size={18} className="text-sky-500" />
                     </div>
                     <div>
                        <h4 className="font-bold text-white text-sm m-0">Timing is Critical</h4>
@@ -190,29 +190,29 @@ const Pricing: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Received</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">Our infrastructure team will review your requirements and respond within 24 hours.</p>
-                  <button onClick={() => setFormSubmitted(false)} className="mt-8 text-blue-600 text-xs font-bold uppercase tracking-widest hover:underline">New Communication</button>
+                  <button onClick={() => setFormSubmitted(false)} className="mt-8 text-sky-500 text-xs font-bold uppercase tracking-widest hover:underline">New Communication</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
-                      <input required className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-900 transition-all" placeholder="John Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+                      <input required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-sky-500/20 text-slate-900 transition-all" placeholder="John Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
                     </div>
                     <div className="space-y-1">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Email</label>
-                      <input required type="email" className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-900 transition-all" placeholder="john@company.com" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+                      <input required type="email" className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-sky-500/20 text-slate-900 transition-all" placeholder="john@company.com" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
                     </div>
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Company / Organization</label>
-                    <input required className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-900 transition-all" placeholder="Global Infrastructure Ltd." value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} />
+                    <input required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-sky-500/20 text-slate-900 transition-all" placeholder="Global Infrastructure Ltd." value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Message</label>
-                    <textarea required className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-900 transition-all min-h-[140px] resize-none" placeholder="How can we help you prepare for the quantum transition?" value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea>
+                    <textarea required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-sky-500/20 text-slate-900 transition-all min-h-[140px] resize-none" placeholder="How can we help you prepare for the quantum transition?" value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea>
                   </div>
-                  <button type="submit" disabled={isSubmitting} className="w-full py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all flex items-center justify-center gap-3 shadow-xl uppercase tracking-widest text-xs disabled:opacity-50">
+                  <button type="submit" disabled={isSubmitting} className="w-full py-5 bg-sky-500 text-white font-bold rounded-2xl hover:bg-sky-600 transition-all flex items-center justify-center gap-3 shadow-xl uppercase tracking-widest text-xs disabled:opacity-50">
                     {isSubmitting ? <Loader2 size={16} className="animate-spin"/> : <><Send size={16}/> Submit Inquiry</>}
                   </button>
                 </form>

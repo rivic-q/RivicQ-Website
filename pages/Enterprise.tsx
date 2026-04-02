@@ -55,11 +55,11 @@ const EndToEndDemo: React.FC = () => {
               key={idx}
               className={`p-6 rounded-2xl border transition-all duration-500 flex items-start gap-4 ${
                 activeStep === idx 
-                  ? `bg-slate-800 border-blue-500 shadow-[0_0_30px_rgba(37,99,235,0.2)]` 
+                  ? `bg-slate-800 border-sky-500 shadow-[0_0_30px_rgba(37,99,235,0.2)]` 
                   : 'bg-transparent border-slate-800 opacity-40'
               }`}
             >
-              <div className={`p-3 rounded-xl ${activeStep === idx ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-500'}`}>
+              <div className={`p-3 rounded-xl ${activeStep === idx ? 'bg-sky-500 text-white' : 'bg-slate-800 text-slate-500'}`}>
                 {step.icon}
               </div>
               <div>
@@ -82,10 +82,10 @@ const EndToEndDemo: React.FC = () => {
               {/* Active Visualizer */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center animate-fadeIn">
-                   <div className={`w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto mb-6 shadow-2xl ${activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-blue-600 text-white shadow-blue-500/20'}`}>
+                   <div className={`w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto mb-6 shadow-2xl ${activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-sky-500 text-white shadow-sky-500/20'}`}>
                       {steps[activeStep].icon}
                    </div>
-                   <div className="font-mono text-[10px] text-blue-400 tracking-[0.2em] uppercase font-bold mb-2">
+                   <div className="font-mono text-[10px] text-sky-400 tracking-[0.2em] uppercase font-bold mb-2">
                       RivicQ Core OS
                    </div>
                    <div className="text-white font-bold text-sm h-6">
@@ -95,7 +95,7 @@ const EndToEndDemo: React.FC = () => {
                    {/* Progress Dots */}
                    <div className="flex justify-center gap-1.5 mt-6">
                       {steps.map((_, i) => (
-                        <div key={i} className={`h-1 rounded-full transition-all duration-500 ${activeStep === i ? 'w-6 bg-blue-500' : 'w-2 bg-slate-700'}`}></div>
+                        <div key={i} className={`h-1 rounded-full transition-all duration-500 ${activeStep === i ? 'w-6 bg-sky-500' : 'w-2 bg-slate-700'}`}></div>
                       ))}
                    </div>
                 </div>
@@ -115,7 +115,7 @@ const Enterprise: React.FC = () => {
           FIPS 140-3 • Global Tier 1 Infrastructure
         </div>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-          Sovereign Security <br/>at <span className="text-blue-600">Global Scale.</span>
+          Sovereign Security <br/>at <span className="text-sky-500">Global Scale.</span>
         </h1>
         <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
           RivicQ Enterprise provides the high-assurance foundation for the world's most critical infrastructures. We don't just secure data; we secure permanence.
@@ -135,12 +135,12 @@ const Enterprise: React.FC = () => {
       <section className="py-24 border-y border-slate-100 not-prose mb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
            {[
-             { title: "SLA Guaranteed", desc: "99.999% uptime for cryptographic operations across global regions.", icon: <Activity className="text-blue-600"/> },
+             { title: "SLA Guaranteed", desc: "99.999% uptime for cryptographic operations across global regions.", icon: <Activity className="text-sky-500"/> },
              { title: "Dedicated vHSM", desc: "Physically isolated hardware segments for Tier 1 compliance.", icon: <Server className="text-emerald-600"/> },
              { title: "Active CBOM", desc: "Continuous auditing of every cryptographic bill of materials.", icon: <Layers className="text-indigo-600"/> },
              { title: "PQC Orchestration", desc: "NIST-standardized migration paths enforced by policy.", icon: <Zap className="text-amber-600"/> }
            ].map((item, i) => (
-             <div key={i} className="p-8 border border-slate-100 rounded-[2.5rem] bg-white hover:border-blue-200 transition-all shadow-sm">
+             <div key={i} className="p-8 border border-slate-100 rounded-[2.5rem] bg-white hover:border-sky-200 transition-all shadow-sm">
                 <div className="p-3 bg-slate-50 rounded-xl w-fit mb-6 border border-slate-100">
                   {item.icon}
                 </div>
@@ -160,9 +160,9 @@ const Enterprise: React.FC = () => {
               RivicQ Enterprise maps directly to global mandates like <strong>EU DORA</strong>, <strong>NIS2</strong>, and <strong>CNSA 2.0</strong>. We provide the proof of resilience required by modern regulators.
             </p>
             <div className="space-y-4">
-              <div className="flex items-center gap-3 p-4 bg-blue-50 border border-blue-100 rounded-2xl">
-                <CheckCircle2 size={18} className="text-blue-600"/>
-                <span className="text-sm font-bold text-blue-900">NIST FIPS 203/204 Compliant</span>
+              <div className="flex items-center gap-3 p-4 bg-sky-50 border border-sky-100 rounded-2xl">
+                <CheckCircle2 size={18} className="text-sky-500"/>
+                <span className="text-sm font-bold text-sky-900">NIST FIPS 203/204 Compliant</span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl">
                 <ShieldCheck size={18} className="text-emerald-600"/>
@@ -177,7 +177,7 @@ const Enterprise: React.FC = () => {
              <h3 className="text-2xl font-serif font-bold text-slate-900 m-0 mb-6">Global Residency</h3>
              <ul className="space-y-4 m-0 p-0 list-none">
                 <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div> Berlin Deep-Tech Hub (HQ)
+                  <div className="w-2 h-2 rounded-full bg-sky-500"></div> Berlin Deep-Tech Hub (HQ)
                 </li>
                 <li className="flex items-center gap-3 text-sm text-slate-600">
                   <div className="w-2 h-2 rounded-full bg-slate-400"></div> Frankfurt Financial Mesh
@@ -194,11 +194,11 @@ const Enterprise: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="not-prose bg-blue-600 text-white p-12 md:p-16 rounded-[4rem] text-center shadow-2xl relative overflow-hidden">
+      <section className="not-prose bg-sky-500 text-white p-12 md:p-16 rounded-[4rem] text-center shadow-2xl relative overflow-hidden">
         <div className="absolute inset-0 bg-technical opacity-10"></div>
         <div className="relative z-10">
           <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white m-0">Scale with Security.</h2>
-          <p className="text-blue-100 text-lg mb-10 max-w-xl mx-auto italic leading-relaxed">
+          <p className="text-sky-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
             Join the elite circle of enterprises defining the post-quantum standard. Our strategic engineers are ready to scope your migration.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

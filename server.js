@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from "@google/genai";
+import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,16 @@ const sourceIndexFile = path.join(__dirname, 'index.html');
 const distIndexFile = path.join(distDir, 'index.html');
 
 dotenv.config();
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
+  port: parseInt(process.env.SMTP_PORT || '587'),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER || '',
+    pass: process.env.SMTP_PASS || ''
+  }
+});
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -129,7 +140,7 @@ app.post('/api/scan-security', rateLimitMiddleware, async (req, res) => {
   }
 });
 
-app.post('/api/contact', rateLimitMiddleware, (req, res) => {
+app.post('/api/contact', rateLimitMiddleware, async (req, res) => {
   const errors = validateInquiryPayload(req.body);
   if (errors.length > 0) {
     return res.status(400).json({ error: "Validation failed.", details: errors });
@@ -173,6 +184,66 @@ app.post('/api/contact', rateLimitMiddleware, (req, res) => {
   }
   leads.push(leadData);
   fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2));
+
+  const typeLabels = {
+    'beta-signup': 'Beta Signup Request',
+    'demo-request': 'Dashboard Demo Request',
+    'pitch-deck': 'Pitch Deck/Whitepaper Request',
+    'general': 'General Inquiry'
+  };
+
+  let emailHtml = `
+    <h2>New ${typeLabels[type] || 'Inquiry'} from RivicQ Website</h2>
+    <table style="border-collapse: collapse; width: 100%;">
+      <tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Name:</td>
+        <td style="padding: 8px;">${name}</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Email:</td>
+        <td style="padding: 8px;"><a href="mailto:${email}">${email}</a></td>
+      </tr>
+      ${company ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Company:</td>
+        <td style="padding: 8px;">${company}</td>
+      </tr>` : ''}
+      ${role ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Role:</td>
+        <td style="padding: 8px;">${role}</td>
+      </tr>` : ''}
+      ${timeline ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Timeline:</td>
+        <td style="padding: 8px;">${timeline}</td>
+      </tr>` : ''}
+      ${organization ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Organization:</td>
+        <td style="padding: 8px;">${organization}</td>
+      </tr>` : ''}
+      ${documentType ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Document:</td>
+        <td style="padding: 8px;">${documentType}</td>
+      </tr>` : ''}
+    </table>
+    <h3 style="margin-top: 20px; color: #374151;">Message:</h3>
+    <p style="background: #f9fafb; padding: 16px; border-radius: 8px;">${message?.replace(/\n/g, '<br>') || 'N/A'}</p>
+    <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">
+      <strong>Timestamp:</strong> ${timestamp}<br>
+      <strong>Source:</strong> ${req.headers.referer || 'direct'}
+    </p>
+  `;
+
+  try {
+    await transporter.sendMail({
+      from: `"RivicQ Website" <${process.env.SMTP_FROM || 'noreply@rivicq.de'}>`,
+      to: 'hello@rivicq.de',
+      subject: `[RivicQ] ${typeLabels[type] || 'New Inquiry'}: ${name} from ${company || email}`,
+      html: emailHtml,
+      replyTo: email
+    });
+    console.log('Email sent successfully to hello@rivicq.de');
+  } catch (emailError) {
+    console.error('Error sending email:', emailError.message);
+  }
 
   res.json({ success: true, message: "Inquiry recorded successfully." });
 });

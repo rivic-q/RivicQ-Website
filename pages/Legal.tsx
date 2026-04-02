@@ -58,7 +58,7 @@ const Legal: React.FC = () => {
             
             <h4 className="font-bold text-slate-900 mb-2 mt-6 uppercase tracking-widest text-[10px]">Kontakt (Contact)</h4>
             <p className="text-slate-600 m-0">
-              Email: <a href="mailto:hello@rivicq.de" className="text-blue-600 font-bold hover:underline">hello@rivicq.de</a><br/>
+              Email: <a href="mailto:hello@rivicq.de" className="text-sky-500 font-bold hover:underline">hello@rivicq.de</a><br/>
             </p>
 
              <h4 className="font-bold text-slate-900 mb-2 mt-6 uppercase tracking-widest text-[10px]">Registereintrag (Registration)</h4>
@@ -73,12 +73,12 @@ const Legal: React.FC = () => {
       {/* 2. Intellectual Property Rights (Strict) */}
       <section className="not-prose mb-24">
         <div className="flex items-center gap-4 mb-10">
-            <div className="p-3 bg-blue-600 text-white rounded-2xl shadow-lg">
+            <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
                 <Award size={24}/>
             </div>
             <div>
                 <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Intellectual Property</h2>
-                <p className="text-xs text-blue-600 font-bold uppercase tracking-widest mt-1">Trademarks, Patents & Design Rights</p>
+                <p className="text-xs text-sky-500 font-bold uppercase tracking-widest mt-1">Trademarks, Patents & Design Rights</p>
             </div>
         </div>
 
@@ -91,10 +91,10 @@ const Legal: React.FC = () => {
                     The following names, logos, and service marks are unregistered or registered trademarks of RivicQ Technologies and are protected under the German Trademark Act (MarkenG) and EUIPO regulations:
                 </p>
                 <ul className="space-y-2 text-sm font-bold text-slate-800">
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> RivicQ™</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> CryptoBOM™ (Cryptographic Bill of Materials)</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> RQSP™ (Rivic Quantum Security Protocol)</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div> Cloud vHSM™</li>
+                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div> RivicQ™</li>
+                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div> CryptoBOM™ (Cryptographic Bill of Materials)</li>
+                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div> RQSP™ (Rivic Quantum Security Protocol)</li>
+                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div> Cloud vHSM™</li>
                 </ul>
                 <p className="text-[10px] text-slate-400 mt-4 italic">
                     Use of these marks without express written permission is strictly prohibited.
@@ -122,7 +122,7 @@ const Legal: React.FC = () => {
         </div>
 
         <div className="mt-8 p-6 bg-slate-900 text-white rounded-2xl flex items-start gap-4">
-            <Copyright size={24} className="text-blue-400 shrink-0 mt-1"/>
+            <Copyright size={24} className="text-sky-400 shrink-0 mt-1"/>
             <div>
                 <h4 className="font-bold text-sm uppercase tracking-widest mb-2">Copyright (Urheberrecht)</h4>
                 <p className="text-xs text-slate-400 leading-relaxed m-0">
@@ -144,7 +144,7 @@ const Legal: React.FC = () => {
 
         <LegalSection title="Dispute Resolution" icon={<Gavel size={20}/>}>
           <p>
-            The European Commission provides a platform for online dispute resolution (OS): <a href="https://ec.europa.eu/consumers/odr" className="text-blue-600 hover:underline">https://ec.europa.eu/consumers/odr</a>.
+            The European Commission provides a platform for online dispute resolution (OS): <a href="https://ec.europa.eu/consumers/odr" className="text-sky-500 hover:underline">https://ec.europa.eu/consumers/odr</a>.
             We are not willing or obliged to participate in dispute settlement proceedings before a consumer arbitration board.
           </p>
         </LegalSection>
@@ -158,13 +158,13 @@ const Legal: React.FC = () => {
 
       <section className="bg-slate-50 border border-slate-100 p-8 md:p-12 rounded-[3rem] mt-16">
         <div className="flex items-center gap-3 mb-4">
-          <Mail size={20} className="text-blue-600"/>
+          <Mail size={20} className="text-sky-500"/>
           <h3 className="m-0 font-bold text-slate-900">Legal Contact</h3>
         </div>
         <p className="text-sm text-slate-600 mb-6">
             For intellectual property inquiries, takedown requests, or licensing information:
         </p>
-        <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 font-bold text-blue-600 hover:text-slate-900 transition-colors text-xs uppercase tracking-widest">
+        <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 font-bold text-sky-500 hover:text-slate-900 transition-colors text-xs uppercase tracking-widest">
            <Mail size={16} /> Contact Legal Department
         </a>
       </section>

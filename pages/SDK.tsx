@@ -34,7 +34,7 @@ const SDK: React.FC = () => {
       <section>
         <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
           {[
-            { icon: <Cpu className="text-blue-600"/>, title: "PQC Native", desc: "ML-KEM and ML-DSA out of the box." },
+            { icon: <Cpu className="text-sky-500"/>, title: "PQC Native", desc: "ML-KEM and ML-DSA out of the box." },
             { icon: <Lock className="text-emerald-600"/>, title: "HSM Anchored", desc: "Private keys never leave hardware." },
             { icon: <Globe className="text-purple-600"/>, title: "Cross-Platform", desc: "Python, Go, and Rust support." },
           ].map((item, i) => (

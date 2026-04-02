@@ -48,8 +48,8 @@ const ProductCard: React.FC<{
   ctaText: string,
   ctaLink: string,
   stats?: { value: string; label: string }[]
-}> = ({ icon, title, subtitle, description, features, badge, badgeColor = 'bg-blue-600', isDark, ctaText, ctaLink, stats }) => (
-  <div className={`flex flex-col p-8 md:p-10 rounded-[2.5rem] border flex-grow transition-all duration-300 ${isDark ? 'bg-slate-900 border-slate-800 text-white shadow-2xl' : 'bg-white border-slate-200 text-slate-900 shadow-sm hover:border-blue-300 hover:shadow-lg'}`}>
+}> = ({ icon, title, subtitle, description, features, badge, badgeColor = 'bg-sky-500', isDark, ctaText, ctaLink, stats }) => (
+  <div className={`flex flex-col p-8 md:p-10 rounded-[2.5rem] border flex-grow transition-all duration-300 ${isDark ? 'bg-slate-900 border-slate-800 text-white shadow-2xl' : 'bg-white border-slate-200 text-slate-900 shadow-sm hover:border-sky-300 hover:shadow-lg'}`}>
     {badge && (
       <span className={`inline-block ${badgeColor} text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 w-fit`}>
         {badge}
@@ -59,7 +59,7 @@ const ProductCard: React.FC<{
       {icon}
     </div>
     <h3 className="text-2xl font-serif font-bold mb-1">{title}</h3>
-    <p className={`text-sm font-medium mb-4 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>{subtitle}</p>
+    <p className={`text-sm font-medium mb-4 ${isDark ? 'text-sky-400' : 'text-sky-500'}`}>{subtitle}</p>
     <p className={`text-sm leading-relaxed mb-6 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{description}</p>
     
     {stats && stats.length > 0 && (
@@ -76,7 +76,7 @@ const ProductCard: React.FC<{
     <div className={`flex-grow space-y-3 mb-8`}>
       {features.map((feat, i) => (
         <div key={i} className="flex items-start gap-3">
-          <CheckCircle2 size={14} className={`shrink-0 mt-0.5 ${isDark ? 'text-emerald-400' : 'text-blue-600'}`} />
+          <CheckCircle2 size={14} className={`shrink-0 mt-0.5 ${isDark ? 'text-emerald-400' : 'text-sky-500'}`} />
           <span className={`text-xs ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{feat}</span>
         </div>
       ))}
@@ -86,8 +86,8 @@ const ProductCard: React.FC<{
       href={ctaLink}
       className={`w-full py-4 rounded-xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all mt-auto ${
         isDark 
-        ? 'bg-blue-600 text-white hover:bg-blue-500' 
-        : 'bg-slate-900 text-white hover:bg-blue-600'
+        ? 'bg-sky-500 text-white hover:bg-sky-500' 
+        : 'bg-slate-900 text-white hover:bg-sky-500'
       }`}
     >
       {ctaText} <ArrowRight size={14}/>
@@ -136,11 +136,11 @@ const Products: React.FC = () => {
   return (
     <article className="prose prose-slate max-w-none">
       <header className="mb-16 text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[9px] font-bold uppercase tracking-[0.2em] mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-500 text-[9px] font-bold uppercase tracking-[0.2em] mb-6">
           RivicQ Product Suite
         </div>
         <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
-          Quantum-Safe <span className="text-blue-600">Solutions.</span>
+          Quantum-Safe <span className="text-sky-500">Solutions.</span>
         </h1>
         <p className="text-xl text-slate-500 font-serif italic leading-relaxed">
           Enterprise-grade security products for the post-quantum transition. Open-source tools and enterprise SaaS for cryptographic resilience.
@@ -196,11 +196,11 @@ const Products: React.FC = () => {
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <Rocket size={32} className="text-white" />
-                  <div className="w-px h-8 bg-blue-400"></div>
-                  <span className="text-sm font-bold text-blue-200">Enterprise</span>
+                  <div className="w-px h-8 bg-sky-400"></div>
+                  <span className="text-sm font-bold text-sky-200">Enterprise</span>
                 </div>
                 <h2 className="text-3xl font-serif font-bold mb-4 text-white">SaaS Platform</h2>
-                <p className="text-blue-100 leading-relaxed mb-8">
+                <p className="text-sky-100 leading-relaxed mb-8">
                   Full-stack enterprise solutions with cloud integrations, compliance automation, and dedicated support.
                 </p>
                 <div className="space-y-3 mb-8">
@@ -211,7 +211,7 @@ const Products: React.FC = () => {
                     'Real-time security dashboards',
                     'Dedicated support & SLAs'
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-sm text-blue-100">
+                    <div key={i} className="flex items-center gap-3 text-sm text-sky-100">
                       <CheckCircle2 size={16} className="text-emerald-300 shrink-0" />
                       {item}
                     </div>
@@ -219,7 +219,7 @@ const Products: React.FC = () => {
                 </div>
                 <Link 
                   to="/beta-signup"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-bold text-sm rounded-xl hover:bg-blue-50 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-sky-500 font-bold text-sm rounded-xl hover:bg-sky-50 transition-all"
                 >
                   Join Beta Program <ArrowRight size={18} />
                 </Link>
@@ -279,12 +279,12 @@ const Products: React.FC = () => {
       {/* Product 1: CBOM */}
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-8">
-          <div className="p-3 bg-blue-600 text-white rounded-2xl shadow-lg">
+          <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
             <FileSearch size={24}/>
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">1. CryptoBOM & Cryptographic Security Posture Management</h2>
-            <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Core Discovery & Inventory</span>
+            <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">Core Discovery & Inventory</span>
           </div>
         </div>
         <p className="text-slate-600 mb-8 max-w-3xl">
@@ -293,7 +293,7 @@ const Products: React.FC = () => {
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
           <ProductCard 
-            icon={<FileCode size={24} className="text-blue-600"/>}
+            icon={<FileCode size={24} className="text-sky-500"/>}
             title="CBOM Scanner"
             subtitle="Discovery Engine"
             description="AI-powered scanning engine that discovers cryptographic primitives, certificates, and keys across codebases, containers, and cloud environments."
@@ -347,14 +347,14 @@ const Products: React.FC = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-grow">
                 <h3 className="text-xl font-bold text-white mb-2">Enterprise CBOM SaaS</h3>
-                <p className="text-blue-100 text-sm">Full-stack platform with IBM Cloud HPCS, AWS CloudHSM/KMS, and GCP GKE integrations. JWT auth, PostgreSQL backend, 85%+ test coverage.</p>
+                <p className="text-sky-100 text-sm">Full-stack platform with IBM Cloud HPCS, AWS CloudHSM/KMS, and GCP GKE integrations. JWT auth, PostgreSQL backend, 85%+ test coverage.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a 
                   href="https://github.com/rivic-q/cryptobom-saas" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-blue-50 transition-all"
+                  className="flex items-center gap-2 px-5 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-sky-50 transition-all"
                 >
                   <Github size={16} /> View on GitHub
                 </a>
@@ -650,23 +650,32 @@ const DemoRequestForm: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    const subject = encodeURIComponent(`Dashboard Demo Request: ${formData.company}`);
-    const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
-Role: ${formData.role}
-Estimated Assets: ${formData.assets}
-Message: ${formData.message}
-    `);
-    window.location.href = `mailto:hello@rivicq.de?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      setFormSubmitted(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'demo-request',
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          role: formData.role,
+          message: `Estimated Assets: ${formData.assets}\n\n${formData.message}`
+        })
+      });
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        alert('Something went wrong. Please try again or email us at hello@rivicq.de');
+      }
+    } catch {
+      alert('Network error. Please try again or email us at hello@rivicq.de');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   if (formSubmitted) {
@@ -679,7 +688,7 @@ Message: ${formData.message}
         <p className="text-sm text-slate-500 mb-4">Our team will contact you within 24 hours to schedule your personalized demo.</p>
         <button 
           onClick={() => setFormSubmitted(false)} 
-          className="text-xs text-blue-600 font-bold hover:underline"
+          className="text-xs text-sky-500 font-bold hover:underline"
         >
           Submit another request
         </button>
@@ -697,7 +706,7 @@ Message: ${formData.message}
             value={formData.name}
             onChange={e => setFormData({...formData, name: e.target.value})}
             placeholder="Your Name"
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500/20 focus:bg-white transition-all"
           />
         </div>
         <div className="space-y-1">
@@ -708,7 +717,7 @@ Message: ${formData.message}
             value={formData.email}
             onChange={e => setFormData({...formData, email: e.target.value})}
             placeholder="name@company.com"
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500/20 focus:bg-white transition-all"
           />
         </div>
       </div>
@@ -720,7 +729,7 @@ Message: ${formData.message}
             value={formData.company}
             onChange={e => setFormData({...formData, company: e.target.value})}
             placeholder="Company Name"
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500/20 focus:bg-white transition-all"
           />
         </div>
         <div className="space-y-1">
@@ -729,7 +738,7 @@ Message: ${formData.message}
             value={formData.role}
             onChange={e => setFormData({...formData, role: e.target.value})}
             placeholder="CISO / Security Lead"
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500/20 focus:bg-white transition-all"
           />
         </div>
       </div>
@@ -738,7 +747,7 @@ Message: ${formData.message}
         <select 
           value={formData.assets}
           onChange={e => setFormData({...formData, assets: e.target.value})}
-          className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all"
+          className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500/20 focus:bg-white transition-all"
         >
           <option value="">Select range</option>
           <option value="1-100">1-100 assets</option>
@@ -754,13 +763,13 @@ Message: ${formData.message}
           value={formData.message}
           onChange={e => setFormData({...formData, message: e.target.value})}
           placeholder="Tell us about your security challenges or specific requirements..."
-          className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm min-h-[100px] resize-none outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white transition-all"
+          className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm min-h-[100px] resize-none outline-none focus:ring-2 focus:ring-sky-500/20 focus:bg-white transition-all"
         />
       </div>
       <button 
         type="submit" 
         disabled={isSubmitting}
-        className="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50"
+        className="w-full py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-600 transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50"
       >
         {isSubmitting ? <Loader2 size={16} className="animate-spin"/> : <><Send size={16}/> Request Dashboard Demo</>}
       </button>

@@ -7,11 +7,11 @@ const CloudHSM: React.FC = () => {
   return (
     <article className="prose prose-slate max-w-none">
       <header className="mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
           FIPS 140-3 Level 3 • Post-Quantum Ready
         </div>
         <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-          Cloud <span className="text-blue-600">Hardware Security.</span>
+          Cloud <span className="text-sky-500">Hardware Security.</span>
         </h1>
         <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
           Physical security devices available in the cloud to protect your most sensitive keys.
@@ -30,7 +30,7 @@ const CloudHSM: React.FC = () => {
               </p>
               <div className="flex gap-4">
                 <div className="flex flex-col">
-                  <span className="text-2xl font-bold text-blue-400">&lt; 2ms</span>
+                  <span className="text-2xl font-bold text-sky-400">&lt; 2ms</span>
                   <span className="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Fast</span>
                 </div>
                 <div className="w-px h-10 bg-slate-800"></div>
@@ -46,21 +46,21 @@ const CloudHSM: React.FC = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="w-full aspect-square bg-blue-600/10 rounded-full blur-3xl absolute -inset-4"></div>
+              <div className="w-full aspect-square bg-sky-500/10 rounded-full blur-3xl absolute -inset-4"></div>
               <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl">
                 <div className="flex items-center gap-4 mb-8">
-                  <Cloud size={32} className="text-blue-400" />
+                  <Cloud size={32} className="text-sky-400" />
                   <div className="h-px flex-grow bg-slate-700"></div>
                   <Lock size={32} className="text-emerald-400" />
                 </div>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-xs font-mono">
                     <span className="text-slate-500">Algorithm:</span>
-                    <span className="text-blue-400">NIST ML-KEM</span>
+                    <span className="text-sky-400">NIST ML-KEM</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-mono">
                     <span className="text-slate-500">Signature:</span>
-                    <span className="text-blue-400">NIST ML-DSA</span>
+                    <span className="text-sky-400">NIST ML-DSA</span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-mono">
                     <span className="text-slate-500">Isolation:</span>
@@ -106,16 +106,16 @@ const CloudHSM: React.FC = () => {
            </div>
 
            {/* Step 2 */}
-           <div className="p-8 border border-blue-100 rounded-[2rem] bg-blue-50/30 relative">
-              <div className="absolute top-8 right-8 text-blue-200 font-black text-6xl opacity-20">2</div>
-              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600 mb-6 border border-blue-100">
+           <div className="p-8 border border-sky-100 rounded-[2rem] bg-sky-50/30 relative">
+              <div className="absolute top-8 right-8 text-sky-200 font-black text-6xl opacity-20">2</div>
+              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-sky-500 mb-6 border border-sky-100">
                 <RefreshCw size={24}/>
               </div>
               <h4 className="text-lg font-bold text-slate-900 mb-3">Migrate</h4>
               <p className="text-xs text-slate-500 leading-relaxed mb-4">
                 You use the <strong>RivicQ SDK</strong> to import that key material securely into the Cloud HSM.
               </p>
-              <div className="text-[10px] font-mono text-blue-600 bg-blue-50 p-2 rounded border border-blue-100">
+              <div className="text-[10px] font-mono text-sky-500 bg-sky-50 p-2 rounded border border-sky-100">
                 Action: Key Import &gt; Wrap
               </div>
            </div>
@@ -160,7 +160,7 @@ const CloudHSM: React.FC = () => {
                 </div>
 
                 <div className="flex gap-4">
-                   <div className="p-2 bg-blue-50 text-blue-600 rounded-lg h-fit border border-blue-100">
+                   <div className="p-2 bg-sky-50 text-sky-500 rounded-lg h-fit border border-sky-100">
                       <Key size={20} />
                    </div>
                    <div>
@@ -208,7 +208,7 @@ const CloudHSM: React.FC = () => {
         <h2 className="text-3xl font-serif font-bold text-slate-900 mb-10">Why it's better</h2>
         <div className="not-prose grid md:grid-cols-2 gap-8">
           <div className="p-8 border border-slate-100 bg-white rounded-[2.5rem] shadow-sm">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl w-fit mb-6">
+            <div className="p-3 bg-sky-50 text-sky-500 rounded-xl w-fit mb-6">
               <Layers size={24} />
             </div>
             <h4 className="text-lg font-bold text-slate-900 mb-4 m-0">Your Own Private Space</h4>
@@ -246,7 +246,7 @@ const CloudHSM: React.FC = () => {
                 ))}
               </div>
               <div className="flex items-center gap-1">
-                 <a href="https://csrc.nist.gov/pubs/fips/140-3/final" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-blue-600 hover:text-slate-900 flex items-center gap-1 uppercase tracking-widest transition-colors">
+                 <a href="https://csrc.nist.gov/pubs/fips/140-3/final" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-sky-500 hover:text-slate-900 flex items-center gap-1 uppercase tracking-widest transition-colors">
                    View Standard <ExternalLink size={12}/>
                  </a>
               </div>
@@ -256,16 +256,16 @@ const CloudHSM: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="not-prose bg-blue-600 text-white p-12 md:p-16 rounded-[3rem] text-center shadow-2xl">
+      <section className="not-prose bg-sky-500 text-white p-12 md:p-16 rounded-[3rem] text-center shadow-2xl">
         <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-white m-0">Secure your Cloud.</h2>
-        <p className="text-blue-100 text-lg mb-10 max-w-xl mx-auto italic leading-relaxed">
+        <p className="text-sky-100 text-lg mb-10 max-w-xl mx-auto italic leading-relaxed">
           Ask us for a demo or check our pricing.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="mailto:hello@rivicq.de?subject=Cloud HSM Inquiry" className="px-10 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 justify-center shadow-xl">
             Request Demo <ArrowRight size={18}/>
           </a>
-          <Link to="/pricing" className="px-10 py-4 border border-blue-400 text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center gap-2 justify-center">
+          <Link to="/pricing" className="px-10 py-4 border border-sky-400 text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center gap-2 justify-center">
             See Pricing <Activity size={18}/>
           </Link>
         </div>

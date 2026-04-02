@@ -45,15 +45,15 @@ const Team: React.FC = () => {
              <div>
                 <div className="flex flex-wrap items-center gap-4 mb-3">
                   <h4 className="text-2xl font-bold text-slate-900 m-0">Revan Ande</h4>
-                  <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[9px] font-bold uppercase tracking-widest rounded-full">Founder & CEO</span>
+                  <span className="px-3 py-1 bg-sky-50 text-sky-500 text-[9px] font-bold uppercase tracking-widest rounded-full">Founder & CEO</span>
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed max-w-2xl mb-6">
                   Security Researcher and Resident at the Leap Berlin Quantum Deep-Tech Accelerator. Specializing in the commercialization of Post-Quantum Cryptography and the virtualization of hardware root-of-trust.
                 </p>
                 <div className="flex gap-4">
-                  <a href="https://linkedin.com/in/revanande" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={18}/></a>
+                  <a href="https://linkedin.com/in/revanande" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-sky-500 transition-colors"><Linkedin size={18}/></a>
                   <a href="https://github.com/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><Github size={18}/></a>
-                  <a href="mailto:revan.ande@rivicq.de" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={18}/></a>
+                  <a href="mailto:revan.ande@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail size={18}/></a>
                 </div>
              </div>
           </div>
@@ -72,7 +72,7 @@ const Team: React.FC = () => {
                   Specializes in AI-powered security analysis and machine learning models for cryptographic vulnerability detection. Building intelligent automation systems for quantum-safe security assessment.
                 </p>
                 <div className="flex gap-4">
-                  <a href="mailto:pratik.rughe@rivicq.de" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={18}/></a>
+                  <a href="mailto:pratik.rughe@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail size={18}/></a>
                 </div>
              </div>
           </div>
@@ -91,7 +91,7 @@ const Team: React.FC = () => {
                   Leads operational strategy and execution for RivicQ. Focuses on scalable infrastructure deployment, partner coordination, and enterprise customer success initiatives.
                 </p>
                 <div className="flex gap-4">
-                  <a href="mailto:danush.m@rivicq.de" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={18}/></a>
+                  <a href="mailto:danush.m@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail size={18}/></a>
                 </div>
              </div>
           </div>
@@ -111,7 +111,7 @@ const Team: React.FC = () => {
               { name: "Mujib Bazhwal", org: "Zukunft Gründen", role: "Entrepreneurship & Growth" }
             ].map((mentor, i) => (
               <div key={i} className="flex gap-5 group items-center">
-                <div className="w-1.5 h-10 bg-slate-100 group-hover:bg-blue-600 transition-all rounded-full"></div>
+                <div className="w-1.5 h-10 bg-slate-100 group-hover:bg-sky-500 transition-all rounded-full"></div>
                 <div>
                   <h4 className="text-base font-bold text-slate-900 m-0">{mentor.name}</h4>
                   <p className="text-xs text-slate-500 mt-1 m-0"><strong>{mentor.org}</strong> • {mentor.role}</p>
@@ -175,7 +175,7 @@ const Team: React.FC = () => {
         
         <div className="flex flex-col lg:flex-row gap-16 relative z-10">
           <div className="lg:w-1/2">
-            <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600 mb-8 border border-slate-100">
+            <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-sky-500 mb-8 border border-slate-100">
               <MessageSquare size={26}/>
             </div>
             <h3 className="text-3xl font-serif font-bold text-slate-900 mb-6 m-0">Corporate Inquiry</h3>
@@ -184,10 +184,10 @@ const Team: React.FC = () => {
             </p>
             <div className="space-y-4">
                <div className="flex items-center gap-3 font-bold text-slate-900 text-sm uppercase tracking-widest">
-                <Mail size={16} className="text-blue-600" /> hello@rivicq.de
+                <Mail size={16} className="text-sky-500" /> hello@rivicq.de
                </div>
                <div className="flex items-center gap-3 font-bold text-slate-900 text-sm uppercase tracking-widest">
-                <Globe size={16} className="text-blue-600" /> Berlin, Germany
+                <Globe size={16} className="text-sky-500" /> Berlin, Germany
                </div>
             </div>
           </div>
@@ -198,23 +198,23 @@ const Team: React.FC = () => {
                  <CheckCircle2 size={40} className="text-emerald-500 mb-6"/>
                  <h4 className="text-xl font-bold text-slate-900 m-0">Inquiry Transmitted</h4>
                  <p className="text-sm text-slate-500 mt-3 max-w-xs">Our executive office will evaluate your request and respond within 48 hours.</p>
-                 <button onClick={() => setFormSubmitted(false)} className="mt-8 text-[10px] text-blue-600 font-bold uppercase tracking-[0.2em] hover:underline">New Communication</button>
+                 <button onClick={() => setFormSubmitted(false)} className="mt-8 text-[10px] text-sky-500 font-bold uppercase tracking-[0.2em] hover:underline">New Communication</button>
                </div>
             ) : (
                <form onSubmit={handleSubmit} className="space-y-5 bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-xl">
                   <div className="space-y-1">
                     <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
-                    <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder="Full Name" className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" />
+                    <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder="Full Name" className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Professional Email</label>
-                    <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} placeholder="name@organization.com" className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" />
+                    <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} placeholder="name@organization.com" className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Inquiry Details</label>
-                    <textarea required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} placeholder="Briefly describe your interest..." className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm min-h-[120px] resize-none outline-none focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all" />
+                    <textarea required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} placeholder="Briefly describe your interest..." className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm min-h-[120px] resize-none outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" />
                   </div>
-                  <button type="submit" disabled={isSubmitting} className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-blue-600 transition-all text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-xl shadow-slate-200 disabled:opacity-50">
+                  <button type="submit" disabled={isSubmitting} className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-sky-500 transition-all text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-xl shadow-slate-200 disabled:opacity-50">
                     {isSubmitting ? <Loader2 size={16} className="animate-spin"/> : <><Send size={16}/> Submit Communication</>}
                   </button>
                </form>

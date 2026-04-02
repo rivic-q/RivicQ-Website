@@ -9,8 +9,8 @@ const TimelineItem: React.FC<{ date: string, title: string, content: string, ico
     </div>
     <div className="absolute left-[17px] top-1 w-px h-full bg-slate-100 -z-0"></div>
     <div className="flex flex-col">
-      <span className="text-[10px] font-mono font-bold text-blue-600 uppercase tracking-[0.2em] mb-1">{date}</span>
-      <h3 className="m-0 text-xl font-serif font-bold text-slate-900 mb-2 transition-colors group-hover:text-blue-600">{title}</h3>
+      <span className="text-[10px] font-mono font-bold text-sky-500 uppercase tracking-[0.2em] mb-1">{date}</span>
+      <h3 className="m-0 text-xl font-serif font-bold text-slate-900 mb-2 transition-colors group-hover:text-sky-500">{title}</h3>
       <p className="text-sm text-slate-600 leading-relaxed m-0 max-w-xl">{content}</p>
     </div>
   </div>
@@ -28,7 +28,7 @@ const Story: React.FC = () => {
 
       <section className="mb-20">
         <div className="bg-slate-50 p-10 md:p-16 rounded-[3rem] border border-slate-100 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none text-blue-600">
+            <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none text-sky-500">
                 <Target size={180} />
             </div>
             <p className="m-0 text-slate-700 text-lg leading-relaxed relative z-10 max-w-3xl">
@@ -108,8 +108,8 @@ const Story: React.FC = () => {
                 Our trajectory is defined by structural validation and regulatory foresight. We view every technical challenge as a mandatory milestone toward securing the world's most critical data assets for the next fifty years.
             </p>
             <div className="flex items-center gap-6">
-               <div className="h-0.5 w-12 bg-blue-500"></div>
-               <p className="text-xs font-bold text-blue-500 m-0 uppercase tracking-[0.3em]">
+               <div className="h-0.5 w-12 bg-sky-500"></div>
+               <p className="text-xs font-bold text-sky-500 m-0 uppercase tracking-[0.3em]">
                  Established Berlin • Serving Globally
                </p>
             </div>

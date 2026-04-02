@@ -45,35 +45,43 @@ const Investors: React.FC = () => {
     message: '' 
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    const subject = encodeURIComponent(`Investor Inquiry: ${formData.investorType} - ${formData.name}`);
-    const body = encodeURIComponent(`
-Name: ${formData.name}
-Company: ${formData.company}
-Investor Type: ${formData.investorType}
-Email: ${formData.email}
-
-Message:
-${formData.message}
-    `);
-    window.location.href = `mailto:hello@rivicq.de?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      setFormSubmitted(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'investor-inquiry',
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          role: formData.investorType,
+          message: formData.message
+        })
+      });
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        alert('Something went wrong. Please try again or email us at hello@rivicq.de');
+      }
+    } catch {
+      alert('Network error. Please try again or email us at hello@rivicq.de');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
     <article className="prose prose-lg prose-slate max-w-none">
       <header className="mb-16">
         <AnimatedSection>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-500 text-[10px] font-bold uppercase tracking-widest mb-6">
             Series Pre-Seed • Q1 2026
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
-            Investor <span className="text-blue-600">Relations</span>
+            Investor <span className="text-sky-500">Relations</span>
           </h1>
           <p className="text-xl text-slate-500 font-serif italic max-w-2xl leading-relaxed">
             Join us in building the quantum-safe future. RivicQ is raising a Pre-Seed round to finalize our FIPS 140-3 HSM integration layer and CryptoBOM SaaS platform.
@@ -85,7 +93,7 @@ ${formData.message}
       <section className="mb-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 not-prose">
           {[
-            { icon: <DollarSign size={24} />, value: '€150-500K', label: 'Pre-Seed Target', color: 'bg-blue-50 text-blue-600' },
+            { icon: <DollarSign size={24} />, value: '€150-500K', label: 'Pre-Seed Target', color: 'bg-sky-50 text-sky-500' },
             { icon: <TrendingUp size={24} />, value: '$13.5B', label: 'TAM by 2030', color: 'bg-emerald-50 text-emerald-600' },
             { icon: <Target size={24} />, value: '€3.2B', label: 'EU DORA Spend', color: 'bg-purple-50 text-purple-600' },
             { icon: <Rocket size={24} />, value: '18.2%', label: 'Market CAGR', color: 'bg-amber-50 text-amber-600' },
@@ -110,7 +118,7 @@ ${formData.message}
         <div className="grid md:grid-cols-3 gap-6 not-prose mb-12">
           <AnimatedSection delay={100}>
             <div className="p-8 border border-slate-100 rounded-[2.5rem] bg-white shadow-sm hover:shadow-lg transition-all h-full">
-               <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-6 inline-block"><CheckCircle2 size={24}/></div>
+               <div className="p-3 bg-sky-50 text-sky-500 rounded-xl mb-6 inline-block"><CheckCircle2 size={24}/></div>
                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-2">Accelerator Status</h4>
                <p className="text-sm text-slate-500 leading-relaxed m-0">Leap Berlin Quantum Hub Resident. Active validation of PQC implementations.</p>
             </div>
@@ -162,7 +170,7 @@ ${formData.message}
         <AnimatedSection>
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-technical opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl"></div>
             
             <div className="relative z-10 grid lg:grid-cols-2 gap-12">
               <div>
@@ -178,7 +186,7 @@ ${formData.message}
                     { pct: '10%', label: 'Operations' },
                   ].map((item, i) => (
                     <div key={i} className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                      <div className="text-2xl font-bold text-blue-400">{item.pct}</div>
+                      <div className="text-2xl font-bold text-sky-400">{item.pct}</div>
                       <div className="text-xs text-slate-400">{item.label}</div>
                     </div>
                   ))}
@@ -235,13 +243,13 @@ ${formData.message}
             },
           ].map((doc, i) => (
             <AnimatedSection key={i} delay={i * 100}>
-              <div className="bg-white border border-slate-100 rounded-2xl p-8 hover:shadow-xl hover:border-blue-200 transition-all h-full flex flex-col">
-                <div className="p-4 bg-blue-50 text-blue-600 rounded-xl w-fit mb-6">{doc.icon}</div>
+              <div className="bg-white border border-slate-100 rounded-2xl p-8 hover:shadow-xl hover:border-sky-200 transition-all h-full flex flex-col">
+                <div className="p-4 bg-sky-50 text-sky-500 rounded-xl w-fit mb-6">{doc.icon}</div>
                 <h4 className="font-bold text-slate-900 mb-2">{doc.title}</h4>
                 <p className="text-sm text-slate-500 leading-relaxed flex-grow mb-6">{doc.desc}</p>
                 <Link 
                   to="/pitch-deck"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-slate-900 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-sky-500 hover:text-slate-900 transition-colors"
                 >
                   {doc.cta} <ArrowRight size={14} />
                 </Link>
@@ -264,10 +272,10 @@ ${formData.message}
                   We are seeking strategic capital partners who understand the gravity of the post-quantum transition and believe in German engineering precision.
                 </p>
                 <div className="flex items-center gap-4">
-                  <Users size={24} className="text-blue-400" />
+                  <Users size={24} className="text-sky-400" />
                   <div>
                     <div className="text-sm font-bold text-white">Direct Contact</div>
-                    <a href="mailto:hello@rivicq.de" className="text-blue-400 hover:text-blue-300 text-sm">hello@rivicq.de</a>
+                    <a href="mailto:hello@rivicq.de" className="text-sky-400 hover:text-sky-300 text-sm">hello@rivicq.de</a>
                   </div>
                 </div>
               </div>
@@ -280,7 +288,7 @@ ${formData.message}
                     <p className="text-slate-500 text-sm mb-6">Our investor relations team will respond within 24-48 hours.</p>
                     <button 
                       onClick={() => setFormSubmitted(false)} 
-                      className="text-sm text-blue-600 font-bold hover:underline"
+                      className="text-sm text-sky-500 font-bold hover:underline"
                     >
                       Submit another inquiry
                     </button>
@@ -294,7 +302,7 @@ ${formData.message}
                           required 
                           value={formData.name}
                           onChange={e => setFormData({...formData, name: e.target.value})}
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-500"
                           placeholder="Your Name"
                         />
                       </div>
@@ -305,7 +313,7 @@ ${formData.message}
                           type="email"
                           value={formData.email}
                           onChange={e => setFormData({...formData, email: e.target.value})}
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-500"
                           placeholder="name@fund.com"
                         />
                       </div>
@@ -316,7 +324,7 @@ ${formData.message}
                         required 
                         value={formData.company}
                         onChange={e => setFormData({...formData, company: e.target.value})}
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-500"
                         placeholder="Fund / Investment Firm"
                       />
                     </div>
@@ -325,7 +333,7 @@ ${formData.message}
                       <select 
                         value={formData.investorType}
                         onChange={e => setFormData({...formData, investorType: e.target.value})}
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-500"
                       >
                         <option value="">Select type</option>
                         <option value="VC">VC / Growth Fund</option>
@@ -341,14 +349,14 @@ ${formData.message}
                       <textarea 
                         value={formData.message}
                         onChange={e => setFormData({...formData, message: e.target.value})}
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500 min-h-[100px] resize-none"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-500 min-h-[100px] resize-none"
                         placeholder="Tell us about your investment focus..."
                       />
                     </div>
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-blue-600 transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50"
+                      className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-sky-500 transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50"
                     >
                       {isSubmitting ? 'Sending...' : <><Send size={16} /> Connect with IR</>}
                     </button>

@@ -5,11 +5,11 @@ import { Zap, Workflow, ShieldAlert, Database, Lock, ShieldCheck, ArrowRight, At
 const QuantumEntropyAnimation: React.FC = () => (
   <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20 group-hover:opacity-40 transition-opacity duration-700">
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <div className="w-4 h-4 bg-blue-600 rounded-full blur-[2px] shadow-[0_0_20px_rgba(37,99,235,1)] z-10"></div>
+      <div className="w-4 h-4 bg-sky-500 rounded-full blur-[2px] shadow-[0_0_20px_rgba(37,99,235,1)] z-10"></div>
       {[...Array(12)].map((_, i) => (
         <div
           key={i}
-          className="absolute w-1.5 h-1.5 bg-blue-400 rounded-full animate-radiate"
+          className="absolute w-1.5 h-1.5 bg-sky-400 rounded-full animate-radiate"
           style={{
             animationDelay: `${i * 0.25}s`,
             '--rot': `${i * 30}deg`,
@@ -67,11 +67,11 @@ const RQSP: React.FC = () => {
   return (
     <article className="prose prose-slate max-w-none">
       <header className="mb-20">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-500 text-[10px] font-bold uppercase tracking-widest mb-6">
           Security Protocol v1.4
         </div>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-          How Our <br/><span className="text-blue-600">Protocol Works.</span>
+          How Our <br/><span className="text-sky-500">Protocol Works.</span>
         </h1>
         <p className="text-xl md:text-2xl text-slate-500 font-serif italic leading-relaxed max-w-2xl">
           RQSP is our system that combines physics and math to create an unbreakable defense for your data.
@@ -82,7 +82,7 @@ const RQSP: React.FC = () => {
         <ProtocolStep 
           step="01"
           icon={<Zap size={32} />}
-          color="bg-blue-600"
+          color="bg-sky-500"
           title="Creating True Randomness"
           desc="Computers are bad at being random, which makes keys guessable. We use physical quantum physics to generate truly random numbers for your keys."
           animation={<QuantumEntropyAnimation />}
@@ -109,7 +109,7 @@ const RQSP: React.FC = () => {
             Our tools let your developers add this advanced protection to your apps with just a single line of code.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="/#/sdk" className="px-10 py-4 bg-blue-600 text-white rounded-full font-bold text-sm hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-xl shadow-blue-500/20">
+            <a href="/#/sdk" className="px-10 py-4 bg-sky-500 text-white rounded-full font-bold text-sm hover:bg-sky-600 transition-all flex items-center justify-center gap-2 shadow-xl shadow-sky-500/20">
               For Developers <ArrowRight size={18}/>
             </a>
             <a href="/#/platform" className="px-10 py-4 border border-slate-200 text-slate-600 rounded-full font-bold text-sm hover:bg-slate-50 transition-all flex items-center justify-center">

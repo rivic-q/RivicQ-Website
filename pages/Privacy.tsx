@@ -21,7 +21,7 @@ const Privacy: React.FC = () => {
 
       <div className="not-prose grid md:grid-cols-3 gap-6 mb-16">
         <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
-          <div className="mb-4 text-blue-600"><Database size={24}/></div>
+          <div className="mb-4 text-sky-500"><Database size={24}/></div>
           <h3 className="font-serif font-bold text-xl mb-3">Data Isolation</h3>
           <p className="text-xs text-slate-500 leading-relaxed">User data and metadata are stored in siloedconfidential compute environments, separated by hardware-native boundaries.</p>
         </div>
@@ -78,7 +78,7 @@ const Privacy: React.FC = () => {
         <h2 className="text-2xl font-serif font-bold mb-6">Privacy Inquiries</h2>
         <div className="text-sm text-slate-600 flex items-center gap-4">
           <span className="font-bold">Berlin HQ:</span>
-          <a href="mailto:hello@rivicq.de" className="text-blue-600 font-bold hover:text-slate-900 transition-colors inline-flex items-center gap-2" aria-label="Contact Privacy Officer">
+          <a href="mailto:hello@rivicq.de" className="text-sky-500 font-bold hover:text-slate-900 transition-colors inline-flex items-center gap-2" aria-label="Contact Privacy Officer">
             <Mail size={18} />
             <span className="text-xs uppercase tracking-widest">Send Secure Message</span>
           </a>

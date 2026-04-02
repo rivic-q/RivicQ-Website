@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Search, ArrowLeft, Shield, Lock } from 'lucide-react';
+import { Home, Search, Shield, Lock } from 'lucide-react';
 
 const NotFound: React.FC = () => {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 py-20">
       <div className="relative mb-8">
-        <div className="w-32 h-32 bg-slate-100 rounded-full flex items-center justify-center">
-          <Shield size={48} className="text-slate-300" />
+        <div className="w-32 h-32 bg-sky-50 rounded-full flex items-center justify-center">
+          <Shield size={48} className="text-sky-300" />
         </div>
-        <div className="absolute -top-2 -right-2 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+        <div className="absolute -top-2 -right-2 w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center">
           <Lock size={20} className="text-white" />
         </div>
       </div>
@@ -30,7 +30,7 @@ const NotFound: React.FC = () => {
       <div className="flex flex-col sm:flex-row gap-4">
         <Link 
           to="/"
-          className="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-blue-600 transition-all flex items-center justify-center gap-2 shadow-xl"
+          className="px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-600 transition-all flex items-center justify-center gap-2 shadow-xl"
         >
           <Home size={18} />
           Return Home
@@ -38,7 +38,7 @@ const NotFound: React.FC = () => {
         
         <Link 
           to="/products"
-          className="px-8 py-4 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl hover:border-slate-900 transition-all flex items-center justify-center gap-2"
+          className="px-8 py-4 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl hover:border-sky-500 hover:text-sky-600 transition-all flex items-center justify-center gap-2"
         >
           <Search size={18} />
           Explore Products
@@ -50,11 +50,11 @@ const NotFound: React.FC = () => {
           Quick Links
         </p>
         <div className="flex flex-wrap justify-center gap-6 text-sm">
-          <Link to="/platform" className="text-slate-500 hover:text-blue-600 transition-colors">Platform</Link>
-          <Link to="/pricing" className="text-slate-500 hover:text-blue-600 transition-colors">Pricing</Link>
-          <Link to="/team" className="text-slate-500 hover:text-blue-600 transition-colors">Team</Link>
-          <Link to="/resources" className="text-slate-500 hover:text-blue-600 transition-colors">Resources</Link>
-          <Link to="/compliance" className="text-slate-500 hover:text-blue-600 transition-colors">Compliance</Link>
+          <Link to="/platform" className="text-slate-500 hover:text-sky-500 transition-colors">Platform</Link>
+          <Link to="/pricing" className="text-slate-500 hover:text-sky-500 transition-colors">Pricing</Link>
+          <Link to="/team" className="text-slate-500 hover:text-sky-500 transition-colors">Team</Link>
+          <Link to="/resources" className="text-slate-500 hover:text-sky-500 transition-colors">Resources</Link>
+          <Link to="/compliance" className="text-slate-500 hover:text-sky-500 transition-colors">Compliance</Link>
         </div>
       </div>
     </div>

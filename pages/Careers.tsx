@@ -1,102 +1,334 @@
 
-import React from 'react';
-import { Mail, Send, Clock, Sparkles, TrendingUp, BarChart3 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Send, Users, Award, Globe, Heart, Sparkles, Handshake, Star, Clock, CheckCircle, ArrowRight, Briefcase } from 'lucide-react';
 
-const CareerCard: React.FC<{ 
-  title: string, 
-  focus: string, 
-  experience: string, 
-  icon: React.ReactNode, 
-  color: string 
-}> = ({ title, focus, experience, icon, color }) => (
-  <div className="border border-slate-100 rounded-[2.5rem] p-8 md:p-10 hover:border-blue-500 hover:shadow-2xl transition-all bg-white group">
-    <div className={`p-4 rounded-2xl mb-8 inline-block ${color}`}>
-      {icon}
-    </div>
-    <div className="mb-6">
-      <h3 className="font-serif text-3xl font-bold text-slate-900 m-0 mb-2 group-hover:text-blue-600 transition-colors">{title}</h3>
-      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[10px] font-bold text-blue-600 uppercase tracking-widest">
-        <Clock size={12} /> Priority Hiring • Q1 2026
-      </span>
-    </div>
-    <div className="space-y-6">
-      <div>
-        <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Focus Areas</h4>
-        <p className="text-sm text-slate-700 leading-relaxed m-0">{focus}</p>
+const AmbassadorCard: React.FC<{
+  title: string;
+  icon: React.ReactNode;
+  description: string;
+  perks: string[];
+}> = ({ title, icon, description, perks }) => (
+  <div className="bg-gradient-to-br from-sky-50 to-white border border-sky-200 rounded-[2rem] p-8 hover:shadow-lg transition-all">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-sky-500 text-white rounded-xl">
+        {icon}
       </div>
-      <div>
-        <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Desired Experience</h4>
-        <p className="text-sm text-slate-500 italic m-0">{experience}</p>
-      </div>
-      <a href={`mailto:hello@rivicq.de?subject=Strategic Inquiry: ${title}`} className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-blue-600 transition-all w-full justify-center">
-        Initialize Contact
-      </a>
+      <h3 className="text-xl font-bold text-slate-900">{title}</h3>
     </div>
+    <p className="text-slate-600 text-sm mb-6">{description}</p>
+    <div className="space-y-2 mb-6">
+      <h4 className="text-xs font-bold text-sky-600 uppercase tracking-wider">Perks Include</h4>
+      {perks.map((perk, i) => (
+        <div key={i} className="flex items-center gap-2 text-sm text-slate-600">
+          <Star size={14} className="text-amber-500" />
+          {perk}
+        </div>
+      ))}
+    </div>
+    <a 
+      href="mailto:hello@rivicq.de?subject=Ambassador Program Application"
+      className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-sky-600 transition-all w-full justify-center"
+    >
+      Become an Ambassador <ArrowRight size={16} />
+    </a>
   </div>
 );
 
 const Careers: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    role: '',
+    linkedin: '',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'careers-application',
+          name: formData.name,
+          email: formData.email,
+          role: formData.role,
+          message: `LinkedIn: ${formData.linkedin}\n\n${formData.message}`
+        })
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert('Something went wrong. Please try again or email us at hello@rivicq.de');
+      }
+    } catch {
+      alert('Network error. Please try again or email us at hello@rivicq.de');
+    }
+  };
+
   return (
-    <article className="prose prose-lg prose-slate max-w-none">
+    <article className="prose prose-slate max-w-none">
       <header className="mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-6">
-          Founder Search Phase
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-4 bg-sky-100 text-sky-600 rounded-2xl">
+            <Briefcase size={32} />
+          </div>
+          <span className="text-xs font-bold text-sky-600 uppercase tracking-widest">Join Our Team</span>
         </div>
-        <h1 className="text-5xl font-bold mb-4 tracking-tight">Co-Founder Search: <br/>Pioneering <span className="text-blue-600">Quantum-Safe Security.</span></h1>
-        <p className="text-xl text-slate-500 font-serif italic max-w-2xl leading-relaxed">
-          Seeking highly motivated partners to complement the deep technical expertise of our founder and scale RivicQ into the global leader of cryptographic resilience.
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
+          Careers at RivicQ
+        </h1>
+        <p className="text-xl text-slate-600 max-w-3xl leading-relaxed">
+          Join us in building the quantum-safe future. We're looking for passionate individuals to help organizations transition to post-quantum cryptography and secure their infrastructure for the next era.
         </p>
       </header>
 
+      {/* Coming Soon - Open Positions */}
       <section className="mb-20">
-        <div className="bg-slate-50 p-8 md:p-12 rounded-[3rem] border border-slate-100 flex flex-col md:flex-row gap-10 items-center">
-          <div className="w-20 h-20 bg-blue-600 text-white rounded-3xl flex items-center justify-center shrink-0 shadow-xl shadow-blue-200">
-            <Sparkles size={32} />
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-3 bg-sky-100 text-sky-600 rounded-xl">
+            <Clock size={24} />
           </div>
           <div>
-            <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2 m-0">The Co-Founder Role</h3>
-            <p className="text-slate-600 text-sm leading-relaxed m-0">
-              You will be a strategic partner instrumental in securing initial funding, establishing enterprise partnerships, and rapidly scaling RivicQ's market presence alongside <strong>Revan Ande</strong>.
+            <h2 className="text-3xl font-bold text-slate-900 m-0">Open Positions</h2>
+            <p className="text-xs text-sky-600 font-bold uppercase tracking-widest">Coming Soon</p>
+          </div>
+        </div>
+        
+        <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[3rem] p-10 md:p-16 text-white text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-technical opacity-10"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl"></div>
+          
+          <div className="relative z-10">
+            <div className="w-20 h-20 bg-sky-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Clock size={40} className="text-sky-400" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Open Positions Coming Soon</h2>
+            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-8">
+              We're currently building our team and will be posting exciting opportunities soon. Stay tuned for roles in security research, AI engineering, and enterprise sales.
             </p>
+            <a 
+              href="mailto:hello@rivicq.de?subject=Career Interest - Get Notified"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-400 transition-all"
+            >
+              <Mail size={18} /> Get Notified When We Hire
+            </a>
           </div>
         </div>
       </section>
 
-      <div className="not-prose grid md:grid-cols-2 gap-8 mb-24">
-        <CareerCard 
-          title="Co-Founder (Business & Strategy)"
-          icon={<TrendingUp size={28} />}
-          color="bg-blue-50 text-blue-600"
-          focus="Lead fundraising efforts, manage investor relations, and define the Go-To-Market (GTM) execution strategy."
-          experience="Proven track record in B2B tech sales, VC networking, or financial modeling for deep-tech startups."
-        />
-        <CareerCard 
-          title="Head of Sales & Marketing"
-          icon={<BarChart3 size={28} />}
-          color="bg-emerald-50 text-emerald-600"
-          focus="Establish the sales pipeline, oversee high-impact marketing campaigns, and drive adoption of CSaaS and DevSecOps tools."
-          experience="Experience defining successful GTM motions for cybersecurity products and navigating the enterprise procurement cycle. Opening soon."
-        />
-      </div>
-
-      <section className="not-prose bg-slate-900 rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-white m-0">Join the Quantum-Safe Future</h2>
-        <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto italic">
-          "If you are a passionate leader ready to tackle the challenges of cryptographic debt and scale a deeptech startup, let's talk."
+      {/* Ambassador Program */}
+      <section className="mb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-3 bg-amber-100 text-amber-600 rounded-xl">
+            <Award size={24} />
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 m-0">Ambassador Program</h2>
+            <p className="text-xs text-amber-600 font-bold uppercase tracking-widest">Join Our Community</p>
+          </div>
+        </div>
+        <p className="text-slate-600 mb-8 max-w-2xl">
+          Become a RivicQ Ambassador and help spread awareness about quantum security. Represent us at conferences, write about PQC topics, and build your personal brand while contributing to the quantum-safe future.
         </p>
-        <a 
-          href="mailto:hello@rivicq.de?subject=Strategic Partnership: Co-Founder Application" 
-          className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 uppercase text-xs tracking-widest"
-        >
-          Submit Statement of Interest <Send size={18}/>
-        </a>
-        <p className="mt-8 text-[10px] text-slate-500 uppercase tracking-widest font-bold">
-          Please CC: revan.ande@rivicq.de
-        </p>
+        
+        <div className="not-prose grid md:grid-cols-3 gap-6">
+          <AmbassadorCard 
+            title="Student Ambassador"
+            icon={<Globe size={24} />}
+            description="Perfect for university students interested in cybersecurity, cryptography, or quantum computing."
+            perks={[
+              'Exclusive access to research materials',
+              'Mentorship from our team',
+              'Conference attendance opportunities',
+              'Potential full-time role after graduation',
+              'Letter of recommendation'
+            ]}
+          />
+          
+          <AmbassadorCard 
+            title="Community Ambassador"
+            icon={<Users size={24} />}
+            description="For security researchers, developers, and influencers who want to champion quantum security."
+            perks={[
+              'Early access to products and features',
+              'Speaking opportunity at our events',
+              'Revenue share for referrals',
+              'Exclusive RivicQ swag',
+              'Direct line to our team'
+            ]}
+          />
+          
+          <AmbassadorCard 
+            title="Enterprise Ambassador"
+            icon={<Handshake size={24} />}
+            description="For consultants and advisors who help organizations with their security and compliance journey."
+            perks={[
+              'Partner tier access to all tools',
+              'Referral commissions',
+              'Co-marketing opportunities',
+              'VIP event access',
+              'Thought leadership platform'
+            ]}
+          />
+        </div>
       </section>
 
-      <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-        RivicQ Technologies • Berlin Headquarters
+      {/* Unsolicited Applications */}
+      <section className="mb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-3 bg-sky-100 text-sky-600 rounded-xl">
+            <Heart size={24} />
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 m-0">Unsolicited Applications</h2>
+            <p className="text-xs text-sky-600 font-bold uppercase tracking-widest">Don't See Your Role?</p>
+          </div>
+        </div>
+        <p className="text-slate-600 mb-8 max-w-2xl">
+          We're always interested in meeting talented individuals. If you believe you can contribute to RivicQ's mission, we'd love to hear from you. We review every application carefully.
+        </p>
+        
+        <div className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12">
+          {submitted ? (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle size={32} className="text-emerald-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Application Received</h3>
+              <p className="text-slate-600 mb-6">
+                Thank you for your interest in RivicQ! Our team will review your application and get back to you within 2 weeks.
+              </p>
+              <button 
+                onClick={() => setSubmitted(false)}
+                className="text-sky-500 font-bold hover:underline"
+              >
+                Submit Another Application
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Full Name *</label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Email *</label>
+                  <input
+                    required
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                    placeholder="you@company.com"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Role You're Interested In *</label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.role}
+                    onChange={(e) => setFormData({...formData, role: e.target.value})}
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                    placeholder="e.g., Security Engineer, Sales Lead..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">LinkedIn Profile</label>
+                  <input
+                    type="url"
+                    value={formData.linkedin}
+                    onChange={(e) => setFormData({...formData, linkedin: e.target.value})}
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                    placeholder="https://linkedin.com/in/..."
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-2">Tell Us About Yourself *</label>
+                <textarea
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  rows={5}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 resize-none"
+                  placeholder="Tell us about your skills, experience, and why you'd like to join RivicQ..."
+                />
+              </div>
+              
+              <button
+                type="submit"
+                className="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2"
+              >
+                Submit Application <Send size={18} />
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* Why Join Us */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold text-slate-900 mb-8">Why Join RivicQ?</h2>
+        <div className="not-prose grid md:grid-cols-4 gap-6">
+          {[
+            { icon: <Sparkles size={24} className="text-sky-500" />, title: 'Mission Critical', desc: 'Work on problems that will define the security landscape for the next 50 years.' },
+            { icon: <Globe size={24} className="text-emerald-500" />, title: 'Global Impact', desc: 'Help organizations worldwide prepare for the post-quantum transition.' },
+            { icon: <Award size={24} className="text-purple-500" />, title: 'Growth Path', desc: 'Clear career progression with equity participation in our success.' },
+            { icon: <Heart size={24} className="text-rose-500" />, title: 'Great Culture', desc: 'Remote-first team with flexible hours and collaborative spirit.' },
+          ].map((item, i) => (
+            <div key={i} className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg transition-all">
+              <div className="w-14 h-14 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                {item.icon}
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+              <p className="text-sm text-slate-500">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="not-prose">
+        <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[3rem] p-10 md:p-16 text-white text-center">
+          <h2 className="text-3xl font-bold mb-4">Questions?</h2>
+          <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
+            Can't find the right role? Have questions about working at RivicQ? We'd love to hear from you.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="mailto:careers@rivicq.de?subject=Career Inquiry"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-400 transition-all"
+            >
+              <Mail size={18} /> careers@rivicq.de
+            </a>
+            <a 
+              href="mailto:hello@rivicq.de"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-slate-600 text-white font-bold rounded-xl hover:bg-white/10 transition-all"
+            >
+              General Contact
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="mt-16 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+        RivicQ Technologies • Berlin • Equal Opportunity Employer
       </footer>
     </article>
   );
