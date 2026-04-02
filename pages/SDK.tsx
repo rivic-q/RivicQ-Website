@@ -94,7 +94,7 @@ new_session = kms_client.rotate_key(session.id)`} />
                <a href="https://github.com/rivic-q" target="_blank" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-slate-100 transition-all">
                  <Terminal size={18}/> Full API Docs
                </a>
-               <a href="mailto:rivic.revan.ande@gmail.com" className="px-8 py-4 border border-slate-700 text-white font-bold rounded-xl text-sm flex items-center justify-center hover:bg-white/5 transition-all">
+               <a href="mailto:hello@rivicq.de" className="px-8 py-4 border border-slate-700 text-white font-bold rounded-xl text-sm flex items-center justify-center hover:bg-white/5 transition-all">
                  Contact Engineering Support
                </a>
             </div>

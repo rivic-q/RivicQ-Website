@@ -161,7 +161,7 @@ const Compliance: React.FC = () => {
         <p className="text-slate-500 mb-10 max-w-xl mx-auto italic">
           Request a full regulatory mapping of your infrastructure to NIST and DORA standards.
         </p>
-        <a href="mailto:contact@rivicq.xyz" className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20">
+        <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20">
           Request Compliance Scoping <ArrowRight size={18}/>
         </a>
       </section>

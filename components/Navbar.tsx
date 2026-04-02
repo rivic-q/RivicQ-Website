@@ -18,6 +18,8 @@ const Navbar: React.FC = () => {
     { name: 'Resources', path: '/resources' },
   ];
 
+  const ctaLink = { name: 'Beta Signup', path: '/beta-signup' };
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -45,10 +47,10 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             <Link
-              to="/resources"
-              className="px-5 py-2.5 rounded-full bg-dark text-white text-sm font-medium hover:bg-gray-800 transition-all shadow-md hover:shadow-lg"
+              to={ctaLink.path}
+              className="px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium hover:bg-primary/80 transition-all shadow-md hover:shadow-lg"
             >
-              Get Started
+              {ctaLink.name}
             </Link>
           </div>
 
@@ -82,13 +84,13 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-             <Link
-                to="/resources"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-center mt-4 px-5 py-3 rounded-md bg-primary-dark text-white font-bold"
-              >
-                Get Started
-              </Link>
+<Link
+                 to={ctaLink.path}
+                 onClick={() => setIsOpen(false)}
+                 className="block w-full text-center mt-4 px-5 py-3 rounded-md bg-primary text-white font-bold"
+               >
+                 {ctaLink.name}
+               </Link>
           </div>
         </div>
       )}

@@ -13,6 +13,7 @@ const Sidebar: React.FC = () => {
         { name: 'Home', path: '/', icon: <Layout size={12}/> },
         { name: 'Our Story', path: '/story', icon: <Sparkles size={12}/> },
         { name: 'Products & SaaS', path: '/products', icon: <Box size={12}/> },
+        { name: 'Beta Signup', path: '/beta-signup', icon: <Star size={12}/> },
         { name: 'Use Cases', path: '/use-cases', icon: <FileText size={12}/> },
       ]
     },
@@ -116,7 +117,7 @@ const Sidebar: React.FC = () => {
             <a href="https://github.com/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors focus:text-slate-900" title="GitHub"><Github size={16} /></a>
             <a href="https://www.linkedin.com/company/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors focus:text-blue-600" title="LinkedIn"><Linkedin size={16} /></a>
             <a href="https://www.youtube.com/@RivicQ" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600 transition-colors focus:text-red-600" title="YouTube"><Youtube size={16} /></a>
-            <a href="mailto:rivic.revan.ande@gmail.com" className="text-slate-400 hover:text-slate-900 transition-colors focus:text-slate-900" title="Email Contact"><Mail size={16} /></a>
+            <a href="mailto:hello@rivicq.de" className="text-slate-400 hover:text-slate-900 transition-colors focus:text-slate-900" title="Email Contact"><Mail size={16} /></a>
           </div>
           <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-tight">
             <Globe size={10} className="text-blue-500" aria-hidden="true"/>

@@ -28,7 +28,7 @@ const CareerCard: React.FC<{
         <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Desired Experience</h4>
         <p className="text-sm text-slate-500 italic m-0">{experience}</p>
       </div>
-      <a href={`mailto:rivic.revan.ande@gmail.com?subject=Strategic Inquiry: ${title}`} className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-blue-600 transition-all w-full justify-center">
+      <a href={`mailto:hello@rivicq.de?subject=Strategic Inquiry: ${title}`} className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-blue-600 transition-all w-full justify-center">
         Initialize Contact
       </a>
     </div>
@@ -85,13 +85,13 @@ const Careers: React.FC = () => {
           "If you are a passionate leader ready to tackle the challenges of cryptographic debt and scale a deeptech startup, let's talk."
         </p>
         <a 
-          href="mailto:rivic.revan.ande@gmail.com?subject=Strategic Partnership: Co-Founder Application" 
+          href="mailto:hello@rivicq.de?subject=Strategic Partnership: Co-Founder Application" 
           className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 uppercase text-xs tracking-widest"
         >
           Submit Statement of Interest <Send size={18}/>
         </a>
         <p className="mt-8 text-[10px] text-slate-500 uppercase tracking-widest font-bold">
-          Please CC: revan.ande@rivicq.xyz
+          Please CC: revan.ande@rivicq.de
         </p>
       </section>
 

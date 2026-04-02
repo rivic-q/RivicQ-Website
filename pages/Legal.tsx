@@ -58,7 +58,7 @@ const Legal: React.FC = () => {
             
             <h4 className="font-bold text-slate-900 mb-2 mt-6 uppercase tracking-widest text-[10px]">Kontakt (Contact)</h4>
             <p className="text-slate-600 m-0">
-              Email: <a href="mailto:rivic.revan.ande@gmail.com" className="text-blue-600 font-bold hover:underline">rivic.revan.ande@gmail.com</a><br/>
+              Email: <a href="mailto:hello@rivicq.de" className="text-blue-600 font-bold hover:underline">hello@rivicq.de</a><br/>
             </p>
 
              <h4 className="font-bold text-slate-900 mb-2 mt-6 uppercase tracking-widest text-[10px]">Registereintrag (Registration)</h4>
@@ -164,7 +164,7 @@ const Legal: React.FC = () => {
         <p className="text-sm text-slate-600 mb-6">
             For intellectual property inquiries, takedown requests, or licensing information:
         </p>
-        <a href="mailto:rivic.revan.ande@gmail.com" className="inline-flex items-center gap-2 font-bold text-blue-600 hover:text-slate-900 transition-colors text-xs uppercase tracking-widest">
+        <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 font-bold text-blue-600 hover:text-slate-900 transition-colors text-xs uppercase tracking-widest">
            <Mail size={16} /> Contact Legal Department
         </a>
       </section>

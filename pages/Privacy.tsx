@@ -78,7 +78,7 @@ const Privacy: React.FC = () => {
         <h2 className="text-2xl font-serif font-bold mb-6">Privacy Inquiries</h2>
         <div className="text-sm text-slate-600 flex items-center gap-4">
           <span className="font-bold">Berlin HQ:</span>
-          <a href="mailto:rivic.revan.ande@gmail.com" className="text-blue-600 font-bold hover:text-slate-900 transition-colors inline-flex items-center gap-2" aria-label="Contact Privacy Officer">
+          <a href="mailto:hello@rivicq.de" className="text-blue-600 font-bold hover:text-slate-900 transition-colors inline-flex items-center gap-2" aria-label="Contact Privacy Officer">
             <Mail size={18} />
             <span className="text-xs uppercase tracking-widest">Send Secure Message</span>
           </a>

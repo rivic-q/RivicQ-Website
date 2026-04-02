@@ -265,7 +265,7 @@ const Home: React.FC = () => {
             <Link to="/pricing" className="px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20 text-center">
               Initialize Pilot
             </Link>
-            <a href="mailto:contact@rivicq.xyz" className="px-10 py-5 border border-slate-700 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-white/5 transition-all text-center">
+            <a href="mailto:hello@rivicq.de" className="px-10 py-5 border border-slate-700 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-white/5 transition-all text-center">
               Engineering Consultation
             </a>
           </div>

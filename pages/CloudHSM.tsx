@@ -262,7 +262,7 @@ const CloudHSM: React.FC = () => {
           Ask us for a demo or check our pricing.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:rivic.revan.ande@gmail.com?subject=Cloud HSM Inquiry" className="px-10 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 justify-center shadow-xl">
+          <a href="mailto:hello@rivicq.de?subject=Cloud HSM Inquiry" className="px-10 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 justify-center shadow-xl">
             Request Demo <ArrowRight size={18}/>
           </a>
           <Link to="/pricing" className="px-10 py-4 border border-blue-400 text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center gap-2 justify-center">

@@ -124,7 +124,7 @@ const Solutions: React.FC = () => {
            <p className="text-slate-400 text-sm mb-8 max-w-xl mx-auto">
              Our team can check your systems and tell you exactly what you need to do to be compliant.
            </p>
-           <a href="mailto:rivic.revan.ande@gmail.com" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all text-xs uppercase tracking-widest">
+           <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all text-xs uppercase tracking-widest">
               Contact Us <FileText size={16}/>
            </a>
         </div>

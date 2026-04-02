@@ -1,0 +1,12 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow API routes
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://rivicq.de/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 10

@@ -1,10 +1,9 @@
-
 import React, { Suspense } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
+import ErrorBoundary from './components/ErrorBoundary';
 import { Loader2 } from 'lucide-react';
 
-// Lazy Load Pages
 const Home = React.lazy(() => import('./pages/Home'));
 const Products = React.lazy(() => import('./pages/Products')); 
 const Platform = React.lazy(() => import('./pages/Platform'));
@@ -30,6 +29,9 @@ const Methodology = React.lazy(() => import('./pages/Methodology'));
 const Partner = React.lazy(() => import('./pages/Partner'));
 const Investors = React.lazy(() => import('./pages/Investors'));
 const QuantumResearch = React.lazy(() => import('./pages/QuantumResearch'));
+const PitchDeck = React.lazy(() => import('./pages/PitchDeck'));
+const BetaSignup = React.lazy(() => import('./pages/BetaSignup'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 const RouteHandler = () => {
   const { pathname } = useLocation();
@@ -60,7 +62,9 @@ const RouteHandler = () => {
       '/glossary': 'Glossary of Quantum Terms | RivicQ',
       '/partner': 'Partner Program | RivicQ',
       '/investors': 'Investor Relations | RivicQ',
-      '/research': 'Quantum Research & R&D | RivicQ'
+      '/research': 'Quantum Research & R&D | RivicQ',
+      '/pitch-deck': 'Investor Materials | RivicQ',
+      '/beta-signup': 'Beta Signup | RivicQ'
     };
     document.title = titles[pathname] || 'RivicQ | Quantum-Safe Security';
   }, [pathname]);
@@ -75,40 +79,45 @@ const PageLoader = () => (
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <RouteHandler />
-      <Layout>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/rqsp" element={<RQSP />} />
-            <Route path="/platform" element={<Platform />} />
-            <Route path="/cloud-hsm" element={<CloudHSM />} />
-            <Route path="/methodology" element={<Methodology />} />
-            <Route path="/sdk" element={<SDK />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/use-cases" element={<UseCases />} />
-            <Route path="/roadmap" element={<Roadmap />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/story" element={<Story />} />
-            <Route path="/compliance" element={<Compliance />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/legal" element={<Legal />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/trust" element={<TrustCenter />} />
-            <Route path="/glossary" element={<Glossary />} />
-            <Route path="/partner" element={<Partner />} />
-            <Route path="/investors" element={<Investors />} />
-            <Route path="/research" element={<QuantumResearch />} />
-          </Routes>
-        </Suspense>
-      </Layout>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <RouteHandler />
+        <Layout>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/rqsp" element={<RQSP />} />
+              <Route path="/platform" element={<Platform />} />
+              <Route path="/cloud-hsm" element={<CloudHSM />} />
+              <Route path="/methodology" element={<Methodology />} />
+              <Route path="/sdk" element={<SDK />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/use-cases" element={<UseCases />} />
+              <Route path="/roadmap" element={<Roadmap />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/story" element={<Story />} />
+              <Route path="/compliance" element={<Compliance />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/legal" element={<Legal />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/trust" element={<TrustCenter />} />
+              <Route path="/glossary" element={<Glossary />} />
+              <Route path="/partner" element={<Partner />} />
+              <Route path="/investors" element={<Investors />} />
+              <Route path="/research" element={<QuantumResearch />} />
+              <Route path="/pitch-deck" element={<PitchDeck />} />
+              <Route path="/beta-signup" element={<BetaSignup />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </Layout>
+      </Router>
+    </ErrorBoundary>
   );
 };
 
