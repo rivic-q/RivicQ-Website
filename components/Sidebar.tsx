@@ -1,0 +1,157 @@
+
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Github, Mail, Linkedin, Youtube, Globe, Shield, Lock, Cpu, Sparkles, Layout, Users, Scale, ShieldCheck, Microscope, BookOpen, Handshake, Cloud, Box, Atom, Star, Target, FileText, Menu, X, Briefcase, Code2, FileCode, Database, PieChart, ScrollText, GraduationCap } from 'lucide-react';
+
+const Sidebar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const groups = [
+    {
+      label: 'Getting Started',
+      links: [
+        { name: 'Home', path: '/', icon: <Layout size={14}/> },
+        { name: 'Our Story', path: '/story', icon: <Sparkles size={14}/> },
+        { name: 'Products & SaaS', path: '/products', icon: <Box size={14}/> },
+        { name: 'Beta Signup', path: '/beta-signup', icon: <Star size={14}/> },
+        { name: 'Use Cases', path: '/use-cases', icon: <Target size={14}/> },
+      ]
+    },
+    {
+      label: 'Solutions',
+      links: [
+        { name: 'Solutions', path: '/solutions', icon: <PieChart size={14}/> },
+        { name: 'Services', path: '/services', icon: <Briefcase size={14}/> },
+        { name: 'Pricing', path: '/pricing', icon: <Database size={14}/> },
+        { name: 'Cloud HSM', path: '/cloud-hsm', icon: <Cloud size={14}/> },
+      ]
+    },
+    {
+      label: 'Technology',
+      links: [
+        { name: 'Platform', path: '/platform', icon: <Cpu size={14}/> },
+        { name: 'RQSP Protocol', path: '/rqsp', icon: <Lock size={14}/> },
+        { name: 'Developer SDK', path: '/sdk', icon: <Code2 size={14}/> },
+        { name: 'Compliance', path: '/compliance', icon: <ScrollText size={14}/> },
+      ]
+    },
+    {
+      label: 'Resources',
+      links: [
+        { name: 'Blog', path: '/blog', icon: <BookOpen size={14}/> },
+        { name: 'Quantum Research', path: '/research', icon: <Atom size={14}/> },
+        { name: 'Glossary', path: '/glossary', icon: <GraduationCap size={14}/> },
+        { name: 'Resources', path: '/resources', icon: <FileText size={14}/> },
+        { name: 'Methodology', path: '/methodology', icon: <Microscope size={14}/> },
+        { name: 'Trust Center', path: '/trust', icon: <ShieldCheck size={14}/> },
+      ]
+    },
+    {
+      label: 'Company',
+      links: [
+        { name: 'Team', path: '/team', icon: <Users size={14}/> },
+        { name: 'Careers', path: '/careers', icon: <Briefcase size={14}/> },
+        { name: 'Investors', path: '/investors', icon: <PieChart size={14}/> },
+        { name: 'Partner', path: '/partner', icon: <Handshake size={14}/> },
+        { name: 'Roadmap', path: '/roadmap', icon: <Target size={14}/> },
+      ]
+    },
+    {
+      label: 'Legal',
+      links: [
+        { name: 'Legal & Rights', path: '/legal', icon: <Scale size={14}/> },
+        { name: 'Privacy Policy', path: '/privacy', icon: <Shield size={14}/> },
+      ]
+    }
+  ];
+
+  const closeMenu = () => setIsOpen(false);
+
+  return (
+    <>
+      {/* Mobile Header */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-white/80 backdrop-blur-lg border-b border-slate-200 z-[100] flex items-center justify-between px-6">
+        <NavLink to="/" className="font-serif text-xl font-bold tracking-tight text-slate-900">RivicQ</NavLink>
+        <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-slate-600 hover:text-sky-500 transition-colors">
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Sidebar / Drawer */}
+      <aside className={`w-64 flex-shrink-0 fixed inset-y-0 left-0 bg-white/70 backdrop-blur-xl border-r border-slate-200 flex flex-col z-[90] transition-transform duration-300 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`} role="complementary" aria-label="Main Sidebar Navigation">
+        
+        <div className="p-8 pb-6 hidden md:block">
+          <NavLink to="/" className="group block" aria-label="RivicQ Home">
+            <h1 className="font-serif text-2xl font-bold tracking-tight text-slate-900 mb-1 group-hover:text-sky-500 transition-colors">
+              RivicQ
+            </h1>
+            <div className="h-0.5 w-8 bg-sky-500 mb-3 group-hover:w-full transition-all duration-300"></div>
+            <div className="space-y-0.5">
+              <p className="font-sans text-[9px] uppercase tracking-[0.2em] text-sky-500 font-bold leading-tight">
+                Quantum Safe
+              </p>
+              <p className="font-sans text-[9px] uppercase tracking-[0.2em] text-slate-400 font-bold leading-tight">
+                Security Protocol
+              </p>
+            </div>
+          </NavLink>
+        </div>
+
+        <nav className="flex-grow overflow-y-auto px-6 py-4 md:py-4 mt-16 md:mt-0 space-y-6 scrollbar-hide" aria-label="Sidebar Sections">
+          {groups.map((group, idx) => (
+            <div key={idx} role="group" aria-labelledby={`nav-group-${idx}`}>
+              <h3 id={`nav-group-${idx}`} className="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2 border-b border-slate-100 pb-1">
+                {group.label}
+              </h3>
+              <div className="space-y-0.5">
+                {group.links.map((link) => (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      `group flex items-center gap-2.5 py-1.5 text-sm transition-all focus:outline-none rounded-md ${
+                        isActive 
+                          ? 'text-sky-600 font-semibold bg-sky-50' 
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`
+                    }
+                  >
+                    <span className={({ isActive }) => isActive ? 'text-sky-500' : 'text-slate-400 group-hover:text-slate-600'}>
+                      {link.icon}
+                    </span>
+                    {link.name}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          ))}
+        </nav>
+
+        <div className="p-6 pt-4 border-t border-slate-100">
+          <div className="flex gap-4 mb-4">
+            <a href="https://github.com/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors" title="GitHub"><Github size={16} /></a>
+            <a href="https://www.linkedin.com/company/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-sky-500 transition-colors" title="LinkedIn"><Linkedin size={16} /></a>
+            <a href="https://www.youtube.com/@RivicQ" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-500 transition-colors" title="YouTube"><Youtube size={16} /></a>
+            <a href="mailto:hello@rivicq.de" className="text-slate-400 hover:text-slate-900 transition-colors" title="Email"><Mail size={16} /></a>
+          </div>
+          <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-tight">
+            <Globe size={10} className="text-sky-400" aria-hidden="true"/>
+            <span>Berlin • Leap Quantum</span>
+          </div>
+        </div>
+      </aside>
+
+      {/* Overlay for mobile menu */}
+      {isOpen && (
+        <div 
+          onClick={closeMenu}
+          className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-[80] md:hidden"
+          aria-hidden="true"
+        />
+      )}
+    </>
+  );
+};
+
+export default Sidebar;

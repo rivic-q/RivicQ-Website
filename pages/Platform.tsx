@@ -1,149 +1,214 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import {
-  ArrowRight,
-  Braces,
-  Cloud,
-  Cpu,
-  Database,
-  GitBranch,
-  Network,
-  Shield,
-  ShieldCheck,
-  Sparkles,
-  Zap,
-} from 'lucide-react';
 
-const architectureFlow = [
-  { label: 'Assets', icon: <Cloud size={16} className="text-[#00D9FF]" /> },
-  { label: 'BOM Detection', icon: <Database size={16} className="text-[#00D9FF]" /> },
-  { label: 'Crypto + PQC Analysis', icon: <Shield size={16} className="text-[#00D9FF]" /> },
-  { label: 'Agentic Security AI', icon: <Sparkles size={16} className="text-[#9D4EDD]" /> },
-  { label: 'Quantum Risk Engine', icon: <Cpu size={16} className="text-[#00D9FF]" /> },
-  { label: 'Privacy Protocol', icon: <ShieldCheck size={16} className="text-[#00D9FF]" /> },
-];
+import React, { useState, useEffect } from 'react';
+import { Database, ArrowRight, Github, Terminal, Atom, Layers, Repeat, Search, Cloud, Shield, Cpu, Network, Zap, ShieldCheck, Activity, Settings } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import SystemArchitecture3D from '../components/SystemArchitecture3D';
 
 const Platform: React.FC = () => {
+  const [complexity, setComplexity] = useState(65);
+  const [riskScore, setRiskScore] = useState(0);
+
+  useEffect(() => {
+    const baseRisk = complexity * 0.8;
+    const finalScore = Math.min(100, Math.round(baseRisk + 12));
+    setRiskScore(finalScore);
+  }, [complexity]);
+
   return (
-    <article className="prose prose-invert max-w-none">
-      <header className="mb-12">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-[10px] font-bold uppercase tracking-[0.3em] text-slate-200">
-          Architecture Overview
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold mt-6">RIVICQ CSPM Platform</h1>
-        <p className="text-lg text-slate-300 max-w-3xl">
-          Designed for high-assurance cryptographic posture management across cloud, code, AI, and
-          quantum systems. RIVICQ delivers a unified CSPM control plane with Agentic Security AI,
-          Privacy Protocol, and automated encryption services.
-        </p>
+    <article className="prose prose-slate max-w-none">
+      <header className="mb-16">
+        <h1 className="text-5xl font-bold mb-4 tracking-tight text-slate-900">Products & Architecture</h1>
+        <p className="text-slate-500 font-serif italic text-xl">The foundation of your new, quantum-safe security system.</p>
+        <p className="text-slate-400 text-[10px] font-mono uppercase tracking-[0.3em] font-bold mt-6">Protocol v1.4 • NIST Compliant • Cloud Ready</p>
       </header>
 
-      <section className="not-prose glass-card rounded-[2.5rem] p-8">
-        <div className="flex items-center justify-between mb-6">
+      <section className="not-prose -mx-8 md:-mx-16 mb-24">
+         <SystemArchitecture3D />
+      </section>
+
+      <section className="mb-24">
+        <div className="flex items-center gap-4 mb-10">
+          <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
+            <Layers size={24} />
+          </div>
           <div>
-            <h2 className="text-2xl font-bold text-white m-0">Architecture Visualization</h2>
-            <p className="text-sm text-slate-300 mt-2">
-              Assets → BOM Detection → Crypto + PQC Analysis → Agentic Security AI →
-              Quantum Risk Engine → Privacy Protocol → Unified CSPM Dashboard
+            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Our Core Products</h2>
+            <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Tools to find, fix, and secure.</p>
+          </div>
+        </div>
+
+        <div className="not-prose grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-sky-500 hover:scale-[1.01] transition-all duration-500 group">
+            <div className="mb-6 flex items-center justify-between">
+              <div className="p-3 bg-sky-50 text-sky-500 rounded-xl group-hover:bg-sky-500 group-hover:text-white transition-all">
+                <Search size={24} />
+              </div>
+              <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">Find</span>
+            </div>
+            <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">Security Audit (Scanner)</h3>
+            <p className="text-sm text-slate-500 leading-relaxed">
+              We use smart AI to scan your systems and find where you are using old, weak security methods that need updating.
             </p>
           </div>
-          <Zap size={20} className="text-[#00D9FF]" />
-        </div>
-        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3">
-          {architectureFlow.map(step => (
-            <div key={step.label} className="glass-panel rounded-2xl p-4 text-center">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-3">
-                {step.icon}
+
+          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-emerald-500 hover:scale-[1.01] transition-all duration-500 group">
+            <div className="mb-6 flex items-center justify-between">
+              <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                <Database size={24} />
               </div>
-              <div className="text-[11px] uppercase tracking-[0.2em] text-slate-200">
-                {step.label}
-              </div>
+              <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">Inventory</span>
             </div>
-          ))}
-        </div>
-        <div className="mt-6 glass-panel rounded-2xl p-4">
-          <div className="text-xs uppercase tracking-[0.3em] text-slate-400">
-            Animated data pipelines
+            <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">CryptoBOM Dashboard</h3>
+            <p className="text-sm text-slate-500 leading-relaxed">
+              A dashboard that lists every "digital lock" (key) in your company. It tells you which ones are safe (managed) and which ones are risky (hidden).
+            </p>
           </div>
-          <div className="mt-4 grid grid-cols-6 gap-2">
-            {Array.from({ length: 12 }).map((_, idx) => (
-              <div
-                key={idx}
-                className="h-2 rounded-full bg-gradient-to-r from-[#00D9FF]/20 via-[#00D9FF]/80 to-[#9D4EDD]/60 animate-pulse"
-                style={{ animationDelay: `${idx * 0.1}s` }}
+        </div>
+
+        <div className="not-prose grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="p-8 bg-slate-900 text-white border border-slate-800 rounded-[2.5rem] shadow-xl hover:border-sky-400 hover:scale-[1.01] transition-all duration-500 group">
+            <div className="mb-6 flex items-center justify-between">
+              <div className="p-3 bg-sky-500 text-white rounded-xl">
+                <Cloud size={24} />
+              </div>
+              <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest">Secure Hardware</span>
+            </div>
+            <h3 className="text-xl font-serif font-bold text-white mb-4">Cloud HSM</h3>
+            <p className="text-sm text-slate-400 leading-relaxed mb-6">
+              Our secure cloud hardware acts as a "digital vault" for your keys, protected by physical barriers and quantum-safe tech.
+            </p>
+            <Link to="/cloud-hsm" className="text-xs font-bold text-sky-400 flex items-center gap-2 hover:text-white transition-colors uppercase tracking-widest">
+              See Hardware Details <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-indigo-500 hover:scale-[1.01] transition-all duration-500 group">
+            <div className="mb-6 flex items-center justify-between">
+              <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                <Repeat size={24} />
+              </div>
+              <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">Upgrade</span>
+            </div>
+            <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">RQSP Automation</h3>
+            <p className="text-sm text-slate-500 leading-relaxed">
+              Our automated system helps you switch from old keys to new keys instantly, without stopping your business.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Quantum Risk Simulation Section */}
+      <section className="my-24 not-prose">
+        <div className="flex items-center gap-4 mb-12">
+          <div className="p-3 bg-slate-900 text-white rounded-2xl shadow-xl shadow-sky-900/20">
+            <Atom size={24} className="animate-spin-slow" />
+          </div>
+          <div>
+            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Quantum Benchmarking Core</h2>
+            <p className="text-xs text-sky-500 font-bold uppercase tracking-widest mt-1">Leveraging KIPU Q & Q-CTRL Control Logic</p>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
+          <div className="bg-slate-950 rounded-[2.5rem] p-8 font-mono text-[11px] text-indigo-200 shadow-2xl relative overflow-hidden border border-slate-800">
+            <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
+              <Zap size={14} className="text-sky-400" />
+              <span className="text-slate-400">Simulation Kernel v2.1 • KIPU Optimized</span>
+            </div>
+            <pre className="overflow-x-auto leading-relaxed text-indigo-300 relative z-10">
+{`from rivicq_core.audit import QuantumRiskAnalyzer
+from kipu_quantum.optimization import CompressiveSimulator
+
+# Initialize analyzer with KIPU compressive simulation
+target = "cloud_hsm_primary_cluster"
+analyzer = QuantumRiskAnalyzer(target=target)
+
+# Q-CTRL logic for noise-resistant verification
+analyzer.update_complexity(attack_power=${complexity})
+
+# Run Shor's Algorithm factorization benchmark
+# Validated against actual IBM Q hardware telemetry
+sim_results = analyzer.simulate(backend="ibmq_qasm_simulator")
+
+# Post risk metrics to RivicQ Policy Engine
+analyzer.export_to_policy_service(
+    metrics=sim_results.risk_vector,
+    trigger_auto_rotation=(risk_score > 75)
+)`}
+            </pre>
+            <div className="mt-10 space-y-3 relative z-10">
+              <div className="flex justify-between items-center">
+                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Simulated Attack Power</label>
+                <span className="text-sky-400 font-bold">{complexity} Qubits</span>
+              </div>
+              <input 
+                type="range" min="10" max="100" value={complexity} 
+                onChange={(e) => setComplexity(parseInt(e.target.value))}
+                className="w-full h-1 bg-slate-800 rounded-full appearance-none cursor-pointer accent-blue-500"
               />
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section className="mt-16 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold">AI-driven CSPM Control Plane</h2>
-          <p className="text-slate-300">
-            The control plane fuses cryptographic telemetry with AI correlation to automate risk
-            scoring, remediation, and compliance workflows across multi-cloud environments.
-          </p>
-          <div className="not-prose mt-6 grid md:grid-cols-2 gap-4">
-            {[
-              'Predictive exposure analytics',
-              'Policy-as-code enforcement',
-              'Quantum readiness baselines',
-              'AI-driven compliance reporting',
-            ].map(item => (
-              <div key={item} className="glass-card rounded-2xl p-4 text-sm text-slate-300">
-                {item}
+          <div className="flex flex-col gap-6">
+            <div className="bg-white border border-slate-100 rounded-[2.5rem] p-10 shadow-sm flex flex-col justify-between h-1/2">
+              <div className="text-center">
+                 <div className={`text-7xl font-bold font-mono transition-colors duration-500 ${riskScore > 75 ? 'text-red-500' : 'text-slate-900'}`}>
+                    {riskScore}<span className="text-2xl text-slate-200">/100</span>
+                 </div>
+                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mt-2">Quantum Risk Index (QRI)</div>
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="glass-panel rounded-[2.5rem] p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <GitBranch size={16} className="text-[#00D9FF]" />
-            <div className="text-xs uppercase tracking-[0.3em] text-slate-400">
-              Integration layer
+              <p className="mt-6 text-[11px] text-slate-600 leading-relaxed text-center">
+                {riskScore > 75 ? 'CRITICAL: TTB estimated at < 12 hours. High probability of classical key factorization.' : 'STABLE: Current encryption primitives remain robust against simulated quantum adversaries.'}
+              </p>
             </div>
-          </div>
-          <div className="space-y-3 text-sm text-slate-300">
-            <div className="flex items-start gap-3">
-              <Network size={16} className="text-[#00D9FF] mt-1" />
-              Multi-cloud telemetry ingestion and unified asset graph.
-            </div>
-            <div className="flex items-start gap-3">
-              <Braces size={16} className="text-[#00D9FF] mt-1" />
-              API-first orchestration with GraphQL + event streams.
-            </div>
-            <div className="flex items-start gap-3">
-              <ShieldCheck size={16} className="text-[#00D9FF] mt-1" />
-              Compliance mappings for NIST PQC, DORA, eIDAS, and SOC 2.
+
+            <div className="bg-slate-50 rounded-[2.5rem] p-8 border border-slate-100 h-1/2 relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-8 opacity-5 text-indigo-600">
+                 <ShieldCheck size={120} />
+               </div>
+               <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                 <Activity size={14} className="text-indigo-600"/> Policy Service Feedback
+               </h4>
+               <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${riskScore > 75 ? 'bg-red-500 animate-pulse' : 'bg-emerald-500'}`}></div>
+                    <p className="text-[10px] text-slate-600 m-0"><strong>Dynamic Rotation:</strong> {riskScore > 75 ? 'Triggered: Forcing migration of all RSA-2048 keys to ML-KEM-768.' : 'Idle: Monitoring for risk delta.'}</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${riskScore > 60 ? 'bg-amber-500' : 'bg-slate-200'}`}></div>
+                    <p className="text-[10px] text-slate-600 m-0"><strong>Compliance Alert:</strong> {riskScore > 60 ? 'Active: NIS2/DORA violation imminent. Alerting Security Office.' : 'Nominal: Compliance status verified.'}</p>
+                  </div>
+               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mt-16">
-        <div className="glass-card rounded-[2.5rem] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-bold m-0">Ready to deploy?</h2>
-            <p className="text-slate-300">
-              Launch the open source stack or scope an enterprise rollout.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/products"
-              className="px-6 py-3 rounded-full bg-[#00D9FF] text-slate-900 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all"
-            >
-              Explore Products
-            </Link>
-            <Link
-              to="/enterprise"
-              className="px-6 py-3 rounded-full border border-white/20 text-xs font-bold uppercase tracking-[0.2em] hover:border-[#00D9FF] transition-all"
-            >
-              Enterprise Contact <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
+      {/* Strategic Integrations */}
+      <section className="not-prose mb-24 border-t border-slate-100 pt-16">
+         <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 text-center">Strategic Infrastructure & Partners</h2>
+         <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
+               <Cpu size={20} className="text-sky-500"/>
+               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">IBM Quantum</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
+               <Cloud size={20} className="text-sky-500"/>
+               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Google Cloud</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
+               <Network size={20} className="text-sky-500"/>
+               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">AWS Nitro</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
+               <Zap size={20} className="text-indigo-600"/>
+               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">KIPU Quantum</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
+               <Settings size={20} className="text-emerald-600"/>
+               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Q-CTRL</span>
+            </div>
+         </div>
       </section>
     </article>
   );

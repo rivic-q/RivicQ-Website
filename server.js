@@ -5,11 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from "@google/genai";
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
-import { z } from 'zod';
-import { getPrisma } from './src/db/prisma.js';
-import { sendLeadNotification } from './src/mailer.js';
+import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,21 +15,15 @@ const distIndexFile = path.join(distDir, 'index.html');
 
 dotenv.config();
 
-const prisma = await getPrisma();
-
-app.use(helmet());
-
-const RATE_LIMIT_WINDOW = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000');
-const RATE_LIMIT_MAX = parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100');
-
-const apiLimiter = rateLimit({
-  windowMs: RATE_LIMIT_WINDOW,
-  max: RATE_LIMIT_MAX,
-  standardHeaders: true,
-  legacyHeaders: false
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
+  port: parseInt(process.env.SMTP_PORT || '587'),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER || '',
+    pass: process.env.SMTP_PASS || ''
+  }
 });
-
-app.use('/api/', apiLimiter);
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -55,8 +45,31 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(express.static(distDir));
 
-// rate limiting is handled by express-rate-limit (apiLimiter)
-const rateLimitMiddleware = (req, res, next) => next();
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000');
+const RATE_LIMIT_MAX = parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100');
+
+const rateLimitMiddleware = (req, res, next) => {
+  const ip = req.ip || req.connection.remoteAddress || 'unknown';
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW;
+  
+  if (!rateLimitMap.has(ip)) {
+    rateLimitMap.set(ip, { count: 1, timestamps: [now] });
+    return next();
+  }
+  
+  const userData = rateLimitMap.get(ip);
+  userData.timestamps = userData.timestamps.filter(ts => ts > windowStart);
+  
+  if (userData.timestamps.length >= RATE_LIMIT_MAX) {
+    return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+  }
+  
+  userData.timestamps.push(now);
+  userData.count = userData.timestamps.length;
+  next();
+};
 
 const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -128,72 +141,49 @@ app.post('/api/scan-security', rateLimitMiddleware, async (req, res) => {
 });
 
 app.post('/api/contact', rateLimitMiddleware, async (req, res) => {
-  const contactSchema = z.object({
-    type: z.string().optional(),
-    name: z.string().min(1).max(200).optional(),
-    email: z.string().email().optional(),
-    company: z.string().max(200).optional(),
-    role: z.string().max(200).optional(),
-    message: z.string().max(5000).optional(),
-    timeline: z.string().optional(),
-    documentType: z.string().optional(),
-    organization: z.string().optional()
-  });
-
-  const parsed = contactSchema.safeParse(req.body);
-  if (!parsed.success) {
-    return res.status(400).json({ error: 'Validation failed', details: parsed.error.errors });
+  const errors = validateInquiryPayload(req.body);
+  if (errors.length > 0) {
+    return res.status(400).json({ error: "Validation failed.", details: errors });
   }
 
-  const { type, name, email, company, role, message, timeline, documentType, organization } = parsed.data;
+  const { type, name, email, company, role, message, timeline, documentType, organization } = req.body;
   const timestamp = new Date().toISOString();
 
   console.log(`\n========= NEW INQUIRY RECEIVED [${timestamp}] =========`);
   console.log(`TYPE:     ${type?.toUpperCase() || 'GENERAL'}`);
   console.log(`FROM:     ${name} <${email}>`);
+  if (company) console.log(`COMPANY:  ${company} (${role || 'N/A'})`);
+  if (organization) console.log(`ORG TYPE: ${organization}`);
+  if (timeline) console.log(`TIMELINE: ${timeline}`);
+  if (documentType) console.log(`DOCUMENT: ${documentType}`);
+  console.log(`MESSAGE:  ${message}`);
+  console.log(`=======================================================\n`);
 
   const leadData = {
+    timestamp,
     type: type || 'GENERAL',
-    name: name || null,
-    email: email || null,
-    company: company || null,
-    role: role || null,
-    organization: organization || null,
-    timeline: timeline || null,
-    documentType: documentType || null,
-    message: message || null,
-    source: req.headers.referer || 'direct',
-    timestamp
+    name,
+    email,
+    company,
+    role,
+    organization,
+    timeline,
+    documentType,
+    message,
+    source: req.headers.referer || 'direct'
   };
-
-  // Persist to DB if available, otherwise fall back to file storage
-  if (prisma) {
-    try {
-      await prisma.lead.create({ data: {
-        type: leadData.type,
-        name: leadData.name,
-        email: leadData.email,
-        company: leadData.company,
-        role: leadData.role,
-        organization: leadData.organization,
-        timeline: leadData.timeline,
-        documentType: leadData.documentType,
-        message: leadData.message,
-        source: leadData.source
-      } });
-      await prisma.auditLog.create({ data: { action: 'lead:create', resource: 'Lead', meta: JSON.stringify({ source: leadData.source }) } });
-    } catch (dbErr) {
-      console.error('Error writing lead to DB:', dbErr.message);
-    }
-  }
 
   const leadsFile = path.join(__dirname, 'leads.json');
   let leads = [];
   if (fs.existsSync(leadsFile)) {
-    try { leads = JSON.parse(fs.readFileSync(leadsFile, 'utf8')); } catch (e) { console.error('Error reading leads file:', e); }
+    try {
+      leads = JSON.parse(fs.readFileSync(leadsFile, 'utf8'));
+    } catch (e) {
+      console.error('Error reading leads file:', e);
+    }
   }
   leads.push(leadData);
-  try { fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2)); } catch (e) { console.error('Error writing leads file:', e); }
+  fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2));
 
   const typeLabels = {
     'beta-signup': 'Beta Signup Request',
@@ -202,18 +192,58 @@ app.post('/api/contact', rateLimitMiddleware, async (req, res) => {
     'general': 'General Inquiry'
   };
 
-  const emailHtml = `
+  let emailHtml = `
     <h2>New ${typeLabels[type] || 'Inquiry'} from RivicQ Website</h2>
-    <p><strong>Name:</strong> ${name || 'N/A'}</p>
-    <p><strong>Email:</strong> ${email || 'N/A'}</p>
-    <p><strong>Company:</strong> ${company || 'N/A'}</p>
-    <p><strong>Role:</strong> ${role || 'N/A'}</p>
-    <p><strong>Message:</strong><br/>${(message || 'N/A').replace(/\n/g, '<br/>')}</p>
-    <p style="font-size:12px;color:#666;">Timestamp: ${timestamp} • Source: ${leadData.source}</p>
+    <table style="border-collapse: collapse; width: 100%;">
+      <tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Name:</td>
+        <td style="padding: 8px;">${name}</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Email:</td>
+        <td style="padding: 8px;"><a href="mailto:${email}">${email}</a></td>
+      </tr>
+      ${company ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Company:</td>
+        <td style="padding: 8px;">${company}</td>
+      </tr>` : ''}
+      ${role ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Role:</td>
+        <td style="padding: 8px;">${role}</td>
+      </tr>` : ''}
+      ${timeline ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Timeline:</td>
+        <td style="padding: 8px;">${timeline}</td>
+      </tr>` : ''}
+      ${organization ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Organization:</td>
+        <td style="padding: 8px;">${organization}</td>
+      </tr>` : ''}
+      ${documentType ? `<tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 8px; font-weight: bold; color: #374151;">Document:</td>
+        <td style="padding: 8px;">${documentType}</td>
+      </tr>` : ''}
+    </table>
+    <h3 style="margin-top: 20px; color: #374151;">Message:</h3>
+    <p style="background: #f9fafb; padding: 16px; border-radius: 8px;">${message?.replace(/\n/g, '<br>') || 'N/A'}</p>
+    <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">
+      <strong>Timestamp:</strong> ${timestamp}<br>
+      <strong>Source:</strong> ${req.headers.referer || 'direct'}
+    </p>
   `;
 
-  // Send notification if mailer configured (non-blocking)
-  sendLeadNotification({ subject: `[RivicQ] ${typeLabels[type] || 'New Inquiry'}: ${name || email}`, html: emailHtml, replyTo: email });
+  try {
+    await transporter.sendMail({
+      from: `"RivicQ Website" <${process.env.SMTP_FROM || 'noreply@rivicq.de'}>`,
+      to: 'hello@rivicq.de',
+      subject: `[RivicQ] ${typeLabels[type] || 'New Inquiry'}: ${name} from ${company || email}`,
+      html: emailHtml,
+      replyTo: email
+    });
+    console.log('Email sent successfully to hello@rivicq.de');
+  } catch (emailError) {
+    console.error('Error sending email:', emailError.message);
+  }
 
   res.json({ success: true, message: "Inquiry recorded successfully." });
 });
