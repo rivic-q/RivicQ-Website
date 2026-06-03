@@ -137,7 +137,7 @@ const Sidebar: React.FC = () => {
           </div>
           <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-tight">
             <Globe size={10} className="text-sky-400" aria-hidden="true"/>
-            <span>Berlin • Leap Quantum</span>
+            <span>Berlin • Leap / Humboldt Quantum</span>
           </div>
         </div>
       </aside>

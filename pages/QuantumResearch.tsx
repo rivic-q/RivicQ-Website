@@ -72,13 +72,13 @@ const QuantumResearch: React.FC = () => {
                     title="Quantum Key Distribution" 
                     subtitle="Hardware Physics Layer" 
                     icon={<Atom size={32}/>}
-                    status="Lab Phase (Leap Berlin)"
+                    status="Lab Phase (Leap Berlin / Humboldt Innovation)"
                 >
                     <p className="mb-4">
                         While PQC handles the math, QKD handles the physics. We are researching <strong>Quantum Random Number Generation (QRNG)</strong> chips to seed our Cloud HSMs.
                     </p>
                     <p className="text-xs text-slate-500 italic">
-                        Partnering with Leap Berlin hardware vendors to integrate photonic chips that detect eavesdropping via quantum entanglement collapse.
+                        Partnering with Leap Berlin / Humboldt Innovation hardware vendors to integrate photonic chips that detect eavesdropping via quantum entanglement collapse.
                     </p>
                 </ResearchCard>
 

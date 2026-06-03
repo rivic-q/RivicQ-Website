@@ -241,6 +241,36 @@ const Glossary: React.FC = () => {
       example: 'Preventing an LLM from revealing system prompts or training data.'
     },
 
+    // Berlin Ecosystem
+    { 
+      term: 'Leap Berlin / Humboldt Innovation',
+      category: 'Berlin Ecosystem',
+      definition: 'The Berlin-based deep-tech accelerator and innovation hub supporting RivicQ\'s residency. Leap Berlin provides quantum hardware access, deep-tech ecosystem mentorship, and validation infrastructure. Humboldt Innovation is the innovation and technology transfer arm of Humboldt-Universität zu Berlin, fostering deep-tech commercialization and academic-industry collaboration.',
+      related: ['Berlin Ecosystem', 'Quantum Accelerator', 'Deep-Tech'],
+      example: 'RivicQ operates as a resident of the Leap Berlin / Humboldt Innovation Quantum Accelerator in Adlershof.'
+    },
+    { 
+      term: 'Berlin Quantum Ecosystem',
+      category: 'Berlin Ecosystem',
+      definition: 'The network of research institutions, accelerators, and technology partners in Berlin focused on quantum computing and post-quantum cryptography. Includes TU Berlin, Humboldt Innovation, Leap Berlin, SIB Berlin, and the WISTA Innovation Center Adlershof.',
+      related: ['Leap Berlin / Humboldt Innovation', 'TU Berlin', 'Quantum Infrastructure'],
+      example: 'Berlin is one of Europe\'s leading quantum technology hubs with deep integration between academic research and commercial deep-tech ventures.'
+    },
+    { 
+      term: 'WISTA Innovation Center Adlershof',
+      category: 'Berlin Ecosystem',
+      definition: 'Berlin\'s largest science and technology park, located in the Adlershof district. Home to over 1,000 companies and research institutions including RivicQ\'s headquarters within the Leap Berlin / Humboldt Innovation Quantum Hub.',
+      related: ['Leap Berlin / Humboldt Innovation', 'Berlin Ecosystem'],
+      example: 'RivicQ is headquartered at WISTA Innovation Center Adlershof, Rudower Chaussee 29.'
+    },
+    { 
+      term: 'SIB Berlin (Investitionsbank Berlin)',
+      category: 'Berlin Ecosystem',
+      definition: 'The investment bank of the State of Berlin, providing funding and support programs for innovation-driven enterprises. RivicQ secured foundational institutional support through the SIB framework for commercial product engineering and FIPS 140-3 compliance roadmapping.',
+      related: ['Berlin Ecosystem', 'Deep-Tech', 'FIPS 140-3'],
+      example: 'SIB Berlin scholarship program validation enabled RivicQ\'s transition from research to commercial development.'
+    },
+
     // Blockchain & Privacy
     { 
       term: 'RivicQ Secure Protocol (RQSP)', 

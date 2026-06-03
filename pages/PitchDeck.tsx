@@ -155,7 +155,7 @@ const PitchDeck: React.FC = () => {
               <Landmark size={16} className="text-sky-500" /> Accelerator Backing
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
-              Active residents of the <strong>Leap Berlin Quantum Accelerator</strong> and validated by <strong>SIB (Scholarship Program)</strong>.
+              Active residents of the <strong>Leap Berlin / Humboldt Innovation Quantum Accelerator</strong> and validated by <strong>SIB (Scholarship Program)</strong>.
             </p>
           </div>
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">

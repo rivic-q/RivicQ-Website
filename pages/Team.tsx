@@ -48,7 +48,7 @@ const Team: React.FC = () => {
                   <span className="px-3 py-1 bg-sky-50 text-sky-500 text-[9px] font-bold uppercase tracking-widest rounded-full">Founder & CEO</span>
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed max-w-2xl mb-6">
-                  Security Researcher and Resident at the Leap Berlin Quantum Deep-Tech Accelerator. Specializing in the commercialization of Post-Quantum Cryptography and the virtualization of hardware root-of-trust.
+                  Security Researcher and Resident at the Leap Berlin / Humboldt Innovation Quantum Deep-Tech Accelerator. Specializing in the commercialization of Post-Quantum Cryptography and the virtualization of hardware root-of-trust.
                 </p>
                 <div className="flex gap-4">
                   <a href="https://linkedin.com/in/revanande" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-sky-500 transition-colors"><Linkedin size={18}/></a>
@@ -105,7 +105,7 @@ const Team: React.FC = () => {
         <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             {[
               { name: "Prof. Jean-Pierre Seifert", org: "TU Berlin", role: "Quantum Computing & Cryptography" },
-              { name: "André Nikolski", org: "Leap Berlin", role: "Deep-Tech Ecosystem Lead" },
+              { name: "André Nikolski", org: "Leap Berlin / Humboldt Innovation", role: "Deep-Tech Ecosystem Lead" },
               { name: "Sebastian Grodzietzki", org: "IBM Quantum", role: "Enterprise Security Strategy" },
               { name: "Norbert Herrmann", org: "Berlin Senate", role: "Public Sector Innovation" },
               { name: "Mujib Bazhwal", org: "Zukunft Gründen", role: "Entrepreneurship & Growth" }

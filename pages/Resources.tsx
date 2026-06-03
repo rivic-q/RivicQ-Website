@@ -52,7 +52,7 @@ const Resources: React.FC = () => {
           </div>
         </div>
         <p className="text-slate-600 mb-8">
-            Our technical proof-of-concept is currently undergoing rigorous validation in the <strong>Leap Berlin Quantum Lab</strong>. We are testing physical entropy harvesting against IBM Q simulations.
+            Our technical proof-of-concept is currently undergoing rigorous validation in the <strong>Leap Berlin / Humboldt Innovation Quantum Lab</strong>. We are testing physical entropy harvesting against IBM Q simulations.
         </p>
         <CryptoBOMScannerDemo />
       </section>

@@ -425,7 +425,7 @@ const Methodology: React.FC = () => {
               <div className="w-16 h-16 bg-slate-100 rounded-2xl mx-auto mb-6 flex items-center justify-center text-slate-700 font-bold text-xl">
                 LB
               </div>
-              <h4 className="font-bold text-slate-900 mb-2">Leap Berlin</h4>
+              <h4 className="font-bold text-slate-900 mb-2">Leap Berlin / Humboldt Innovation</h4>
               <p className="text-sm text-slate-500 mb-4">Quantum Hub Resident</p>
               <span className="text-xs text-sky-500 font-medium">Deep-Tech Validation</span>
             </div>

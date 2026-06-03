@@ -47,7 +47,7 @@ const Legal: React.FC = () => {
             </p>
             <p className="text-xs text-slate-500 mt-2">
               Located at: WISTA Innovation Center Adlershof<br/>
-              Leap Quantum Hub
+              Leap / Humboldt Quantum Hub
             </p>
           </div>
           

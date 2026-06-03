@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
              </div>
              <div className="flex items-center gap-2">
                 <Activity size={18}/>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-900">Leap Berlin Resident</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-900">Leap Berlin / Humboldt Innovation Resident</span>
              </div>
              <div className="flex items-center gap-2">
                 <Microscope size={18}/>
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                   <p className="m-0">
                     WISTA Innovation Center Adlershof<br/>
                     Rudower Chaussee 29, 12489 Berlin<br/>
-                    <span className="text-slate-900 font-bold">Leap Quantum Hub Resident</span>
+                    <span className="text-slate-900 font-bold">Leap / Humboldt Quantum Hub Resident</span>
                   </p>
                 </div>
                 

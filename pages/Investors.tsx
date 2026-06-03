@@ -120,7 +120,7 @@ const Investors: React.FC = () => {
             <div className="p-8 border border-slate-100 rounded-[2.5rem] bg-white shadow-sm hover:shadow-lg transition-all h-full">
                <div className="p-3 bg-sky-50 text-sky-500 rounded-xl mb-6 inline-block"><CheckCircle2 size={24}/></div>
                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-2">Accelerator Status</h4>
-               <p className="text-sm text-slate-500 leading-relaxed m-0">Leap Berlin Quantum Hub Resident. Active validation of PQC implementations.</p>
+               <p className="text-sm text-slate-500 leading-relaxed m-0">Leap Berlin / Humboldt Innovation Quantum Hub Resident. Active validation of PQC implementations.</p>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={200}>

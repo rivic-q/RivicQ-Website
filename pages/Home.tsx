@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, ArrowRight, Lock, Zap, Activity, Cloud, Search, CheckCircle2, ShieldAlert, Cpu, Globe, Info, Target, Users, Microscope, Database, RefreshCw, Layers, Terminal, Server, CreditCard, Key, Settings, BarChart3, Landmark, Box, Github } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Lock, Zap, Activity, Cloud, Search, CheckCircle2, ShieldAlert, Cpu, Globe, Info, Target, Users, Microscope, Database, RefreshCw, Layers, Terminal, Server, CreditCard, Key, Settings, BarChart3, Landmark, Box, Github, GraduationCap } from 'lucide-react';
 import HSMBlueprint from '../components/HSMBlueprint';
 
 const EcosystemSection: React.FC = () => (
@@ -13,7 +13,7 @@ const EcosystemSection: React.FC = () => (
       </div>
 
       {/* Tier 1: Academic & Institutional Foundation */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20 items-center opacity-70 hover:opacity-100 transition-opacity duration-500">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 items-center opacity-70 hover:opacity-100 transition-opacity duration-500">
         <div className="flex flex-col items-center group">
           <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
             <Landmark size={32} className="text-slate-900" />
@@ -25,6 +25,12 @@ const EcosystemSection: React.FC = () => (
             <Activity size={32} className="text-sky-500" />
           </div>
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Leap Berlin<br/><span className="text-[8px] font-medium">Quantum Hub</span></span>
+        </div>
+        <div className="flex flex-col items-center group">
+          <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
+            <GraduationCap size={32} className="text-slate-900" />
+          </div>
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Humboldt Innovation<br/><span className="text-[8px] font-medium">Innovation Hub</span></span>
         </div>
         <div className="flex flex-col items-center group">
           <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
@@ -220,7 +226,7 @@ const Home: React.FC = () => {
             </div>
             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">The Berlin Hub</h3>
             <p className="text-sm text-slate-600 leading-relaxed m-0">
-              Operating within Leap Berlin, we leverage direct access to quantum hardware benchmarks and deep-tech ecosystem mentorship.
+              Operating within Leap Berlin / Humboldt Innovation, we leverage direct access to quantum hardware benchmarks and deep-tech ecosystem mentorship.
             </p>
           </div>
           <div className="space-y-6">

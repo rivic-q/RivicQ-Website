@@ -85,15 +85,15 @@ const Story: React.FC = () => {
           />
           <TimelineItem 
             date="January 2026"
-            title="Berlin Quantum Ecosystem Integration"
+            title="Berlin Quantum Ecosystem Integration (Humboldt Innovation)"
             icon={<Cpu size={16}/>}
-            content="Formalized integration into Berlin's elite deep-tech research community. Establishing physical residency within specialized quantum validation facilities."
+            content="Formalized integration into Berlin's elite deep-tech research community via Humboldt Innovation. Establishing physical residency within specialized quantum validation facilities."
           />
           <TimelineItem 
             date="February 2026"
-            title="WISTA Leap Berlin Residency"
+            title="WISTA Leap Berlin / Humboldt Innovation Residency"
             icon={<Rocket size={16}/>}
-            content="Operational start at the Leap Berlin Quantum Accelerator. Securing direct access to hardware benchmarks for Cloud HSM entropy validation."
+            content="Operational start at the Leap Berlin / Humboldt Innovation Quantum Accelerator. Securing direct access to hardware benchmarks for Cloud HSM entropy validation."
           />
         </div>
       </div>
