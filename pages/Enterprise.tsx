@@ -1,217 +1,118 @@
-
-import React, { useState, useEffect } from 'react';
-import { ShieldCheck, ArrowRight, Lock, Zap, Activity, Cloud, Search, CheckCircle2, ShieldAlert, Cpu, Globe, Server, Database, RefreshCw, Layers } from 'lucide-react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  BadgeCheck,
+  Cloud,
+  GitBranch,
+  Lock,
+  Network,
+  Shield,
+  ShieldCheck,
+  Users,
+} from 'lucide-react';
 
-const EndToEndDemo: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const steps = [
-    {
-      title: "Discovery",
-      icon: <Search size={24} />,
-      desc: "Our AI scanner crawls your infrastructure and code repositories.",
-      status: "Scanning: /auth/v1/certificates",
-      color: "blue"
-    },
-    {
-      title: "Inventory",
-      icon: <Database size={24} />,
-      desc: "Every weak 'lock' (RSA/ECC) is cataloged into a CryptoBOM.",
-      status: "Found: 12 Vulnerable Primitives",
-      color: "indigo"
-    },
-    {
-      title: "Transformation",
-      icon: <RefreshCw size={24} />,
-      desc: "Legacy keys are imported and wrapped in NIST-standard PQC layers.",
-      status: "Deploying ML-KEM-768",
-      color: "emerald"
-    },
-    {
-      title: "Fortification",
-      icon: <Lock size={24} />,
-      desc: "Keys are stored in FIPS 140-3 Cloud HSM vaults.",
-      status: "Status: Post-Quantum Secured",
-      color: "blue"
-    }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [steps.length]);
-
-  return (
-    <div className="not-prose w-full bg-slate-900 rounded-[3rem] p-8 md:p-12 border border-slate-800 shadow-2xl overflow-hidden relative">
-      <div className="absolute inset-0 bg-technical opacity-5"></div>
-      
-      <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
-        {/* Left: Interactive Stepper */}
-        <div className="w-full md:w-1/2 space-y-6">
-          {steps.map((step, idx) => (
-            <div 
-              key={idx}
-              className={`p-6 rounded-2xl border transition-all duration-500 flex items-start gap-4 ${
-                activeStep === idx 
-                  ? `bg-slate-800 border-sky-500 shadow-[0_0_30px_rgba(37,99,235,0.2)]` 
-                  : 'bg-transparent border-slate-800 opacity-40'
-              }`}
-            >
-              <div className={`p-3 rounded-xl ${activeStep === idx ? 'bg-sky-500 text-white' : 'bg-slate-800 text-slate-500'}`}>
-                {step.icon}
-              </div>
-              <div>
-                <h4 className="text-white font-bold m-0 text-lg">{step.title}</h4>
-                <p className="text-slate-400 text-sm mt-1 m-0">{step.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Right: Visualization Panel */}
-        <div className="w-full md:w-1/2 flex items-center justify-center min-h-[400px]">
-           <div className="relative w-full aspect-square max-w-[340px]">
-              {/* Outer Ring */}
-              <div className="absolute inset-0 border border-slate-800 rounded-full animate-spin-slow"></div>
-              
-              {/* Central Core */}
-              <div className="absolute inset-8 border border-slate-800/50 rounded-full"></div>
-              
-              {/* Active Visualizer */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center animate-fadeIn">
-                   <div className={`w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto mb-6 shadow-2xl ${activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-sky-500 text-white shadow-sky-500/20'}`}>
-                      {steps[activeStep].icon}
-                   </div>
-                   <div className="font-mono text-[10px] text-sky-400 tracking-[0.2em] uppercase font-bold mb-2">
-                      RivicQ Core OS
-                   </div>
-                   <div className="text-white font-bold text-sm h-6">
-                      {steps[activeStep].status}
-                   </div>
-                   
-                   {/* Progress Dots */}
-                   <div className="flex justify-center gap-1.5 mt-6">
-                      {steps.map((_, i) => (
-                        <div key={i} className={`h-1 rounded-full transition-all duration-500 ${activeStep === i ? 'w-6 bg-sky-500' : 'w-2 bg-slate-700'}`}></div>
-                      ))}
-                   </div>
-                </div>
-              </div>
-           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const enterpriseBenefits = [
+  { label: 'Multi-cloud support', icon: <Cloud size={18} className="text-[#00D9FF]" /> },
+  { label: 'Kubernetes security', icon: <Network size={18} className="text-[#00D9FF]" /> },
+  { label: 'GitHub Enterprise integration', icon: <GitBranch size={18} className="text-[#00D9FF]" /> },
+  { label: 'SIEM/SOAR integrations', icon: <ShieldCheck size={18} className="text-[#00D9FF]" /> },
+  { label: 'RBAC + SSO', icon: <Lock size={18} className="text-[#00D9FF]" /> },
+  { label: 'Audit logging + compliance reporting', icon: <BadgeCheck size={18} className="text-[#00D9FF]" /> },
+];
 
 const Enterprise: React.FC = () => {
   return (
-    <article className="prose prose-slate max-w-none">
-      <header className="mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
-          FIPS 140-3 • Global Tier 1 Infrastructure
+    <article className="prose prose-invert max-w-none">
+      <header className="mb-12">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-[10px] font-bold uppercase tracking-[0.3em] text-slate-200">
+          Enterprise Contact
         </div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-          Sovereign Security <br/>at <span className="text-sky-500">Global Scale.</span>
+        <h1 className="text-4xl md:text-5xl font-bold mt-6">
+          Enterprise-grade CSPM for the quantum era
         </h1>
-        <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
-          RivicQ Enterprise provides the high-assurance foundation for the world's most critical infrastructures. We don't just secure data; we secure permanence.
+        <p className="text-lg text-slate-300 max-w-3xl">
+          RIVICQ Enterprise delivers AI-driven cryptographic posture management with regulated
+          compliance, global SLAs, and dedicated security engineering support.
         </p>
       </header>
 
-      {/* End-to-End Demo Section */}
-      <section className="mb-24">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">The End-to-End Experience</h2>
-          <p className="text-slate-500 text-sm mt-2 uppercase tracking-widest font-bold">Automated Migration Lifecycle</p>
+      <section className="glass-card rounded-[2.5rem] p-8">
+        <div className="flex items-center gap-3 mb-6">
+          <Shield size={18} className="text-[#00D9FF]" />
+          <h2 className="text-2xl font-bold m-0">Enterprise Features</h2>
         </div>
-        <EndToEndDemo />
-      </section>
-
-      {/* Enterprise Pillars */}
-      <section className="py-24 border-y border-slate-100 not-prose mb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-           {[
-             { title: "SLA Guaranteed", desc: "99.999% uptime for cryptographic operations across global regions.", icon: <Activity className="text-sky-500"/> },
-             { title: "Dedicated vHSM", desc: "Physically isolated hardware segments for Tier 1 compliance.", icon: <Server className="text-emerald-600"/> },
-             { title: "Active CBOM", desc: "Continuous auditing of every cryptographic bill of materials.", icon: <Layers className="text-indigo-600"/> },
-             { title: "PQC Orchestration", desc: "NIST-standardized migration paths enforced by policy.", icon: <Zap className="text-amber-600"/> }
-           ].map((item, i) => (
-             <div key={i} className="p-8 border border-slate-100 rounded-[2.5rem] bg-white hover:border-sky-200 transition-all shadow-sm">
-                <div className="p-3 bg-slate-50 rounded-xl w-fit mb-6 border border-slate-100">
-                  {item.icon}
-                </div>
-                <h4 className="text-base font-bold text-slate-900 mb-2">{item.title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed m-0">{item.desc}</p>
-             </div>
-           ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 not-prose">
+          {enterpriseBenefits.map(item => (
+            <div key={item.label} className="glass-panel rounded-2xl p-4 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center">
+                {item.icon}
+              </div>
+              <span className="text-sm text-slate-200">{item.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Regulatory Context */}
-      <section className="mb-24">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 mb-6">Designed for Compliance.</h2>
-            <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              RivicQ Enterprise maps directly to global mandates like <strong>EU DORA</strong>, <strong>NIS2</strong>, and <strong>CNSA 2.0</strong>. We provide the proof of resilience required by modern regulators.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 p-4 bg-sky-50 border border-sky-100 rounded-2xl">
-                <CheckCircle2 size={18} className="text-sky-500"/>
-                <span className="text-sm font-bold text-sky-900">NIST FIPS 203/204 Compliant</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl">
-                <ShieldCheck size={18} className="text-emerald-600"/>
-                <span className="text-sm font-bold text-emerald-900">GDPR & Sovereign Compute Ready</span>
-              </div>
+      <section className="mt-16 grid lg:grid-cols-[1fr_0.9fr] gap-10 items-center">
+        <div>
+          <h2 className="text-2xl md:text-3xl font-bold">Dedicated enterprise alignment</h2>
+          <p className="text-slate-300">
+            Align with NIST PQC, DORA, eIDAS 2.0, and SOC 2 requirements with continuous compliance
+            reporting and automated cryptographic remediation.
+          </p>
+          <div className="not-prose mt-6 space-y-3 text-sm text-slate-300">
+            <div className="flex items-start gap-3">
+              <Users size={16} className="text-[#00D9FF] mt-1" />
+              Dedicated security engineering and onboarding for regulated teams.
+            </div>
+            <div className="flex items-start gap-3">
+              <ShieldCheck size={16} className="text-[#00D9FF] mt-1" />
+              Compliance-ready audit trails with real-time evidence capture.
             </div>
           </div>
-          <div className="bg-slate-50 rounded-[3rem] p-12 border border-slate-200 relative overflow-hidden">
-             <div className="absolute top-0 right-0 p-8 opacity-5 text-slate-900">
-               <Globe size={160} />
-             </div>
-             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0 mb-6">Global Residency</h3>
-             <ul className="space-y-4 m-0 p-0 list-none">
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-sky-500"></div> Berlin Deep-Tech Hub (HQ)
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-slate-400"></div> Frankfurt Financial Mesh
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-slate-400"></div> AWS Nitro Enclaves Support
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-slate-400"></div> Google Cloud HSM Integration
-                </li>
-             </ul>
+        </div>
+        <div className="glass-panel rounded-[2.5rem] p-8">
+          <div className="text-xs uppercase tracking-[0.3em] text-slate-400 mb-4">
+            Enterprise engagement
+          </div>
+          <div className="space-y-4 text-sm text-slate-300">
+            <div className="glass-card rounded-2xl p-4">
+              Enterprise security assessment and migration roadmap.
+            </div>
+            <div className="glass-card rounded-2xl p-4">
+              Private deployment options with dedicated CSPM instances.
+            </div>
+            <div className="glass-card rounded-2xl p-4">
+              Full integration with existing SIEM/SOAR and identity providers.
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="not-prose bg-sky-500 text-white p-12 md:p-16 rounded-[4rem] text-center shadow-2xl relative overflow-hidden">
-        <div className="absolute inset-0 bg-technical opacity-10"></div>
-        <div className="relative z-10">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white m-0">Scale with Security.</h2>
-          <p className="text-sky-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            Join the elite circle of enterprises defining the post-quantum standard. Our strategic engineers are ready to scope your migration.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/pricing" className="px-10 py-4 bg-slate-900 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl">
-              Contact Enterprise Sales
+      <section className="mt-16">
+        <div className="glass-panel rounded-[2.5rem] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-bold m-0">Start an enterprise pilot</h2>
+            <p className="text-slate-300">
+              Engage our team to scope your CSPM deployment and quantum readiness program.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/pricing"
+              className="px-6 py-3 rounded-full bg-[#00D9FF] text-slate-900 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all"
+            >
+              Request Demo
+            </Link>
+            <Link
+              to="/resources"
+              className="px-6 py-3 rounded-full border border-white/20 text-xs font-bold uppercase tracking-[0.2em] hover:border-[#00D9FF] transition-all"
+            >
+              View Documentation
             </Link>
           </div>
         </div>
       </section>
-
-      <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-        RivicQ Technologies • Enterprise Division
-      </footer>
     </article>
   );
 };

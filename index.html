@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RivicQ — Quantum-Safe Infrastructure</title>
-    <meta name="description" content="Berlin-based Deep Tech building the transition layer for a post-quantum world. FIPS 140-3 HSM & Post-Quantum Cryptography." />
-    <meta name="keywords" content="post-quantum cryptography, PQC, quantum security, cryptographic inventory, CBOM, HSM, NIST, DORA compliance, zero-knowledge proofs" />
+    <title>RIVICQ — Cryptographic Security Posture Management</title>
+    <meta name="description" content="RIVICQ unifies CBOM, AIBOM, HBOM, IBOM, and QBOM into an AI-driven CSPM platform with Encryption-as-a-Service for the quantum era." />
+    <meta name="keywords" content="CSPM, EaaS, cryptographic posture management, CBOM, QBOM, AI security analytics, quantum readiness, HSM, NIST, DORA compliance" />
     <meta name="author" content="RivicQ" />
     <meta name="robots" content="index, follow" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://rivicq.de/" />
-    <meta property="og:title" content="RivicQ — Quantum-Safe Infrastructure" />
-    <meta property="og:description" content="Berlin-based Deep Tech building the transition layer for a post-quantum world. FIPS 140-3 HSM & Post-Quantum Cryptography." />
+    <meta property="og:title" content="RIVICQ — Cryptographic Security Posture Management" />
+    <meta property="og:description" content="Unified cryptographic security posture management with AI-driven BOM intelligence and quantum-ready encryption services." />
 <meta property="og:image" content="/og-image.png" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="RivicQ" />
@@ -21,8 +21,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://rivicq.de/" />
-    <meta name="twitter:title" content="RivicQ — Quantum-Safe Infrastructure" />
-    <meta name="twitter:description" content="RivicQ — Quantum-Safe Infrastructure" />
+    <meta name="twitter:title" content="RIVICQ — Cryptographic Security Posture Management" />
+    <meta name="twitter:description" content="Unified cryptographic security posture management with AI-driven BOM intelligence and quantum-ready encryption services." />
     <meta name="twitter:image" content="/og-image.png" />
 
     <!-- Favicon -->
@@ -39,9 +39,11 @@
         theme: {
           extend: {
             colors: {
-              primary: '#000000',
-              accent: '#0ea5e9',
-              surface: '#f0f9ff',
+              primary: '#050814',
+              accent: '#00D9FF',
+              violet: '#9D4EDD',
+              surface: '#0A0E27',
+              glass: 'rgba(15, 23, 42, 0.6)',
             },
             fontFamily: {
               serif: ['"Space Grotesk"', 'sans-serif'],
@@ -49,26 +51,7 @@
             },
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 6s ease-in-out infinite',
-              'grain': 'grain 8s steps(10) infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              grain: {
-                '0%, 100%': { transform: 'translate(0, 0)' },
-                '10%': { transform: 'translate(-5%, -5%)' },
-                '20%': { transform: 'translate(-10%, 5%)' },
-                '30%': { transform: 'translate(5%, -10%)' },
-                '40%': { transform: 'translate(-5%, 15%)' },
-                '50%': { transform: 'translate(-10%, 5%)' },
-                '60%': { transform: 'translate(15%, 0)' },
-                '70%': { transform: 'translate(0, 10%)' },
-                '80%': { transform: 'translate(-15%, 0)' },
-                '90%': { transform: 'translate(10%, 5%)' },
-              }
+              'spin-slow': 'spin 18s linear infinite',
             }
           },
         },
@@ -77,36 +60,37 @@
     <style>
       body {
         font-family: 'DM Sans', sans-serif;
-        background-color: #f0f9ff;
-        color: #0f172a;
+        background-color: #050814;
+        color: #e2e8f0;
         -webkit-font-smoothing: antialiased;
         scroll-behavior: smooth;
         overflow-x: hidden;
       }
       .bg-technical {
-        background-image: radial-gradient(#0ea5e933 1.5px, transparent 1.5px);
-        background-size: 32px 32px;
-        background-position: -16px -16px;
+        background-image: radial-gradient(#00d9ff26 1.2px, transparent 1.2px);
+        background-size: 36px 36px;
+        background-position: -18px -18px;
       }
-      .noise-overlay::before {
-        content: "";
-        position: fixed;
-        top: -100%;
-        left: -100%;
-        width: 300%;
-        height: 300%;
-        background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-        opacity: 0.04;
-        pointer-events: none;
-        z-index: 1;
+      .glass-panel {
+        background: rgba(15, 23, 42, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        backdrop-filter: blur(18px);
+      }
+      .glass-card {
+        background: rgba(2, 6, 23, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        backdrop-filter: blur(16px);
+      }
+      .neon-border {
+        box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.25), 0 0 30px rgba(0, 217, 255, 0.2);
       }
       .font-serif { font-family: 'Space Grotesk', sans-serif; }
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-      ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
-      .prose h1, .prose h2, .prose h3 { color: #0f172a; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; font-weight: 600; }
-      .prose p { line-height: 1.75; color: #475569; }
+      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #334155; }
+      .prose h1, .prose h2, .prose h3 { color: #f8fafc; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; font-weight: 600; }
+      .prose p { line-height: 1.75; color: #cbd5f5; }
       .animate-fadeIn {
         animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
@@ -136,7 +120,7 @@
 }
 </script>
   </head>
-  <body class="noise-overlay">
+    <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

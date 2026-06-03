@@ -1,7 +1,8 @@
 
-import React, { useEffect, useState, createContext, useContext, ReactNode } from 'react';
-import Sidebar from './Sidebar';
+import React, { useEffect, useState, createContext, useContext } from 'react';
 import CookieConsent from './CookieConsent';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 interface AnimationContextType {
   isAnimating: boolean;
@@ -45,18 +46,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <AnimationContext.Provider value={{ isAnimating: !isReady }}>
-      <div className="min-h-screen flex flex-col md:flex-row bg-[#fafafa] relative">
-        <div className="fixed inset-0 bg-technical opacity-40 pointer-events-none"></div>
-        <div className="fixed top-[-10%] right-[-10%] w-[60%] h-[60%] bg-blue-100/20 blur-[120px] rounded-full pointer-events-none animate-pulse-slow"></div>
-        <div className="fixed bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-slate-100/30 blur-[120px] rounded-full pointer-events-none animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+      <div className="min-h-screen bg-[#050814] text-slate-100 relative">
+        <div className="fixed inset-0 bg-technical opacity-20 pointer-events-none"></div>
 
-        <Sidebar />
+        <Navbar />
         <CookieConsent />
-        <main className="flex-grow md:ml-64 w-full relative z-10 pt-16 md:pt-0">
-          <div className={`max-w-4xl px-6 md:px-8 py-12 md:py-24 mx-auto transition-opacity duration-500 ${isReady ? 'opacity-100' : 'opacity-0'}`}>
+        <main className="relative z-10 pt-24 pb-24">
+          <div className={`max-w-6xl px-6 md:px-10 mx-auto transition-opacity duration-500 ${isReady ? 'opacity-100' : 'opacity-0'}`}>
             {children}
           </div>
         </main>
+        <Footer />
       </div>
     </AnimationContext.Provider>
   );

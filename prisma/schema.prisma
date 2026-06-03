@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = env("PRISMA_PROVIDER") == "postgresql" ? "postgresql" : "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  type        String
+  name        String?
+  email       String?
+  company     String?
+  role        String?
+  organization String?
+  timeline    String?
+  documentType String?
+  message     String?
+  source      String?
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  actor     String?
+  action    String
+  resource  String?
+  meta      String?
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  role      String   @default("user")
+  password  String?
+}
