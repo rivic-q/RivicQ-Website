@@ -258,7 +258,7 @@ const Blog: React.FC = () => {
           {featuredPosts.map((post) => (
             <Link 
               key={post.id}
-              to={`/blog/${post.id}`}
+              to="/blog"
               className="group block bg-white border border-slate-200 rounded-[2rem] p-8 hover:shadow-xl hover:border-sky-200 transition-all"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -320,7 +320,7 @@ const Blog: React.FC = () => {
           {filteredPosts.filter(p => !p.featured).map((post) => (
             <Link 
               key={post.id}
-              to={`/blog/${post.id}`}
+              to="/blog"
               className="group block bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:border-sky-200 transition-all"
             >
               <div className="flex items-center gap-2 mb-4">

@@ -30,6 +30,7 @@ const Partner = React.lazy(() => import('./pages/Partner'));
 const Investors = React.lazy(() => import('./pages/Investors'));
 const QuantumResearch = React.lazy(() => import('./pages/QuantumResearch'));
 const PitchDeck = React.lazy(() => import('./pages/PitchDeck'));
+const Enterprise = React.lazy(() => import('./pages/Enterprise'));
 const BetaSignup = React.lazy(() => import('./pages/BetaSignup'));
 const CookiePolicy = React.lazy(() => import('./pages/CookiePolicy'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
@@ -65,6 +66,7 @@ const RouteHandler = () => {
       '/investors': 'Investor Relations | RivicQ',
       '/research': 'Quantum Research & R&D | RivicQ',
       '/pitch-deck': 'Investor Materials | RivicQ',
+      '/enterprise': 'Enterprise | RivicQ',
       '/beta-signup': 'Beta Signup | RivicQ',
       '/cookie-policy': 'Cookie Policy | RivicQ'
     };
@@ -113,7 +115,8 @@ const App: React.FC = () => {
               <Route path="/investors" element={<Investors />} />
               <Route path="/research" element={<QuantumResearch />} />
               <Route path="/pitch-deck" element={<PitchDeck />} />
-              <Route path="/beta-signup" element={<BetaSignup />} />
+               <Route path="/enterprise" element={<Enterprise />} />
+               <Route path="/beta-signup" element={<BetaSignup />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
