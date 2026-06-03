@@ -41,7 +41,7 @@ const Services: React.FC = () => {
       <header className="mb-16">
         <h1 className="text-5xl font-bold mb-4 tracking-tight">Technical Services</h1>
         <p className="lead text-xl text-gray-600 font-serif italic">
-          High-assurance offensive security and strategic compliance advisory.
+          Security testing and compliance advisory for high-stakes environments.
         </p>
       </header>
 
@@ -50,7 +50,7 @@ const Services: React.FC = () => {
           icon={<ShieldAlert size={24}/>}
           title="Red Teaming"
           badge="Adversary Simulation"
-          desc="Full-scope simulations of Advanced Persistent Threats (APTs) targeting your people, processes, and technology."
+          desc="Real-world attack simulations targeting your people, systems, and technology."
           points={[
             "Scenario-based adversary logic",
             "Assume-Breach assessments",
@@ -61,7 +61,7 @@ const Services: React.FC = () => {
           icon={<Terminal size={24}/>}
           title="Penetration Testing"
           badge="Audit & Discovery"
-          desc="Technical vulnerability assessments focusing on deep logic flaws and legacy cryptographic debt."
+          desc="Deep security testing focused on logic flaws and old crypto."
           points={[
             "Web App & API security",
             "Infrastructure cloud audit",
@@ -72,7 +72,7 @@ const Services: React.FC = () => {
           icon={<Search size={24}/>}
           title="Vulnerability Management"
           badge="Proactive Defense"
-          desc="Continuous scanning and prioritization of security flaws across your infrastructure, ensuring a proactive defense posture."
+          desc="Continuous scanning that finds and prioritizes security flaws before attackers do."
           points={[
             "Asset inventory & tracking",
             "Automated patch validation",
@@ -83,7 +83,7 @@ const Services: React.FC = () => {
           icon={<Microscope size={24}/>}
           title="PQC Advisory"
           badge="Strategic Migration"
-          desc="Guidance on navigating the transition from classical RSA/ECC to NIST-standardized PQC."
+          desc="Guidance on moving from RSA/ECC to NIST-standardized quantum-safe crypto."
           points={[
             "NIST FIPS 203/204/205 readiness",
             "EU DORA gap analysis",
@@ -94,7 +94,7 @@ const Services: React.FC = () => {
           icon={<Bot size={24}/>}
           title="Agentic Security Assessment"
           badge="AI Agent Audit"
-          desc="Evaluate your AI agent infrastructure for cryptographic weaknesses, prompt injection risks, and autonomous decision-chain integrity."
+          desc="Check your AI agents for crypto weaknesses, prompt injection risks, and workflow integrity."
           points={[
             "AI agent threat modeling",
             "Autonomous workflow audit",
@@ -106,7 +106,7 @@ const Services: React.FC = () => {
           icon={<Fingerprint size={24}/>}
           title="Privacy Protocol Implementation"
           badge="Zero-Knowledge"
-          desc="Deploy and integrate zero-knowledge privacy protocol into existing infrastructure. ZK-proofs, secure multi-party computation, and differential privacy for regulated data."
+          desc="Deploy zero-knowledge privacy into your existing systems. ZK-proofs, secure computation, and privacy for regulated data."
           points={[
             "Zero-knowledge proof deployment",
             "Secure multi-party computation setup",
@@ -123,8 +123,8 @@ const Services: React.FC = () => {
             <GitBranch size={24} />
           </div>
           <div>
-            <h2 className="text-4xl font-serif font-bold text-slate-900 m-0">DevSecOps Enterprise Architecture</h2>
-            <p className="text-xs text-indigo-600 font-bold uppercase tracking-widest mt-1">Industrial-Scale Security Integration</p>
+            <h2 className="text-4xl font-serif font-bold text-slate-900 m-0">DevSecOps Architecture</h2>
+            <p className="text-xs text-indigo-600 font-bold uppercase tracking-widest mt-1">Security built into your development pipeline</p>
           </div>
         </div>
 
@@ -135,7 +135,7 @@ const Services: React.FC = () => {
           
           <div className="relative z-10 max-w-3xl">
             <p className="text-lg text-slate-700 leading-relaxed mb-12">
-              We design and implement comprehensive security architectures that embed protection directly into the development lifecycle. From Agentic Security AI agents to Privacy Protocol integration and PQC migration — security becomes a seamless component of your industrial-scale delivery pipeline.
+              We build security into your development lifecycle. From AI agents to privacy protocols to PQC migration — security works at every stage.
             </p>
 
             <div className="grid md:grid-cols-2 gap-10 not-prose">
@@ -146,7 +146,7 @@ const Services: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">CI/CD Security Orchestration</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Automated injection of PQC-wrappers and CryptoBOM scanning into build agents.</p>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Automatically add quantum-safe wrappers and scan for crypto issues during builds.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -155,7 +155,7 @@ const Services: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">Infrastructure as Code (IaC)</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Securing Terraform and Kubernetes configurations with hardware-rooted identity and drift detection.</p>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Secure Terraform and Kubernetes with hardware-backed identity and drift monitoring.</p>
                   </div>
                 </div>
               </div>
@@ -167,7 +167,7 @@ const Services: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">Policy as Code (PaC)</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Programmatic enforcement of cryptographic standards across global clusters using OPA and Rego.</p>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Enforce crypto standards across all clusters with policy-as-code.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -176,7 +176,7 @@ const Services: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">Zero-Trust Networking</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Implementing micro-segmentation anchored in physical HSM root-of-trust for all service meshes.</p>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Micro-segmentation backed by physical HSM trust for all services.</p>
                   </div>
                 </div>
               </div>
@@ -192,8 +192,8 @@ const Services: React.FC = () => {
       </section>
 
       <section className="text-center mt-24">
-         <h2 className="text-3xl font-serif font-bold mb-6">Start a conversation.</h2>
-         <p className="text-slate-500 mb-10 max-w-xl mx-auto">Our lead engineers are available to discuss your specific infrastructure security challenges.</p>
+         <h2 className="text-3xl font-serif font-bold mb-6">Talk to our team.</h2>
+         <p className="text-slate-500 mb-10 max-w-xl mx-auto">Our engineers are ready to discuss your security challenges.</p>
          <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 bg-sky-500 text-white px-10 py-5 rounded-full font-bold hover:bg-sky-600 transition-all shadow-xl shadow-sky-500/20">
             Consult our Team <ArrowRight size={18}/>
          </a>

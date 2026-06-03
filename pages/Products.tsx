@@ -143,7 +143,7 @@ const Products: React.FC = () => {
           Quantum-Safe <span className="text-sky-500">Solutions.</span>
         </h1>
         <p className="text-xl text-slate-500 font-serif italic leading-relaxed">
-          Enterprise-grade security products for the post-quantum transition. Open-source tools and enterprise SaaS for cryptographic resilience.
+          Enterprise tools for the post-quantum world. Open-source and SaaS products to keep your data safe.
         </p>
       </header>
 
@@ -162,7 +162,7 @@ const Products: React.FC = () => {
                 </div>
                 <h2 className="text-3xl font-serif font-bold mb-4 text-white">Community & OSS</h2>
                 <p className="text-slate-400 leading-relaxed mb-8">
-                  Free, open-source cryptographic tools and libraries. Built by the community, for the community. MIT licensed.
+                  Free, open-source tools for crypto security. Built by the community. MIT licensed.
                 </p>
                 <div className="space-y-3 mb-8">
                   {[
@@ -201,7 +201,7 @@ const Products: React.FC = () => {
                 </div>
                 <h2 className="text-3xl font-serif font-bold mb-4 text-white">SaaS Platform</h2>
                 <p className="text-sky-100 leading-relaxed mb-8">
-                  Full-stack enterprise solutions with cloud integrations, compliance automation, and dedicated support.
+                  Enterprise platform with cloud HSM, AI scanning, and dedicated support.
                 </p>
                 <div className="space-y-3 mb-8">
                   {[
@@ -243,7 +243,7 @@ const Products: React.FC = () => {
           <OSSCard 
             icon={<FileSearch size={24} />}
             title="CryptoBOM (CBOM)"
-            description="CLI tool for discovering cryptographic assets, keys, and certificates in codebases. Generates CycloneDX SBOM/CBOM with AI-powered detection."
+            description="Discover keys, certificates, and crypto assets in your code. Generates SBOM/CBOM reports with AI."
             link="https://github.com/rivic-q/cryptobom-saas"
             stars="847"
             license="Apache 2.0"
@@ -251,7 +251,7 @@ const Products: React.FC = () => {
           <OSSCard 
             icon={<LockKeyhole size={24} />}
             title="Privacy Protocol (RQSP)"
-            description="Zero-knowledge privacy protocol for confidential blockchain transactions. ZK-SNARKs with Groth16, MiMC7 & Poseidon hashes."
+            description="Private blockchain transactions using zero-knowledge proofs. Built with ZK-SNARKs."
             link="https://github.com/rivic-q/rivicq-protocol"
             stars="1.2k"
             license="MIT"
@@ -262,7 +262,7 @@ const Products: React.FC = () => {
           <div className="bg-slate-50 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <h4 className="font-bold text-slate-900 mb-1">Want to contribute?</h4>
-              <p className="text-sm text-slate-500">Join our open-source community and help build quantum-safe tools.</p>
+              <p className="text-sm text-slate-500">Help us build quantum-safe tools.</p>
             </div>
             <a 
               href="https://github.com/rivic-q" 
@@ -288,7 +288,7 @@ const Products: React.FC = () => {
           </div>
         </div>
         <p className="text-slate-600 mb-8 max-w-3xl">
-          Automated discovery and inventory of all cryptographic assets across your infrastructure. Generate comprehensive Cryptographic Bills of Materials (CBOM) and Quantum Bills of Materials (QBOM) aligned with NIST standards and regulatory requirements.
+          Automatically find and catalog every cryptographic asset in your infrastructure. Generate CBOM and QBOM reports aligned with NIST standards.
         </p>
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
@@ -296,7 +296,7 @@ const Products: React.FC = () => {
             icon={<FileCode size={24} className="text-sky-500"/>}
             title="BOM Intelligence Engine"
             subtitle="Discovery & Inventory"
-            description="AI-powered scanning engine that discovers cryptographic primitives, certificates, keys, and quantum-vulnerable assets across codebases, containers, and cloud environments."
+            description="AI scanner that finds keys, certificates, and quantum-vulnerable crypto across your code, containers, and cloud."
             features={[
               "Deep code analysis with AI pattern recognition",
               "CBOM + QBOM generation for quantum vulnerability mapping",
@@ -318,7 +318,7 @@ const Products: React.FC = () => {
             icon={<ShieldCheck size={24} className="text-emerald-600"/>}
             title="CSPM Posture Manager"
             subtitle="Risk & Compliance"
-            description="Real-time Cryptographic Security Posture Management with automated compliance mapping, PQC readiness tracking, and Agentic Security AI remediation orchestration."
+            description="Real-time dashboard for crypto security risks, compliance, and PQC readiness — with AI-powered fixes."
             features={[
               "NIST PQC compliance dashboard (FIPS 203/204/205)",
               "DORA Article 9 automated mapping",
@@ -347,7 +347,7 @@ const Products: React.FC = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-grow">
                 <h3 className="text-xl font-bold text-white mb-2">Enterprise CSPM Platform</h3>
-                <p className="text-sky-100 text-sm">Full-stack platform with CBOM/QBOM intelligence, Agentic Security AI agents, PQC migration engine, and Privacy Protocol integration.</p>
+                <p className="text-sky-100 text-sm">Full platform with CBOM/QBOM, AI agents, PQC migration, and Privacy Protocol.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a 
@@ -383,7 +383,7 @@ const Products: React.FC = () => {
         </div>
         
         <p className="text-slate-600 mb-8 max-w-3xl">
-          Experience the power of unified cryptographic visibility. Our interactive dashboard provides CISOs and security teams with real-time insights into cryptographic posture, vulnerability trends, and compliance status across your entire infrastructure.
+          See your entire crypto landscape at a glance. Track posture, vulnerabilities, and compliance in real time.
         </p>
         
         <CISODashboard />
@@ -394,12 +394,12 @@ const Products: React.FC = () => {
             <div>
               <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4">Request Full Dashboard Access</h3>
               <p className="text-slate-600 mb-6 leading-relaxed">
-                Get complete access to the RivicQ CISO Dashboard with your organization's actual data. Our team will set up a personalized demo environment and walk you through the capabilities.
+                See your real data in the RivicQ CISO Dashboard. Our team sets up a personalized demo and walks you through it.
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "30-minute personalized walkthrough" },
-                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "Custom threat landscape analysis" },
+                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "30-minute walkthrough tailored to you" },
+                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "Threat analysis for your infrastructure" },
                   { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "Compliance gap assessment included" },
                   { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "PQC migration roadmap preview" }
                 ].map((item, i) => (
@@ -428,7 +428,7 @@ const Products: React.FC = () => {
           </div>
         </div>
         <p className="text-slate-600 mb-8 max-w-3xl">
-          RivicQ Secure Protocol (RQSP) enables confidential blockchain transactions using zero-knowledge proofs while maintaining regulatory compliance. Built with German engineering precision.
+          RQSP lets you run private blockchain transactions with zero-knowledge proofs — while staying compliant.
         </p>
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
@@ -436,7 +436,7 @@ const Products: React.FC = () => {
             icon={<Lock size={24} className="text-indigo-600"/>}
             title="Confidential Transfers"
             subtitle="Transaction Privacy"
-            description="Hide sender, recipient, and amount in blockchain transactions using ZK-SNARKs with MiMC7 and Poseidon hash functions."
+            description="Hide sender, recipient, and amounts in blockchain transactions using zero-knowledge proofs."
             features={[
               "Zero-knowledge proof generation",
               "Merkle tree commitment verification (2^20 leaves)",
@@ -460,7 +460,7 @@ const Products: React.FC = () => {
             icon={<Shield size={24} className="text-purple-600"/>}
             title="Enterprise Compliance"
             subtitle="Regulatory Alignment"
-            description="Privacy-preserving technology that satisfies EU GDPR, BaFin requirements, and DORA while enabling selective disclosure for audits."
+            description="Stay compliant with GDPR, BaFin, and DORA while keeping transactions private and auditable."
             features={[
               "Anonymous authentication without identity exposure",
               "Selective disclosure for regulatory compliance",
@@ -493,7 +493,7 @@ const Products: React.FC = () => {
                   <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Open Source (MIT)</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">RivicQ Protocol on GitHub</h3>
-                <p className="text-slate-400 text-sm">Full reference implementation with EVM contracts, cross-chain bridges, and compliance modules.</p>
+                <p className="text-slate-400 text-sm">Reference implementation with EVM contracts and cross-chain bridges.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a 
@@ -530,7 +530,7 @@ const Products: React.FC = () => {
           </div>
         </div>
         <p className="text-slate-600 mb-8 max-w-3xl">
-          Integrate quantum-safe security scanning directly into your development workflow. Automated cryptographic vulnerability detection, CBOM generation, and compliance checks at every stage of your CI/CD pipeline.
+          Add quantum-safe scanning to your CI/CD pipeline. Detect crypto vulnerabilities, generate CBOMs, and check compliance at every build.
         </p>
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
@@ -538,7 +538,7 @@ const Products: React.FC = () => {
             icon={<Scan size={24} className="text-cyan-600"/>}
             title="Security Scanner"
             subtitle="CI/CD Integration"
-            description="GitHub Actions-ready security scanner that automatically detects cryptographic vulnerabilities, weak algorithms, and non-compliant configurations in your codebase."
+            description="GitHub Actions-ready scanner that catches weak crypto and compliance issues automatically."
             features={[
               "Automated CBOM generation on every commit",
               "Real-time cryptographic vulnerability detection",
@@ -562,7 +562,7 @@ const Products: React.FC = () => {
             icon={<Settings size={24} className="text-teal-600"/>}
             title="Pipeline Orchestrator"
             subtitle="Compliance Automation"
-            description="Centralized platform for managing security policies, automated remediation workflows, and compliance reporting across all your development pipelines."
+            description="Centralized policy management, automated fixes, and compliance reporting for all your pipelines."
             features={[
               "Centralized security policy management",
               "Automated remediation workflow triggers",
@@ -591,7 +591,7 @@ const Products: React.FC = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-grow">
                 <h3 className="text-xl font-bold text-white mb-2">Enterprise DevSecOps Platform</h3>
-                <p className="text-cyan-100 text-sm">Full-stack platform with custom rule engines, enterprise SSO, and dedicated support. Designed for financial institutions and government agencies.</p>
+                <p className="text-cyan-100 text-sm">Custom rules, enterprise SSO, and dedicated support for banks and government agencies.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a 
@@ -624,7 +624,7 @@ const Products: React.FC = () => {
           </div>
         </div>
         <p className="text-slate-600 mb-8 max-w-3xl">
-          Deploy autonomous AI security agents that continuously monitor, correlate, and remediate cryptographic threats across your entire infrastructure. Agentic Security AI brings self-healing security to cloud, code, and quantum environments.
+          Deploy AI agents that watch for crypto threats and fix them automatically. Self-healing security for your entire infrastructure.
         </p>
 
         <div className="not-prose grid lg:grid-cols-2 gap-8">
@@ -632,7 +632,7 @@ const Products: React.FC = () => {
             icon={<Bot size={24} className="text-violet-600"/>}
             title="Threat Hunter Agent"
             subtitle="Autonomous Detection"
-            description="AI agent that continuously hunts for cryptographic threats, quantum-vulnerable assets, and policy violations across multi-cloud and on-premise environments."
+            description="AI agent that hunts for crypto threats and policy violations across cloud and on-prem."
             features={[
               "Autonomous cryptographic threat hunting",
               "Real-time correlation across BOM layers",
@@ -656,7 +656,7 @@ const Products: React.FC = () => {
             icon={<ShieldCheck size={24} className="text-violet-600"/>}
             title="Remediation Orchestrator"
             subtitle="Self-Healing"
-            description="Automated remediation engine that executes policy-driven responses to cryptographic threats without human intervention, with full audit trail."
+            description="Automatically responds to crypto threats without human help. Every action is logged."
             features={[
               "Self-healing remediation workflows",
               "Adaptive policy enforcement based on risk scoring",
@@ -685,7 +685,7 @@ const Products: React.FC = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-grow">
                 <h3 className="text-xl font-bold text-white mb-2">Enterprise Agentic Security</h3>
-                <p className="text-violet-100 text-sm">Dedicated AI agent clusters, custom policy engines, and premium support for financial institutions and government agencies.</p>
+                <p className="text-violet-100 text-sm">Dedicated AI agents, custom policies, and premium support for enterprises.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a
@@ -710,9 +710,9 @@ const Products: React.FC = () => {
       <section className="not-prose bg-slate-900 text-white p-12 md:p-16 rounded-[3rem] text-center shadow-2xl relative overflow-hidden">
         <div className="absolute inset-0 bg-technical opacity-5"></div>
         <div className="relative z-10">
-           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-white m-0">Ready to Secure Your Infrastructure?</h2>
+           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-white m-0">Ready to secure your infrastructure?</h2>
            <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-             Start with our open-source tools or join the enterprise beta program.
+             Start with open-source tools or join the enterprise beta.
            </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link to="/beta-signup" className="px-10 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-500 transition-all flex items-center gap-2 justify-center shadow-xl">
@@ -726,7 +726,7 @@ const Products: React.FC = () => {
       </section>
       
       <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-        Robust Integrated Verified Infrastructure Computing & Quantum • Berlin
+        Integrated Verified Infrastructure Computing & Quantum • Berlin
       </footer>
     </article>
   );

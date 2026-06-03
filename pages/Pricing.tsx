@@ -81,7 +81,7 @@ const Pricing: React.FC = () => {
     <article className="prose prose-lg prose-slate max-w-none">
       <h1 className="text-5xl font-bold mb-4 tracking-tight">Pricing & Plans</h1>
       <p className="lead font-serif italic text-slate-500 mb-12">
-        Infrastructure-grade security, simplified for modern adoption.
+        Enterprise security, made simple.
       </p>
 
       {/* Access Section */}
@@ -94,7 +94,7 @@ const Pricing: React.FC = () => {
           <PricingCard 
             title="Discovery (OSS)" 
             price="Free" 
-            description="Open source code auditing for researchers and small projects."
+            description="Free open-source scanner for researchers and small teams."
             features={["CLI Scanner", "Local CBOM Output", "Public Repo Scanning", "Community Support"]}
             cta="Get Source Code"
           />
@@ -103,7 +103,7 @@ const Pricing: React.FC = () => {
             price="Inquire" 
             isFeatured 
             badge="Managed Transition"
-            description="Full support for your first quantum-safe application migration."
+            description="Full support for your first quantum-safe migration."
             features={["Deep Scan & Inventory", "Managed Cloud HSM Access", "Remediation Roadmap", "1-on-1 Engineering Support"]}
             cta="Request Pilot Access"
           />
@@ -125,7 +125,7 @@ const Pricing: React.FC = () => {
           <h2 className="m-0 font-serif text-3xl">Expert Services</h2>
         </div>
         <p className="text-slate-600 mb-8">
-          Beyond technology, we provide the strategy needed for a safe transition.
+          Strategy and technology for a safe transition.
         </p>
         <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-8">
            <PricingCard 
@@ -157,7 +157,7 @@ const Pricing: React.FC = () => {
               </div>
               <h2 className="text-4xl font-serif font-bold mb-6 text-white m-0">Consult our Engineers</h2>
               <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                Whether you need a Pilot slot or an architectural review, our team in Berlin is ready to assist.
+                Need a pilot slot or architecture review? Our Berlin team is ready.
               </p>
 
               <div className="space-y-6">
@@ -167,7 +167,7 @@ const Pricing: React.FC = () => {
                     </div>
                     <div>
                        <h4 className="font-bold text-white text-sm m-0">Regulatory Pressure?</h4>
-                       <p className="text-xs text-slate-500 m-0 mt-1">Ask us about DORA Article 9 compliance mapping.</p>
+                       <p className="text-xs text-slate-500 m-0 mt-1">Ask about DORA compliance mapping.</p>
                     </div>
                  </div>
                  <div className="flex gap-4">
@@ -176,7 +176,7 @@ const Pricing: React.FC = () => {
                     </div>
                     <div>
                        <h4 className="font-bold text-white text-sm m-0">Timing is Critical</h4>
-                       <p className="text-xs text-slate-500 m-0 mt-1">Average PQC migration takes 18-36 months. Start the clock now.</p>
+                       <p className="text-xs text-slate-500 m-0 mt-1">PQC migration takes 18-36 months. Start now.</p>
                     </div>
                  </div>
               </div>
@@ -189,7 +189,7 @@ const Pricing: React.FC = () => {
                     <Check size={28} />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Received</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">Our infrastructure team will review your requirements and respond within 24 hours.</p>
+                  <p className="text-slate-500 text-sm leading-relaxed">We'll review your request and respond within 24 hours.</p>
                   <button onClick={() => setFormSubmitted(false)} className="mt-8 text-sky-500 text-xs font-bold uppercase tracking-widest hover:underline">New Communication</button>
                 </div>
               ) : (

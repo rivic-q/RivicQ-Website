@@ -18,7 +18,7 @@ const Platform: React.FC = () => {
     <article className="prose prose-slate max-w-none">
       <header className="mb-16">
         <h1 className="text-5xl font-bold mb-4 tracking-tight text-slate-900">Products & Architecture</h1>
-        <p className="text-slate-500 font-serif italic text-xl">CSPM, PQC, Agentic Security & Privacy Protocol — the foundation of quantum-safe security.</p>
+        <p className="text-slate-500 font-serif italic text-xl">CSPM, PQC, AI agents, and privacy protocols — the foundation of quantum-safe security.</p>
         <p className="text-slate-400 text-[10px] font-mono uppercase tracking-[0.3em] font-bold mt-6">Protocol v2.0 • NIST FIPS 203/204/205 • Cloud Ready</p>
       </header>
 
@@ -33,7 +33,7 @@ const Platform: React.FC = () => {
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Our Core Products</h2>
-            <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Tools to find, fix, and secure.</p>
+            <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Find it. Fix it. Secure it.</p>
           </div>
         </div>
 
@@ -105,7 +105,7 @@ const Platform: React.FC = () => {
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Quantum Benchmarking Core</h2>
-            <p className="text-xs text-sky-500 font-bold uppercase tracking-widest mt-1">Leveraging KIPU Q & Q-CTRL Control Logic</p>
+            <p className="text-xs text-sky-500 font-bold uppercase tracking-widest mt-1">Powered by KIPU Q & Q-CTRL</p>
           </div>
         </div>
         
@@ -158,7 +158,7 @@ analyzer.export_to_policy_service(
                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mt-2">Quantum Risk Index (QRI)</div>
               </div>
               <p className="mt-6 text-[11px] text-slate-600 leading-relaxed text-center">
-                {riskScore > 75 ? 'CRITICAL: TTB estimated at < 12 hours. High probability of classical key factorization.' : 'STABLE: Current encryption primitives remain robust against simulated quantum adversaries.'}
+                {riskScore > 75 ? 'CRITICAL: Key break time under 12 hours. Your encryption is at risk.' : 'STABLE: Your current encryption holds against simulated quantum attacks.'}
               </p>
             </div>
 
@@ -186,7 +186,7 @@ analyzer.export_to_policy_service(
 
       {/* Strategic Integrations */}
       <section className="not-prose mb-24 border-t border-slate-100 pt-16">
-         <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 text-center">Strategic Infrastructure & Partners</h2>
+         <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 text-center">Infrastructure Partners</h2>
          <div className="flex flex-wrap justify-center gap-6">
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
                <Cpu size={20} className="text-sky-500"/>

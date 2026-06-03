@@ -161,7 +161,7 @@ const Home: React.FC = () => {
           
           <div className="mb-4">
              <p className="text-[10px] md:text-[12px] font-mono font-bold text-sky-500 uppercase tracking-[0.4em] mb-6 border-l-2 border-sky-600 pl-4 leading-relaxed">
-               Robust Integrated Verified Infrastructure <br className="md:hidden" /> Computing & Quantum
+               Integrated Verified Infrastructure <br className="md:hidden" /> Computing & Quantum
              </p>
              <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[0.95] tracking-tight text-slate-900">
                Secure your <br/>infrastructure for the <span className="text-sky-500">next 50 years.</span>
@@ -169,7 +169,7 @@ const Home: React.FC = () => {
           </div>
 
            <p className="text-xl md:text-2xl text-slate-500 font-serif italic leading-relaxed m-0 max-w-3xl">
-             Unified Cryptographic Security Posture Management with Quantum BOM intelligence, Agentic Security AI, Post-Quantum Cryptography, and Privacy Protocol — bridging legacy debt with hardware-verified resilience.
+             One platform to discover, manage, and secure all your cryptographic assets. Combines CryptoBOM intelligence, AI-driven security, and quantum-safe cryptography — with hardware-verified protection.
            </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 not-prose mt-12">
             <a href="#scope" className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-slate-200 flex items-center justify-center gap-2 group">
@@ -187,8 +187,8 @@ const Home: React.FC = () => {
       {/* 2. End-to-End Scope */}
       <section id="scope" className="py-24 scroll-mt-24 px-4 md:px-0">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 m-0">Institutional Resilience</h2>
-          <p className="text-slate-500 text-xs md:text-sm mt-3 uppercase tracking-widest font-bold">End-to-End Cryptographic Lifecycle</p>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 m-0">End-to-End Protection</h2>
+          <p className="text-slate-500 text-xs md:text-sm mt-3 uppercase tracking-widest font-bold">From discovery to defense</p>
         </div>
         <EndToEndScope />
       </section>
@@ -196,8 +196,8 @@ const Home: React.FC = () => {
       {/* 3. Regulatory Alignment Section */}
       <section className="py-24 border-y border-slate-100 bg-slate-50 -mx-8 md:-mx-16 px-8 md:px-16 not-prose">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Regulatory Compliance Perimeter</h2>
-          <p className="text-xs text-sky-500 font-bold uppercase tracking-[0.2em] mt-3">Direct Mapping to Global Standards</p>
+          <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Compliance Ready</h2>
+          <p className="text-xs text-sky-500 font-bold uppercase tracking-[0.2em] mt-3">Aligns with global regulations</p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 px-4 md:px-0">
@@ -226,7 +226,7 @@ const Home: React.FC = () => {
             </div>
             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">The Berlin Hub</h3>
             <p className="text-sm text-slate-600 leading-relaxed m-0">
-              Operating within Leap Berlin / Humboldt Innovation, we leverage direct access to quantum hardware benchmarks and deep-tech ecosystem mentorship.
+              Based in Berlin's innovation hub, we work directly with quantum hardware and deep-tech partners.
             </p>
           </div>
           <div className="space-y-6">
@@ -235,7 +235,7 @@ const Home: React.FC = () => {
             </div>
             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">Data Longevity</h3>
             <p className="text-sm text-slate-600 leading-relaxed m-0">
-              Neutralizing "Harvest Now, Decrypt Later" for organizations requiring confidentiality that persists for 50+ years.
+              Defeat "Harvest Now, Decrypt Later" attacks. Your data stays private for 50+ years.
             </p>
           </div>
           <div className="space-y-6">
@@ -244,7 +244,7 @@ const Home: React.FC = () => {
             </div>
             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">Verified RoT</h3>
             <p className="text-sm text-slate-600 leading-relaxed m-0">
-              Our root-of-trust is anchored in physical magnesium-alloy HSM chassis, verified by NIST FIPS 140-3 protocols.
+              Hardware-based trust rooted in physical, tamper-proof HSM chassis verified by NIST FIPS 140-3.
             </p>
           </div>
         </div>
@@ -254,7 +254,7 @@ const Home: React.FC = () => {
       <section className="not-prose -mx-8 md:-mx-16 mb-24 bg-white py-12 md:py-24 border-y border-slate-50 px-4 md:px-0">
         <div className="px-8 md:px-16 mb-12 text-center">
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">FIPS 140-3 HSM Architecture</h2>
-            <p className="text-sm text-slate-500 mt-3 font-bold uppercase tracking-widest">Virtualized Physical Boundary</p>
+            <p className="text-sm text-slate-500 mt-3 font-bold uppercase tracking-widest">Virtualized, physically secure</p>
         </div>
         <HSMBlueprint />
       </section>
@@ -265,14 +265,14 @@ const Home: React.FC = () => {
         <div className="relative z-10">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-white m-0 leading-tight">Prepare for the <br className="md:hidden" /> Quantum Era.</h2>
           <p className="text-slate-400 text-base md:text-lg mb-12 max-w-xl mx-auto italic leading-relaxed">
-            "Cryptographic debt is the single largest liability for modern infrastructure. Start your migration journey today."
+            "Your cryptographic keys are your biggest risk. Start securing them today."
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/pricing" className="px-10 py-5 bg-sky-500 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-sky-500/20 text-center">
-              Initialize Pilot
+              Get Started
             </Link>
             <a href="mailto:hello@rivicq.de" className="px-10 py-5 border border-slate-700 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-white/5 transition-all text-center">
-              Engineering Consultation
+              Talk to an Engineer
             </a>
           </div>
         </div>
