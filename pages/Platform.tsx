@@ -18,8 +18,8 @@ const Platform: React.FC = () => {
     <article className="prose prose-slate max-w-none">
       <header className="mb-16">
         <h1 className="text-5xl font-bold mb-4 tracking-tight text-slate-900">Products & Architecture</h1>
-        <p className="text-slate-500 font-serif italic text-xl">The foundation of your new, quantum-safe security system.</p>
-        <p className="text-slate-400 text-[10px] font-mono uppercase tracking-[0.3em] font-bold mt-6">Protocol v1.4 • NIST Compliant • Cloud Ready</p>
+        <p className="text-slate-500 font-serif italic text-xl">CSPM, PQC, Agentic Security & Privacy Protocol — the foundation of quantum-safe security.</p>
+        <p className="text-slate-400 text-[10px] font-mono uppercase tracking-[0.3em] font-bold mt-6">Protocol v2.0 • NIST FIPS 203/204/205 • Cloud Ready</p>
       </header>
 
       <section className="not-prose -mx-8 md:-mx-16 mb-24">

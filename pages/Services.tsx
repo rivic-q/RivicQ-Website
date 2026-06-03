@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShieldAlert, Terminal, Activity, ArrowRight, CheckCircle2, Microscope, Search, GitBranch, Shield, Zap, Lock, ShieldCheck } from 'lucide-react';
+import { ShieldAlert, Terminal, Activity, ArrowRight, CheckCircle2, Microscope, Search, GitBranch, Shield, Zap, Lock, ShieldCheck, Bot, Fingerprint } from 'lucide-react';
 
 const ServiceDetail: React.FC<{ 
   title: string, 
@@ -85,9 +85,33 @@ const Services: React.FC = () => {
           badge="Strategic Migration"
           desc="Guidance on navigating the transition from classical RSA/ECC to NIST-standardized PQC."
           points={[
-            "NIST FIPS 203/204 readiness",
+            "NIST FIPS 203/204/205 readiness",
             "EU DORA gap analysis",
             "Hybrid migration roadmaps"
+          ]}
+        />
+        <ServiceDetail 
+          icon={<Bot size={24}/>}
+          title="Agentic Security Assessment"
+          badge="AI Agent Audit"
+          desc="Evaluate your AI agent infrastructure for cryptographic weaknesses, prompt injection risks, and autonomous decision-chain integrity."
+          points={[
+            "AI agent threat modeling",
+            "Autonomous workflow audit",
+            "Cryptographic boundary testing",
+            "Agent-to-agent channel security"
+          ]}
+        />
+        <ServiceDetail 
+          icon={<Fingerprint size={24}/>}
+          title="Privacy Protocol Implementation"
+          badge="Zero-Knowledge"
+          desc="Deploy and integrate zero-knowledge privacy protocol into existing infrastructure. ZK-proofs, secure multi-party computation, and differential privacy for regulated data."
+          points={[
+            "Zero-knowledge proof deployment",
+            "Secure multi-party computation setup",
+            "Differential privacy integration",
+            "GDPR / eIDAS compliance verification"
           ]}
         />
       </div>
@@ -111,7 +135,7 @@ const Services: React.FC = () => {
           
           <div className="relative z-10 max-w-3xl">
             <p className="text-lg text-slate-700 leading-relaxed mb-12">
-              We design and implement comprehensive security architectures that embed protection directly into the development lifecycle. Our approach ensures that security is not a bottleneck but a seamless component of your industrial-scale delivery pipeline.
+              We design and implement comprehensive security architectures that embed protection directly into the development lifecycle. From Agentic Security AI agents to Privacy Protocol integration and PQC migration — security becomes a seamless component of your industrial-scale delivery pipeline.
             </p>
 
             <div className="grid md:grid-cols-2 gap-10 not-prose">

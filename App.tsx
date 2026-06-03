@@ -39,15 +39,15 @@ const RouteHandler = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     const titles: Record<string, string> = {
-      '/': 'RivicQ | End-to-End Quantum-Safe Scope',
-      '/products': 'CryptoBOM SaaS | RivicQ',
+      '/': 'RivicQ | CSPM • PQC • Agentic Security • Privacy Protocol',
+      '/products': 'CSPM, PQC, Agentic Security & Privacy Protocol | RivicQ',
       '/rqsp': 'RQSP Protocol | RivicQ',
       '/platform': 'Platform Architecture | RivicQ',
       '/cloud-hsm': 'Cloud HSM vHSM | RivicQ',
       '/methodology': 'Scientific Methodology | RivicQ',
       '/sdk': 'Developer SDK | RivicQ',
       '/solutions': 'Industry Solutions | RivicQ',
-      '/services': 'Services & Red Teaming | RivicQ',
+      '/services': 'CSPM, PQC, Agentic Security & Privacy Protocol Services | RivicQ',
       '/use-cases': 'Use Cases | RivicQ',
       '/roadmap': 'Enterprise Readiness Roadmap | RivicQ',
       '/team': 'Our Team | RivicQ',

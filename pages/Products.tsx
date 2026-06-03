@@ -283,25 +283,25 @@ const Products: React.FC = () => {
             <FileSearch size={24}/>
           </div>
           <div>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">1. CryptoBOM & Cryptographic Security Posture Management</h2>
-            <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">Core Discovery & Inventory</span>
+            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">1. CryptoBOM, QBOM & Cryptographic Security Posture Management</h2>
+            <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">Core Discovery • Quantum BOM • CSPM</span>
           </div>
         </div>
         <p className="text-slate-600 mb-8 max-w-3xl">
-          Automated discovery and inventory of all cryptographic assets across your infrastructure. Generate comprehensive Cryptographic Bills of Materials (CBOM) aligned with NIST standards and regulatory requirements.
+          Automated discovery and inventory of all cryptographic assets across your infrastructure. Generate comprehensive Cryptographic Bills of Materials (CBOM) and Quantum Bills of Materials (QBOM) aligned with NIST standards and regulatory requirements.
         </p>
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
           <ProductCard 
             icon={<FileCode size={24} className="text-sky-500"/>}
-            title="CBOM Scanner"
-            subtitle="Discovery Engine"
-            description="AI-powered scanning engine that discovers cryptographic primitives, certificates, and keys across codebases, containers, and cloud environments."
+            title="BOM Intelligence Engine"
+            subtitle="Discovery & Inventory"
+            description="AI-powered scanning engine that discovers cryptographic primitives, certificates, keys, and quantum-vulnerable assets across codebases, containers, and cloud environments."
             features={[
               "Deep code analysis with AI pattern recognition",
-              "Container image scanning for embedded keys",
+              "CBOM + QBOM generation for quantum vulnerability mapping",
               "Cloud VPC cryptographic asset discovery",
-              "CycloneDX SBOM/CBOM generation",
+              "CycloneDX SBOM/CBOM/QBOM generation",
               "Continuous monitoring with delta detection",
               "Integration with GitHub, GitLab, Bitbucket"
             ]}
@@ -316,14 +316,14 @@ const Products: React.FC = () => {
           
           <ProductCard 
             icon={<ShieldCheck size={24} className="text-emerald-600"/>}
-            title="Posture Manager"
+            title="CSPM Posture Manager"
             subtitle="Risk & Compliance"
-            description="Real-time cryptographic security posture management with automated compliance mapping and remediation orchestration."
+            description="Real-time Cryptographic Security Posture Management with automated compliance mapping, PQC readiness tracking, and Agentic Security AI remediation orchestration."
             features={[
-              "NIST PQC compliance dashboard",
+              "NIST PQC compliance dashboard (FIPS 203/204/205)",
               "DORA Article 9 automated mapping",
-              "Risk scoring with quantum threat analysis",
-              "Automated remediation workflows",
+              "Quantum risk scoring with QBOM exposure analysis",
+              "Agentic Security AI automated remediation",
               "Executive compliance reporting",
               "Audit trail & evidence generation"
             ]}
@@ -346,8 +346,8 @@ const Products: React.FC = () => {
             <div className="absolute inset-0 bg-technical opacity-10"></div>
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-grow">
-                <h3 className="text-xl font-bold text-white mb-2">Enterprise CBOM SaaS</h3>
-                <p className="text-sky-100 text-sm">Full-stack platform with IBM Cloud HPCS, AWS CloudHSM/KMS, and GCP GKE integrations. JWT auth, PostgreSQL backend, 85%+ test coverage.</p>
+                <h3 className="text-xl font-bold text-white mb-2">Enterprise CSPM Platform</h3>
+                <p className="text-sky-100 text-sm">Full-stack platform with CBOM/QBOM intelligence, Agentic Security AI agents, PQC migration engine, and Privacy Protocol integration.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a 
@@ -601,6 +601,100 @@ const Products: React.FC = () => {
                   Contact Sales
                 </a>
                 <Link 
+                  to="/beta-signup"
+                  className="flex items-center gap-2 px-5 py-3 bg-white/10 text-white font-bold text-sm rounded-xl hover:bg-white/20 transition-all border border-white/20"
+                >
+                  Join Beta
+                </Link>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </section>
+
+      {/* Product 4: Agentic Security AI */}
+      <section className="mb-24">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-3 bg-violet-600 text-white rounded-2xl shadow-lg">
+            <Bot size={24}/>
+          </div>
+          <div>
+            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">4. Agentic Security AI</h2>
+            <span className="text-[10px] font-bold text-violet-600 uppercase tracking-widest">Autonomous AI Security Agents</span>
+          </div>
+        </div>
+        <p className="text-slate-600 mb-8 max-w-3xl">
+          Deploy autonomous AI security agents that continuously monitor, correlate, and remediate cryptographic threats across your entire infrastructure. Agentic Security AI brings self-healing security to cloud, code, and quantum environments.
+        </p>
+
+        <div className="not-prose grid lg:grid-cols-2 gap-8">
+          <ProductCard
+            icon={<Bot size={24} className="text-violet-600"/>}
+            title="Threat Hunter Agent"
+            subtitle="Autonomous Detection"
+            description="AI agent that continuously hunts for cryptographic threats, quantum-vulnerable assets, and policy violations across multi-cloud and on-premise environments."
+            features={[
+              "Autonomous cryptographic threat hunting",
+              "Real-time correlation across BOM layers",
+              "Behavioral anomaly detection for zero-day attacks",
+              "Quantum vulnerability scanning (QBOM analysis)",
+              "Multi-cloud telemetry ingestion",
+              "Self-tuning detection models"
+            ]}
+            badge="AI-Powered"
+            badgeColor="bg-violet-600"
+            stats={[
+              { value: "24/7", label: "Autonomous" },
+              { value: "99.7%", label: "Detection Rate" },
+              { value: "Real-time", label: "Response" }
+            ]}
+            ctaText="Deploy Agent"
+            ctaLink="mailto:hello@rivicq.de?subject=Agentic Security AI Inquiry"
+          />
+
+          <ProductCard
+            icon={<ShieldCheck size={24} className="text-violet-600"/>}
+            title="Remediation Orchestrator"
+            subtitle="Self-Healing"
+            description="Automated remediation engine that executes policy-driven responses to cryptographic threats without human intervention, with full audit trail."
+            features={[
+              "Self-healing remediation workflows",
+              "Adaptive policy enforcement based on risk scoring",
+              "Orchestrated incident response across multi-cloud",
+              "Integration with SIEM/SOAR platforms",
+              "Policy-as-code with OPA and Rego",
+              "Compliance-driven auto-remediation"
+            ]}
+            badge="Zero-Touch"
+            badgeColor="bg-violet-600"
+            isDark
+            stats={[
+              { value: "<30s", label: "Mean Response" },
+              { value: "100%", label: "Auditable" },
+              { value: "SOC 2", label: "Compliant" }
+            ]}
+            ctaText="Request Demo"
+            ctaLink="mailto:hello@rivicq.de?subject=Agentic Security Demo Request"
+          />
+        </div>
+
+        {/* Agentic Security Enterprise CTA */}
+        <AnimatedSection delay={200}>
+          <div className="mt-8 bg-gradient-to-r from-violet-600 to-indigo-700 rounded-2xl p-6 md:p-8 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-technical opacity-10"></div>
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-grow">
+                <h3 className="text-xl font-bold text-white mb-2">Enterprise Agentic Security</h3>
+                <p className="text-violet-100 text-sm">Dedicated AI agent clusters, custom policy engines, and premium support for financial institutions and government agencies.</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <a
+                  href="mailto:hello@rivicq.de?subject=Agentic Security Enterprise Inquiry"
+                  className="flex items-center gap-2 px-5 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-violet-50 transition-all"
+                >
+                  Contact Sales
+                </a>
+                <Link
                   to="/beta-signup"
                   className="flex items-center gap-2 px-5 py-3 bg-white/10 text-white font-bold text-sm rounded-xl hover:bg-white/20 transition-all border border-white/20"
                 >

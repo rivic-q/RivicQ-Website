@@ -52,7 +52,7 @@ const Solutions: React.FC = () => {
       <header className="mb-16">
         <h1 className="text-5xl font-bold mb-4 tracking-tight">Industry Solutions</h1>
         <p className="lead font-serif italic text-slate-600 text-xl">
-          Simple, secure upgrades for industries that need to protect data for a long time.
+          CSPM, PQC, Agentic Security &amp; Privacy Protocol — simple, secure upgrades for industries that need to protect data for a long time.
         </p>
       </header>
       

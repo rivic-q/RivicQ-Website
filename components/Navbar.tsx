@@ -8,12 +8,12 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
+    { name: 'Products', path: '/products' },
+    { name: 'Services', path: '/services' },
     { name: 'Platform', path: '/platform' },
     { name: 'Solutions', path: '/solutions' },
-    { name: 'Use Cases', path: '/use-cases' },
-    { name: 'Roadmap', path: '/roadmap' },
-    { name: 'Team', path: '/team' },
     { name: 'Resources', path: '/resources' },
+    { name: 'Team', path: '/team' },
   ];
 
   const ctaLink = { name: 'Beta Signup', path: '/beta-signup' };

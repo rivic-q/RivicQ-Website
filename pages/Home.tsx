@@ -162,9 +162,9 @@ const Home: React.FC = () => {
              </h1>
           </div>
 
-          <p className="text-xl md:text-2xl text-slate-500 font-serif italic leading-relaxed m-0 max-w-3xl">
-            Building the institutional transition platform for quantum resilience. RivicQ bridges legacy cryptographic debt with hardware-verified security.
-          </p>
+           <p className="text-xl md:text-2xl text-slate-500 font-serif italic leading-relaxed m-0 max-w-3xl">
+             Unified Cryptographic Security Posture Management with Quantum BOM intelligence, Agentic Security AI, Post-Quantum Cryptography, and Privacy Protocol — bridging legacy debt with hardware-verified resilience.
+           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 not-prose mt-12">
             <a href="#scope" className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-slate-200 flex items-center justify-center gap-2 group">
               Explore Platform <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform"/>
