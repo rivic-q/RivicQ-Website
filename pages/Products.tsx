@@ -7,6 +7,7 @@ import {
   ExternalLink, Rocket, Star, ArrowDown
 } from 'lucide-react';
 import CISODashboard from '../components/CISODashboard';
+import { formService } from '../services/formService';
 
 const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className = '', delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -748,25 +749,17 @@ const DemoRequestForm: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'demo-request',
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          role: formData.role,
-          message: `Estimated Assets: ${formData.assets}\n\n${formData.message}`
-        })
+      await formService.submit({
+        type: 'demo-request',
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        role: formData.role,
+        message: `Estimated Assets: ${formData.assets}\n\n${formData.message}`
       });
-      if (response.ok) {
-        setFormSubmitted(true);
-      } else {
-        alert('Something went wrong. Please try again or email us at hello@rivicq.de');
-      }
-    } catch {
-      alert('Network error. Please try again or email us at hello@rivicq.de');
+      setFormSubmitted(true);
+    } catch (e) {
+      alert('Something went wrong. Please try again or email us at hello@rivicq.de');
     } finally {
       setIsSubmitting(false);
     }

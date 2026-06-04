@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import { formService } from '../services/formService';
 
 const BetaSignup: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -38,21 +39,12 @@ const BetaSignup: React.FC = () => {
     }
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          type: 'beta-signup',
-          message: `Beta Signup: ${formData.useCase}\n\nTimeline: ${formData.timeline}`
-        })
+      await formService.submit({
+        ...formData,
+        type: 'beta-signup',
+        message: `Beta Signup: ${formData.useCase}\n\nTimeline: ${formData.timeline}`
       });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
+      setSubmitted(true);
     } catch {
       setError('Network error. Please try again.');
     } finally {

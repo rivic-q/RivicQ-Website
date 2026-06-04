@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { formService } from '../services/formService';
 import { Link } from 'react-router-dom';
 import { 
   Building2, Send, CheckCircle2, Award, Activity, MessageSquare, 
@@ -49,25 +50,17 @@ const Investors: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'investor-inquiry',
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          role: formData.investorType,
-          message: formData.message
-        })
+      await formService.submit({
+        type: 'investor-inquiry',
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        role: formData.investorType,
+        message: formData.message
       });
-      if (response.ok) {
-        setFormSubmitted(true);
-      } else {
-        alert('Something went wrong. Please try again or email us at hello@rivicq.de');
-      }
-    } catch {
-      alert('Network error. Please try again or email us at hello@rivicq.de');
+      setFormSubmitted(true);
+    } catch (e) {
+      alert('Something went wrong. Please try again or email us at hello@rivicq.de');
     } finally {
       setIsSubmitting(false);
     }

@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { formService } from '../services/formService';
 import { Mail, Send, Users, Award, Globe, Heart, Sparkles, Handshake, Star, Clock, CheckCircle, ArrowRight, Briefcase } from 'lucide-react';
 
 const AmbassadorCard: React.FC<{
@@ -47,24 +48,16 @@ const Careers: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'careers-application',
-          name: formData.name,
-          email: formData.email,
-          role: formData.role,
-          message: `LinkedIn: ${formData.linkedin}\n\n${formData.message}`
-        })
+      await formService.submit({
+        type: 'careers-application',
+        name: formData.name,
+        email: formData.email,
+        role: formData.role,
+        message: `LinkedIn: ${formData.linkedin}\n\n${formData.message}`
       });
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        alert('Something went wrong. Please try again or email us at hello@rivicq.de');
-      }
-    } catch {
-      alert('Network error. Please try again or email us at hello@rivicq.de');
+      setSubmitted(true);
+    } catch (e) {
+      alert('Something went wrong. Please try again or email us at hello@rivicq.de');
     }
   };
 

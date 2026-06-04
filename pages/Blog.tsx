@@ -6,6 +6,7 @@ import {
   BookOpen, ScrollText, Target, Zap
 } from 'lucide-react';
 import { posts, categories } from '../data/blogPosts';
+import { formService } from '../services/formService';
 
 const Blog: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -15,21 +16,15 @@ const Blog: React.FC = () => {
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'newsletter-subscription',
-          email: newsletterEmail,
-          name: '',
-          message: 'Newsletter subscription request'
-        })
+      await formService.submit({
+        type: 'newsletter-subscription',
+        email: newsletterEmail,
+        name: '',
+        message: 'Newsletter subscription request'
       });
-      if (response.ok) {
-        setNewsletterSubmitted(true);
-        setNewsletterEmail('');
-      }
-    } catch {
+      setNewsletterSubmitted(true);
+      setNewsletterEmail('');
+    } catch (e) {
       alert('Something went wrong. Please try again.');
     }
   };

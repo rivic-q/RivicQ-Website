@@ -5,9 +5,6 @@ Contact: mailto:security@rivicq.de
 Preferred-Languages: en, de
 Policy: https://rivicq.de/legal#vulnerability-disclosure
 
-# Encryption
-Encryption: https://rivicq.de/.well-known/pgp-key.txt
-
 # Acknowledgments
 # We appreciate responsible disclosure. Please allow 72h for an initial response.
 # This file: https://rivicq.de/.well-known/security.txt

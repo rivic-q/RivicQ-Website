@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { formService } from '../services/formService';
 import { Handshake, Percent, Award, ArrowRight, ShieldCheck, Users, Briefcase, Mail, Send, CheckCircle, Loader2, Star, TrendingUp, Rocket, Globe, Target, Zap } from 'lucide-react';
 
 const Partner: React.FC = () => {
@@ -18,26 +19,18 @@ const Partner: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'partner-inquiry',
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          role: formData.partnershipType,
-          message: `Website: ${formData.website}\n\n${formData.message}`
-        })
+      await formService.submit({
+        type: 'partner-inquiry',
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        role: formData.partnershipType,
+        message: `Website: ${formData.website}\n\n${formData.message}`
       });
-      if (response.ok) {
-        setFormSubmitted(true);
-        setFormData({ company: '', email: '', name: '', website: '', partnershipType: '', message: '' });
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-    } catch {
-      alert('Network error. Please try again.');
+      setFormSubmitted(true);
+      setFormData({ company: '', email: '', name: '', website: '', partnershipType: '', message: '' });
+    } catch (e) {
+      alert('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

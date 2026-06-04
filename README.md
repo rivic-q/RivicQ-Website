@@ -1,17 +1,13 @@
 # RivicQ Website
 
-RivicQ's corporate website — a React SPA with Express backend. Built with Vite, TypeScript, and Tailwind CSS.
+RivicQ's corporate website — a React SPA deployed on GitHub Pages. Built with Vite, TypeScript, and Tailwind CSS.
 
 ## Stack
 
 - **Frontend:** React 19, TypeScript, Tailwind CSS (CDN), Vite
-- **Backend:** Express 5, Node.js 20+
-- **APIs:** Brevo SMTP (email)
+- **Hosting:** GitHub Pages (static)
+- **Forms:** Configurable endpoint (Web3Forms, Formspree, or custom)
 - **Routing:** HashRouter (SPA)
-
-## Prerequisites
-
-- Node.js 20+
 
 ## Setup
 
@@ -19,32 +15,25 @@ RivicQ's corporate website — a React SPA with Express backend. Built with Vite
    ```
    npm install
    ```
-2. Copy `.env.example` to `.env` and fill in the values:
-   ```
-   cp .env.example .env
-   ```
-3. Required env vars:
-   | Variable | Description |
-   |----------|-------------|
-   | `SMTP_USER` | Brevo SMTP username |
-   | `SMTP_PASS` | Brevo SMTP password |
-   | `SMTP_FROM` | Sender email address |
-   | `CORS_ORIGIN` | Comma-separated allowed origins |
-4. Start development server:
+2. Start dev server:
    ```
    npm run dev
    ```
+3. For form submissions, set `VITE_FORM_ENDPOINT` in `.env` (optional — defaults to `/api/contact` for local server)
 
 ## Scripts
 
 | Script | Purpose |
 |--------|---------|
-| `npm run dev` | Start dev server + Vite HMR |
+| `npm run dev` | Vite dev server with HMR |
 | `npm run build` | Build production assets |
-| `npm run start` | Start production server |
+| `npm run preview` | Preview production build |
 | `npm run lint` | TypeScript type checking |
 | `npm run format` | Format code with Prettier |
-| `npm run prod:check` | Build + syntax check |
+
+## Deploy
+
+Push to `main` — the GitHub Actions workflow at `.github/workflows/deploy.yml` builds and deploys to GitHub Pages automatically. Set `VITE_FORM_ENDPOINT` as a repository secret or in your form service dashboard.
 
 ## Structure
 
@@ -52,9 +41,8 @@ RivicQ's corporate website — a React SPA with Express backend. Built with Vite
 ├── App.tsx              # Route definitions + page titles
 ├── components/          # Shared UI components
 ├── pages/               # Route page components
-├── services/            # API service layer
-├── server.js            # Express backend
-├── public/              # Static assets (favicon, robots.txt, sitemap)
+├── services/            # API service layer (form submission)
+├── public/              # Static assets (favicon, robots.txt, .well-known)
 ├── dist/                # Build output (gitignored)
-└── .env                 # Environment config (gitignored)
+└── .env                 # Optional env config (gitignored)
 ```

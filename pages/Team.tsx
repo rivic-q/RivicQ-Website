@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, CheckCircle2, Send, Loader2, MessageSquare, Globe, Linkedin, ShieldCheck, Github, Cpu, Users, Bot } from 'lucide-react';
-import { apiService } from '../services/aiService';
+import { formService } from '../services/formService';
 
 const Team: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -11,7 +11,7 @@ const Team: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await apiService.submitInquiry({
+      await formService.submit({
         type: 'GENERAL_CONTACT',
         name: formData.name,
         email: formData.email,

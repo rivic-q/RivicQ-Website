@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Target, TrendingUp, BarChart3, Globe2, LayoutGrid, ArrowRight, ExternalLink, Zap, Lock, Microscope, Beaker, ShieldCheck, PieChart, Users, Layers, TrendingDown, AlertTriangle, Info, CheckCircle2, Landmark, FileText, BarChart, Rocket, Shield, Quote, FileDown, Presentation, Send, Loader2 } from 'lucide-react';
-import { apiService } from '../services/aiService';
+import { formService } from '../services/formService';
 
 const PitchDeck: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -19,7 +19,7 @@ const PitchDeck: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await apiService.submitInquiry({
+      await formService.submit({
         type: 'DOCUMENT_REQUEST',
         ...formData
       });
