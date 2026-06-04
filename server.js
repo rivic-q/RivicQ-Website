@@ -15,23 +15,23 @@ const distIndexFile = path.join(distDir, 'index.html');
 
 dotenv.config();
 
-const REQUIRED_ENV = ['SMTP_USER', 'SMTP_PASS'];
-const missing = REQUIRED_ENV.filter(key => !process.env[key]);
-if (missing.length > 0) {
-  console.error(`Missing required env vars: ${missing.join(', ')}`);
-  console.error('Copy .env.example to .env and fill in the values.');
-  process.exit(1);
-}
+const smtpConfigured = process.env.SMTP_USER && process.env.SMTP_PASS;
+let transporter = null;
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER || '',
-    pass: process.env.SMTP_PASS || ''
-  }
-});
+if (smtpConfigured) {
+  transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: false,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS
+    }
+  });
+} else {
+  console.warn('SMTP not configured — emails will be logged locally only.');
+  console.warn('Set SMTP_USER and SMTP_PASS in .env to enable email delivery.');
+}
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -213,17 +213,19 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
     </p>
   `;
 
-  try {
-    await transporter.sendMail({
-      from: `"RivicQ Website" <${process.env.SMTP_FROM || 'noreply@rivicq.de'}>`,
-      to: 'hello@rivicq.de',
-      subject: `[RivicQ] ${typeLabels[type] || 'New Inquiry'}: ${name} from ${company || email}`,
-      html: emailHtml,
-      replyTo: email
-    });
-    console.log('Email sent successfully to hello@rivicq.de');
-  } catch (emailError) {
-    console.error('Error sending email:', emailError.message);
+  if (transporter) {
+    try {
+      await transporter.sendMail({
+        from: `"RivicQ Website" <${process.env.SMTP_FROM || 'noreply@rivicq.de'}>`,
+        to: 'hello@rivicq.de',
+        subject: `[RivicQ] ${typeLabels[type] || 'New Inquiry'}: ${name} from ${company || email}`,
+        html: emailHtml,
+        replyTo: email
+      });
+      console.log('Email sent successfully to hello@rivicq.de');
+    } catch (emailError) {
+      console.error('Error sending email:', emailError.message);
+    }
   }
 
   res.json({ success: true, message: "Inquiry recorded successfully." });
