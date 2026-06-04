@@ -76,7 +76,7 @@ const ProductCard: React.FC<{
     <div className={`flex-grow space-y-3 mb-8`}>
       {features.map((feat, i) => (
         <div key={i} className="flex items-start gap-3">
-          <CheckCircle2 size={14} className={`shrink-0 mt-0.5 ${isDark ? 'text-emerald-400' : 'text-sky-500'}`} />
+          <CheckCircle2 aria-hidden="true" size={14} className={`shrink-0 mt-0.5 ${isDark ? 'text-emerald-400' : 'text-sky-500'}`} />
           <span className={`text-xs ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{feat}</span>
         </div>
       ))}
@@ -90,7 +90,7 @@ const ProductCard: React.FC<{
         : 'bg-slate-900 text-white hover:bg-sky-500'
       }`}
     >
-      {ctaText} <ArrowRight size={14}/>
+      {ctaText} <ArrowRight aria-hidden="true" size={14}/>
     </a>
   </div>
 );
@@ -116,7 +116,7 @@ const OSSCard: React.FC<{
       <div className="flex items-center gap-2">
         {stars && (
           <span className="flex items-center gap-1 text-[10px] text-slate-500">
-            <Star size={12} className="text-amber-500 fill-amber-500" /> {stars}
+            <Star aria-hidden="true" size={12} className="text-amber-500 fill-amber-500" /> {stars}
           </span>
         )}
       </div>
@@ -126,7 +126,7 @@ const OSSCard: React.FC<{
         rel="noopener noreferrer"
         className="flex items-center gap-1 text-[10px] font-bold text-slate-900 hover:text-emerald-600 transition-colors"
       >
-        View on GitHub <ExternalLink size={10} />
+        View on GitHub <ExternalLink aria-hidden="true" size={10} />
       </a>
     </div>
   </div>
@@ -156,7 +156,7 @@ const Products: React.FC = () => {
               <div className="absolute inset-0 bg-technical opacity-20"></div>
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
-                  <Github size={32} className="text-white" />
+                  <Github aria-hidden="true" size={32} className="text-white" />
                   <div className="w-px h-8 bg-slate-700"></div>
                   <span className="text-sm font-bold text-emerald-400">Open Source</span>
                 </div>
@@ -173,7 +173,7 @@ const Products: React.FC = () => {
                     'Continuous integration ready'
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 text-sm text-slate-300">
-                      <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                      <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-400 shrink-0" />
                       {item}
                     </div>
                   ))}
@@ -184,7 +184,7 @@ const Products: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-emerald-50 transition-all"
                 >
-                  <Github size={18} /> Explore OSS Projects
+                  <Github aria-hidden="true" size={18} /> Explore OSS Projects
                 </a>
               </div>
             </div>
@@ -195,7 +195,7 @@ const Products: React.FC = () => {
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
-                  <Rocket size={32} className="text-white" />
+                  <Rocket aria-hidden="true" size={32} className="text-white" />
                   <div className="w-px h-8 bg-sky-400"></div>
                   <span className="text-sm font-bold text-sky-200">Enterprise</span>
                 </div>
@@ -212,7 +212,7 @@ const Products: React.FC = () => {
                     'Dedicated support & SLAs'
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 text-sm text-sky-100">
-                      <CheckCircle2 size={16} className="text-emerald-300 shrink-0" />
+                      <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-300 shrink-0" />
                       {item}
                     </div>
                   ))}
@@ -221,7 +221,7 @@ const Products: React.FC = () => {
                   to="/beta-signup"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-sky-500 font-bold text-sm rounded-xl hover:bg-sky-50 transition-all"
                 >
-                  Join Beta Program <ArrowRight size={18} />
+                  Join Beta Program <ArrowRight aria-hidden="true" size={18} />
                 </Link>
               </div>
             </div>
@@ -232,7 +232,7 @@ const Products: React.FC = () => {
       {/* OSS Projects */}
       <section className="mb-24">
         <div className="flex items-center gap-4 mb-8">
-          <Github size={28} className="text-slate-900" />
+          <Github aria-hidden="true" size={28} className="text-slate-900" />
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Open Source Projects</h2>
             <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">MIT Licensed • Community Driven</span>
@@ -241,7 +241,7 @@ const Products: React.FC = () => {
 
         <div className="not-prose grid md:grid-cols-2 gap-6 mb-8">
           <OSSCard 
-            icon={<FileSearch size={24} />}
+            icon={<FileSearch aria-hidden="true" size={24} />}
             title="CryptoBOM (CBOM)"
             description="Discover keys, certificates, and crypto assets in your code. Generates SBOM/CBOM reports with AI."
             link="https://github.com/rivic-q/cryptobom-saas"
@@ -249,7 +249,7 @@ const Products: React.FC = () => {
             license="Apache 2.0"
           />
           <OSSCard 
-            icon={<LockKeyhole size={24} />}
+            icon={<LockKeyhole aria-hidden="true" size={24} />}
             title="Privacy Protocol (RQSP)"
             description="Private blockchain transactions using zero-knowledge proofs. Built with ZK-SNARKs."
             link="https://github.com/rivic-q/rivicq-protocol"
@@ -270,7 +270,7 @@ const Products: React.FC = () => {
               rel="noopener noreferrer"
               className="shrink-0 flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-bold text-sm rounded-xl hover:bg-slate-800 transition-all"
             >
-              <Github size={18} /> View All Projects
+              <Github aria-hidden="true" size={18} /> View All Projects
             </a>
           </div>
         </AnimatedSection>
@@ -280,7 +280,7 @@ const Products: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
-            <FileSearch size={24}/>
+            <FileSearch aria-hidden="true" size={24}/>
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">1. CryptoBOM, QBOM & Cryptographic Security Posture Management</h2>
@@ -293,7 +293,7 @@ const Products: React.FC = () => {
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
           <ProductCard 
-            icon={<FileCode size={24} className="text-sky-500"/>}
+            icon={<FileCode aria-hidden="true" size={24} className="text-sky-500"/>}
             title="BOM Intelligence Engine"
             subtitle="Discovery & Inventory"
             description="AI scanner that finds keys, certificates, and quantum-vulnerable crypto across your code, containers, and cloud."
@@ -315,7 +315,7 @@ const Products: React.FC = () => {
           />
           
           <ProductCard 
-            icon={<ShieldCheck size={24} className="text-emerald-600"/>}
+            icon={<ShieldCheck aria-hidden="true" size={24} className="text-emerald-600"/>}
             title="CSPM Posture Manager"
             subtitle="Risk & Compliance"
             description="Real-time dashboard for crypto security risks, compliance, and PQC readiness — with AI-powered fixes."
@@ -356,7 +356,7 @@ const Products: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-5 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-sky-50 transition-all"
                 >
-                  <Github size={16} /> View on GitHub
+                  <Github aria-hidden="true" size={16} /> View on GitHub
                 </a>
                 <Link 
                   to="/beta-signup"
@@ -374,7 +374,7 @@ const Products: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-slate-900 text-white rounded-2xl shadow-lg">
-            <Eye size={24}/>
+            <Eye aria-hidden="true" size={24}/>
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Live CISO Dashboard Preview</h2>
@@ -398,10 +398,10 @@ const Products: React.FC = () => {
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "30-minute walkthrough tailored to you" },
-                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "Threat analysis for your infrastructure" },
-                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "Compliance gap assessment included" },
-                  { icon: <CheckCircle2 size={16} className="text-emerald-600"/>, text: "PQC migration roadmap preview" }
+                  { icon: <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-600"/>, text: "30-minute walkthrough tailored to you" },
+                  { icon: <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-600"/>, text: "Threat analysis for your infrastructure" },
+                  { icon: <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-600"/>, text: "Compliance gap assessment included" },
+                  { icon: <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-600"/>, text: "PQC migration roadmap preview" }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     {item.icon}
@@ -420,7 +420,7 @@ const Products: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-indigo-600 text-white rounded-2xl shadow-lg">
-            <LockKeyhole size={24}/>
+            <LockKeyhole aria-hidden="true" size={24}/>
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">2. Privacy Protocol (RQSP)</h2>
@@ -433,7 +433,7 @@ const Products: React.FC = () => {
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
           <ProductCard 
-            icon={<Lock size={24} className="text-indigo-600"/>}
+            icon={<Lock aria-hidden="true" size={24} className="text-indigo-600"/>}
             title="Confidential Transfers"
             subtitle="Transaction Privacy"
             description="Hide sender, recipient, and amounts in blockchain transactions using zero-knowledge proofs."
@@ -457,7 +457,7 @@ const Products: React.FC = () => {
           />
           
           <ProductCard 
-            icon={<Shield size={24} className="text-purple-600"/>}
+            icon={<Shield aria-hidden="true" size={24} className="text-purple-600"/>}
             title="Enterprise Compliance"
             subtitle="Regulatory Alignment"
             description="Stay compliant with GDPR, BaFin, and DORA while keeping transactions private and auditable."
@@ -489,7 +489,7 @@ const Products: React.FC = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-grow">
                 <div className="flex items-center gap-3 mb-3">
-                  <Github size={20} className="text-white" />
+                  <Github aria-hidden="true" size={20} className="text-white" />
                   <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Open Source (MIT)</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">RivicQ Protocol on GitHub</h3>
@@ -502,7 +502,7 @@ const Products: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-5 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-emerald-50 transition-all"
                 >
-                  <Github size={16} /> View Repository
+                  <Github aria-hidden="true" size={16} /> View Repository
                 </a>
                 <a 
                   href="https://github.com/rivic-q/rivicq-protocol#readme" 
@@ -522,7 +522,7 @@ const Products: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-cyan-600 text-white rounded-2xl shadow-lg">
-            <Workflow size={24}/>
+            <Workflow aria-hidden="true" size={24}/>
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">3. DevSecOps Security Pipeline</h2>
@@ -535,7 +535,7 @@ const Products: React.FC = () => {
         
         <div className="not-prose grid lg:grid-cols-2 gap-8">
           <ProductCard 
-            icon={<Scan size={24} className="text-cyan-600"/>}
+            icon={<Scan aria-hidden="true" size={24} className="text-cyan-600"/>}
             title="Security Scanner"
             subtitle="CI/CD Integration"
             description="GitHub Actions-ready scanner that catches weak crypto and compliance issues automatically."
@@ -559,7 +559,7 @@ const Products: React.FC = () => {
           />
           
           <ProductCard 
-            icon={<Settings size={24} className="text-teal-600"/>}
+            icon={<Settings aria-hidden="true" size={24} className="text-teal-600"/>}
             title="Pipeline Orchestrator"
             subtitle="Compliance Automation"
             description="Centralized policy management, automated fixes, and compliance reporting for all your pipelines."
@@ -616,7 +616,7 @@ const Products: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-violet-600 text-white rounded-2xl shadow-lg">
-            <Bot size={24}/>
+            <Bot aria-hidden="true" size={24}/>
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">4. Agentic Security AI</h2>
@@ -629,7 +629,7 @@ const Products: React.FC = () => {
 
         <div className="not-prose grid lg:grid-cols-2 gap-8">
           <ProductCard
-            icon={<Bot size={24} className="text-violet-600"/>}
+            icon={<Bot aria-hidden="true" size={24} className="text-violet-600"/>}
             title="Threat Hunter Agent"
             subtitle="Autonomous Detection"
             description="AI agent that hunts for crypto threats and policy violations across cloud and on-prem."
@@ -653,7 +653,7 @@ const Products: React.FC = () => {
           />
 
           <ProductCard
-            icon={<ShieldCheck size={24} className="text-violet-600"/>}
+            icon={<ShieldCheck aria-hidden="true" size={24} className="text-violet-600"/>}
             title="Remediation Orchestrator"
             subtitle="Self-Healing"
             description="Automatically responds to crypto threats without human help. Every action is logged."
@@ -716,7 +716,7 @@ const Products: React.FC = () => {
            </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link to="/beta-signup" className="px-10 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-500 transition-all flex items-center gap-2 justify-center shadow-xl">
-               Join Beta Program <ArrowRight size={18}/>
+               Join Beta Program <ArrowRight aria-hidden="true" size={18}/>
              </Link>
              <a href="mailto:hello@rivicq.de?subject=Product Inquiry" className="px-10 py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-all flex items-center gap-2 justify-center shadow-lg">
                Contact Sales
@@ -776,7 +776,7 @@ const DemoRequestForm: React.FC = () => {
     return (
       <div className="text-center py-12 animate-fadeIn">
         <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-          <CheckCircle2 size={32} />
+          <CheckCircle2 aria-hidden="true" size={32} />
         </div>
         <h4 className="text-xl font-bold text-slate-900 mb-2">Request Submitted</h4>
         <p className="text-sm text-slate-500 mb-4">Our team will contact you within 24 hours to schedule your personalized demo.</p>

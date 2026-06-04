@@ -63,7 +63,7 @@ const Privacy: React.FC = () => {
            </div>
            <h3 className="text-white font-serif text-2xl mb-4 m-0">The 50-Year Privacy Standard</h3>
            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-             In the healthcare and government sectors, data must remain private for 50+ years. We treat all data as if it will be subjected to future quantum analysis, ensuring that your privacy persists beyond the limits of classical cryptography.
+             In the healthcare and government sectors, digital infrastructure must remain secure for decades. We treat all data as if it will be subjected to future quantum analysis, ensuring that your privacy persists beyond the limits of classical cryptography.
            </p>
            <div className="flex items-center gap-2 p-3 bg-white/5 border border-white/10 rounded-xl">
               <ShieldCheck size={16} className="text-emerald-400" />

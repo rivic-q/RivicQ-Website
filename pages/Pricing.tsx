@@ -34,7 +34,7 @@ isFeatured
       {features.map((feature, i) => (
         <div key={i} className="flex items-start gap-3">
           <div className={`mt-0.5 rounded-full p-0.5 ${isFeatured ? 'bg-sky-100 text-sky-600' : 'bg-slate-200 text-slate-600'}`}>
-            <Check size={12} />
+            <Check aria-hidden="true" size={12} />
           </div>
           <span className="text-sm text-slate-700">{feature}</span>
         </div>
@@ -87,7 +87,7 @@ const Pricing: React.FC = () => {
       {/* Access Section */}
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-10">
-          <Cloud className="text-sky-500" size={28} />
+          <Cloud aria-hidden="true" className="text-sky-500" size={28} />
           <h2 className="m-0 font-serif text-3xl">Platform Access</h2>
         </div>
         <div className="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -121,7 +121,7 @@ const Pricing: React.FC = () => {
       {/* Advisory Section */}
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-10">
-          <Shield className="text-sky-500" size={28} />
+          <Shield aria-hidden="true" className="text-sky-500" size={28} />
           <h2 className="m-0 font-serif text-3xl">Expert Services</h2>
         </div>
         <p className="text-slate-600 mb-8">
@@ -153,7 +153,7 @@ const Pricing: React.FC = () => {
             
             <div>
               <div className="p-3 bg-sky-500 text-white rounded-2xl w-fit mb-6">
-                <Mail size={24} />
+                <Mail aria-hidden="true" size={24} />
               </div>
               <h2 className="text-4xl font-serif font-bold mb-6 text-white m-0">Consult our Engineers</h2>
               <p className="text-slate-400 text-lg mb-8 leading-relaxed">
@@ -163,7 +163,7 @@ const Pricing: React.FC = () => {
               <div className="space-y-6">
                  <div className="flex gap-4">
                     <div className="mt-1">
-                      <AlertTriangle size={18} className="text-amber-500" />
+                      <AlertTriangle aria-hidden="true" size={18} className="text-amber-500" />
                     </div>
                     <div>
                        <h4 className="font-bold text-white text-sm m-0">Regulatory Pressure?</h4>
@@ -172,7 +172,7 @@ const Pricing: React.FC = () => {
                  </div>
                  <div className="flex gap-4">
                     <div className="mt-1">
-                      <Clock size={18} className="text-sky-500" />
+                      <Clock aria-hidden="true" size={18} className="text-sky-500" />
                     </div>
                     <div>
                        <h4 className="font-bold text-white text-sm m-0">Timing is Critical</h4>
@@ -186,7 +186,7 @@ const Pricing: React.FC = () => {
               {formSubmitted ? (
                 <div className="text-center py-12 animate-fadeIn">
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <Check size={28} />
+                    <Check aria-hidden="true" size={28} />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Received</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">We'll review your request and respond within 24 hours.</p>

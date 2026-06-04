@@ -12,15 +12,15 @@ const Footer: React.FC = () => {
         <div className="mb-20 py-8 border-y border-slate-50 overflow-hidden">
           <div className="flex flex-wrap justify-center md:justify-between items-center gap-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
              <div className="flex items-center gap-2">
-                <Landmark size={18}/>
+                <Landmark aria-hidden="true" size={18}/>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-900">SIB Berlin Support</span>
              </div>
              <div className="flex items-center gap-2">
-                <Activity size={18}/>
+                <Activity aria-hidden="true" size={18}/>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-900">Leap Berlin / Humboldt Innovation Resident</span>
              </div>
              <div className="flex items-center gap-2">
-                <Microscope size={18}/>
+                <Microscope aria-hidden="true" size={18}/>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-900">TU Berlin R&D Partner</span>
              </div>
              <div className="hidden lg:flex items-center gap-2">
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
              <Link to="/" className="inline-flex items-center gap-4 mb-8 group">
                 <div className="p-2.5 bg-slate-900 text-white rounded-lg group-hover:bg-blue-600 transition-all duration-300">
-                  <Lock size={22} />
+                  <Lock aria-hidden="true" size={22} />
                 </div>
                 <div>
                   <span className="block font-serif font-bold text-2xl text-slate-900 tracking-tight">RivicQ</span>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
 
              <div className="space-y-6 mb-10">
                 <div className="flex items-start space-x-4 text-xs leading-relaxed max-w-xs">
-                  <MapPin size={16} className="mt-0.5 flex-shrink-0 text-slate-300" />
+                  <MapPin aria-hidden="true" size={16} className="mt-0.5 flex-shrink-0 text-slate-300" />
                   <p className="m-0">
                     WISTA Innovation Center Adlershof<br/>
                     Rudower Chaussee 29, 12489 Berlin<br/>
@@ -86,27 +86,28 @@ const Footer: React.FC = () => {
             <h3 className="text-[10px] font-bold text-slate-900 uppercase tracking-[0.25em] mb-6">System Pulse</h3>
             <p className="text-[10px] text-slate-400 leading-relaxed mb-4">Subscribe to our technical briefing on NIST PQC standards.</p>
             <div className="flex gap-2">
-               <input type="email" placeholder="work@email.com" className="bg-slate-50 border border-slate-100 rounded-lg px-3 py-2 text-[10px] w-full focus:ring-1 focus:ring-blue-500 outline-none" />
-               <button className="p-2 bg-slate-900 text-white rounded-lg hover:bg-blue-600 transition-all">
-                  <Send size={14} />
+               <label htmlFor="footer-email" className="sr-only">Email address</label>
+               <input id="footer-email" type="email" placeholder="work@email.com" className="bg-slate-50 border border-slate-100 rounded-lg px-3 py-2 text-[10px] w-full focus:ring-1 focus:ring-blue-500 outline-none" />
+               <button className="p-2 bg-slate-900 text-white rounded-lg hover:bg-blue-600 transition-all" aria-label="Subscribe">
+                  <Send size={14} aria-hidden="true" />
                </button>
             </div>
             <div className="mt-6 flex items-center gap-2 text-[9px] font-bold text-emerald-500 uppercase tracking-widest">
-               <Activity size={10} className="animate-pulse" /> Platform Status: Operational
+               <Activity aria-hidden="true" size={10} className="animate-pulse" /> Platform Status: Operational
             </div>
           </div>
         </div>
 
         <div className="border-t border-slate-100 pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-[0.2em] gap-6 text-slate-400">
           <div className="flex items-center gap-2">
-            <Copyright size={12} className="text-slate-300" />
+            <Copyright aria-hidden="true" size={12} className="text-slate-300" />
             <span>2024-2026 Robust Integrated Verified Infrastructure Computing & Quantum.</span>
           </div>
           <div className="flex items-center space-x-8">
              <Link to="/investors" className="hover:text-blue-600 transition-colors">Investor Relations</Link>
              <Link to="/careers" className="hover:text-blue-600 transition-colors">Careers</Link>
              <div className="flex items-center gap-1.5 text-slate-300">
-                <Globe size={10} /> EU/DE
+                <Globe aria-hidden="true" size={10} /> EU/DE
              </div>
           </div>
         </div>

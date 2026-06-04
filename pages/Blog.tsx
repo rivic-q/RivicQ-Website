@@ -5,18 +5,7 @@ import {
   Database, FileCode, Globe, Search, CheckCircle2, Eye, Key, Server, Bot,
   BookOpen, ScrollText, Target, Zap
 } from 'lucide-react';
-
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  categoryColor: string;
-  date: string;
-  readTime: string;
-  featured?: boolean;
-  icon: React.ReactNode;
-}
+import { posts, categories } from '../data/blogPosts';
 
 const Blog: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -45,181 +34,6 @@ const Blog: React.FC = () => {
     }
   };
 
-  const categories = [
-    { id: 'all', label: 'All Posts' },
-    { id: 'quantum', label: 'Quantum Security' },
-    { id: 'ai', label: 'AI Security' },
-    { id: 'hardware', label: 'Hardware Security' },
-    { id: 'compliance', label: 'Compliance' },
-    { id: 'enterprise', label: 'Enterprise' },
-    { id: 'blockchain', label: 'Blockchain' },
-  ];
-
-  const posts: BlogPost[] = [
-    {
-      id: 'harvest-now-decrypt-later',
-      title: 'Harvest Now, Decrypt Later: The Quantum Threat Already Underway',
-      excerpt: 'Nation-state actors are already harvesting encrypted data today, waiting for quantum computers capable of breaking current cryptography. Learn why your data may already be compromised and how to prepare for post-quantum migration.',
-      category: 'quantum',
-      categoryColor: 'bg-purple-100 text-purple-600',
-      date: '2026-03-28',
-      readTime: '12 min',
-      featured: true,
-      icon: <Lock size={24} />
-    },
-    {
-      id: 'nist-pqc-standards-2024',
-      title: 'NIST Post-Quantum Cryptography Standards: A Complete Guide for 2026',
-      excerpt: 'The finalization of ML-KEM, ML-DSA, and SLH-DSA marks a turning point in cryptographic infrastructure. This guide covers what enterprises need to know about transitioning to NIST-approved PQC algorithms.',
-      category: 'quantum',
-      categoryColor: 'bg-purple-100 text-purple-600',
-      date: '2026-03-21',
-      readTime: '15 min',
-      icon: <Shield size={24} />
-    },
-    {
-      id: 'llm-security-owasp-top-10',
-      title: 'OWASP Top 10 for LLM Applications: Critical Vulnerabilities in 2026',
-      excerpt: 'As LLM adoption accelerates, new attack vectors emerge. From prompt injection to data leakage, this comprehensive analysis covers the most critical security risks in generative AI deployments.',
-      category: 'ai',
-      categoryColor: 'bg-sky-100 text-sky-500',
-      date: '2026-03-18',
-      readTime: '14 min',
-      featured: true,
-      icon: <Brain size={24} />
-    },
-    {
-      id: 'ai-supply-chain-security',
-      title: 'Securing the AI Supply Chain: Model Poisoning and Training Data Attacks',
-      excerpt: 'Your AI model is only as secure as its training data. Explore the emerging threat landscape of supply chain attacks targeting machine learning pipelines, including techniques for detection and prevention.',
-      category: 'ai',
-      categoryColor: 'bg-sky-100 text-sky-500',
-      date: '2026-03-14',
-      readTime: '11 min',
-      icon: <Bot size={24} />
-    },
-    {
-      id: 'hardware-security-module-hsm',
-      title: 'Hardware Security Modules: The Last Line of Defense for Cryptographic Keys',
-      excerpt: 'HSMs provide tamper-resistant key storage and cryptographic operations. This deep dive covers FIPS 140-3 certification requirements, deployment architectures, and integration with cloud-native environments.',
-      category: 'hardware',
-      categoryColor: 'bg-amber-100 text-amber-600',
-      date: '2026-03-10',
-      readTime: '13 min',
-      icon: <Cpu size={24} />
-    },
-    {
-      id: 'side-channel-attacks-quantum',
-      title: 'Side-Channel Attacks in the Quantum Era: Timing, Power, and Electromagnetic Analysis',
-      excerpt: 'Side-channel attacks remain effective against both classical and quantum implementations. Learn about differential power analysis, timing attacks, and countermeasures for hardware security.',
-      category: 'hardware',
-      categoryColor: 'bg-amber-100 text-amber-600',
-      date: '2026-03-05',
-      readTime: '16 min',
-      icon: <AlertTriangle size={24} />
-    },
-    {
-      id: 'cbom-cryptographic-bill-of-materials',
-      title: 'Cryptographic Bill of Materials: The New Standard for Security Visibility',
-      excerpt: 'Just as SBOM transformed software supply chain security, CBOM is emerging as essential for cryptographic asset management. Understand the framework, tools, and regulatory requirements.',
-      category: 'compliance',
-      categoryColor: 'bg-emerald-100 text-emerald-600',
-      date: '2026-02-28',
-      readTime: '10 min',
-      icon: <FileCode size={24} />
-    },
-    {
-      id: 'dora-compliance-pqc',
-      title: 'DORA Compliance and Post-Quantum Cryptography: Financial Sector Requirements',
-      excerpt: 'The EU Digital Operational Resilience Act mandates cryptographic agility. This guide maps DORA requirements to PQC migration strategies for financial institutions operating in Europe.',
-      category: 'compliance',
-      categoryColor: 'bg-emerald-100 text-emerald-600',
-      date: '2026-02-22',
-      readTime: '14 min',
-      icon: <Globe size={24} />
-    },
-    {
-      id: 'enterprise-crypto-agility',
-      title: 'Enterprise Cryptographic Agility: Building Infrastructure for the Post-Quantum Future',
-      excerpt: 'Cryptographic agility—the ability to rapidly replace algorithms—is now a business necessity. Architecture patterns and implementation strategies for enterprise-wide cryptographic modernization.',
-      category: 'enterprise',
-      categoryColor: 'bg-indigo-100 text-indigo-600',
-      date: '2026-02-15',
-      readTime: '12 min',
-      icon: <Server size={24} />
-    },
-    {
-      id: 'zero-trust-architecture',
-      title: 'Zero Trust Architecture: Implementing Beyond the Perimeter in 2026',
-      excerpt: 'The perimeter is dead. Zero trust principles—never trust, always verify—are essential for modern security. A practical guide to implementation, from identity to data-level controls.',
-      category: 'enterprise',
-      categoryColor: 'bg-indigo-100 text-indigo-600',
-      date: '2026-02-10',
-      readTime: '11 min',
-      icon: <Shield size={24} />
-    },
-    {
-      id: 'smart-contract-auditing',
-      title: 'Smart Contract Security: From Audit to Automated Verification',
-      excerpt: 'DeFi exploits continue to drain millions. This comprehensive guide covers smart contract auditing methodologies, formal verification, and integration of security into development pipelines.',
-      category: 'blockchain',
-      categoryColor: 'bg-cyan-100 text-cyan-600',
-      date: '2026-02-05',
-      readTime: '15 min',
-      icon: <Database size={24} />
-    },
-    {
-      id: 'zkp-blockchain-privacy',
-      title: 'Zero-Knowledge Proofs: Enabling Privacy-Preserving Blockchain Transactions',
-      excerpt: 'ZK-SNARKs and ZK-STARKs are revolutionizing blockchain privacy. Technical deep dive into cryptographic primitives, implementation challenges, and real-world applications.',
-      category: 'blockchain',
-      categoryColor: 'bg-cyan-100 text-cyan-600',
-      date: '2026-01-30',
-      readTime: '18 min',
-      icon: <Key size={24} />
-    },
-    {
-      id: 'ransomware-evolution-2026',
-      title: 'Ransomware Evolution: How Attack Patterns Have Changed in 2026',
-      excerpt: 'Ransomware-as-a-Service has professionalized cyber extortion. Analysis of current threat actor tactics, double-extortion strategies, and defense mechanisms that work.',
-      category: 'cybersecurity',
-      categoryColor: 'bg-red-100 text-red-600',
-      date: '2026-01-25',
-      readTime: '13 min',
-      icon: <AlertTriangle size={24} />
-    },
-    {
-      id: 'supply-chain-security',
-      title: 'Software Supply Chain Security: Lessons from Recent High-Profile Attacks',
-      excerpt: 'From SolarWinds to XZ Utils, supply chain attacks have reshaped the threat landscape. Effective controls, SBOM implementation, and build pipeline hardening strategies.',
-      category: 'cybersecurity',
-      categoryColor: 'bg-red-100 text-red-600',
-      date: '2026-01-20',
-      readTime: '12 min',
-      icon: <Search size={24} />
-    },
-    {
-      id: 'ai-red-teaming',
-      title: 'AI Red Teaming: methodologies for Evaluating LLM Security Posture',
-      excerpt: 'Offensive security testing for AI systems requires new methodologies. Frameworks for identifying vulnerabilities in large language models before adversaries do.',
-      category: 'ai',
-      categoryColor: 'bg-sky-100 text-sky-500',
-      date: '2026-01-15',
-      readTime: '14 min',
-      icon: <Target size={24} />
-    },
-    {
-      id: 'pqc-migration-roadmap',
-      title: 'Building Your PQC Migration Roadmap: A Strategic Framework',
-      excerpt: 'Cryptographic migration is a decade-long endeavor. Prioritization frameworks, risk assessment methodologies, and phased approaches for transitioning critical systems.',
-      category: 'quantum',
-      categoryColor: 'bg-purple-100 text-purple-600',
-      date: '2026-01-10',
-      readTime: '16 min',
-      icon: <Zap size={24} />
-    },
-  ];
-
   const filteredPosts = activeCategory === 'all' 
     ? posts 
     : posts.filter(post => post.category === activeCategory);
@@ -236,7 +50,7 @@ const Blog: React.FC = () => {
       <header className="mb-16">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 bg-sky-100 text-sky-600 rounded-xl">
-            <BookOpen size={28} />
+            <BookOpen aria-hidden="true" size={28} />
           </div>
           <span className="text-xs font-bold text-sky-600 uppercase tracking-widest">RivicQ Research & Insights</span>
         </div>
@@ -258,7 +72,7 @@ const Blog: React.FC = () => {
           {featuredPosts.map((post) => (
             <Link 
               key={post.id}
-              to="/blog"
+              to={`/blog/${post.id}`}
               className="group block bg-white border border-slate-200 rounded-[2rem] p-8 hover:shadow-xl hover:border-sky-200 transition-all"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -278,16 +92,16 @@ const Blog: React.FC = () => {
               <div className="flex items-center justify-between text-xs text-slate-400">
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1">
-                    <Calendar size={12} />
+                    <Calendar aria-hidden="true" size={12} />
                     {formatDate(post.date)}
                   </span>
                   <span className="flex items-center gap-1">
-                    <Clock size={12} />
+                    <Clock aria-hidden="true" size={12} />
                     {post.readTime}
                   </span>
                 </div>
                 <span className="flex items-center gap-1 text-sky-500 font-semibold group-hover:gap-2 transition-all">
-                  Read <ArrowRight size={14} />
+                  Read <ArrowRight aria-hidden="true" size={14} />
                 </span>
               </div>
             </Link>
@@ -320,7 +134,7 @@ const Blog: React.FC = () => {
           {filteredPosts.filter(p => !p.featured).map((post) => (
             <Link 
               key={post.id}
-              to="/blog"
+              to={`/blog/${post.id}`}
               className="group block bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:border-sky-200 transition-all"
             >
               <div className="flex items-center gap-2 mb-4">
@@ -361,11 +175,11 @@ const Blog: React.FC = () => {
               </p>
               <div className="flex items-center gap-6 mt-8 text-sm">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-sky-400" />
+                  <CheckCircle2 aria-hidden="true" size={16} className="text-sky-400" />
                   <span className="text-slate-300">Weekly Research</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-sky-400" />
+                  <CheckCircle2 aria-hidden="true" size={16} className="text-sky-400" />
                   <span className="text-slate-300">No Spam</span>
                 </div>
               </div>
@@ -374,14 +188,16 @@ const Blog: React.FC = () => {
               {newsletterSubmitted ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 size={32} className="text-emerald-400" />
+                    <CheckCircle2 aria-hidden="true" size={32} className="text-emerald-400" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">Subscribed!</h3>
                   <p className="text-slate-400">You'll receive our weekly research briefings.</p>
                 </div>
               ) : (
                 <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+                  <label htmlFor="blog-newsletter-email" className="sr-only">Work email</label>
                   <input 
+                    id="blog-newsletter-email"
                     type="email" 
                     placeholder="Enter your work email"
                     value={newsletterEmail}
@@ -411,37 +227,37 @@ const Blog: React.FC = () => {
         <div className="not-prose grid md:grid-cols-3 gap-6">
           {[
             {
-              icon: <Lock size={24} className="text-purple-500" />,
+              icon: <Lock aria-hidden="true" size={24} className="text-purple-500" />,
               title: 'Quantum Security',
               desc: 'Post-quantum cryptography, NIST standards, migration strategies, and quantum threat analysis.',
               count: 4
             },
             {
-              icon: <Brain size={24} className="text-sky-500" />,
+              icon: <Brain aria-hidden="true" size={24} className="text-sky-500" />,
               title: 'AI Security',
               desc: 'OWASP LLM Top 10, prompt injection, model security, and AI red teaming methodologies.',
               count: 3
             },
             {
-              icon: <Cpu size={24} className="text-amber-500" />,
+              icon: <Cpu aria-hidden="true" size={24} className="text-amber-500" />,
               title: 'Hardware Security',
               desc: 'HSM integration, side-channel attacks, FIPS certification, and root of trust.',
               count: 2
             },
             {
-              icon: <ScrollText size={24} className="text-emerald-500" />,
+              icon: <ScrollText aria-hidden="true" size={24} className="text-emerald-500" />,
               title: 'Compliance',
               desc: 'DORA, CBOM, regulatory frameworks, and cryptographic compliance automation.',
               count: 2
             },
             {
-              icon: <Server size={24} className="text-indigo-500" />,
+              icon: <Server aria-hidden="true" size={24} className="text-indigo-500" />,
               title: 'Enterprise Security',
               desc: 'Zero trust, cryptographic agility, enterprise architecture, and security operations.',
               count: 2
             },
             {
-              icon: <Database size={24} className="text-cyan-500" />,
+              icon: <Database aria-hidden="true" size={24} className="text-cyan-500" />,
               title: 'Blockchain & Web3',
               desc: 'Smart contract auditing, ZK proofs, DeFi security, and privacy-preserving protocols.',
               count: 2

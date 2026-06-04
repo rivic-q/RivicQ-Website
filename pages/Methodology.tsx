@@ -52,7 +52,7 @@ const PillarCard: React.FC<{
       <ul className="space-y-3 pt-6 border-t border-slate-100">
         {details.map((detail, i) => (
           <li key={i} className="flex items-start gap-3 text-sm text-slate-500">
-            <CheckCircle size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+            <CheckCircle aria-hidden="true" size={16} className="text-emerald-500 shrink-0 mt-0.5" />
             {detail}
           </li>
         ))}
@@ -95,7 +95,7 @@ const Methodology: React.FC = () => {
       <header className="mb-16">
         <AnimatedSection>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-            <Microscope size={14} /> Scientific Approach
+            <Microscope aria-hidden="true" size={14} /> Scientific Approach
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
             Our Security <span className="text-sky-500">Methodology</span>
@@ -112,7 +112,7 @@ const Methodology: React.FC = () => {
           <blockquote className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[2.5rem] p-10 md:p-16 text-white">
             <div className="absolute top-0 left-0 w-24 h-24 bg-sky-500/20 rounded-full blur-3xl"></div>
             <div className="relative z-10">
-              <Scale size={48} className="text-sky-400 mb-6 opacity-50" />
+              <Scale aria-hidden="true" size={48} className="text-sky-400 mb-6 opacity-50" />
               <p className="text-2xl md:text-3xl font-serif italic leading-relaxed mb-8">
                 "Security is not a product, but a process. At RivicQ, we build that process on the foundations of peer-reviewed mathematics, rigorous testing, and continuous verification."
               </p>
@@ -143,7 +143,7 @@ const Methodology: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           <PillarCard 
-            icon={<RefreshCw size={28} />}
+            icon={<RefreshCw aria-hidden="true" size={28} />}
             title="Hybrid Protection"
             color="bg-sky-500"
             description="We use a 'belt and suspenders' approach during the quantum transition, wrapping new quantum-safe algorithms inside proven classical encryption. If one fails, the other still protects you."
@@ -156,7 +156,7 @@ const Methodology: React.FC = () => {
             delay={0}
           />
           <PillarCard 
-            icon={<Cpu size={28} />}
+            icon={<Cpu aria-hidden="true" size={28} />}
             title="Quantum Entropy"
             color="bg-purple-600"
             description="If a hacker can predict your random numbers, they can break your encryption. We use physical quantum effects and certified TRNGs to generate truly unpredictable cryptographic keys."
@@ -169,7 +169,7 @@ const Methodology: React.FC = () => {
             delay={100}
           />
           <PillarCard 
-            icon={<LockKeyhole size={28} />}
+            icon={<LockKeyhole aria-hidden="true" size={28} />}
             title="Zero-Knowledge Architecture"
             color="bg-emerald-600"
             description="We design systems so that we can never see your keys. They are generated, stored, and used within secure hardware boundaries that not even RivicQ can access."
@@ -182,7 +182,7 @@ const Methodology: React.FC = () => {
             delay={200}
           />
           <PillarCard 
-            icon={<Eye size={28} />}
+            icon={<Eye aria-hidden="true" size={28} />}
             title="Continuous Attestation"
             color="bg-amber-600"
             description="Security isn't a one-time achievement. We maintain immutable audit logs, continuous integrity monitoring, and real-time threat detection across all operations."
@@ -210,35 +210,35 @@ const Methodology: React.FC = () => {
           <StandardCard 
             name="NIST PQC Standards"
             description="FIPS 203, 204, 205 - The finalized post-quantum cryptographic standards from the US National Institute of Standards and Technology."
-            icon={<Shield size={20} />}
+            icon={<Shield aria-hidden="true" size={20} />}
             delay={0}
           />
           <StandardCard 
             name="FIPS 140-3"
             description="Cryptographic module security requirements. RivicQ HSMs meet Level 3 with tamper-responsive protection."
-            icon={<Lock size={20} />}
+            icon={<Lock aria-hidden="true" size={20} />}
             delay={100}
           />
           <StandardCard 
             name="RFC 9486"
             description="Hybrid key exchange for TLS 1.3 combining classical and post-quantum algorithms for maximum security."
-            icon={<Layers size={20} />}
+            icon={<Layers aria-hidden="true" size={20} />}
             delay={200}
           />
           <StandardCard 
             name="IETF Standards"
             description="Our protocols follow IETF guidelines for secure implementation, including TLS 1.3 best practices."
-            icon={<Globe size={20} />}
+            icon={<Globe aria-hidden="true" size={20} />}
             delay={300}
           />
         </div>
 
         <AnimatedSection delay={400}>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex items-center gap-4">
-            <Award size={24} className="text-sky-500 shrink-0" />
+            <Award aria-hidden="true" size={24} className="text-sky-500 shrink-0" />
             <p className="text-sm text-slate-600">
               <strong className="text-slate-900">Academic Rigor:</strong> Our cryptographic protocols are designed in collaboration with researchers from TU Berlin and reviewed against the NIST PQC standardization process. 
-              <a href="mailto:research@rivicq.de" className="text-sky-500 font-bold ml-2">View Research Papers <ExternalLink size={12} className="inline" /></a>
+              <a href="mailto:research@rivicq.de" className="text-sky-500 font-bold ml-2">View Research Papers <ExternalLink aria-hidden="true" size={12} className="inline" /></a>
             </p>
           </div>
         </AnimatedSection>
@@ -315,7 +315,7 @@ const Methodology: React.FC = () => {
             
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-8">
-                <Cpu size={32} className="text-purple-400" />
+                <Cpu aria-hidden="true" size={32} className="text-purple-400" />
                 <h2 className="text-3xl font-serif font-bold">Hardware Security Architecture</h2>
               </div>
               
@@ -323,7 +323,7 @@ const Methodology: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-bold text-white mb-3 flex items-center gap-2">
-                      <Shield size={16} className="text-emerald-400" /> Tamper Detection
+                      <Shield aria-hidden="true" size={16} className="text-emerald-400" /> Tamper Detection
                     </h4>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       Multiple layers of tamper detection including environmental sensors, mesh coverings, and active circuitry monitoring. Any breach attempt triggers immediate key destruction.
@@ -331,7 +331,7 @@ const Methodology: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-white mb-3 flex items-center gap-2">
-                      <Lock size={16} className="text-sky-400" /> Secure Boot
+                      <Lock aria-hidden="true" size={16} className="text-sky-400" /> Secure Boot
                     </h4>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       Immutable boot ROM validates each boot stage cryptographically, ensuring the HSM firmware has not been compromised from power-on.
@@ -341,7 +341,7 @@ const Methodology: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-bold text-white mb-3 flex items-center gap-2">
-                      <Zap size={16} className="text-amber-400" /> Side-Channel Resistance
+                      <Zap aria-hidden="true" size={16} className="text-amber-400" /> Side-Channel Resistance
                     </h4>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       Constant-time algorithms, power smoothing, and electromagnetic shielding protect against DPA, timing, and fault injection attacks.
@@ -349,7 +349,7 @@ const Methodology: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-white mb-3 flex items-center gap-2">
-                      <Database size={16} className="text-cyan-400" /> Key Ceremony
+                      <Database aria-hidden="true" size={16} className="text-cyan-400" /> Key Ceremony
                     </h4>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       Critical key generation ceremonies follow NIST SP 800-133 guidelines with multiple custodians and split knowledge requirements.
@@ -447,7 +447,7 @@ const Methodology: React.FC = () => {
       {/* CTA */}
       <AnimatedSection>
         <section className="not-prose bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[3rem] p-10 md:p-16 text-center text-white">
-          <Target size={48} className="mx-auto text-sky-200 mb-6" />
+          <Target aria-hidden="true" size={48} className="mx-auto text-sky-200 mb-6" />
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-white">
             Ready to Implement Our Methodology?
           </h2>
@@ -456,10 +456,10 @@ const Methodology: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/pitch-deck" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-all flex items-center gap-2 justify-center">
-              <FileText size={18} /> Get Technical Whitepaper
+              <FileText aria-hidden="true" size={18} /> Get Technical Whitepaper
             </Link>
             <a href="mailto:hello@rivicq.de" className="px-8 py-4 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center gap-2 justify-center">
-              <Brain size={18} /> Talk to Our Team
+              <Brain aria-hidden="true" size={18} /> Talk to Our Team
             </a>
           </div>
         </section>

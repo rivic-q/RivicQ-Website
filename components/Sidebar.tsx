@@ -10,57 +10,57 @@ const Sidebar: React.FC = () => {
     {
       label: 'Getting Started',
       links: [
-        { name: 'Home', path: '/', icon: <Layout size={14}/> },
-        { name: 'Our Story', path: '/story', icon: <Sparkles size={14}/> },
-        { name: 'Products & SaaS', path: '/products', icon: <Box size={14}/> },
-        { name: 'Beta Signup', path: '/beta-signup', icon: <Star size={14}/> },
-        { name: 'Use Cases', path: '/use-cases', icon: <Target size={14}/> },
+        { name: 'Home', path: '/', icon: <Layout aria-hidden="true" size={14}/> },
+        { name: 'Our Story', path: '/story', icon: <Sparkles aria-hidden="true" size={14}/> },
+        { name: 'Products & SaaS', path: '/products', icon: <Box aria-hidden="true" size={14}/> },
+        { name: 'Beta Signup', path: '/beta-signup', icon: <Star aria-hidden="true" size={14}/> },
+        { name: 'Use Cases', path: '/use-cases', icon: <Target aria-hidden="true" size={14}/> },
       ]
     },
     {
       label: 'Solutions',
       links: [
-        { name: 'Solutions', path: '/solutions', icon: <PieChart size={14}/> },
-        { name: 'Services', path: '/services', icon: <Briefcase size={14}/> },
-        { name: 'Pricing', path: '/pricing', icon: <Database size={14}/> },
-        { name: 'Cloud HSM', path: '/cloud-hsm', icon: <Cloud size={14}/> },
+        { name: 'Solutions', path: '/solutions', icon: <PieChart aria-hidden="true" size={14}/> },
+        { name: 'Services', path: '/services', icon: <Briefcase aria-hidden="true" size={14}/> },
+        { name: 'Pricing', path: '/pricing', icon: <Database aria-hidden="true" size={14}/> },
+        { name: 'Cloud HSM', path: '/cloud-hsm', icon: <Cloud aria-hidden="true" size={14}/> },
       ]
     },
     {
       label: 'Technology',
       links: [
-        { name: 'Platform', path: '/platform', icon: <Cpu size={14}/> },
-        { name: 'RQSP Protocol', path: '/rqsp', icon: <Lock size={14}/> },
-        { name: 'Developer SDK', path: '/sdk', icon: <Code2 size={14}/> },
-        { name: 'Compliance', path: '/compliance', icon: <ScrollText size={14}/> },
+        { name: 'Platform', path: '/platform', icon: <Cpu aria-hidden="true" size={14}/> },
+        { name: 'RQSP Protocol', path: '/rqsp', icon: <Lock aria-hidden="true" size={14}/> },
+        { name: 'Developer SDK', path: '/sdk', icon: <Code2 aria-hidden="true" size={14}/> },
+        { name: 'Compliance', path: '/compliance', icon: <ScrollText aria-hidden="true" size={14}/> },
       ]
     },
     {
       label: 'Resources',
       links: [
-        { name: 'Blog', path: '/blog', icon: <BookOpen size={14}/> },
-        { name: 'Quantum Research', path: '/research', icon: <Atom size={14}/> },
-        { name: 'Glossary', path: '/glossary', icon: <GraduationCap size={14}/> },
-        { name: 'Resources', path: '/resources', icon: <FileText size={14}/> },
-        { name: 'Methodology', path: '/methodology', icon: <Microscope size={14}/> },
-        { name: 'Trust Center', path: '/trust', icon: <ShieldCheck size={14}/> },
+        { name: 'Blog', path: '/blog', icon: <BookOpen aria-hidden="true" size={14}/> },
+        { name: 'Quantum Research', path: '/research', icon: <Atom aria-hidden="true" size={14}/> },
+        { name: 'Glossary', path: '/glossary', icon: <GraduationCap aria-hidden="true" size={14}/> },
+        { name: 'Resources', path: '/resources', icon: <FileText aria-hidden="true" size={14}/> },
+        { name: 'Methodology', path: '/methodology', icon: <Microscope aria-hidden="true" size={14}/> },
+        { name: 'Trust Center', path: '/trust', icon: <ShieldCheck aria-hidden="true" size={14}/> },
       ]
     },
     {
       label: 'Company',
       links: [
-        { name: 'Team', path: '/team', icon: <Users size={14}/> },
-        { name: 'Careers', path: '/careers', icon: <Briefcase size={14}/> },
-        { name: 'Investors', path: '/investors', icon: <PieChart size={14}/> },
-        { name: 'Partner', path: '/partner', icon: <Handshake size={14}/> },
-        { name: 'Roadmap', path: '/roadmap', icon: <Target size={14}/> },
+        { name: 'Team', path: '/team', icon: <Users aria-hidden="true" size={14}/> },
+        { name: 'Careers', path: '/careers', icon: <Briefcase aria-hidden="true" size={14}/> },
+        { name: 'Investors', path: '/investors', icon: <PieChart aria-hidden="true" size={14}/> },
+        { name: 'Partner', path: '/partner', icon: <Handshake aria-hidden="true" size={14}/> },
+        { name: 'Roadmap', path: '/roadmap', icon: <Target aria-hidden="true" size={14}/> },
       ]
     },
     {
       label: 'Legal',
       links: [
-        { name: 'Legal & Rights', path: '/legal', icon: <Scale size={14}/> },
-        { name: 'Privacy Policy', path: '/privacy', icon: <Shield size={14}/> },
+        { name: 'Legal & Rights', path: '/legal', icon: <Scale aria-hidden="true" size={14}/> },
+        { name: 'Privacy Policy', path: '/privacy', icon: <Shield aria-hidden="true" size={14}/> },
       ]
     }
   ];

@@ -55,7 +55,7 @@ const QuantumResearch: React.FC = () => {
                 <ResearchCard 
                     title="Post-Quantum Cryptography" 
                     subtitle="Software Layer Defense" 
-                    icon={<FileKey size={32}/>}
+                    icon={<FileKey aria-hidden="true" size={32}/>}
                     status="Production Ready"
                 >
                     <p className="mb-4">
@@ -71,7 +71,7 @@ const QuantumResearch: React.FC = () => {
                 <ResearchCard 
                     title="Quantum Key Distribution" 
                     subtitle="Hardware Physics Layer" 
-                    icon={<Atom size={32}/>}
+                    icon={<Atom aria-hidden="true" size={32}/>}
                     status="Lab Phase (Leap Berlin / Humboldt Innovation)"
                 >
                     <p className="mb-4">
@@ -88,7 +88,7 @@ const QuantumResearch: React.FC = () => {
             <section className="mb-24">
                 <div className="flex items-center gap-3 mb-10">
                     <div className="p-3 bg-indigo-600 text-white rounded-2xl shadow-lg">
-                        <Network size={24} />
+                        <Network aria-hidden="true" size={24} />
                     </div>
                     <div>
                         <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Cross-Chain & Web3</h2>
@@ -100,7 +100,7 @@ const QuantumResearch: React.FC = () => {
                     {/* Solana Integration */}
                     <div className="p-10 bg-slate-950 text-white rounded-[2.5rem] relative overflow-hidden shadow-2xl">
                          <div className="absolute top-0 right-0 p-12 opacity-10">
-                             <Zap size={140} />
+                             <Zap aria-hidden="true" size={140} />
                          </div>
                          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                             <div>
@@ -140,7 +140,7 @@ pub fn process_instruction(
                         <div className="flex flex-col md:flex-row gap-8 items-start">
                             <div className="md:w-1/3">
                                 <div className="p-3 bg-sky-50 text-sky-500 rounded-2xl w-fit mb-4">
-                                    <Server size={24}/>
+                                    <Server aria-hidden="true" size={24}/>
                                 </div>
                                 <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">Arcium Integration</h3>
                                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Confidential Computing Network</p>
@@ -166,7 +166,7 @@ pub fn process_instruction(
             {/* eIDAS & Digital Identity */}
             <section className="mb-24">
                 <div className="flex items-center gap-3 mb-8">
-                    <ShieldCheck size={28} className="text-emerald-600"/>
+                    <ShieldCheck aria-hidden="true" size={28} className="text-emerald-600"/>
                     <h2 className="m-0 text-3xl font-serif font-bold">eIDAS 2.0 & Digital Wallets</h2>
                 </div>
                 <div className="p-8 border-l-4 border-emerald-500 bg-slate-50 rounded-r-2xl">

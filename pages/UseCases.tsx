@@ -33,7 +33,7 @@ const UseCaseCard: React.FC<{
         <div className="pt-4 border-t border-slate-50">
             <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Industry Reference</h4>
             <a href={reference.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-900 hover:text-sky-500 flex items-center gap-1 transition-colors">
-                {reference.name} <ExternalLink size={10} />
+                {reference.name} <ExternalLink aria-hidden="true" size={10} />
             </a>
         </div>
     </div>
@@ -54,7 +54,7 @@ const UseCases: React.FC = () => {
         
         {/* Financial Services */}
         <UseCaseCard 
-            icon={<Landmark size={24}/>}
+            icon={<Landmark aria-hidden="true" size={24}/>}
             title="Banking Core Migration"
             subtitle="DORA & PCI DSS Compliance"
             problem="Transaction signing systems rely on RSA-2048. Data retention mandates make these logs prime targets for 'Harvest Now, Decrypt Later' attacks."
@@ -64,7 +64,7 @@ const UseCases: React.FC = () => {
 
         {/* Energy & Utilities */}
         <UseCaseCard 
-            icon={<Zap size={24}/>}
+            icon={<Zap aria-hidden="true" size={24}/>}
             title="Energy & Critical Infrastructure"
             subtitle="OT Grid Resilience"
             problem="Smart meters and controllers have lifecycles of 20+ years. Hardcoded classical keys are impossible to patch once quantum computers arrive."
@@ -74,7 +74,7 @@ const UseCases: React.FC = () => {
 
         {/* IoT & Embedded Systems */}
         <UseCaseCard 
-            icon={<Cpu size={24}/>}
+            icon={<Cpu aria-hidden="true" size={24}/>}
             title="IoT & Embedded Systems"
             subtitle="Secure Device Lifecycle"
             problem="Limited processing power and long field lifespans (15+ years) make legacy devices vulnerable to future quantum attacks, with difficult manual patching."
@@ -84,7 +84,7 @@ const UseCases: React.FC = () => {
 
         {/* Healthcare */}
         <UseCaseCard 
-            icon={<HeartPulse size={24}/>}
+            icon={<HeartPulse aria-hidden="true" size={24}/>}
             title="Healthcare & Life Sciences"
             subtitle="The 50-Year Secret"
             problem="Genomic data and sensitive health records must stay private for a lifetime. Encrypted data intercepted today is vulnerable to future decryption."
@@ -94,7 +94,7 @@ const UseCases: React.FC = () => {
 
         {/* Telecommunications */}
         <UseCaseCard 
-            icon={<Radio size={24}/>}
+            icon={<Radio aria-hidden="true" size={24}/>}
             title="Telecommunications"
             subtitle="5G/6G Backhaul Defense"
             problem="Fiber backhauls handle massive traffic volumes. State-sponsored adversaries can intercept and store these flows for future processing."
@@ -126,7 +126,7 @@ const UseCases: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-1/3">
               <div className="flex items-center gap-2 mb-6 text-slate-900">
-                <ShieldAlert size={24} className="text-red-600" />
+                <ShieldAlert aria-hidden="true" size={24} className="text-red-600" />
                 <h3 className="text-xl font-bold uppercase tracking-widest m-0">Proprietary Notice</h3>
               </div>
               <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Confidential Information</p>
@@ -140,7 +140,7 @@ const UseCases: React.FC = () => {
             <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <Scale size={16} className="text-sky-500" /> Intellectual Property
+                  <Scale aria-hidden="true" size={16} className="text-sky-500" /> Intellectual Property
                 </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   All <strong>Patents</strong>, <strong>Designs</strong>, <strong>Protocols</strong>, and <strong>Trademarks</strong> associated with RivicQ Technologies are the exclusive intellectual property of the company. Everything presented belongs strictly to RivicQ.
@@ -148,7 +148,7 @@ const UseCases: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <Lock size={16} className="text-sky-500" /> NDA Enforcement
+                  <Lock aria-hidden="true" size={16} className="text-sky-500" /> NDA Enforcement
                 </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Any unauthorized use, reproduction, or disclosure of these technical use cases, methodology, or architecture constitutes a violation of the NDA and will be prosecuted under the laws of the Federal Republic of Germany.
@@ -156,7 +156,7 @@ const UseCases: React.FC = () => {
               </div>
               <div className="sm:col-span-2">
                 <div className="flex items-center gap-3 p-4 bg-sky-50/50 border border-sky-100 rounded-2xl">
-                  <Info size={16} className="text-sky-500 shrink-0" />
+                  <Info aria-hidden="true" size={16} className="text-sky-500 shrink-0" />
                   <p className="text-[10px] text-sky-600 font-bold uppercase tracking-widest m-0 leading-normal">
                     Proprietary Algorithm "RQSP" & CBOM Heuristics are Registered Trademarks of RivicQ Technologies.
                   </p>

@@ -8,28 +8,28 @@ const EndToEndDemo: React.FC = () => {
   const steps = [
     {
       title: "Discovery",
-      icon: <Search size={24} />,
+      icon: <Search aria-hidden="true" size={24} />,
       desc: "Our AI scanner crawls your infrastructure and code repositories.",
       status: "Scanning: /auth/v1/certificates",
       color: "blue"
     },
     {
       title: "Inventory",
-      icon: <Database size={24} />,
+      icon: <Database aria-hidden="true" size={24} />,
       desc: "Every weak 'lock' (RSA/ECC) is cataloged into a CryptoBOM.",
       status: "Found: 12 Vulnerable Primitives",
       color: "indigo"
     },
     {
       title: "Transformation",
-      icon: <RefreshCw size={24} />,
+      icon: <RefreshCw aria-hidden="true" size={24} />,
       desc: "Legacy keys are imported and wrapped in NIST-standard PQC layers.",
       status: "Deploying ML-KEM-768",
       color: "emerald"
     },
     {
       title: "Fortification",
-      icon: <Lock size={24} />,
+      icon: <Lock aria-hidden="true" size={24} />,
       desc: "Keys are stored in FIPS 140-3 Cloud HSM vaults.",
       status: "Status: Post-Quantum Secured",
       color: "blue"
@@ -135,10 +135,10 @@ const Enterprise: React.FC = () => {
       <section className="py-24 border-y border-slate-100 not-prose mb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
            {[
-             { title: "SLA Guaranteed", desc: "99.999% uptime for cryptographic operations across global regions.", icon: <Activity className="text-sky-500"/> },
-             { title: "Dedicated vHSM", desc: "Physically isolated hardware segments for Tier 1 compliance.", icon: <Server className="text-emerald-600"/> },
-             { title: "Active CBOM", desc: "Continuous auditing of every cryptographic bill of materials.", icon: <Layers className="text-indigo-600"/> },
-             { title: "PQC Orchestration", desc: "NIST-standardized migration paths enforced by policy.", icon: <Zap className="text-amber-600"/> }
+             { title: "SLA Guaranteed", desc: "99.999% uptime for cryptographic operations across global regions.", icon: <Activity aria-hidden="true" className="text-sky-500"/> },
+             { title: "Dedicated vHSM", desc: "Physically isolated hardware segments for Tier 1 compliance.", icon: <Server aria-hidden="true" className="text-emerald-600"/> },
+             { title: "Active CBOM", desc: "Continuous auditing of every cryptographic bill of materials.", icon: <Layers aria-hidden="true" className="text-indigo-600"/> },
+             { title: "PQC Orchestration", desc: "NIST-standardized migration paths enforced by policy.", icon: <Zap aria-hidden="true" className="text-amber-600"/> }
            ].map((item, i) => (
              <div key={i} className="p-8 border border-slate-100 rounded-[2.5rem] bg-white hover:border-sky-200 transition-all shadow-sm">
                 <div className="p-3 bg-slate-50 rounded-xl w-fit mb-6 border border-slate-100">
@@ -161,18 +161,18 @@ const Enterprise: React.FC = () => {
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3 p-4 bg-sky-50 border border-sky-100 rounded-2xl">
-                <CheckCircle2 size={18} className="text-sky-500"/>
+                <CheckCircle2 aria-hidden="true" size={18} className="text-sky-500"/>
                 <span className="text-sm font-bold text-sky-900">NIST FIPS 203/204 Compliant</span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl">
-                <ShieldCheck size={18} className="text-emerald-600"/>
+                <ShieldCheck aria-hidden="true" size={18} className="text-emerald-600"/>
                 <span className="text-sm font-bold text-emerald-900">GDPR & Sovereign Compute Ready</span>
               </div>
             </div>
           </div>
           <div className="bg-slate-50 rounded-[3rem] p-12 border border-slate-200 relative overflow-hidden">
              <div className="absolute top-0 right-0 p-8 opacity-5 text-slate-900">
-               <Globe size={160} />
+               <Globe aria-hidden="true" size={160} />
              </div>
              <h3 className="text-2xl font-serif font-bold text-slate-900 m-0 mb-6">Global Residency</h3>
              <ul className="space-y-4 m-0 p-0 list-none">

@@ -49,9 +49,9 @@ const CloudHSM: React.FC = () => {
               <div className="w-full aspect-square bg-sky-500/10 rounded-full blur-3xl absolute -inset-4"></div>
               <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl">
                 <div className="flex items-center gap-4 mb-8">
-                  <Cloud size={32} className="text-sky-400" />
+                  <Cloud aria-hidden="true" size={32} className="text-sky-400" />
                   <div className="h-px flex-grow bg-slate-700"></div>
-                  <Lock size={32} className="text-emerald-400" />
+                  <Lock aria-hidden="true" size={32} className="text-emerald-400" />
                 </div>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-xs font-mono">
@@ -77,7 +77,7 @@ const CloudHSM: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-4 mb-10">
           <div className="p-3 bg-emerald-600 text-white rounded-2xl shadow-lg">
-            <Workflow size={24} />
+            <Workflow aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">The Remediation Engine</h2>
@@ -94,7 +94,7 @@ const CloudHSM: React.FC = () => {
            <div className="p-8 border border-slate-100 rounded-[2rem] bg-slate-50 relative">
               <div className="absolute top-8 right-8 text-slate-200 font-black text-6xl opacity-20">1</div>
               <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-red-500 mb-6 border border-slate-100">
-                <ScanSearch size={24}/>
+                <ScanSearch aria-hidden="true" size={24}/>
               </div>
               <h4 className="text-lg font-bold text-slate-900 mb-3">Identify</h4>
               <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -109,7 +109,7 @@ const CloudHSM: React.FC = () => {
            <div className="p-8 border border-sky-100 rounded-[2rem] bg-sky-50/30 relative">
               <div className="absolute top-8 right-8 text-sky-200 font-black text-6xl opacity-20">2</div>
               <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-sky-500 mb-6 border border-sky-100">
-                <RefreshCw size={24}/>
+                <RefreshCw aria-hidden="true" size={24}/>
               </div>
               <h4 className="text-lg font-bold text-slate-900 mb-3">Migrate</h4>
               <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -124,7 +124,7 @@ const CloudHSM: React.FC = () => {
            <div className="p-8 border border-slate-100 rounded-[2rem] bg-slate-50 relative">
               <div className="absolute top-8 right-8 text-slate-200 font-black text-6xl opacity-20">3</div>
               <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-emerald-600 mb-6 border border-slate-100">
-                <ShieldCheck size={24}/>
+                <ShieldCheck aria-hidden="true" size={24}/>
               </div>
               <h4 className="text-lg font-bold text-slate-900 mb-3">Secure</h4>
               <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -149,7 +149,7 @@ const CloudHSM: React.FC = () => {
              <div className="space-y-6">
                 <div className="flex gap-4">
                    <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg h-fit border border-indigo-100">
-                      <BrainCircuit size={20} />
+                      <BrainCircuit aria-hidden="true" size={20} />
                    </div>
                    <div>
                       <h4 className="font-bold text-slate-900 text-sm m-0">Quantum Execution Environment</h4>
@@ -161,7 +161,7 @@ const CloudHSM: React.FC = () => {
 
                 <div className="flex gap-4">
                    <div className="p-2 bg-sky-50 text-sky-500 rounded-lg h-fit border border-sky-100">
-                      <Key size={20} />
+                      <Key aria-hidden="true" size={20} />
                    </div>
                    <div>
                       <h4 className="font-bold text-slate-900 text-sm m-0">Lifecycle Management</h4>
@@ -175,7 +175,7 @@ const CloudHSM: React.FC = () => {
 
           <div className="bg-slate-950 rounded-[2.5rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden">
              <div className="absolute top-0 right-0 p-8 opacity-20 text-indigo-500 animate-pulse">
-                <BrainCircuit size={120} />
+                <BrainCircuit aria-hidden="true" size={120} />
              </div>
              <div className="relative z-10 font-mono text-[10px] space-y-3">
                 <div className="text-slate-500 border-b border-slate-800 pb-2 mb-4">
@@ -209,7 +209,7 @@ const CloudHSM: React.FC = () => {
         <div className="not-prose grid md:grid-cols-2 gap-8">
           <div className="p-8 border border-slate-100 bg-white rounded-[2.5rem] shadow-sm">
             <div className="p-3 bg-sky-50 text-sky-500 rounded-xl w-fit mb-6">
-              <Layers size={24} />
+              <Layers aria-hidden="true" size={24} />
             </div>
             <h4 className="text-lg font-bold text-slate-900 mb-4 m-0">Your Own Private Space</h4>
             <p className="text-sm text-slate-500 leading-relaxed m-0">
@@ -218,7 +218,7 @@ const CloudHSM: React.FC = () => {
           </div>
           <div className="p-8 border border-slate-100 bg-white rounded-[2.5rem] shadow-sm">
             <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl w-fit mb-6">
-              <Activity size={24} />
+              <Activity aria-hidden="true" size={24} />
             </div>
             <h4 className="text-lg font-bold text-slate-900 mb-4 m-0">Automatic Upgrades</h4>
             <p className="text-sm text-slate-500 leading-relaxed m-0">
@@ -233,7 +233,7 @@ const CloudHSM: React.FC = () => {
         <div className="p-10 border border-slate-900 bg-white rounded-[2.5rem] relative overflow-hidden">
           <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="shrink-0">
-              <ShieldCheck size={64} className="text-emerald-600" />
+              <ShieldCheck aria-hidden="true" size={64} className="text-emerald-600" />
             </div>
             <div>
               <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4 m-0">Certified Security</h3>
@@ -247,7 +247,7 @@ const CloudHSM: React.FC = () => {
               </div>
               <div className="flex items-center gap-1">
                  <a href="https://csrc.nist.gov/pubs/fips/140-3/final" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-sky-500 hover:text-slate-900 flex items-center gap-1 uppercase tracking-widest transition-colors">
-                   View Standard <ExternalLink size={12}/>
+                   View Standard <ExternalLink aria-hidden="true" size={12}/>
                  </a>
               </div>
             </div>
@@ -263,10 +263,10 @@ const CloudHSM: React.FC = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="mailto:hello@rivicq.de?subject=Cloud HSM Inquiry" className="px-10 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 justify-center shadow-xl">
-            Request Demo <ArrowRight size={18}/>
+            Request Demo <ArrowRight aria-hidden="true" size={18}/>
           </a>
           <Link to="/pricing" className="px-10 py-4 border border-sky-400 text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center gap-2 justify-center">
-            See Pricing <Activity size={18}/>
+            See Pricing <Activity aria-hidden="true" size={18}/>
           </Link>
         </div>
       </section>

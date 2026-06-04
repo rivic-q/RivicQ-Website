@@ -23,13 +23,13 @@ const ServiceDetail: React.FC<{
     <ul className="space-y-3 m-0 p-0 list-none">
       {points.map((p, i) => (
         <li key={i} className="flex items-center gap-3 text-xs font-bold text-slate-700 uppercase tracking-wide">
-          <CheckCircle2 size={14} className="text-emerald-500" /> {p}
+          <CheckCircle2 aria-hidden="true" size={14} className="text-emerald-500" /> {p}
         </li>
       ))}
     </ul>
     <div className="mt-10 pt-6 border-t border-slate-50">
       <a href="mailto:hello@rivicq.de" className="text-xs font-bold text-sky-500 hover:text-slate-900 flex items-center gap-1 transition-colors uppercase tracking-widest">
-        Request Scope <ArrowRight size={14}/>
+        Request Scope <ArrowRight aria-hidden="true" size={14}/>
       </a>
     </div>
   </div>
@@ -47,7 +47,7 @@ const Services: React.FC = () => {
 
       <div className="not-prose grid md:grid-cols-2 gap-8 mb-24">
         <ServiceDetail 
-          icon={<ShieldAlert size={24}/>}
+          icon={<ShieldAlert aria-hidden="true" size={24}/>}
           title="Red Teaming"
           badge="Adversary Simulation"
           desc="Real-world attack simulations targeting your people, systems, and technology."
@@ -58,7 +58,7 @@ const Services: React.FC = () => {
           ]}
         />
         <ServiceDetail 
-          icon={<Terminal size={24}/>}
+          icon={<Terminal aria-hidden="true" size={24}/>}
           title="Penetration Testing"
           badge="Audit & Discovery"
           desc="Deep security testing focused on logic flaws and old crypto."
@@ -69,7 +69,7 @@ const Services: React.FC = () => {
           ]}
         />
         <ServiceDetail 
-          icon={<Search size={24}/>}
+          icon={<Search aria-hidden="true" size={24}/>}
           title="Vulnerability Management"
           badge="Proactive Defense"
           desc="Continuous scanning that finds and prioritizes security flaws before attackers do."
@@ -80,7 +80,7 @@ const Services: React.FC = () => {
           ]}
         />
         <ServiceDetail 
-          icon={<Microscope size={24}/>}
+          icon={<Microscope aria-hidden="true" size={24}/>}
           title="PQC Advisory"
           badge="Strategic Migration"
           desc="Guidance on moving from RSA/ECC to NIST-standardized quantum-safe crypto."
@@ -91,7 +91,7 @@ const Services: React.FC = () => {
           ]}
         />
         <ServiceDetail 
-          icon={<Bot size={24}/>}
+          icon={<Bot aria-hidden="true" size={24}/>}
           title="Agentic Security Assessment"
           badge="AI Agent Audit"
           desc="Check your AI agents for crypto weaknesses, prompt injection risks, and workflow integrity."
@@ -103,7 +103,7 @@ const Services: React.FC = () => {
           ]}
         />
         <ServiceDetail 
-          icon={<Fingerprint size={24}/>}
+          icon={<Fingerprint aria-hidden="true" size={24}/>}
           title="Privacy Protocol Implementation"
           badge="Zero-Knowledge"
           desc="Deploy zero-knowledge privacy into your existing systems. ZK-proofs, secure computation, and privacy for regulated data."
@@ -120,7 +120,7 @@ const Services: React.FC = () => {
       <section className="mb-24 py-16 border-t border-slate-100">
         <div className="flex items-center gap-4 mb-10">
           <div className="p-3 bg-indigo-600 text-white rounded-2xl shadow-lg">
-            <GitBranch size={24} />
+            <GitBranch aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-4xl font-serif font-bold text-slate-900 m-0">DevSecOps Architecture</h2>
@@ -130,7 +130,7 @@ const Services: React.FC = () => {
 
         <div className="bg-slate-50 rounded-[3rem] p-10 md:p-16 border border-slate-100 relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none text-slate-900 group-hover:scale-110 transition-transform duration-700">
-            <Shield size={200} />
+            <Shield aria-hidden="true" size={200} />
           </div>
           
           <div className="relative z-10 max-w-3xl">
@@ -142,7 +142,7 @@ const Services: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <Zap size={18}/>
+                    <Zap aria-hidden="true" size={18}/>
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">CI/CD Security Orchestration</h4>
@@ -151,7 +151,7 @@ const Services: React.FC = () => {
                 </div>
                 <div className="flex gap-4">
                   <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <ShieldCheck size={18}/>
+                    <ShieldCheck aria-hidden="true" size={18}/>
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">Infrastructure as Code (IaC)</h4>
@@ -163,7 +163,7 @@ const Services: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <Activity size={18}/>
+                    <Activity aria-hidden="true" size={18}/>
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">Policy as Code (PaC)</h4>
@@ -172,7 +172,7 @@ const Services: React.FC = () => {
                 </div>
                 <div className="flex gap-4">
                   <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <Lock size={18}/>
+                    <Lock aria-hidden="true" size={18}/>
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm m-0">Zero-Trust Networking</h4>
@@ -184,7 +184,7 @@ const Services: React.FC = () => {
 
             <div className="mt-12">
                <a href="mailto:hello@rivicq.de?subject=Architecture Inquiry: DevSecOps" className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-indigo-600 transition-all text-xs uppercase tracking-widest shadow-xl shadow-slate-200">
-                Consult on Architecture <ArrowRight size={16}/>
+                Consult on Architecture <ArrowRight aria-hidden="true" size={16}/>
               </a>
             </div>
           </div>
@@ -195,7 +195,7 @@ const Services: React.FC = () => {
          <h2 className="text-3xl font-serif font-bold mb-6">Talk to our team.</h2>
          <p className="text-slate-500 mb-10 max-w-xl mx-auto">Our engineers are ready to discuss your security challenges.</p>
          <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 bg-sky-500 text-white px-10 py-5 rounded-full font-bold hover:bg-sky-600 transition-all shadow-xl shadow-sky-500/20">
-            Consult our Team <ArrowRight size={18}/>
+            Consult our Team <ArrowRight aria-hidden="true" size={18}/>
          </a>
       </section>
     </article>

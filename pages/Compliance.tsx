@@ -29,7 +29,7 @@ const ComplianceTable: React.FC<{ title: string, jurisdiction: string, data: any
                         <td className="p-4 font-mono font-bold text-slate-900 whitespace-nowrap text-xs">{row.deadline}</td>
                         <td className="p-4">
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wide">
-                                <CheckCircle2 size={12}/> {row.solution}
+                                <CheckCircle2 aria-hidden="true" size={12}/> {row.solution}
                             </span>
                         </td>
                     </tr>
@@ -56,12 +56,12 @@ const Compliance: React.FC = () => {
       {/* Regulatory Badges Grid */}
       <section className="not-prose mb-24 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {[
-          { name: "DORA", label: "EU Finance", desc: "Jan 2025 Enforcement", icon: <Landmark size={20}/> },
-          { name: "NIS2", label: "EU Energy/Health", desc: "Oct 2024 Transposition", icon: <ShieldAlert size={20}/> },
-          { name: "CRA", label: "EU Hardware", desc: "Product Resilience", icon: <FileCheck size={20}/> },
-          { name: "CNSA", label: "US Gov/NSA", desc: "Suite 2.0 PQC", icon: <Scale size={20}/> },
-          { name: "NIST", label: "Global PQC", desc: "ML-KEM / ML-DSA", icon: <Globe size={20}/> },
-          { name: "BSI", label: "DE BSI", desc: "TR-02102-1", icon: <ShieldCheck size={20}/> }
+          { name: "DORA", label: "EU Finance", desc: "Jan 2025 Enforcement", icon: <Landmark aria-hidden="true" size={20}/> },
+          { name: "NIS2", label: "EU Energy/Health", desc: "Oct 2024 Transposition", icon: <ShieldAlert aria-hidden="true" size={20}/> },
+          { name: "CRA", label: "EU Hardware", desc: "Product Resilience", icon: <FileCheck aria-hidden="true" size={20}/> },
+          { name: "CNSA", label: "US Gov/NSA", desc: "Suite 2.0 PQC", icon: <Scale aria-hidden="true" size={20}/> },
+          { name: "NIST", label: "Global PQC", desc: "ML-KEM / ML-DSA", icon: <Globe aria-hidden="true" size={20}/> },
+          { name: "BSI", label: "DE BSI", desc: "TR-02102-1", icon: <ShieldCheck aria-hidden="true" size={20}/> }
         ].map((badge, i) => (
           <div key={i} className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col items-center text-center group hover:bg-white hover:border-sky-500 transition-all duration-300">
             <div className="mb-4 p-2 bg-white rounded-lg text-slate-900 group-hover:bg-sky-500 group-hover:text-white transition-all shadow-sm">
@@ -78,7 +78,7 @@ const Compliance: React.FC = () => {
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-2 bg-sky-100 text-sky-600 rounded-lg">
-             <Landmark size={24}/>
+             <Landmark aria-hidden="true" size={24}/>
           </div>
           <h2 className="text-3xl font-serif font-bold m-0">EU Directives (DORA & NIS2)</h2>
         </div>
@@ -100,7 +100,7 @@ const Compliance: React.FC = () => {
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-2 bg-emerald-100 text-emerald-700 rounded-lg">
-             <FileCheck size={24}/>
+             <FileCheck aria-hidden="true" size={24}/>
           </div>
           <h2 className="text-3xl font-serif font-bold m-0">Global PQC Standards</h2>
         </div>
@@ -114,7 +114,7 @@ const Compliance: React.FC = () => {
               <h4 className="font-bold text-slate-900 text-xl mb-3 m-0">NIST Kyber</h4>
               <p className="text-sm text-slate-500 leading-relaxed mb-4">Mandatory key exchange replacement for RSA and ECC. RivicQ provides native acceleration for ML-KEM-768.</p>
               <div className="flex items-center gap-2 text-emerald-600 font-bold text-[10px] uppercase tracking-widest">
-                <CheckCircle2 size={12}/> Verified Implemention
+                <CheckCircle2 aria-hidden="true" size={12}/> Verified Implemention
               </div>
            </div>
            <div className="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm group hover:border-indigo-500 transition-all">
@@ -122,7 +122,7 @@ const Compliance: React.FC = () => {
               <h4 className="font-bold text-slate-900 text-xl mb-3 m-0">NIST Dilithium</h4>
               <p className="text-sm text-slate-500 leading-relaxed mb-4">The new standard for digital signatures and sovereign identity. Full support in RivicQ RQSP Protocol.</p>
               <div className="flex items-center gap-2 text-emerald-600 font-bold text-[10px] uppercase tracking-widest">
-                <CheckCircle2 size={12}/> Verified Implemention
+                <CheckCircle2 aria-hidden="true" size={12}/> Verified Implemention
               </div>
            </div>
         </div>
@@ -132,13 +132,13 @@ const Compliance: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-2 bg-slate-100 text-slate-900 rounded-lg border border-slate-200">
-             <ShieldCheck size={24}/>
+             <ShieldCheck aria-hidden="true" size={24}/>
           </div>
           <h2 className="text-3xl font-serif font-bold m-0">BSI Germany (TR-02102)</h2>
         </div>
         <div className="p-8 bg-slate-900 text-white rounded-[3rem] relative overflow-hidden">
            <div className="absolute top-0 right-0 p-12 opacity-5 text-white">
-             <Scale size={160} />
+             <Scale aria-hidden="true" size={160} />
            </div>
            <p className="text-slate-400 text-lg leading-relaxed italic mb-8 relative z-10">
              "BSI TR-02102-1 requires crypto-agility and the adoption of PQC-hybrid schemes for long-term data confidentiality."
@@ -162,7 +162,7 @@ const Compliance: React.FC = () => {
           Request a full regulatory mapping of your infrastructure to NIST and DORA standards.
         </p>
         <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-3 px-10 py-5 bg-sky-500 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-sky-500/20">
-          Request Compliance Scoping <ArrowRight size={18}/>
+          Request Compliance Scoping <ArrowRight aria-hidden="true" size={18}/>
         </a>
       </section>
 

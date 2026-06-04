@@ -319,7 +319,7 @@ const Glossary: React.FC = () => {
       <header className="mb-16">
         <AnimatedSection>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-            <BookOpen size={14} /> Reference Guide
+            <BookOpen aria-hidden="true" size={14} /> Reference Guide
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900">
             Glossary of <span className="text-sky-500">Terms</span>
@@ -334,7 +334,7 @@ const Glossary: React.FC = () => {
       <AnimatedSection delay={100}>
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-grow">
-            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+            <Search aria-hidden="true" size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
             <input 
               type="text"
               placeholder="Search terms, definitions, related concepts..."
@@ -425,7 +425,7 @@ const Glossary: React.FC = () => {
 
       {filteredEntries.length === 0 && (
         <div className="text-center py-16 bg-slate-50 rounded-3xl">
-          <Search size={48} className="mx-auto text-slate-300 mb-4" />
+          <Search aria-hidden="true" size={48} className="mx-auto text-slate-300 mb-4" />
           <h3 className="text-xl font-bold text-slate-700 mb-2">No terms found</h3>
           <p className="text-slate-500">Try adjusting your search or category filter</p>
         </div>

@@ -22,11 +22,11 @@ const SolutionSection: React.FC<{
 
     <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative overflow-hidden group hover:border-sky-300 transition-colors">
       <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-        <FileCheck size={100} className="text-slate-900"/>
+        <FileCheck aria-hidden="true" size={100} className="text-slate-900"/>
       </div>
       <div className="relative z-10">
         <div className="flex items-center gap-2 mb-2">
-          <ShieldCheck size={16} className="text-emerald-600" />
+          <ShieldCheck aria-hidden="true" size={16} className="text-emerald-600" />
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Verified Standard</span>
         </div>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -38,7 +38,7 @@ const SolutionSection: React.FC<{
             <p className="text-xs text-slate-500 m-0 mt-1">Authority: {reference.authority}</p>
           </div>
           <a href={reference.link} target="_blank" rel="noopener noreferrer" className="shrink-0 px-4 py-2 bg-white border border-slate-200 text-sky-500 text-xs font-bold rounded-lg hover:bg-sky-50 hover:border-sky-200 transition-all flex items-center gap-2 uppercase tracking-widest shadow-sm">
-            See Official Rule <ExternalLink size={12} />
+            See Official Rule <ExternalLink aria-hidden="true" size={12} />
           </a>
         </div>
       </div>
@@ -59,7 +59,7 @@ const Solutions: React.FC = () => {
       <div className="not-prose">
         <SolutionSection 
           title="Banks & Payments"
-          icon={<Landmark size={24}/>}
+          icon={<Landmark aria-hidden="true" size={24}/>}
           reference={{
             title: "PCI DSS v4.0",
             code: "SEC. 12.3.3",
@@ -74,7 +74,7 @@ const Solutions: React.FC = () => {
 
         <SolutionSection 
           title="Fintech & Cloud Apps"
-          icon={<Cloud size={24}/>}
+          icon={<Cloud aria-hidden="true" size={24}/>}
           reference={{
             title: "EU DORA Act",
             code: "EU 2022/2554",
@@ -89,7 +89,7 @@ const Solutions: React.FC = () => {
 
         <SolutionSection 
           title="Government & Defense"
-          icon={<ShieldAlert size={24}/>}
+          icon={<ShieldAlert aria-hidden="true" size={24}/>}
           reference={{
             title: "CNSA Suite 2.0",
             code: "NSA/CSS",
@@ -104,7 +104,7 @@ const Solutions: React.FC = () => {
 
         <SolutionSection 
           title="Infrastructure & Factories"
-          icon={<Server size={24}/>}
+          icon={<Server aria-hidden="true" size={24}/>}
           reference={{
             title: "Guide to OT Security",
             code: "NIST SP 800-82r3",
@@ -125,7 +125,7 @@ const Solutions: React.FC = () => {
              Our team can check your systems and tell you exactly what you need to do to be compliant.
            </p>
            <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-500 transition-all text-xs uppercase tracking-widest">
-              Contact Us <FileText size={16}/>
+              Contact Us <FileText aria-hidden="true" size={16}/>
            </a>
         </div>
       </div>

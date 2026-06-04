@@ -95,7 +95,7 @@ const HSMBlueprint: React.FC = () => {
                     <div className="space-y-2">
                         {layerDetails[activeLayer].stats.map((stat, i) => (
                             <div key={i} className="flex items-center gap-2 text-[10px] font-bold text-slate-700 uppercase tracking-widest bg-slate-50 px-3 py-2 rounded-xl border border-slate-100">
-                                <CheckCircle2 size={12} className="text-blue-500" /> {stat}
+                                <CheckCircle2 aria-hidden="true" size={12} className="text-blue-500" /> {stat}
                             </div>
                         ))}
                     </div>
@@ -116,7 +116,7 @@ const HSMBlueprint: React.FC = () => {
                                   ${activeLayer === 'physical' ? '[transform:translateZ(-100px)] border-blue-600 border-2' : activeLayer ? 'opacity-10' : 'group-hover:[transform:translateZ(-40px)]'} flex items-center justify-center`}
                     >
                          <div className="w-[85%] h-[85%] border-2 border-dashed border-slate-100 rounded-[2.5rem] md:rounded-[3.5rem] flex items-center justify-center relative overflow-hidden">
-                            <Box size={40} md:size={56} className="text-slate-200" strokeWidth={0.5} />
+                            <Box aria-hidden="true" size={40} md:size={56} className="text-slate-200" strokeWidth={0.5} />
                          </div>
                     </div>
 
@@ -130,7 +130,7 @@ const HSMBlueprint: React.FC = () => {
                         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
                         <div className="relative z-10 flex flex-col items-center">
                             <div className={`p-4 md:p-5 bg-slate-800 rounded-2xl md:rounded-3xl border border-slate-700 transition-all duration-500 ${activeLayer === 'engine' ? 'scale-110 border-blue-50' : ''}`}>
-                                <Cpu size={40} md:size={48} className="text-blue-500" strokeWidth={1} />
+                                <Cpu aria-hidden="true" size={40} md:size={48} className="text-blue-500" strokeWidth={1} />
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ const HSMBlueprint: React.FC = () => {
                          <div className="relative w-[92%] h-[92%] bg-slate-950 rounded-[2.5rem] md:rounded-[3.5rem] border border-blue-500/10 flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden shadow-inner">
                              <div className="relative z-20 w-32 h-32 md:w-56 md:h-56 flex flex-col items-center justify-center">
                                  <div className={`w-12 h-12 md:w-20 md:h-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl flex items-center justify-center shadow-[0_0_60px_rgba(37,99,235,0.7)]`}>
-                                     <Atom size={24} md:size={32} className={`text-white animate-spin-slow`} />
+                                     <Atom aria-hidden="true" size={24} md:size={32} className={`text-white animate-spin-slow`} />
                                  </div>
                              </div>
                          </div>
@@ -159,7 +159,7 @@ const HSMBlueprint: React.FC = () => {
                                   ${activeLayer === 'cloud' ? '[transform:translateZ(400px)] border-blue-400 border-2' : activeLayer ? 'opacity-5' : 'group-hover:[transform:translateZ(300px)]'} flex items-center justify-center z-[60]`}
                     >
                          <div className="flex flex-col items-center justify-center text-blue-300">
-                            <Cloud size={48} md:size={64} strokeWidth={1} />
+                            <Cloud aria-hidden="true" size={48} md:size={64} strokeWidth={1} />
                          </div>
                     </div>
 
@@ -173,11 +173,11 @@ const HSMBlueprint: React.FC = () => {
                 </h3>
                 <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
                     <span className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                        <Zap size={12} className="text-blue-600"/> Quantum-Safe Hardware
+                        <Zap aria-hidden="true" size={12} className="text-blue-600"/> Quantum-Safe Hardware
                     </span>
                     <div className="w-1.5 h-1.5 bg-slate-200 rounded-full hidden md:block"></div>
                     <span className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                        <Cloud size={12} className="text-blue-600"/> Cloud Virtualization
+                        <Cloud aria-hidden="true" size={12} className="text-blue-600"/> Cloud Virtualization
                     </span>
                 </div>
             </div>

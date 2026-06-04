@@ -25,7 +25,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, trend, ic
         trend === 'up' ? 'bg-emerald-50 text-emerald-600' : 
         trend === 'down' ? 'bg-red-50 text-red-600' : 'bg-slate-100 text-slate-600'
       }`}>
-        {trend === 'up' ? <TrendingUp size={12} /> : trend === 'down' ? <TrendingDown size={12} /> : null}
+        {trend === 'up' ? <TrendingUp aria-hidden="true" size={12} /> : trend === 'down' ? <TrendingDown aria-hidden="true" size={12} /> : null}
         {change}
       </div>
     </div>
@@ -65,10 +65,10 @@ const CISODashboard: React.FC = () => {
   }, [isLive]);
 
   const metrics: MetricCardProps[] = [
-    { title: 'Crypto Assets Scanned', value: '12,847', change: '+342', trend: 'up', icon: <Key size={20} className="text-blue-600" />, color: 'bg-blue-50' },
-    { title: 'Critical Vulnerabilities', value: '3', change: '-2', trend: 'down', icon: <AlertOctagon size={20} className="text-red-600" />, color: 'bg-red-50' },
-    { title: 'PQC Readiness Score', value: '78%', change: '+12%', trend: 'up', icon: <ShieldCheck size={20} className="text-emerald-600" />, color: 'bg-emerald-50' },
-    { title: 'Compliance Status', value: '94%', change: '+3%', trend: 'up', icon: <CheckCircle2 size={20} className="text-indigo-600" />, color: 'bg-indigo-50' },
+    { title: 'Crypto Assets Scanned', value: '12,847', change: '+342', trend: 'up', icon: <Key aria-hidden="true" size={20} className="text-blue-600" />, color: 'bg-blue-50' },
+    { title: 'Critical Vulnerabilities', value: '3', change: '-2', trend: 'down', icon: <AlertOctagon aria-hidden="true" size={20} className="text-red-600" />, color: 'bg-red-50' },
+    { title: 'PQC Readiness Score', value: '78%', change: '+12%', trend: 'up', icon: <ShieldCheck aria-hidden="true" size={20} className="text-emerald-600" />, color: 'bg-emerald-50' },
+    { title: 'Compliance Status', value: '94%', change: '+3%', trend: 'up', icon: <CheckCircle2 aria-hidden="true" size={20} className="text-indigo-600" />, color: 'bg-indigo-50' },
   ];
 
   const vulnerabilities: VulnerabilityItem[] = [
@@ -114,10 +114,10 @@ const CISODashboard: React.FC = () => {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'compliant': return <CheckCircle2 size={16} className="text-emerald-600" />;
-      case 'partial': return <Clock size={16} className="text-amber-600" />;
-      case 'non-compliant': return <XCircle size={16} className="text-red-600" />;
-      case 'pending': return <Activity size={16} className="text-blue-600" />;
+      case 'compliant': return <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-600" />;
+      case 'partial': return <Clock aria-hidden="true" size={16} className="text-amber-600" />;
+      case 'non-compliant': return <XCircle aria-hidden="true" size={16} className="text-red-600" />;
+      case 'pending': return <Activity aria-hidden="true" size={16} className="text-blue-600" />;
       default: return null;
     }
   };
@@ -189,7 +189,7 @@ const CISODashboard: React.FC = () => {
         {/* Risk Distribution (Left) */}
         <div className="lg:col-span-1 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
           <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 flex items-center gap-2">
-            <PieChart size={16} className="text-blue-600" />
+            <PieChart aria-hidden="true" size={16} className="text-blue-600" />
             Risk Distribution
           </h4>
           <div className="space-y-4">
@@ -219,7 +219,7 @@ const CISODashboard: React.FC = () => {
         {/* Scan History Chart (Middle) */}
         <div className="lg:col-span-2 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
           <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 flex items-center gap-2">
-            <LineChart size={16} className="text-indigo-600" />
+            <LineChart aria-hidden="true" size={16} className="text-indigo-600" />
             Vulnerability Trend (7 Days)
           </h4>
           <div className="h-40 flex items-end gap-3 px-4">
@@ -271,7 +271,7 @@ const CISODashboard: React.FC = () => {
         <div className="lg:col-span-2 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
           <div className="flex items-center justify-between mb-6">
             <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-              <AlertOctagon size={16} className="text-red-600" />
+              <AlertOctagon aria-hidden="true" size={16} className="text-red-600" />
               Critical Vulnerabilities
             </h4>
             <button className="text-xs text-blue-600 font-bold hover:underline flex items-center gap-1">
@@ -303,7 +303,7 @@ const CISODashboard: React.FC = () => {
         {/* Compliance Status */}
         <div className="lg:col-span-1 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
           <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 flex items-center gap-2">
-            <ShieldCheck size={16} className="text-emerald-600" />
+            <ShieldCheck aria-hidden="true" size={16} className="text-emerald-600" />
             Compliance Status
           </h4>
           <div className="space-y-4">

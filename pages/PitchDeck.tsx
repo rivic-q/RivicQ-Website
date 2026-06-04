@@ -49,7 +49,7 @@ const PitchDeck: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-4 mb-10">
           <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg shadow-sky-200">
-            <PieChart size={24} />
+            <PieChart aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Market Opportunity</h2>
@@ -87,7 +87,7 @@ const PitchDeck: React.FC = () => {
         {/* Market Sources */}
         <div className="not-prose bg-slate-50 border border-slate-100 rounded-[2.5rem] p-10">
           <div className="flex items-center gap-3 mb-8">
-            <Quote size={20} className="text-sky-500" />
+            <Quote aria-hidden="true" size={20} className="text-sky-500" />
             <h3 className="text-xl font-serif font-bold text-slate-900 m-0">Market Validation & References</h3>
           </div>
           
@@ -120,10 +120,10 @@ const PitchDeck: React.FC = () => {
           
           <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between">
             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-              <Info size={12} className="text-sky-400" /> Data synthesized from multiple industry sources as of Q4 2025.
+              <Info aria-hidden="true" size={12} className="text-sky-400" /> Data synthesized from multiple industry sources as of Q4 2025.
             </div>
             <a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-sky-500 hover:text-slate-900 transition-colors uppercase tracking-widest flex items-center gap-1">
-              Cross-Verify Standards <ExternalLink size={10} />
+              Cross-Verify Standards <ExternalLink aria-hidden="true" size={10} />
             </a>
           </div>
         </div>
@@ -133,7 +133,7 @@ const PitchDeck: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-4 mb-10">
           <div className="p-3 bg-emerald-600 text-white rounded-2xl shadow-lg">
-            <Rocket size={24} />
+            <Rocket aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Current Traction</h2>
@@ -144,7 +144,7 @@ const PitchDeck: React.FC = () => {
         <div className="not-prose grid md:grid-cols-2 gap-6">
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-sky-500" /> Infrastructure Support
+              <CheckCircle2 aria-hidden="true" size={16} className="text-sky-500" /> Infrastructure Support
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Secured <strong>$350K in Google Cloud AI Credits</strong> to build the RivicQ MVP without burning early investor capital.
@@ -152,7 +152,7 @@ const PitchDeck: React.FC = () => {
           </div>
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Landmark size={16} className="text-sky-500" /> Accelerator Backing
+              <Landmark aria-hidden="true" size={16} className="text-sky-500" /> Accelerator Backing
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Active residents of the <strong>Leap Berlin / Humboldt Innovation Quantum Accelerator</strong> and validated by <strong>SIB (Scholarship Program)</strong>.
@@ -160,7 +160,7 @@ const PitchDeck: React.FC = () => {
           </div>
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Users size={16} className="text-sky-500" /> Academic Partnerships
+              <Users aria-hidden="true" size={16} className="text-sky-500" /> Academic Partnerships
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Backed by research faculty from <strong>TU Berlin (Prof. Dr. Jean-Pierre Seifert)</strong> focusing on PQC validation.
@@ -168,7 +168,7 @@ const PitchDeck: React.FC = () => {
           </div>
           <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
             <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Shield size={16} className="text-sky-500" /> Open Source Traction
+              <Shield aria-hidden="true" size={16} className="text-sky-500" /> Open Source Traction
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed m-0">
               Early modular components live and gaining visibility at <strong>github.com/rivic-q</strong>.
@@ -214,7 +214,7 @@ const PitchDeck: React.FC = () => {
           <div className="space-y-8">
             <div className="flex items-center gap-3">
               <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
-                <FileDown size={24}/>
+                <FileDown aria-hidden="true" size={24}/>
               </div>
               <div>
                 <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Request Documents</h2>
@@ -230,7 +230,7 @@ const PitchDeck: React.FC = () => {
               <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-sky-300 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-sky-500 shrink-0">
-                    <Presentation size={24}/>
+                    <Presentation aria-hidden="true" size={24}/>
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Pitch Deck</h4>
@@ -242,7 +242,7 @@ const PitchDeck: React.FC = () => {
               <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-indigo-300 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 shrink-0">
-                    <FileText size={24}/>
+                    <FileText aria-hidden="true" size={24}/>
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Technical Whitepaper</h4>
@@ -254,7 +254,7 @@ const PitchDeck: React.FC = () => {
               <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-emerald-300 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 shrink-0">
-                    <BarChart size={24}/>
+                    <BarChart aria-hidden="true" size={24}/>
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Financial Projections</h4>
@@ -266,7 +266,7 @@ const PitchDeck: React.FC = () => {
 
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
               <h4 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
-                <ShieldCheck size={16} className="text-sky-500"/> Confidentiality Notice
+                <ShieldCheck aria-hidden="true" size={16} className="text-sky-500"/> Confidentiality Notice
               </h4>
               <p className="text-xs text-slate-500 leading-relaxed">
                 All materials are shared under strict confidentiality. By requesting access, you agree to keep this information confidential and not distribute to third parties without explicit consent from RivicQ.
@@ -279,7 +279,7 @@ const PitchDeck: React.FC = () => {
             {formSubmitted ? (
               <div className="text-center py-12 animate-fadeIn">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <CheckCircle2 size={32} />
+                  <CheckCircle2 aria-hidden="true" size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">Request Received</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6">
@@ -351,9 +351,9 @@ const PitchDeck: React.FC = () => {
                     <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Documents Requested *</label>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       {[
-                        { value: 'pitch-deck', label: 'Pitch Deck', icon: <Presentation size={14}/> },
-                        { value: 'whitepaper', label: 'Whitepaper', icon: <FileText size={14}/> },
-                        { value: 'projections', label: 'Projections', icon: <BarChart size={14}/> }
+                        { value: 'pitch-deck', label: 'Pitch Deck', icon: <Presentation aria-hidden="true" size={14}/> },
+                        { value: 'whitepaper', label: 'Whitepaper', icon: <FileText aria-hidden="true" size={14}/> },
+                        { value: 'projections', label: 'Projections', icon: <BarChart aria-hidden="true" size={14}/> }
                       ].map((doc) => (
                         <label 
                           key={doc.value}
@@ -415,10 +415,10 @@ const PitchDeck: React.FC = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
           <a href="mailto:hello@rivicq.de?subject=Investor Inquiry" className="px-10 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-500 transition-all flex items-center gap-2 justify-center shadow-xl shadow-sky-500/20">
-            Connect with IR <ArrowRight size={18}/>
+            Connect with IR <ArrowRight aria-hidden="true" size={18}/>
           </a>
           <Link to="/team" className="px-10 py-4 border border-slate-700 text-white font-bold rounded-xl hover:bg-white/5 transition-all flex items-center gap-2 justify-center">
-            Meet the Team <Beaker size={18}/>
+            Meet the Team <Beaker aria-hidden="true" size={18}/>
           </Link>
         </div>
       </section>

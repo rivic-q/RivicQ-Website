@@ -44,7 +44,7 @@ const Resources: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
-             <Beaker size={28}/>
+             <Beaker aria-hidden="true" size={28}/>
           </div>
           <div>
             <h2 className="m-0 text-3xl font-serif font-bold text-slate-900">Technical POC: Lab Validation</h2>
@@ -61,7 +61,7 @@ const Resources: React.FC = () => {
       <section className="mb-24 not-prose">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-emerald-600 text-white rounded-2xl shadow-lg shadow-emerald-100">
-             <FileCheck size={28}/>
+             <FileCheck aria-hidden="true" size={28}/>
           </div>
           <div>
             <h2 className="m-0 text-3xl font-serif font-bold text-slate-900">Security & Compliance</h2>
@@ -73,14 +73,14 @@ const Resources: React.FC = () => {
           {[
             { 
               title: "NIST PQC Standards Overview", 
-              icon: <ExternalLink size={20} className="text-sky-500" />,
+              icon: <ExternalLink aria-hidden="true" size={20} className="text-sky-500" />,
               link: "https://csrc.nist.gov/projects/post-quantum-cryptography",
               desc: "Official finalized standards for ML-KEM and ML-DSA from US NIST.",
               external: true
             },
             { 
               title: "FIPS 140-3 Validation Details", 
-              icon: <ShieldCheck size={20} className="text-indigo-600" />,
+              icon: <ShieldCheck aria-hidden="true" size={20} className="text-indigo-600" />,
               link: "#",
               desc: "Technical specifications for RivicQ's physical and virtual HSM boundaries.",
               external: false,
@@ -88,7 +88,7 @@ const Resources: React.FC = () => {
             },
             { 
               title: "DORA Compliance Checklist", 
-              icon: <Landmark size={20} className="text-emerald-600" />,
+              icon: <Landmark aria-hidden="true" size={20} className="text-emerald-600" />,
               link: "#",
               desc: "Digital Operational Resilience Act mapping for EU financial institutions.",
               external: false,
@@ -96,14 +96,14 @@ const Resources: React.FC = () => {
             },
             { 
               title: "BSI Germany Guidelines", 
-              icon: <Globe size={20} className="text-slate-900" />,
+              icon: <Globe aria-hidden="true" size={20} className="text-slate-900" />,
               link: "https://www.bsi.bund.de/EN/Service-Navi/Publications/TechnicalGuidelines/TechnicalGuidelines_node.html",
               desc: "Technical guidelines for crypto-agility from the BSI Bund Germany.",
               external: true
             },
             { 
               title: "RivicQ Technical Paper", 
-              icon: <Bookmark size={20} className="text-amber-600" />,
+              icon: <Bookmark aria-hidden="true" size={20} className="text-amber-600" />,
               link: "#",
               desc: "Full institutional mapping of RQSP to NIST, DORA, and BSI standards.",
               status: "Q4 2025",
@@ -131,7 +131,7 @@ const Resources: React.FC = () => {
                 rel={item.external ? "noopener noreferrer" : undefined}
                 className={`flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest transition-colors ${item.link === '#' ? 'text-slate-300 cursor-default' : 'text-sky-500 hover:text-slate-900'}`}
               >
-                {item.link === '#' ? "Link Soon" : (item.external ? "External Site" : "Access Guide")} <ArrowRight size={10} />
+                {item.link === '#' ? "Link Soon" : (item.external ? "External Site" : "Access Guide")} <ArrowRight aria-hidden="true" size={10} />
               </a>
             </div>
           ))}
@@ -142,7 +142,7 @@ const Resources: React.FC = () => {
       <section className="mb-24 not-prose">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-slate-900 text-white rounded-2xl shadow-lg">
-             <ShieldCheck size={28}/>
+             <ShieldCheck aria-hidden="true" size={28}/>
           </div>
           <div>
             <h2 className="m-0 text-3xl font-serif font-bold text-slate-900">OWASP Cryptographic Checklist</h2>
@@ -170,7 +170,7 @@ const Resources: React.FC = () => {
       <section className="mb-24 not-prose">
         <div className="bg-slate-50 border border-slate-200 rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-12 opacity-5 text-slate-900 pointer-events-none">
-            <PhoneCall size={160} />
+            <PhoneCall aria-hidden="true" size={160} />
           </div>
           <div className="relative z-10">
             <h2 className="text-3xl font-serif font-bold text-slate-900 mb-6 m-0">Next Steps</h2>
@@ -178,7 +178,7 @@ const Resources: React.FC = () => {
               Contact Sales for a PQC Consultation.
             </p>
             <Link to="/pricing" className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 text-white rounded-xl font-bold hover:bg-sky-500 transition-all shadow-xl shadow-slate-200 uppercase text-xs tracking-widest">
-              Consult with Sales <ArrowRight size={18} />
+              Consult with Sales <ArrowRight aria-hidden="true" size={18} />
             </Link>
           </div>
         </div>

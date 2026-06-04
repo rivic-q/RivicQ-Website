@@ -81,7 +81,7 @@ const RQSP: React.FC = () => {
       <div className="not-prose space-y-12 mb-24">
         <ProtocolStep 
           step="01"
-          icon={<Zap size={32} />}
+          icon={<Zap aria-hidden="true" size={32} />}
           color="bg-sky-500"
           title="Creating True Randomness"
           desc="Computers are bad at being random, which makes keys guessable. We use physical quantum physics to generate truly random numbers for your keys."
@@ -90,7 +90,7 @@ const RQSP: React.FC = () => {
         />
         <ProtocolStep 
           step="02"
-          icon={<Workflow size={32} />}
+          icon={<Workflow aria-hidden="true" size={32} />}
           color="bg-purple-600"
           title="Hybrid Protection"
           desc="We don't just use new security; we combine it with proven old security. It's like having two locks on your door—one classic, one futuristic."
@@ -101,7 +101,7 @@ const RQSP: React.FC = () => {
       {/* CTA SECTION */}
       <section className="not-prose bg-white border border-slate-100 rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-sm group">
         <div className="absolute right-0 top-0 opacity-5 -mr-16 -mt-16 pointer-events-none group-hover:scale-105 transition-transform duration-1000">
-          <ShieldCheck size={400} />
+          <ShieldCheck aria-hidden="true" size={400} />
         </div>
         <div className="relative z-10 max-w-2xl">
           <h2 className="text-slate-900 text-4xl font-serif font-bold mb-6 m-0">Protect your data today.</h2>
@@ -110,7 +110,7 @@ const RQSP: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="/#/sdk" className="px-10 py-4 bg-sky-500 text-white rounded-full font-bold text-sm hover:bg-sky-600 transition-all flex items-center justify-center gap-2 shadow-xl shadow-sky-500/20">
-              For Developers <ArrowRight size={18}/>
+              For Developers <ArrowRight aria-hidden="true" size={18}/>
             </a>
             <a href="/#/platform" className="px-10 py-4 border border-slate-200 text-slate-600 rounded-full font-bold text-sm hover:bg-slate-50 transition-all flex items-center justify-center">
               How it works

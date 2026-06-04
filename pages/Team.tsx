@@ -51,9 +51,9 @@ const Team: React.FC = () => {
                   Security Researcher and Resident at the Leap Berlin / Humboldt Innovation Quantum Deep-Tech Accelerator. Specializing in the commercialization of Post-Quantum Cryptography and the virtualization of hardware root-of-trust.
                 </p>
                 <div className="flex gap-4">
-                  <a href="https://linkedin.com/in/revanande" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-sky-500 transition-colors"><Linkedin size={18}/></a>
-                  <a href="https://github.com/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><Github size={18}/></a>
-                  <a href="mailto:revan.ande@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail size={18}/></a>
+                  <a href="https://linkedin.com/in/revanande" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-sky-500 transition-colors"><Linkedin aria-hidden="true" size={18}/></a>
+                  <a href="https://github.com/rivic-q" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><Github aria-hidden="true" size={18}/></a>
+                  <a href="mailto:revan.ande@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail aria-hidden="true" size={18}/></a>
                 </div>
              </div>
           </div>
@@ -61,7 +61,7 @@ const Team: React.FC = () => {
           {/* AI Engineer */}
           <div className="flex flex-col md:flex-row gap-10 items-start p-10 bg-white border border-slate-100 rounded-[3rem] shadow-sm">
              <div className="w-24 h-24 bg-indigo-600 text-white rounded-[2rem] flex items-center justify-center font-serif text-4xl font-bold shrink-0 shadow-xl flex items-center justify-center">
-               <Bot size={40}/>
+               <Bot aria-hidden="true" size={40}/>
              </div>
              <div>
                 <div className="flex flex-wrap items-center gap-4 mb-3">
@@ -72,7 +72,7 @@ const Team: React.FC = () => {
                   Specializes in AI-powered security analysis and machine learning models for cryptographic vulnerability detection. Building intelligent automation systems for quantum-safe security assessment.
                 </p>
                 <div className="flex gap-4">
-                  <a href="mailto:pratik.rughe@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail size={18}/></a>
+                  <a href="mailto:pratik.rughe@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail aria-hidden="true" size={18}/></a>
                 </div>
              </div>
           </div>
@@ -80,7 +80,7 @@ const Team: React.FC = () => {
           {/* Operations Lead */}
           <div className="flex flex-col md:flex-row gap-10 items-start p-10 bg-white border border-slate-100 rounded-[3rem] shadow-sm">
              <div className="w-24 h-24 bg-emerald-600 text-white rounded-[2rem] flex items-center justify-center font-serif text-4xl font-bold shrink-0 shadow-xl flex items-center justify-center">
-               <Users size={40}/>
+               <Users aria-hidden="true" size={40}/>
              </div>
              <div>
                 <div className="flex flex-wrap items-center gap-4 mb-3">
@@ -91,7 +91,7 @@ const Team: React.FC = () => {
                   Leads operational strategy and execution for RivicQ. Focuses on scalable infrastructure deployment, partner coordination, and enterprise customer success initiatives.
                 </p>
                 <div className="flex gap-4">
-                  <a href="mailto:danush.m@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail size={18}/></a>
+                  <a href="mailto:danush.m@rivicq.de" className="text-slate-400 hover:text-sky-500 transition-colors"><Mail aria-hidden="true" size={18}/></a>
                 </div>
              </div>
           </div>
@@ -151,15 +151,15 @@ const Team: React.FC = () => {
             </div>
             <div className="flex items-center gap-4 text-sm text-slate-400">
               <span className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-400" />
+                <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-400" />
                 LOI Signed
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-400" />
+                <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-400" />
                 Strategic Partnership
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-400" />
+                <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-400" />
                 Enterprise Collaboration
               </span>
             </div>
@@ -170,13 +170,13 @@ const Team: React.FC = () => {
       {/* Contact Section */}
       <section className="bg-slate-50 p-10 md:p-16 rounded-[4rem] border border-slate-100 mt-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 p-10 opacity-[0.02] pointer-events-none">
-          <ShieldCheck size={200} className="text-slate-900"/>
+          <ShieldCheck aria-hidden="true" size={200} className="text-slate-900"/>
         </div>
         
         <div className="flex flex-col lg:flex-row gap-16 relative z-10">
           <div className="lg:w-1/2">
             <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-sky-500 mb-8 border border-slate-100">
-              <MessageSquare size={26}/>
+              <MessageSquare aria-hidden="true" size={26}/>
             </div>
             <h3 className="text-3xl font-serif font-bold text-slate-900 mb-6 m-0">Corporate Inquiry</h3>
             <p className="text-slate-600 text-base leading-relaxed mb-8">
@@ -184,10 +184,10 @@ const Team: React.FC = () => {
             </p>
             <div className="space-y-4">
                <div className="flex items-center gap-3 font-bold text-slate-900 text-sm uppercase tracking-widest">
-                <Mail size={16} className="text-sky-500" /> hello@rivicq.de
+                <Mail aria-hidden="true" size={16} className="text-sky-500" /> hello@rivicq.de
                </div>
                <div className="flex items-center gap-3 font-bold text-slate-900 text-sm uppercase tracking-widest">
-                <Globe size={16} className="text-sky-500" /> Berlin, Germany
+                <Globe aria-hidden="true" size={16} className="text-sky-500" /> Berlin, Germany
                </div>
             </div>
           </div>
@@ -195,7 +195,7 @@ const Team: React.FC = () => {
           <div className="lg:w-1/2">
             {formSubmitted ? (
                <div className="h-full flex flex-col items-center justify-center text-center p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm animate-fadeIn">
-                 <CheckCircle2 size={40} className="text-emerald-500 mb-6"/>
+                 <CheckCircle2 aria-hidden="true" size={40} className="text-emerald-500 mb-6"/>
                  <h4 className="text-xl font-bold text-slate-900 m-0">Inquiry Transmitted</h4>
                  <p className="text-sm text-slate-500 mt-3 max-w-xs">Our executive office will evaluate your request and respond within 48 hours.</p>
                  <button onClick={() => setFormSubmitted(false)} className="mt-8 text-[10px] text-sky-500 font-bold uppercase tracking-[0.2em] hover:underline">New Communication</button>

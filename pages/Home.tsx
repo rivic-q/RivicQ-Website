@@ -16,25 +16,25 @@ const EcosystemSection: React.FC = () => (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 items-center opacity-70 hover:opacity-100 transition-opacity duration-500">
         <div className="flex flex-col items-center group">
           <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <Landmark size={32} className="text-slate-900" />
+            <Landmark aria-hidden="true" size={32} className="text-slate-900" />
           </div>
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">SIB Berlin<br/><span className="text-[8px] font-medium">Investitionsbank</span></span>
         </div>
         <div className="flex flex-col items-center group">
           <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <Activity size={32} className="text-sky-500" />
+            <Activity aria-hidden="true" size={32} className="text-sky-500" />
           </div>
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Leap Berlin<br/><span className="text-[8px] font-medium">Quantum Hub</span></span>
         </div>
         <div className="flex flex-col items-center group">
           <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <GraduationCap size={32} className="text-slate-900" />
+            <GraduationCap aria-hidden="true" size={32} className="text-slate-900" />
           </div>
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Humboldt Innovation<br/><span className="text-[8px] font-medium">Innovation Hub</span></span>
         </div>
         <div className="flex flex-col items-center group">
           <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <Microscope size={32} className="text-slate-900" />
+            <Microscope aria-hidden="true" size={32} className="text-slate-900" />
           </div>
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">TU Berlin<br/><span className="text-[8px] font-medium">Security in IT</span></span>
         </div>
@@ -45,27 +45,27 @@ const EcosystemSection: React.FC = () => (
         <h3 className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em] text-center mb-12">Integrated Infrastructure Stack</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
           <div className="flex flex-col items-center gap-2">
-            <Cpu size={28} className="text-sky-500"/>
+            <Cpu aria-hidden="true" size={28} className="text-sky-500"/>
             <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">IBM Q</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Cloud size={28} className="text-sky-500"/>
+            <Cloud aria-hidden="true" size={28} className="text-sky-500"/>
             <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">GCP</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Github size={28} className="text-slate-900"/>
+            <Github aria-hidden="true" size={28} className="text-slate-900"/>
             <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">GitHub</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Box size={28} className="text-orange-500"/>
+            <Box aria-hidden="true" size={28} className="text-orange-500"/>
             <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">AWS</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Zap size={28} className="text-indigo-600"/>
+            <Zap aria-hidden="true" size={28} className="text-indigo-600"/>
             <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">KIPU Q</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Settings size={28} className="text-emerald-600"/>
+            <Settings aria-hidden="true" size={28} className="text-emerald-600"/>
             <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">Q-CTRL</span>
           </div>
         </div>
@@ -79,28 +79,28 @@ const EndToEndScope: React.FC = () => {
   const steps = [
     {
       title: "1. AI Discovery",
-      icon: <Search className="text-sky-500" />,
+      icon: <Search aria-hidden="true" className="text-sky-500" />,
       desc: "Scan codebases and cloud VPCs to find hidden cryptographic liabilities.",
       action: "SaaS Layer: Infrastructure Scanners",
       bg: "bg-sky-50"
     },
     {
       title: "2. Dynamic Inventory",
-      icon: <Database className="text-indigo-500" />,
+      icon: <Database aria-hidden="true" className="text-indigo-500" />,
       desc: "Generate a live Cryptographic Bill of Materials (CryptoBOM) for compliance.",
       action: "Asset Layer: CycloneDX Reporting",
       bg: "bg-indigo-50"
     },
     {
       title: "3. HSM Transformation",
-      icon: <RefreshCw className="text-emerald-500" />,
+      icon: <RefreshCw aria-hidden="true" className="text-emerald-500" />,
       desc: "Wrap vulnerable keys in NIST-standard PQC layers within physical vaults.",
       action: "Hardware Layer: FIPS 140-3 HSM",
       bg: "bg-emerald-50"
     },
     {
       title: "4. Unified Governance",
-      icon: <Settings className="text-slate-900" />,
+      icon: <Settings aria-hidden="true" className="text-slate-900" />,
       desc: "Manage multi-tenant isolation, policies, and quantum-safe identity.",
       action: "Orchestration Layer: Control Plane",
       bg: "bg-slate-100"
@@ -155,7 +155,7 @@ const Home: React.FC = () => {
       <section className="pt-6 md:pt-16 mb-20 px-4 md:px-0">
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm">
-            <Activity size={10} className="text-sky-400 animate-pulse"/>
+            <Activity aria-hidden="true" size={10} className="text-sky-400 animate-pulse"/>
             System Status: Operational • Berlin Innovation Labs
           </div>
           
@@ -164,7 +164,7 @@ const Home: React.FC = () => {
                Integrated Verified Infrastructure <br className="md:hidden" /> Computing & Quantum
              </p>
              <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[0.95] tracking-tight text-slate-900">
-               Secure your <br/>infrastructure for the <span className="text-sky-500">next 50 years.</span>
+                Secure your <span className="text-sky-500">digital infrastructure.</span>
              </h1>
           </div>
 
@@ -173,7 +173,7 @@ const Home: React.FC = () => {
            </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 not-prose mt-12">
             <a href="#scope" className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-slate-200 flex items-center justify-center gap-2 group">
-              Explore Platform <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform"/>
+              Explore Platform <ArrowRight aria-hidden="true" size={14} className="group-hover:translate-x-1 transition-transform"/>
             </a>
             <Link to="/pricing" className="px-10 py-5 bg-white border border-slate-200 text-slate-600 rounded-2xl font-bold text-xs uppercase tracking-widest hover:border-slate-900 transition-all text-center">
               Request Lab Access
@@ -222,7 +222,7 @@ const Home: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-12">
           <div className="space-y-6">
             <div className="w-14 h-14 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center border border-sky-100 shadow-sm">
-              <Users size={24}/>
+              <Users aria-hidden="true" size={24}/>
             </div>
             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">The Berlin Hub</h3>
             <p className="text-sm text-slate-600 leading-relaxed m-0">
@@ -231,16 +231,16 @@ const Home: React.FC = () => {
           </div>
           <div className="space-y-6">
             <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center border border-emerald-100 shadow-sm">
-              <Target size={24}/>
+              <Target aria-hidden="true" size={24}/>
             </div>
             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">Data Longevity</h3>
             <p className="text-sm text-slate-600 leading-relaxed m-0">
-              Defeat "Harvest Now, Decrypt Later" attacks. Your data stays private for 50+ years.
+               Defeat "Harvest Now, Decrypt Later" attacks. Your digital infrastructure stays protected.
             </p>
           </div>
           <div className="space-y-6">
             <div className="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center border border-indigo-100 shadow-sm">
-              <Cpu size={24}/>
+              <Cpu aria-hidden="true" size={24}/>
             </div>
             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">Verified RoT</h3>
             <p className="text-sm text-slate-600 leading-relaxed m-0">

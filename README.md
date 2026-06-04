@@ -1,31 +1,61 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# RivicQ Website
 
-# Run and deploy your AI Studio app
+RivicQ's corporate website — a React SPA with Express backend. Built with Vite, TypeScript, and Tailwind CSS.
 
-This contains everything you need to run your app locally.
+## Stack
 
-Node.js 20+ is required.
+- **Frontend:** React 19, TypeScript, Tailwind CSS (CDN), Vite
+- **Backend:** Express 5, Node.js 20+
+- **APIs:** Google Gemini AI (code scanning), Brevo SMTP (email)
+- **Routing:** HashRouter (SPA)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1g7c5H0b8V9AdQgZvXXNaxF5X4ZobRYzJ
+## Prerequisites
 
-## Run Locally
+- Node.js 20+
 
-**Prerequisites:**  Node.js
-
+## Setup
 
 1. Install dependencies:
-   `npm install`
-2. Set the `API_KEY` in `.env` (or `.env.local`) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```
+   npm install
+   ```
+2. Copy `.env.example` to `.env` and fill in the values:
+   ```
+   cp .env.example .env
+   ```
+3. Required env vars:
+   | Variable | Description |
+   |----------|-------------|
+   | `API_KEY` | Google Gemini API key (for AI security scanning) |
+   | `SMTP_USER` | Brevo SMTP username |
+   | `SMTP_PASS` | Brevo SMTP password |
+   | `SMTP_FROM` | Sender email address |
+   | `CORS_ORIGIN` | Comma-separated allowed origins |
+4. Start development server:
+   ```
+   npm run dev
+   ```
 
-## Production Sanity Checks
+## Scripts
 
-1. Run compile and runtime checks:
-   `npm run prod:check`
-2. Build production assets:
-   `npm run build`
-3. Start production server:
-   `npm run start`
+| Script | Purpose |
+|--------|---------|
+| `npm run dev` | Start dev server + Vite HMR |
+| `npm run build` | Build production assets |
+| `npm run start` | Start production server |
+| `npm run lint` | TypeScript type checking |
+| `npm run format` | Format code with Prettier |
+| `npm run prod:check` | Build + syntax check |
+
+## Structure
+
+```
+├── App.tsx              # Route definitions + page titles
+├── components/          # Shared UI components
+├── pages/               # Route page components
+├── services/            # API service layer
+├── server.js            # Express backend
+├── public/              # Static assets (favicon, robots.txt, sitemap)
+├── dist/                # Build output (gitignored)
+└── .env                 # Environment config (gitignored)
+```

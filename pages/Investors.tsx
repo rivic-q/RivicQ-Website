@@ -93,10 +93,10 @@ const Investors: React.FC = () => {
       <section className="mb-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 not-prose">
           {[
-            { icon: <DollarSign size={24} />, value: '€150-500K', label: 'Pre-Seed Target', color: 'bg-sky-50 text-sky-500' },
-            { icon: <TrendingUp size={24} />, value: '$13.5B', label: 'TAM by 2030', color: 'bg-emerald-50 text-emerald-600' },
-            { icon: <Target size={24} />, value: '€3.2B', label: 'EU DORA Spend', color: 'bg-purple-50 text-purple-600' },
-            { icon: <Rocket size={24} />, value: '18.2%', label: 'Market CAGR', color: 'bg-amber-50 text-amber-600' },
+            { icon: <DollarSign aria-hidden="true" size={24} />, value: '€150-500K', label: 'Pre-Seed Target', color: 'bg-sky-50 text-sky-500' },
+            { icon: <TrendingUp aria-hidden="true" size={24} />, value: '$13.5B', label: 'TAM by 2030', color: 'bg-emerald-50 text-emerald-600' },
+            { icon: <Target aria-hidden="true" size={24} />, value: '€3.2B', label: 'EU DORA Spend', color: 'bg-purple-50 text-purple-600' },
+            { icon: <Rocket aria-hidden="true" size={24} />, value: '18.2%', label: 'Market CAGR', color: 'bg-amber-50 text-amber-600' },
           ].map((stat, i) => (
             <AnimatedSection key={i} delay={i * 100}>
               <div className={`p-6 rounded-2xl border border-slate-100 ${stat.color} hover:shadow-lg transition-all`}>
@@ -118,21 +118,21 @@ const Investors: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6 not-prose mb-12">
           <AnimatedSection delay={100}>
             <div className="p-8 border border-slate-100 rounded-[2.5rem] bg-white shadow-sm hover:shadow-lg transition-all h-full">
-               <div className="p-3 bg-sky-50 text-sky-500 rounded-xl mb-6 inline-block"><CheckCircle2 size={24}/></div>
+               <div className="p-3 bg-sky-50 text-sky-500 rounded-xl mb-6 inline-block"><CheckCircle2 aria-hidden="true" size={24}/></div>
                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-2">Accelerator Status</h4>
                <p className="text-sm text-slate-500 leading-relaxed m-0">Leap Berlin / Humboldt Innovation Quantum Hub Resident. Active validation of PQC implementations.</p>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={200}>
             <div className="p-8 border border-slate-100 rounded-[2.5rem] bg-white shadow-sm hover:shadow-lg transition-all h-full">
-               <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl mb-6 inline-block"><Activity size={24} className="animate-pulse"/></div>
+               <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl mb-6 inline-block"><Activity aria-hidden="true" size={24} className="animate-pulse"/></div>
                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-2">EXIST Program</h4>
                <p className="text-sm text-slate-500 leading-relaxed m-0">In Progress for 2026 Founding Grant. German Federal Ministry validation.</p>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={300}>
             <div className="p-8 border border-slate-100 rounded-[2.5rem] bg-white shadow-sm hover:shadow-lg transition-all h-full">
-               <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl mb-6 inline-block"><Award size={24}/></div>
+               <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl mb-6 inline-block"><Award aria-hidden="true" size={24}/></div>
                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-2">Academic Partnership</h4>
                <p className="text-sm text-slate-500 leading-relaxed m-0">TU Berlin research collaboration with Prof. Dr. Jean-Pierre Seifert.</p>
             </div>
@@ -204,7 +204,7 @@ const Investors: React.FC = () => {
                     'PQC certification testing'
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
-                      <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                      <CheckCircle2 aria-hidden="true" size={16} className="text-emerald-400 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -224,19 +224,19 @@ const Investors: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6 not-prose">
           {[
             { 
-              icon: <FileText size={24} />, 
+              icon: <FileText aria-hidden="true" size={24} />, 
               title: 'Pitch Deck', 
               desc: 'Comprehensive overview including market analysis, product roadmap, and investment terms.',
               cta: 'Request Pitch Deck'
             },
             { 
-              icon: <Shield size={24} />, 
+              icon: <Shield aria-hidden="true" size={24} />, 
               title: 'Technical Whitepaper', 
               desc: 'In-depth RQSP protocol documentation, cryptographic architecture, and compliance mapping.',
               cta: 'Request Whitepaper'
             },
             { 
-              icon: <PieChart size={24} />, 
+              icon: <PieChart aria-hidden="true" size={24} />, 
               title: 'Financial Model', 
               desc: '2026-2032 revenue projections with scenario analysis and unit economics.',
               cta: 'Request Projections'
@@ -251,7 +251,7 @@ const Investors: React.FC = () => {
                   to="/pitch-deck"
                   className="inline-flex items-center gap-2 text-sm font-bold text-sky-500 hover:text-slate-900 transition-colors"
                 >
-                  {doc.cta} <ArrowRight size={14} />
+                  {doc.cta} <ArrowRight aria-hidden="true" size={14} />
                 </Link>
               </div>
             </AnimatedSection>
@@ -272,7 +272,7 @@ const Investors: React.FC = () => {
                   We are seeking strategic capital partners who understand the gravity of the post-quantum transition and believe in German engineering precision.
                 </p>
                 <div className="flex items-center gap-4">
-                  <Users size={24} className="text-sky-400" />
+                  <Users aria-hidden="true" size={24} className="text-sky-400" />
                   <div>
                     <div className="text-sm font-bold text-white">Direct Contact</div>
                     <a href="mailto:hello@rivicq.de" className="text-sky-400 hover:text-sky-300 text-sm">hello@rivicq.de</a>
@@ -283,7 +283,7 @@ const Investors: React.FC = () => {
               <div className="bg-white rounded-[2rem] p-8 shadow-2xl">
                 {formSubmitted ? (
                   <div className="text-center py-12 animate-fadeIn">
-                    <CheckCircle2 size={48} className="mx-auto text-emerald-500 mb-4" />
+                    <CheckCircle2 aria-hidden="true" size={48} className="mx-auto text-emerald-500 mb-4" />
                     <h3 className="text-2xl font-bold text-slate-900 mb-2">Inquiry Received</h3>
                     <p className="text-slate-500 text-sm mb-6">Our investor relations team will respond within 24-48 hours.</p>
                     <button 

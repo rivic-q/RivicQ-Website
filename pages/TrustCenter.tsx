@@ -37,7 +37,7 @@ const TrustCenter: React.FC = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-6">
             <div className="p-4 bg-emerald-100 text-emerald-600 rounded-2xl">
-              <ShieldCheck size={32} />
+              <ShieldCheck aria-hidden="true" size={32} />
             </div>
             <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Security & Trust</span>
           </div>
@@ -57,10 +57,10 @@ const TrustCenter: React.FC = () => {
         </AnimatedSection>
         <div className="not-prose grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: <Lock size={24} className="text-emerald-500" />, title: 'Encryption', desc: 'AES-256-GCM at rest, TLS 1.3 in transit with PQC hybrid modes' },
-            { icon: <Key size={24} className="text-sky-500" />, title: 'Key Management', desc: 'FIPS 140-3 Level 3 HSMs, automated key rotation policies' },
-            { icon: <Eye size={24} className="text-purple-500" />, title: 'Monitoring', desc: '24/7 threat detection, SIEM integration, anomaly alerting' },
-            { icon: <Shield size={24} className="text-amber-500" />, title: 'Compliance', desc: 'SOC 2 Type II, GDPR, DORA, NIS2 ready' },
+            { icon: <Lock aria-hidden="true" size={24} className="text-emerald-500" />, title: 'Encryption', desc: 'AES-256-GCM at rest, TLS 1.3 in transit with PQC hybrid modes' },
+            { icon: <Key aria-hidden="true" size={24} className="text-sky-500" />, title: 'Key Management', desc: 'FIPS 140-3 Level 3 HSMs, automated key rotation policies' },
+            { icon: <Eye aria-hidden="true" size={24} className="text-purple-500" />, title: 'Monitoring', desc: '24/7 threat detection, SIEM integration, anomaly alerting' },
+            { icon: <Shield aria-hidden="true" size={24} className="text-amber-500" />, title: 'Compliance', desc: 'SOC 2 Type II, GDPR, DORA, NIS2 ready' },
           ].map((item, i) => (
             <AnimatedSection key={i} delay={i * 100}>
               <div className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition-all h-full">
@@ -80,7 +80,7 @@ const TrustCenter: React.FC = () => {
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 bg-emerald-600 text-white rounded-xl">
-              <FileCheck size={24} />
+              <FileCheck aria-hidden="true" size={24} />
             </div>
             <div>
               <h2 className="text-3xl font-bold text-slate-900 m-0">Compliance & Certifications</h2>
@@ -112,7 +112,7 @@ const TrustCenter: React.FC = () => {
                 </div>
                 <p className="text-sm text-slate-500 mb-3">{cert.desc}</p>
                 <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <Clock size={12} />
+                  <Clock aria-hidden="true" size={12} />
                   <span>Target: {cert.target}</span>
                 </div>
               </div>
@@ -127,7 +127,7 @@ const TrustCenter: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-[3rem] p-10">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-3 bg-slate-100 text-slate-600 rounded-xl">
-                <Database size={24} />
+                <Database aria-hidden="true" size={24} />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-slate-900 m-0">Security Incident History</h2>
@@ -136,7 +136,7 @@ const TrustCenter: React.FC = () => {
             </div>
             <div className="text-center py-12">
               <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle size={40} className="text-emerald-500" />
+                <CheckCircle aria-hidden="true" size={40} className="text-emerald-500" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">No Security Incidents</h3>
               <p className="text-slate-500 max-w-md mx-auto">
@@ -166,7 +166,7 @@ const TrustCenter: React.FC = () => {
         <AnimatedSection>
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[3rem] p-10 md:p-16 text-white">
             <div className="flex items-center gap-3 mb-6">
-              <AlertTriangle size={24} className="text-amber-400" />
+              <AlertTriangle aria-hidden="true" size={24} className="text-amber-400" />
               <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">Responsible Disclosure</span>
             </div>
             <h2 className="text-3xl font-bold mb-4">Security Bug Bounty Program</h2>
@@ -192,10 +192,10 @@ const TrustCenter: React.FC = () => {
         </AnimatedSection>
         <div className="not-prose grid md:grid-cols-2 gap-8">
           {[
-            { icon: <Globe size={24} className="text-sky-500" />, title: 'Data Residency', desc: 'Customer data stored in EU data centers by default. Options for specific region selection available for enterprise plans.' },
-            { icon: <FileText size={24} className="text-purple-500" />, title: 'Data Retention', desc: 'Audit logs retained for 2 years. Customer data deleted within 30 days of account termination upon request.' },
-            { icon: <Lock size={24} className="text-emerald-500" />, title: 'Encryption Keys', desc: 'Customer-managed encryption keys available via AWS KMS or Azure Key Vault integration.' },
-            { icon: <Eye size={24} className="text-sky-500" />, title: 'Access Controls', desc: 'Role-based access control, MFA required, just-in-time access provisioning for sensitive operations.' },
+            { icon: <Globe aria-hidden="true" size={24} className="text-sky-500" />, title: 'Data Residency', desc: 'Customer data stored in EU data centers by default. Options for specific region selection available for enterprise plans.' },
+            { icon: <FileText aria-hidden="true" size={24} className="text-purple-500" />, title: 'Data Retention', desc: 'Audit logs retained for 2 years. Customer data deleted within 30 days of account termination upon request.' },
+            { icon: <Lock aria-hidden="true" size={24} className="text-emerald-500" />, title: 'Encryption Keys', desc: 'Customer-managed encryption keys available via AWS KMS or Azure Key Vault integration.' },
+            { icon: <Eye aria-hidden="true" size={24} className="text-sky-500" />, title: 'Access Controls', desc: 'Role-based access control, MFA required, just-in-time access provisioning for sensitive operations.' },
           ].map((item, i) => (
             <AnimatedSection key={i} delay={i * 100}>
               <div className="flex gap-4 p-6 bg-white border border-slate-200 rounded-2xl">
@@ -222,10 +222,10 @@ const TrustCenter: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:security@rivicq.de" className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-600 transition-all">
-                <ShieldAlert size={18} /> security@rivicq.de
+                <ShieldAlert aria-hidden="true" size={18} /> security@rivicq.de
               </a>
               <Link to="/privacy" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-700 font-bold rounded-xl hover:bg-slate-100 transition-all border border-slate-200">
-                Privacy Policy <ArrowRight size={18} />
+                Privacy Policy <ArrowRight aria-hidden="true" size={18} />
               </Link>
             </div>
           </div>

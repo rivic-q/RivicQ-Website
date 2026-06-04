@@ -35,7 +35,7 @@ const Roadmap: React.FC = () => {
           date="Q1-Q2 2025"
           isCurrent
           title="Architectural Stabilization"
-          icon={<Server size={16}/>}
+          icon={<Server aria-hidden="true" size={16}/>}
           items={[
             "Local Docker CryptoBOM Agent MVP (Complete)",
             "Kratos OAuth Implementation (Active)",
@@ -47,7 +47,7 @@ const Roadmap: React.FC = () => {
         <Milestone 
           date="Q3 2025"
           title="Integration & Scale"
-          icon={<Cpu size={16}/>}
+          icon={<Cpu aria-hidden="true" size={16}/>}
           items={[
             "IBM Q & KIPU API Hardware Connectors",
             "Stripe Enterprise Subscription Mesh",
@@ -59,7 +59,7 @@ const Roadmap: React.FC = () => {
         <Milestone 
           date="Q4 2025"
           title="Enterprise Launch"
-          icon={<Target size={16}/>}
+          icon={<Target aria-hidden="true" size={16}/>}
           items={[
             "FIPS 140-3 Hardware Finalization",
             "SOC2 Type I Compliance Audit",
@@ -71,7 +71,7 @@ const Roadmap: React.FC = () => {
 
       <section className="bg-slate-900 p-10 md:p-16 rounded-[4rem] border border-slate-800 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none">
-          <Activity size={240} />
+          <Activity aria-hidden="true" size={240} />
         </div>
         <div className="relative z-10">
           <h2 className="text-white font-serif text-3xl mb-6 m-0">Closing the Infrastructure Gaps</h2>

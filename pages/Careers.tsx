@@ -20,7 +20,7 @@ const AmbassadorCard: React.FC<{
       <h4 className="text-xs font-bold text-sky-600 uppercase tracking-wider">Perks Include</h4>
       {perks.map((perk, i) => (
         <div key={i} className="flex items-center gap-2 text-sm text-slate-600">
-          <Star size={14} className="text-amber-500" />
+          <Star aria-hidden="true" size={14} className="text-amber-500" />
           {perk}
         </div>
       ))}
@@ -29,7 +29,7 @@ const AmbassadorCard: React.FC<{
       href="mailto:hello@rivicq.de?subject=Ambassador Program Application"
       className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-sky-600 transition-all w-full justify-center"
     >
-      Become an Ambassador <ArrowRight size={16} />
+      Become an Ambassador <ArrowRight aria-hidden="true" size={16} />
     </a>
   </div>
 );
@@ -73,7 +73,7 @@ const Careers: React.FC = () => {
       <header className="mb-16">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-4 bg-sky-100 text-sky-600 rounded-2xl">
-            <Briefcase size={32} />
+            <Briefcase aria-hidden="true" size={32} />
           </div>
           <span className="text-xs font-bold text-sky-600 uppercase tracking-widest">Join Our Team</span>
         </div>
@@ -89,7 +89,7 @@ const Careers: React.FC = () => {
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-sky-100 text-sky-600 rounded-xl">
-            <Clock size={24} />
+            <Clock aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-slate-900 m-0">Open Positions</h2>
@@ -103,7 +103,7 @@ const Careers: React.FC = () => {
           
           <div className="relative z-10">
             <div className="w-20 h-20 bg-sky-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Clock size={40} className="text-sky-400" />
+              <Clock aria-hidden="true" size={40} className="text-sky-400" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Open Positions Coming Soon</h2>
             <p className="text-slate-400 text-lg max-w-xl mx-auto mb-8">
@@ -113,7 +113,7 @@ const Careers: React.FC = () => {
               href="mailto:hello@rivicq.de?subject=Career Interest - Get Notified"
               className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-400 transition-all"
             >
-              <Mail size={18} /> Get Notified When We Hire
+              <Mail aria-hidden="true" size={18} /> Get Notified When We Hire
             </a>
           </div>
         </div>
@@ -123,7 +123,7 @@ const Careers: React.FC = () => {
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-amber-100 text-amber-600 rounded-xl">
-            <Award size={24} />
+            <Award aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-slate-900 m-0">Ambassador Program</h2>
@@ -137,7 +137,7 @@ const Careers: React.FC = () => {
         <div className="not-prose grid md:grid-cols-3 gap-6">
           <AmbassadorCard 
             title="Student Ambassador"
-            icon={<Globe size={24} />}
+            icon={<Globe aria-hidden="true" size={24} />}
             description="Perfect for university students interested in cybersecurity, cryptography, or quantum computing."
             perks={[
               'Exclusive access to research materials',
@@ -150,7 +150,7 @@ const Careers: React.FC = () => {
           
           <AmbassadorCard 
             title="Community Ambassador"
-            icon={<Users size={24} />}
+            icon={<Users aria-hidden="true" size={24} />}
             description="For security researchers, developers, and influencers who want to champion quantum security."
             perks={[
               'Early access to products and features',
@@ -163,7 +163,7 @@ const Careers: React.FC = () => {
           
           <AmbassadorCard 
             title="Enterprise Ambassador"
-            icon={<Handshake size={24} />}
+            icon={<Handshake aria-hidden="true" size={24} />}
             description="For consultants and advisors who help organizations with their security and compliance journey."
             perks={[
               'Partner tier access to all tools',
@@ -180,7 +180,7 @@ const Careers: React.FC = () => {
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
           <div className="p-3 bg-sky-100 text-sky-600 rounded-xl">
-            <Heart size={24} />
+            <Heart aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-slate-900 m-0">Unsolicited Applications</h2>
@@ -195,7 +195,7 @@ const Careers: React.FC = () => {
           {submitted ? (
             <div className="text-center py-12">
               <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle size={32} className="text-emerald-500" />
+                <CheckCircle aria-hidden="true" size={32} className="text-emerald-500" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Application Received</h3>
               <p className="text-slate-600 mb-6">
@@ -287,10 +287,10 @@ const Careers: React.FC = () => {
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Why Join RivicQ?</h2>
         <div className="not-prose grid md:grid-cols-4 gap-6">
           {[
-            { icon: <Sparkles size={24} className="text-sky-500" />, title: 'Mission Critical', desc: 'Work on problems that will define the security landscape for the next 50 years.' },
-            { icon: <Globe size={24} className="text-emerald-500" />, title: 'Global Impact', desc: 'Help organizations worldwide prepare for the post-quantum transition.' },
-            { icon: <Award size={24} className="text-purple-500" />, title: 'Growth Path', desc: 'Clear career progression with equity participation in our success.' },
-            { icon: <Heart size={24} className="text-rose-500" />, title: 'Great Culture', desc: 'Remote-first team with flexible hours and collaborative spirit.' },
+            { icon: <Sparkles aria-hidden="true" size={24} className="text-sky-500" />, title: 'Mission Critical', desc: 'Work on problems that define the future of digital infrastructure security.' },
+            { icon: <Globe aria-hidden="true" size={24} className="text-emerald-500" />, title: 'Global Impact', desc: 'Help organizations worldwide prepare for the post-quantum transition.' },
+            { icon: <Award aria-hidden="true" size={24} className="text-purple-500" />, title: 'Growth Path', desc: 'Clear career progression with equity participation in our success.' },
+            { icon: <Heart aria-hidden="true" size={24} className="text-rose-500" />, title: 'Great Culture', desc: 'Remote-first team with flexible hours and collaborative spirit.' },
           ].map((item, i) => (
             <div key={i} className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg transition-all">
               <div className="w-14 h-14 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -315,7 +315,7 @@ const Careers: React.FC = () => {
               href="mailto:careers@rivicq.de?subject=Career Inquiry"
               className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-400 transition-all"
             >
-              <Mail size={18} /> careers@rivicq.de
+              <Mail aria-hidden="true" size={18} /> careers@rivicq.de
             </a>
             <a 
               href="mailto:hello@rivicq.de"

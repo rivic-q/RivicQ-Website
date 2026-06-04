@@ -2,6 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
+import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from "@google/genai";
@@ -14,6 +15,14 @@ const sourceIndexFile = path.join(__dirname, 'index.html');
 const distIndexFile = path.join(distDir, 'index.html');
 
 dotenv.config();
+
+const REQUIRED_ENV = ['API_KEY', 'SMTP_USER', 'SMTP_PASS'];
+const missing = REQUIRED_ENV.filter(key => !process.env[key]);
+if (missing.length > 0) {
+  console.error(`Missing required env vars: ${missing.join(', ')}`);
+  console.error('Copy .env.example to .env and fill in the values.');
+  process.exit(1);
+}
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
@@ -29,6 +38,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
+app.use(helmet({
+  contentSecurityPolicy: false,
+  crossOriginEmbedderPolicy: false,
+}));
 
 const corsOrigins = process.env.CORS_ORIGIN 
   ? process.env.CORS_ORIGIN.split(',').map((origin) => origin.trim())

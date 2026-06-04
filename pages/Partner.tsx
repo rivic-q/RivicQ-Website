@@ -48,7 +48,7 @@ const Partner: React.FC = () => {
       <header className="mb-16">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-4 bg-sky-100 text-sky-600 rounded-2xl">
-            <Handshake size={32} />
+            <Handshake aria-hidden="true" size={32} />
           </div>
           <span className="text-xs font-bold text-sky-600 uppercase tracking-widest">Partner Program</span>
         </div>
@@ -64,10 +64,10 @@ const Partner: React.FC = () => {
       <section className="mb-20">
         <div className="grid md:grid-cols-4 gap-6 not-prose">
           {[
-            { icon: <Target size={24} className="text-sky-500" />, title: 'Growth', desc: 'Access new markets and revenue streams through our quantum security solutions' },
-            { icon: <Zap size={24} className="text-amber-500" />, title: 'Enablement', desc: 'Sales training, technical documentation, and certification programs' },
-            { icon: <Globe size={24} className="text-emerald-500" />, title: 'Co-Marketing', desc: 'Joint marketing campaigns, events, and thought leadership' },
-            { icon: <Award size={24} className="text-purple-500" />, title: 'Support', desc: 'Dedicated partner manager and technical support resources' },
+            { icon: <Target aria-hidden="true" size={24} className="text-sky-500" />, title: 'Growth', desc: 'Access new markets and revenue streams through our quantum security solutions' },
+            { icon: <Zap aria-hidden="true" size={24} className="text-amber-500" />, title: 'Enablement', desc: 'Sales training, technical documentation, and certification programs' },
+            { icon: <Globe aria-hidden="true" size={24} className="text-emerald-500" />, title: 'Co-Marketing', desc: 'Joint marketing campaigns, events, and thought leadership' },
+            { icon: <Award aria-hidden="true" size={24} className="text-purple-500" />, title: 'Support', desc: 'Dedicated partner manager and technical support resources' },
           ].map((item, i) => (
             <div key={i} className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg transition-all">
               <div className="w-14 h-14 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -86,7 +86,7 @@ const Partner: React.FC = () => {
           <div className="absolute inset-0 bg-technical opacity-10"></div>
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-6">
-              <Rocket size={24} className="text-sky-400" />
+              <Rocket aria-hidden="true" size={24} className="text-sky-400" />
               <span className="text-xs font-bold text-sky-400 uppercase tracking-widest">Special Offer</span>
             </div>
             <h2 className="text-3xl font-bold mb-4">Startup Partner Program</h2>
@@ -115,21 +115,21 @@ const Partner: React.FC = () => {
           {[
             {
               title: 'Technology Partner',
-              icon: <Briefcase size={24} />,
+              icon: <Briefcase aria-hidden="true" size={24} />,
               color: 'bg-sky-100 text-sky-600',
               description: 'For ISVs, SaaS providers, and technology companies integrating quantum-safe security.',
               benefits: ['API access and SDK support', 'Technical certification', 'Co-development opportunities', 'Marketplace listing']
             },
             {
               title: 'System Integrator',
-              icon: <Users size={24} />,
+              icon: <Users aria-hidden="true" size={24} />,
               color: 'bg-emerald-100 text-emerald-600',
               description: 'For consulting firms and system integrators delivering quantum transition services.',
               benefits: ['Implementation support', 'Client referral program', 'Training and certification', 'Partner portal access']
             },
             {
               title: 'Research Partner',
-              icon: <Globe size={24} />,
+              icon: <Globe aria-hidden="true" size={24} />,
               color: 'bg-purple-100 text-purple-600',
               description: 'For academic institutions and research organizations advancing PQC science.',
               benefits: ['Research collaboration', 'Free HSM access', 'Academic sponsorship', 'Publication opportunities']
@@ -144,7 +144,7 @@ const Partner: React.FC = () => {
               <ul className="space-y-3">
                 {tier.benefits.map((benefit, j) => (
                   <li key={j} className="flex items-start gap-2 text-sm text-slate-600">
-                    <CheckCircle size={16} className="text-sky-500 mt-0.5 shrink-0" />
+                    <CheckCircle aria-hidden="true" size={16} className="text-sky-500 mt-0.5 shrink-0" />
                     {benefit}
                   </li>
                 ))}
@@ -159,7 +159,7 @@ const Partner: React.FC = () => {
         <div className="bg-sky-50 border border-sky-200 rounded-[2rem] p-8 md:p-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-sky-500 text-white rounded-lg">
-              <CheckCircle size={20} />
+              <CheckCircle aria-hidden="true" size={20} />
             </div>
             <span className="px-3 py-1 bg-emerald-100 text-emerald-600 text-xs font-bold rounded-full">Letter of Intent Signed</span>
           </div>
@@ -182,7 +182,7 @@ const Partner: React.FC = () => {
             {formSubmitted ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle size={32} className="text-emerald-500" />
+                  <CheckCircle aria-hidden="true" size={32} className="text-emerald-500" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Application Received</h3>
                 <p className="text-slate-600 mb-6">Our partner team will review your application and contact you within 48 hours.</p>
@@ -300,7 +300,7 @@ const Partner: React.FC = () => {
           ].map((testimonial, i) => (
             <div key={i} className="bg-white border border-slate-200 rounded-2xl p-8">
               <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-amber-400 text-amber-400" />)}
+                {[...Array(5)].map((_, i) => <Star aria-hidden="true" key={i} size={16} className="fill-amber-400 text-amber-400" />)}
               </div>
               <p className="text-slate-600 italic mb-6">"{testimonial.quote}"</p>
               <div className="flex items-center gap-3">

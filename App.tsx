@@ -18,6 +18,7 @@ const Resources = React.lazy(() => import('./pages/Resources'));
 const UseCases = React.lazy(() => import('./pages/UseCases'));
 const Services = React.lazy(() => import('./pages/Services'));
 const Blog = React.lazy(() => import('./pages/Blog'));
+const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const Story = React.lazy(() => import('./pages/Story'));
 const Compliance = React.lazy(() => import('./pages/Compliance'));
 const Pricing = React.lazy(() => import('./pages/Pricing'));
@@ -103,7 +104,8 @@ const App: React.FC = () => {
               <Route path="/team" element={<Team />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/resources" element={<Resources />} />
-              <Route path="/blog" element={<Blog />} />
+               <Route path="/blog" element={<Blog />} />
+               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/story" element={<Story />} />
               <Route path="/compliance" element={<Compliance />} />
               <Route path="/pricing" element={<Pricing />} />

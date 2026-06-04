@@ -34,9 +34,9 @@ const SDK: React.FC = () => {
       <section>
         <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
           {[
-            { icon: <Cpu className="text-sky-500"/>, title: "PQC Native", desc: "ML-KEM and ML-DSA out of the box." },
-            { icon: <Lock className="text-emerald-600"/>, title: "HSM Anchored", desc: "Private keys never leave hardware." },
-            { icon: <Globe className="text-purple-600"/>, title: "Cross-Platform", desc: "Python, Go, and Rust support." },
+            { icon: <Cpu aria-hidden="true" className="text-sky-500"/>, title: "PQC Native", desc: "ML-KEM and ML-DSA out of the box." },
+            { icon: <Lock aria-hidden="true" className="text-emerald-600"/>, title: "HSM Anchored", desc: "Private keys never leave hardware." },
+            { icon: <Globe aria-hidden="true" className="text-purple-600"/>, title: "Cross-Platform", desc: "Python, Go, and Rust support." },
           ].map((item, i) => (
             <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex flex-col items-center text-center">
               <div className="mb-4">{item.icon}</div>
@@ -55,7 +55,7 @@ signature = client.sign(payload="Authorize", algorithm="ML-DSA-65")`} />
       <div className="my-16">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
-            <Key size={20} />
+            <Key aria-hidden="true" size={20} />
           </div>
           <h2 className="m-0 text-2xl font-serif font-bold">KMS API: PQC Session Management</h2>
         </div>
@@ -84,7 +84,7 @@ new_session = kms_client.rotate_key(session.id)`} />
       <section className="mt-16 not-prose">
         <div className="bg-[#0f172a] text-white rounded-[3rem] p-10 md:p-16 relative overflow-hidden group">
           <div className="absolute right-0 bottom-0 opacity-5 -mr-16 -mb-16 pointer-events-none group-hover:scale-110 transition-transform duration-1000">
-            <Zap size={400} />
+            <Zap aria-hidden="true" size={400} />
           </div>
           <div className="relative z-10">
             <p className="text-slate-400 mb-10 max-w-xl text-lg leading-relaxed">
@@ -92,7 +92,7 @@ new_session = kms_client.rotate_key(session.id)`} />
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
                <a href="https://github.com/rivic-q" target="_blank" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-slate-100 transition-all">
-                 <Terminal size={18}/> Full API Docs
+                 <Terminal aria-hidden="true" size={18}/> Full API Docs
                </a>
                <a href="mailto:hello@rivicq.de" className="px-8 py-4 border border-slate-700 text-white font-bold rounded-xl text-sm flex items-center justify-center hover:bg-white/5 transition-all">
                  Contact Engineering Support

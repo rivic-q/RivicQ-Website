@@ -29,7 +29,7 @@ const Story: React.FC = () => {
       <section className="mb-20">
         <div className="bg-slate-50 p-10 md:p-16 rounded-[3rem] border border-slate-100 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none text-sky-500">
-                <Target size={180} />
+                <Target aria-hidden="true" size={180} />
             </div>
             <p className="m-0 text-slate-700 text-lg leading-relaxed relative z-10 max-w-3xl">
                 RivicQ Technologies was established to address the critical obsolescence of global cryptographic infrastructure. Founded in the Berlin innovation ecosystem, we have systematically transitioned from theoretical research to the development of commercial-grade Post-Quantum Cryptography (PQC) orchestration platforms for high-assurance sectors.
@@ -44,31 +44,31 @@ const Story: React.FC = () => {
           <TimelineItem 
             date="Q3 2024"
             title="Protocol Architecture & Standards Mapping"
-            icon={<Network size={16}/>}
+            icon={<Network aria-hidden="true" size={16}/>}
             content="Formalized the Rivic Quantum Security Protocol (RQSP) architecture. Completed comprehensive mapping of lattice-based primitives against emerging NIST FIPS 203/204 draft standards."
           />
           <TimelineItem 
             date="Q4 2024"
             title="Technical Validation & Peer Review"
-            icon={<Share2 size={16}/>}
+            icon={<Share2 aria-hidden="true" size={16}/>}
             content="Successful internal validation of the PQC orchestration layer. Peer review of cross-chain interoperability modules for high-throughput decentralized environments."
           />
           <TimelineItem 
             date="January 2025"
             title="Strategic Institutional Support"
-            icon={<Award size={16}/>}
+            icon={<Award aria-hidden="true" size={16}/>}
             content="Secured foundational institutional support through the SIB framework, enabling the transition to commercial product engineering and FIPS 140-3 compliance roadmapping."
           />
           <TimelineItem 
             date="February 2025"
             title="Enterprise Strategy Finalization"
-            icon={<Briefcase size={16}/>}
+            icon={<Briefcase aria-hidden="true" size={16}/>}
             content="Conclusion of the SLB industrial acceleration program. Finalized the value proposition for the Cryptographic Bill of Materials (CBOM) as a core enterprise compliance asset."
           />
           <TimelineItem 
             date="March 2025"
             title="Governmental Sector Engagement"
-            icon={<Landmark size={16}/>}
+            icon={<Landmark aria-hidden="true" size={16}/>}
             content="Presented architectural frameworks at the Bundeswehr Cyber Innovation Hub. Aligned internal R&D with federal defense requirements for long-term secure communications."
           />
           <TimelineItem 
@@ -80,19 +80,19 @@ const Story: React.FC = () => {
           <TimelineItem 
             date="December 2025"
             title="Global Infrastructure Launch"
-            icon={<Globe size={16}/>}
+            icon={<Globe aria-hidden="true" size={16}/>}
             content="Formally debuted the RivicQ enterprise suite. Established a permanent digital presence and initiated the Infrastructure Partner Program for global scale."
           />
           <TimelineItem 
             date="January 2026"
             title="Berlin Quantum Ecosystem Integration (Humboldt Innovation)"
-            icon={<Cpu size={16}/>}
+            icon={<Cpu aria-hidden="true" size={16}/>}
             content="Formalized integration into Berlin's elite deep-tech research community via Humboldt Innovation. Establishing physical residency within specialized quantum validation facilities."
           />
           <TimelineItem 
             date="February 2026"
             title="WISTA Leap Berlin / Humboldt Innovation Residency"
-            icon={<Rocket size={16}/>}
+            icon={<Rocket aria-hidden="true" size={16}/>}
             content="Operational start at the Leap Berlin / Humboldt Innovation Quantum Accelerator. Securing direct access to hardware benchmarks for Cloud HSM entropy validation."
           />
         </div>
@@ -100,7 +100,7 @@ const Story: React.FC = () => {
 
       <section className="bg-slate-900 text-white p-12 md:p-20 rounded-[4rem] relative overflow-hidden mb-24 shadow-2xl">
         <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none text-white">
-          <Landmark size={240} />
+          <Landmark aria-hidden="true" size={240} />
         </div>
         <div className="relative z-10 max-w-2xl">
             <h2 className="text-white text-4xl font-serif font-bold mb-8 m-0 leading-tight">Engineering for Permanence</h2>

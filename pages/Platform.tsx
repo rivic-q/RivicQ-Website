@@ -29,7 +29,7 @@ const Platform: React.FC = () => {
       <section className="mb-24">
         <div className="flex items-center gap-4 mb-10">
           <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
-            <Layers size={24} />
+            <Layers aria-hidden="true" size={24} />
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Our Core Products</h2>
@@ -41,7 +41,7 @@ const Platform: React.FC = () => {
           <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-sky-500 hover:scale-[1.01] transition-all duration-500 group">
             <div className="mb-6 flex items-center justify-between">
               <div className="p-3 bg-sky-50 text-sky-500 rounded-xl group-hover:bg-sky-500 group-hover:text-white transition-all">
-                <Search size={24} />
+                <Search aria-hidden="true" size={24} />
               </div>
               <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">Find</span>
             </div>
@@ -54,7 +54,7 @@ const Platform: React.FC = () => {
           <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-emerald-500 hover:scale-[1.01] transition-all duration-500 group">
             <div className="mb-6 flex items-center justify-between">
               <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                <Database size={24} />
+                <Database aria-hidden="true" size={24} />
               </div>
               <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">Inventory</span>
             </div>
@@ -69,7 +69,7 @@ const Platform: React.FC = () => {
           <div className="p-8 bg-slate-900 text-white border border-slate-800 rounded-[2.5rem] shadow-xl hover:border-sky-400 hover:scale-[1.01] transition-all duration-500 group">
             <div className="mb-6 flex items-center justify-between">
               <div className="p-3 bg-sky-500 text-white rounded-xl">
-                <Cloud size={24} />
+                <Cloud aria-hidden="true" size={24} />
               </div>
               <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest">Secure Hardware</span>
             </div>
@@ -78,14 +78,14 @@ const Platform: React.FC = () => {
               Our secure cloud hardware acts as a "digital vault" for your keys, protected by physical barriers and quantum-safe tech.
             </p>
             <Link to="/cloud-hsm" className="text-xs font-bold text-sky-400 flex items-center gap-2 hover:text-white transition-colors uppercase tracking-widest">
-              See Hardware Details <ArrowRight size={14} />
+              See Hardware Details <ArrowRight aria-hidden="true" size={14} />
             </Link>
           </div>
 
           <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-indigo-500 hover:scale-[1.01] transition-all duration-500 group">
             <div className="mb-6 flex items-center justify-between">
               <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                <Repeat size={24} />
+                <Repeat aria-hidden="true" size={24} />
               </div>
               <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">Upgrade</span>
             </div>
@@ -101,7 +101,7 @@ const Platform: React.FC = () => {
       <section className="my-24 not-prose">
         <div className="flex items-center gap-4 mb-12">
           <div className="p-3 bg-slate-900 text-white rounded-2xl shadow-xl shadow-sky-900/20">
-            <Atom size={24} className="animate-spin-slow" />
+            <Atom aria-hidden="true" size={24} className="animate-spin-slow" />
           </div>
           <div>
             <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Quantum Benchmarking Core</h2>
@@ -112,7 +112,7 @@ const Platform: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
           <div className="bg-slate-950 rounded-[2.5rem] p-8 font-mono text-[11px] text-indigo-200 shadow-2xl relative overflow-hidden border border-slate-800">
             <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
-              <Zap size={14} className="text-sky-400" />
+              <Zap aria-hidden="true" size={14} className="text-sky-400" />
               <span className="text-slate-400">Simulation Kernel v2.1 • KIPU Optimized</span>
             </div>
             <pre className="overflow-x-auto leading-relaxed text-indigo-300 relative z-10">
@@ -164,10 +164,10 @@ analyzer.export_to_policy_service(
 
             <div className="bg-slate-50 rounded-[2.5rem] p-8 border border-slate-100 h-1/2 relative overflow-hidden">
                <div className="absolute top-0 right-0 p-8 opacity-5 text-indigo-600">
-                 <ShieldCheck size={120} />
+                 <ShieldCheck aria-hidden="true" size={120} />
                </div>
                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
-                 <Activity size={14} className="text-indigo-600"/> Policy Service Feedback
+                 <Activity aria-hidden="true" size={14} className="text-indigo-600"/> Policy Service Feedback
                </h4>
                <div className="space-y-4">
                   <div className="flex gap-3">
@@ -189,23 +189,23 @@ analyzer.export_to_policy_service(
          <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 text-center">Infrastructure Partners</h2>
          <div className="flex flex-wrap justify-center gap-6">
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Cpu size={20} className="text-sky-500"/>
+               <Cpu aria-hidden="true" size={20} className="text-sky-500"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">IBM Quantum</span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Cloud size={20} className="text-sky-500"/>
+               <Cloud aria-hidden="true" size={20} className="text-sky-500"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Google Cloud</span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Network size={20} className="text-sky-500"/>
+               <Network aria-hidden="true" size={20} className="text-sky-500"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">AWS Nitro</span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Zap size={20} className="text-indigo-600"/>
+               <Zap aria-hidden="true" size={20} className="text-indigo-600"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">KIPU Quantum</span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Settings size={20} className="text-emerald-600"/>
+               <Settings aria-hidden="true" size={20} className="text-emerald-600"/>
                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Q-CTRL</span>
             </div>
          </div>
