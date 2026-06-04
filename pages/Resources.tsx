@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Copy, Check, ExternalLink, ShieldCheck, FileText, Globe, Landmark, Lock, ChevronDown, ChevronUp, Zap, Activity, Workflow, ShieldAlert, ArrowRight, Layers, Search, Database, Repeat, Cpu, Terminal, Info, Target, LayoutGrid, Beaker, Gavel, Bookmark, PhoneCall, FileCheck } from 'lucide-react';
-import CryptoBOMScannerDemo from '../components/CryptoBOMScannerDemo';
 
 const FAQItem: React.FC<{ question: string, answer: React.ReactNode, id: string }> = ({ question, answer, id }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +53,6 @@ const Resources: React.FC = () => {
         <p className="text-slate-600 mb-8">
             Our technical proof-of-concept is currently undergoing rigorous validation in the <strong>Leap Berlin / Humboldt Innovation Quantum Lab</strong>. We are testing physical entropy harvesting against IBM Q simulations.
         </p>
-        <CryptoBOMScannerDemo />
       </section>
 
       {/* Security & Compliance Section (Requested) */}

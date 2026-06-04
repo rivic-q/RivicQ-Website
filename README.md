@@ -6,7 +6,7 @@ RivicQ's corporate website — a React SPA with Express backend. Built with Vite
 
 - **Frontend:** React 19, TypeScript, Tailwind CSS (CDN), Vite
 - **Backend:** Express 5, Node.js 20+
-- **APIs:** Google Gemini AI (code scanning), Brevo SMTP (email)
+- **APIs:** Brevo SMTP (email)
 - **Routing:** HashRouter (SPA)
 
 ## Prerequisites
@@ -26,7 +26,6 @@ RivicQ's corporate website — a React SPA with Express backend. Built with Vite
 3. Required env vars:
    | Variable | Description |
    |----------|-------------|
-   | `API_KEY` | Google Gemini API key (for AI security scanning) |
    | `SMTP_USER` | Brevo SMTP username |
    | `SMTP_PASS` | Brevo SMTP password |
    | `SMTP_FROM` | Sender email address |

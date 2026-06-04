@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "dev": "concurrently \"npm run server\" \"vite\"",
@@ -22,7 +22,6 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,json,css,html}\""
   },
   "dependencies": {
-    "@google/genai": "^1.40.0",
     "cors": "^2.8.6",
     "dotenv": "^17.2.4",
     "express": "^5.2.1",

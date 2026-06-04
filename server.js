@@ -5,7 +5,6 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import { GoogleGenAI } from "@google/genai";
 import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,7 +15,7 @@ const distIndexFile = path.join(distDir, 'index.html');
 
 dotenv.config();
 
-const REQUIRED_ENV = ['API_KEY', 'SMTP_USER', 'SMTP_PASS'];
+const REQUIRED_ENV = ['SMTP_USER', 'SMTP_PASS'];
 const missing = REQUIRED_ENV.filter(key => !process.env[key]);
 if (missing.length > 0) {
   console.error(`Missing required env vars: ${missing.join(', ')}`);
@@ -37,8 +36,6 @@ const transporter = nodemailer.createTransport({
 const app = express();
 const port = process.env.PORT || 3000;
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 app.use(helmet({
   contentSecurityPolicy: false,
   crossOriginEmbedderPolicy: false,
@@ -46,7 +43,7 @@ app.use(helmet({
 
 const corsOrigins = process.env.CORS_ORIGIN 
   ? process.env.CORS_ORIGIN.split(',').map((origin) => origin.trim())
-  : ['http://localhost:3000', 'http://localhost:5173'];
+  : ['http://localhost:3000', 'http://localhost:5173', 'https://rivicq.de', 'https://www.rivicq.de'];
 
 app.use(cors({
   origin: corsOrigins,
@@ -54,6 +51,18 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
+const csrfCheck = (req, res, next) => {
+  if (['POST', 'PUT', 'DELETE', 'PATCH'].includes(req.method)) {
+    const origin = req.headers.origin || '';
+    const referer = req.headers.referer || '';
+    const allowed = corsOrigins.some(o => origin.startsWith(o) || referer.startsWith(o));
+    if (!allowed && process.env.NODE_ENV === 'production') {
+      return res.status(403).json({ error: 'Cross-site request blocked.' });
+    }
+  }
+  next();
+};
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
@@ -112,49 +121,7 @@ const validateInquiryPayload = (payload) => {
   return errors;
 };
 
-app.post('/api/scan-security', rateLimitMiddleware, async (req, res) => {
-  try {
-    const { code } = req.body;
-    if (!code) return res.status(400).json({ error: "No code provided." });
-    if (typeof code !== 'string') return res.status(400).json({ error: "Invalid code format." });
-    if (code.length > 50000) return res.status(400).json({ error: "Code exceeds maximum length." });
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-preview',
-      contents: `Perform a detailed technical security audit on the provided code snippet. 
-      Focus on cryptographic vulnerabilities and quantum readiness.
-      
-      Auditing Requirements:
-      1. Identify legacy/weak algorithms (e.g., RSA < 3072, ECC with small curves, SHA-1, MD5).
-      2. Detect quantum vulnerabilities like "Harvest Now, Decrypt Later" exposure.
-      3. Recommend specific Post-Quantum Cryptography (PQC) migration paths using NIST standards (ML-KEM, ML-DSA).
-      
-      OUTPUT FORMAT:
-      Return ONLY a JSON array of objects. Do not include preamble or explanation.
-      Structure: [{"file": string, "algo": string, "status": "CRITICAL"|"VULNERABLE"|"QUANTUM-WEAK"|"SAFE", "recommendation": string}]
-      
-      Code to Audit:
-      ${code}`,
-      config: {
-        responseMimeType: "application/json",
-        systemInstruction: "You are a world-class cryptographic security auditor specializing in NIST PQC standards. Your output must be valid JSON array."
-      }
-    });
-
-    const text = response.text;
-    if (!text) {
-      throw new Error("Empty response from AI");
-    }
-
-    const report = JSON.parse(text);
-    res.json({ success: true, report });
-  } catch (error) {
-    console.error("AI Scan Error:", error);
-    res.status(500).json({ error: "Audit service failed." });
-  }
-});
-
-app.post('/api/contact', rateLimitMiddleware, async (req, res) => {
+app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
   const errors = validateInquiryPayload(req.body);
   if (errors.length > 0) {
     return res.status(400).json({ error: "Validation failed.", details: errors });

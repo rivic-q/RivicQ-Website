@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Check, Send, ShieldCheck, Mail, Briefcase, Zap, Shield, Loader2, AlertTriangle, FileText, Clock, Cloud } from 'lucide-react';
-import { aiService } from '../services/aiService';
+import { apiService } from '../services/aiService';
 
 const PricingCard: React.FC<{ 
   title: string, 
@@ -64,7 +64,7 @@ const Pricing: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      await aiService.submitInquiry({
+      await apiService.submitInquiry({
         type: 'SALES_PILOT',
         ...formData
       });
