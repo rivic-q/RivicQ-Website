@@ -1,0 +1,9 @@
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+# RivicQ Technologies Security Team
+# Email: security@rivicq.de
+# Fingerprint: (request via email)
+#
+# This key will be published when the security team is fully operational.
+# For now, please use security@rivicq.de for all vulnerability reports.
+-----END PGP PUBLIC KEY BLOCK-----

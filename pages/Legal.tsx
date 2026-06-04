@@ -156,17 +156,44 @@ const Legal: React.FC = () => {
         </LegalSection>
       </section>
 
+      <section id="vulnerability-disclosure" className="not-prose">
+        <h2 className="font-serif text-3xl font-bold text-slate-900 mb-10 border-b-2 border-slate-900 pb-4 inline-block">Vulnerability Disclosure</h2>
+
+        <LegalSection title="Responsible Disclosure Policy" icon={<ShieldAlert size={20}/>}>
+          <p>
+            RivicQ Technologies welcomes responsible disclosure of security vulnerabilities. If you have discovered a security issue in any RivicQ product, platform, or infrastructure, we encourage you to report it promptly.
+          </p>
+          <p>
+            <strong>How to report:</strong> Send a detailed description of the vulnerability to <a href="mailto:security@rivicq.de" className="text-sky-500 hover:underline">security@rivicq.de</a>. Include steps to reproduce, the affected component or version, any proof-of-concept code, and your contact information.
+          </p>
+          <p>
+            <strong>What to expect:</strong> We acknowledge receipt within 72 hours and provide an initial assessment within 5 business days. We will keep you informed of remediation progress. RivicQ does not currently operate a bug bounty program, but we publicly acknowledge valid submissions with the reporter's consent.
+          </p>
+          <p>
+            <strong>Safe harbor:</strong> RivicQ will not pursue legal action against individuals who report vulnerabilities in good faith, provided the reporter: (a) does not access or modify data beyond what is necessary to demonstrate the vulnerability, (b) does not exfiltrate data or impact system availability, and (c) allows reasonable time for remediation before public disclosure.
+          </p>
+          <p>
+            <strong>Encrypted reports:</strong> Our PGP key is available at <a href="/.well-known/pgp-key.txt" className="text-sky-500 hover:underline">/.well-known/pgp-key.txt</a>. Our canonical disclosure policy is published at <a href="/.well-known/security.txt" className="text-sky-500 hover:underline">/.well-known/security.txt</a> in accordance with RFC 9116.
+          </p>
+        </LegalSection>
+      </section>
+
       <section className="bg-slate-50 border border-slate-100 p-8 md:p-12 rounded-[3rem] mt-16">
         <div className="flex items-center gap-3 mb-4">
           <Mail size={20} className="text-sky-500"/>
           <h3 className="m-0 font-bold text-slate-900">Legal Contact</h3>
         </div>
         <p className="text-sm text-slate-600 mb-6">
-            For intellectual property inquiries, takedown requests, or licensing information:
+            For intellectual property inquiries, takedown requests, licensing information, or security disclosures:
         </p>
-        <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 font-bold text-sky-500 hover:text-slate-900 transition-colors text-xs uppercase tracking-widest">
-           <Mail size={16} /> Contact Legal Department
-        </a>
+        <div className="flex flex-wrap gap-4">
+          <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 font-bold text-sky-500 hover:text-slate-900 transition-colors text-xs uppercase tracking-widest">
+            <Mail size={16} /> Legal Department
+          </a>
+          <a href="mailto:security@rivicq.de" className="inline-flex items-center gap-2 font-bold text-sky-500 hover:text-slate-900 transition-colors text-xs uppercase tracking-widest">
+            <ShieldAlert size={16} /> Security Team
+          </a>
+        </div>
       </section>
 
       <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">

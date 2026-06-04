@@ -66,7 +66,7 @@ const csrfCheck = (req, res, next) => {
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
-app.use(express.static(distDir));
+app.use(express.static(distDir, { dotfiles: 'allow' }));
 
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000');
@@ -229,6 +229,10 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
   }
 
   res.json({ success: true, message: "Inquiry recorded successfully." });
+});
+
+app.get('/.well-known/security.txt', (req, res) => {
+  res.type('text/plain').sendFile(path.join(distDir, '.well-known', 'security.txt'));
 });
 
 app.get('/api/health', (req, res) => {
