@@ -1,217 +1,41 @@
+import { Badge } from '../components/Badge';
+import { SectionHeader } from '../components/SectionHeader';
+import { CTABlock } from '../components/CTABlock';
+import AnimatedBackground from '../components/AnimatedBackground';
 
-import React, { useState, useEffect } from 'react';
-import { Database, ArrowRight, Github, Terminal, Atom, Layers, Repeat, Search, Cloud, Shield, Cpu, Network, Zap, ShieldCheck, Activity, Settings } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import SystemArchitecture3D from '../components/SystemArchitecture3D';
-
-const Platform: React.FC = () => {
-  const [complexity, setComplexity] = useState(65);
-  const [riskScore, setRiskScore] = useState(0);
-
-  useEffect(() => {
-    const baseRisk = complexity * 0.8;
-    const finalScore = Math.min(100, Math.round(baseRisk + 12));
-    setRiskScore(finalScore);
-  }, [complexity]);
-
+export default function Platform() {
   return (
-    <article className="prose prose-slate max-w-none">
-      <header className="mb-16">
-        <h1 className="text-5xl font-bold mb-4 tracking-tight text-slate-900">Products & Architecture</h1>
-        <p className="text-slate-500 font-serif italic text-xl">CSPM, PQC, AI agents, and privacy protocols — the foundation of quantum-safe security.</p>
-        <p className="text-slate-400 text-[10px] font-mono uppercase tracking-[0.3em] font-bold mt-6">Protocol v2.0 • NIST FIPS 203/204/205 • Cloud Ready</p>
-      </header>
-
-      <section className="not-prose -mx-8 md:-mx-16 mb-24">
-         <SystemArchitecture3D />
-      </section>
-
-      <section className="mb-24">
-        <div className="flex items-center gap-4 mb-10">
-          <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
-            <Layers aria-hidden="true" size={24} />
+    <div style={{ maxWidth: 900, margin: '0 auto', padding: '60px 24px', position: 'relative' }}>
+      <AnimatedBackground variant="hex" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <SectionHeader
+        title="Platform Architecture"
+        subtitle="End-to-end quantum-safe encryption platform. From cryptographic discovery (CBOM+QBOM) to HSM-backed key management and hybrid PQC transport."
+        badge={<Badge variant="encrypt">Encryption Architecture</Badge>}
+        align="left"
+      />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 16, marginTop: 20 }}>
+        {[
+          { layer: 'Discovery & Risk', items: ['CBOM Scanner', 'QBOM Q-score analysis', 'GitHub Actions CI/CD', 'Cloud VPC scanning'] },
+          { layer: 'HSM Encryption Engine', items: ['CloudHSM (FIPS 140-3)', 'ML-KEM-768 key exchange', 'AES-256-GCM / ChaCha20', 'QRNG entropy source'] },
+          { layer: 'Transport Security', items: ['RQSP Protocol (hybrid PQC)', 'TLS 1.3 hybrid extension', 'mTLS PQ certificate chains', 'gRPC interceptor'] },
+          { layer: 'EaaS & SDK', items: ['Encryption-as-a-Service API', 'SDK (Python, Go, Rust, Java, Node)', 'REST / gRPC endpoints', 'CI/CD integration'] },
+        ].map(section => (
+          <div key={section.layer} style={{ border: '1px solid var(--rq-border)', borderRadius: 10, padding: 20 }}>
+            <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', fontWeight: 700, margin: '0 0 8px', color: 'var(--rq-encrypt)' }}>{section.layer}</h3>
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {section.items.map(item => (
+                <li key={item} style={{ color: 'var(--rq-muted)', fontSize: '0.85rem' }}>
+                  <span style={{ color: 'var(--rq-text)', marginRight: 6 }}>→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Our Core Products</h2>
-            <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Find it. Fix it. Secure it.</p>
-          </div>
-        </div>
-
-        <div className="not-prose grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-sky-500 hover:scale-[1.01] transition-all duration-500 group">
-            <div className="mb-6 flex items-center justify-between">
-              <div className="p-3 bg-sky-50 text-sky-500 rounded-xl group-hover:bg-sky-500 group-hover:text-white transition-all">
-                <Search aria-hidden="true" size={24} />
-              </div>
-              <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">Find</span>
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">Security Audit (Scanner)</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              We use smart AI to scan your systems and find where you are using old, weak security methods that need updating.
-            </p>
-          </div>
-
-          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-emerald-500 hover:scale-[1.01] transition-all duration-500 group">
-            <div className="mb-6 flex items-center justify-between">
-              <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                <Database aria-hidden="true" size={24} />
-              </div>
-              <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">Inventory</span>
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">CryptoBOM Dashboard</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              A dashboard that lists every "digital lock" (key) in your company. It tells you which ones are safe (managed) and which ones are risky (hidden).
-            </p>
-          </div>
-        </div>
-
-        <div className="not-prose grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="p-8 bg-slate-900 text-white border border-slate-800 rounded-[2.5rem] shadow-xl hover:border-sky-400 hover:scale-[1.01] transition-all duration-500 group">
-            <div className="mb-6 flex items-center justify-between">
-              <div className="p-3 bg-sky-500 text-white rounded-xl">
-                <Cloud aria-hidden="true" size={24} />
-              </div>
-              <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest">Secure Hardware</span>
-            </div>
-            <h3 className="text-xl font-serif font-bold text-white mb-4">Cloud HSM</h3>
-            <p className="text-sm text-slate-400 leading-relaxed mb-6">
-              Our secure cloud hardware acts as a "digital vault" for your keys, protected by physical barriers and quantum-safe tech.
-            </p>
-            <Link to="/cloud-hsm" className="text-xs font-bold text-sky-400 flex items-center gap-2 hover:text-white transition-colors uppercase tracking-widest">
-              See Hardware Details <ArrowRight aria-hidden="true" size={14} />
-            </Link>
-          </div>
-
-          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-indigo-500 hover:scale-[1.01] transition-all duration-500 group">
-            <div className="mb-6 flex items-center justify-between">
-              <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                <Repeat aria-hidden="true" size={24} />
-              </div>
-              <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">Upgrade</span>
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">RQSP Automation</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              Our automated system helps you switch from old keys to new keys instantly, without stopping your business.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Quantum Risk Simulation Section */}
-      <section className="my-24 not-prose">
-        <div className="flex items-center gap-4 mb-12">
-          <div className="p-3 bg-slate-900 text-white rounded-2xl shadow-xl shadow-sky-900/20">
-            <Atom aria-hidden="true" size={24} className="animate-spin-slow" />
-          </div>
-          <div>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Quantum Benchmarking Core</h2>
-            <p className="text-xs text-sky-500 font-bold uppercase tracking-widest mt-1">Powered by KIPU Q & Q-CTRL</p>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-          <div className="bg-slate-950 rounded-[2.5rem] p-8 font-mono text-[11px] text-indigo-200 shadow-2xl relative overflow-hidden border border-slate-800">
-            <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
-              <Zap aria-hidden="true" size={14} className="text-sky-400" />
-              <span className="text-slate-400">Simulation Kernel v2.1 • KIPU Optimized</span>
-            </div>
-            <pre className="overflow-x-auto leading-relaxed text-indigo-300 relative z-10">
-{`from rivicq_core.audit import QuantumRiskAnalyzer
-from kipu_quantum.optimization import CompressiveSimulator
-
-# Initialize analyzer with KIPU compressive simulation
-target = "cloud_hsm_primary_cluster"
-analyzer = QuantumRiskAnalyzer(target=target)
-
-# Q-CTRL logic for noise-resistant verification
-analyzer.update_complexity(attack_power=${complexity})
-
-# Run Shor's Algorithm factorization benchmark
-# Validated against actual IBM Q hardware telemetry
-sim_results = analyzer.simulate(backend="ibmq_qasm_simulator")
-
-# Post risk metrics to RivicQ Policy Engine
-analyzer.export_to_policy_service(
-    metrics=sim_results.risk_vector,
-    trigger_auto_rotation=(risk_score > 75)
-)`}
-            </pre>
-            <div className="mt-10 space-y-3 relative z-10">
-              <div className="flex justify-between items-center">
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Simulated Attack Power</label>
-                <span className="text-sky-400 font-bold">{complexity} Qubits</span>
-              </div>
-              <input 
-                type="range" min="10" max="100" value={complexity} 
-                onChange={(e) => setComplexity(parseInt(e.target.value))}
-                className="w-full h-1 bg-slate-800 rounded-full appearance-none cursor-pointer accent-blue-500"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <div className="bg-white border border-slate-100 rounded-[2.5rem] p-10 shadow-sm flex flex-col justify-between h-1/2">
-              <div className="text-center">
-                 <div className={`text-7xl font-bold font-mono transition-colors duration-500 ${riskScore > 75 ? 'text-red-500' : 'text-slate-900'}`}>
-                    {riskScore}<span className="text-2xl text-slate-200">/100</span>
-                 </div>
-                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mt-2">Quantum Risk Index (QRI)</div>
-              </div>
-              <p className="mt-6 text-[11px] text-slate-600 leading-relaxed text-center">
-                {riskScore > 75 ? 'CRITICAL: Key break time under 12 hours. Your encryption is at risk.' : 'STABLE: Your current encryption holds against simulated quantum attacks.'}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 rounded-[2.5rem] p-8 border border-slate-100 h-1/2 relative overflow-hidden">
-               <div className="absolute top-0 right-0 p-8 opacity-5 text-indigo-600">
-                 <ShieldCheck aria-hidden="true" size={120} />
-               </div>
-               <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
-                 <Activity aria-hidden="true" size={14} className="text-indigo-600"/> Policy Service Feedback
-               </h4>
-               <div className="space-y-4">
-                  <div className="flex gap-3">
-                    <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${riskScore > 75 ? 'bg-red-500 animate-pulse' : 'bg-emerald-500'}`}></div>
-                    <p className="text-[10px] text-slate-600 m-0"><strong>Dynamic Rotation:</strong> {riskScore > 75 ? 'Triggered: Forcing migration of all RSA-2048 keys to ML-KEM-768.' : 'Idle: Monitoring for risk delta.'}</p>
-                  </div>
-                  <div className="flex gap-3">
-                    <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${riskScore > 60 ? 'bg-amber-500' : 'bg-slate-200'}`}></div>
-                    <p className="text-[10px] text-slate-600 m-0"><strong>Compliance Alert:</strong> {riskScore > 60 ? 'Active: NIS2/DORA violation imminent. Alerting Security Office.' : 'Nominal: Compliance status verified.'}</p>
-                  </div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Strategic Integrations */}
-      <section className="not-prose mb-24 border-t border-slate-100 pt-16">
-         <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 text-center">Infrastructure Partners</h2>
-         <div className="flex flex-wrap justify-center gap-6">
-            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Cpu aria-hidden="true" size={20} className="text-sky-500"/>
-               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">IBM Quantum</span>
-            </div>
-            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Cloud aria-hidden="true" size={20} className="text-sky-500"/>
-               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Google Cloud</span>
-            </div>
-            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Network aria-hidden="true" size={20} className="text-sky-500"/>
-               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">AWS Nitro</span>
-            </div>
-            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Zap aria-hidden="true" size={20} className="text-indigo-600"/>
-               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">KIPU Quantum</span>
-            </div>
-            <div className="flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl">
-               <Settings aria-hidden="true" size={20} className="text-emerald-600"/>
-               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">Q-CTRL</span>
-            </div>
-         </div>
-      </section>
-    </article>
+        ))}
+      </div>
+      <div style={{ marginTop: 40 }}>
+        <CTABlock title="Explore the Encryption Platform" text="Full architecture documentation and deployment guides available." label="View Docs" href="/enterprise" />
+      </div>
+    </div>
   );
-};
-
-export default Platform;
+}

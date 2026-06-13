@@ -1,219 +1,194 @@
+import { useState, useEffect } from 'react';
+import { Badge } from '../components/Badge';
+import { SectionHeader } from '../components/SectionHeader';
+import { submitForm, validateField, FormErrors } from '../services/formService';
+import QuantumCircuit from '../components/QuantumCircuit';
+import AnimatedBackground from '../components/AnimatedBackground';
+import { products } from '../data/products';
 
-import React, { useState, useEffect } from 'react';
-import { ShieldCheck, ArrowRight, Lock, Zap, Activity, Cloud, Search, CheckCircle2, ShieldAlert, Cpu, Globe, Server, Database, RefreshCw, Layers } from 'lucide-react';
-import { Link } from 'react-router-dom';
+const productOptions = [
+  { value: '', label: 'General Inquiry' },
+  ...products.map(p => ({ value: p.name, label: p.name })),
+  { value: 'Investor Relations', label: 'Investor Relations (Pre-Seed / Seed)' },
+  { value: 'Partnership', label: 'Partnership Opportunity' },
+  { value: 'Pilot Program', label: 'Free CBOM+QBOM Pilot' },
+];
 
-const EndToEndDemo: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const steps = [
-    {
-      title: "Discovery",
-      icon: <Search aria-hidden="true" size={24} />,
-      desc: "Our AI scanner crawls your infrastructure and code repositories.",
-      status: "Scanning: /auth/v1/certificates",
-      color: "blue"
-    },
-    {
-      title: "Inventory",
-      icon: <Database aria-hidden="true" size={24} />,
-      desc: "Every weak 'lock' (RSA/ECC) is cataloged into a CryptoBOM.",
-      status: "Found: 12 Vulnerable Primitives",
-      color: "indigo"
-    },
-    {
-      title: "Transformation",
-      icon: <RefreshCw aria-hidden="true" size={24} />,
-      desc: "Legacy keys are imported and wrapped in NIST-standard PQC layers.",
-      status: "Deploying ML-KEM-768",
-      color: "emerald"
-    },
-    {
-      title: "Fortification",
-      icon: <Lock aria-hidden="true" size={24} />,
-      desc: "Keys are stored in FIPS 140-3 Cloud HSM vaults.",
-      status: "Status: Post-Quantum Secured",
-      color: "blue"
-    }
-  ];
+const subjectLabels: Record<string, string> = {
+  '': 'Enterprise Inquiry',
+  'Investor Relations': 'Investor Interest — Pre-Seed / Seed Round',
+  'Partnership': 'Partnership Inquiry',
+  'Pilot Program': 'CBOM+QBOM Pilot Request',
+};
+
+const placeholderText: Record<string, string> = {
+  '': 'Tell us about your encryption infrastructure...',
+  'CBOM Scanner': 'How many repos, which languages, CI/CD platform?',
+  'QBOM Analyzer': 'What encryption assets do you need Q-scored?',
+  'CloudHSM / vHSM': 'On-prem or cloud? Expected key volume? Compliance requirements?',
+  'RQSP Protocol': 'Use case for hybrid PQC transport?',
+  'Developer SDK': 'Which language bindings? Target integration?',
+  'Enterprise Encryption Suite': 'Scope, timeline, compliance framework?',
+  'Investor Relations': 'Your investor profile and how you heard about RivicQ.',
+  'Partnership': 'Partner type, region, and target market.',
+  'Pilot Program': 'Number of assets to scan, target environment.',
+};
+
+export default function Enterprise() {
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const [product, setProduct] = useState('');
+  const [fieldErrors, setFieldErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [steps.length]);
+    const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
+    const prefill = params.get('product') || '';
+    if (prefill) setProduct(prefill);
+  }, []);
+
+  const subject = subjectLabels[product] || `Enterprise Inquiry — ${product}`;
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const err = validateField(name, value);
+    setFieldErrors(prev => {
+      const next = { ...prev };
+      if (err) next[name] = err;
+      else delete next[name];
+      return next;
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+    data.subject = subject;
+    data.product = product || 'General';
+
+    const allTouched: Record<string, boolean> = {};
+    for (const key of Object.keys(data)) allTouched[key] = true;
+    setTouched(allTouched);
+
+    const result = await submitForm(data);
+    if (result.ok) {
+      setSubmitted(true);
+      setError('');
+      setFieldErrors({});
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'form_submit', { event_category: 'lead', event_label: product || 'general' });
+      }
+    } else {
+      setError(result.message);
+      if (result.errors) setFieldErrors(result.errors);
+    }
+  };
 
   return (
-    <div className="not-prose w-full bg-slate-900 rounded-[3rem] p-8 md:p-12 border border-slate-800 shadow-2xl overflow-hidden relative">
-      <div className="absolute inset-0 bg-technical opacity-5"></div>
-      
-      <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
-        {/* Left: Interactive Stepper */}
-        <div className="w-full md:w-1/2 space-y-6">
-          {steps.map((step, idx) => (
-            <div 
-              key={idx}
-              className={`p-6 rounded-2xl border transition-all duration-500 flex items-start gap-4 ${
-                activeStep === idx 
-                  ? `bg-slate-800 border-sky-500 shadow-[0_0_30px_rgba(37,99,235,0.2)]` 
-                  : 'bg-transparent border-slate-800 opacity-40'
-              }`}
-            >
-              <div className={`p-3 rounded-xl ${activeStep === idx ? 'bg-sky-500 text-white' : 'bg-slate-800 text-slate-500'}`}>
-                {step.icon}
+    <div style={{ position: 'relative' }}>
+      <AnimatedBackground variant="mesh" intensity="medium" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <QuantumCircuit complexity={4} />
+      <div style={{ maxWidth: 650, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
+        {submitted ? (
+          <div style={{
+            border: '1px solid var(--rq-border)', borderRadius: 10, padding: 40, textAlign: 'center',
+            animation: 'fadeInUp 0.5s ease-out',
+          }}>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--rq-encrypt)" strokeWidth="2" style={{ marginBottom: 12 }}>
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, margin: '0 0 6px', fontSize: '1.1rem' }}>Thank You</h3>
+            <p style={{ color: 'var(--rq-muted)', fontSize: '0.9rem', margin: '0 0 4px', lineHeight: 1.6 }}>
+              {product === 'Investor Relations'
+                ? 'Our team will reach out with investor materials within 24 hours.'
+                : product === 'Pilot Program'
+                  ? 'We\'ll set up your free CBOM+QBOM pilot within 48 hours.'
+                  : 'We\'ll respond within 24 hours with next steps.'}
+            </p>
+          </div>
+        ) : (
+          <>
+            <SectionHeader
+              title={product === 'Investor Relations' ? 'Investor Relations' : 'Talk to Us'}
+              subtitle={
+                product === 'Investor Relations'
+                  ? 'RivicQ is closing its seed round. Berlin-founded deep tech — PQC encryption, FIPS 140-3 HSM, QBOM/CBOM. ETSI delegate, BSI congress, EURA AG LOI.'
+                  : product === 'Pilot Program'
+                    ? 'Free CBOM+QBOM encryption audit for government and critical infrastructure. We\'ll Q-score your entire encryption stack with prioritized PQC migration roadmaps.'
+                    : 'Free CBOM+QBOM encryption audit for government and critical infrastructure. No commitment, no sales pitch. We\'ll Q-score your entire encryption stack.'
+              }
+              badge={
+                product === 'Investor Relations'
+                  ? <Badge variant="amber">Pre-Seed / Seed</Badge>
+                  : <Badge variant="encrypt">Enterprise Encryption</Badge>
+              }
+            />
+
+            <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--rq-muted)', marginBottom: 4 }}>I'm interested in *</label>
+                <select
+                  name="product_interest"
+                  value={product}
+                  onChange={e => setProduct(e.target.value)}
+                  required
+                  style={inputStyle}
+                >
+                  {productOptions.map(o => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
+                </select>
               </div>
               <div>
-                <h4 className="text-white font-bold m-0 text-lg">{step.title}</h4>
-                <p className="text-slate-400 text-sm mt-1 m-0">{step.desc}</p>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--rq-muted)', marginBottom: 4 }}>Name *</label>
+                <input name="name" required style={{ ...inputStyle, borderColor: touched.name && fieldErrors.name ? 'var(--rq-amber)' : 'var(--rq-border)' }} onBlur={handleBlur} />
+                {touched.name && fieldErrors.name && <div style={{ color: 'var(--rq-amber)', fontSize: '0.75rem', marginTop: 2 }}>{fieldErrors.name}</div>}
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Right: Visualization Panel */}
-        <div className="w-full md:w-1/2 flex items-center justify-center min-h-[400px]">
-           <div className="relative w-full aspect-square max-w-[340px]">
-              {/* Outer Ring */}
-              <div className="absolute inset-0 border border-slate-800 rounded-full animate-spin-slow"></div>
-              
-              {/* Central Core */}
-              <div className="absolute inset-8 border border-slate-800/50 rounded-full"></div>
-              
-              {/* Active Visualizer */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center animate-fadeIn">
-                   <div className={`w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto mb-6 shadow-2xl ${activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-sky-500 text-white shadow-sky-500/20'}`}>
-                      {steps[activeStep].icon}
-                   </div>
-                   <div className="font-mono text-[10px] text-sky-400 tracking-[0.2em] uppercase font-bold mb-2">
-                      RivicQ Core OS
-                   </div>
-                   <div className="text-white font-bold text-sm h-6">
-                      {steps[activeStep].status}
-                   </div>
-                   
-                   {/* Progress Dots */}
-                   <div className="flex justify-center gap-1.5 mt-6">
-                      {steps.map((_, i) => (
-                        <div key={i} className={`h-1 rounded-full transition-all duration-500 ${activeStep === i ? 'w-6 bg-sky-500' : 'w-2 bg-slate-700'}`}></div>
-                      ))}
-                   </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--rq-muted)', marginBottom: 4 }}>Email *</label>
+                  <input name="email" type="email" required style={{ ...inputStyle, borderColor: touched.email && fieldErrors.email ? 'var(--rq-amber)' : 'var(--rq-border)' }} onBlur={handleBlur} />
+                  {touched.email && fieldErrors.email && <div style={{ color: 'var(--rq-amber)', fontSize: '0.75rem', marginTop: 2 }}>{fieldErrors.email}</div>}
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--rq-muted)', marginBottom: 4 }}>Company</label>
+                  <input name="company" style={inputStyle} onBlur={handleBlur} />
                 </div>
               </div>
-           </div>
-        </div>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--rq-muted)', marginBottom: 4 }}>Message</label>
+                <textarea name="message" rows={4} style={{ ...inputStyle, resize: 'vertical' }} placeholder={placeholderText[product] || placeholderText['']} onBlur={handleBlur} />
+              </div>
+              {error && <div style={{ color: 'var(--rq-amber)', fontSize: '0.85rem' }}>{error}</div>}
+              <button type="submit" style={{
+                padding: '12px 24px', background: product === 'Investor Relations' ? 'var(--rq-amber)' : 'var(--rq-blue)',
+                color: '#FFFFFF', border: 'none', borderRadius: 8, fontWeight: 600, cursor: 'pointer',
+                fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.9rem', marginTop: 8,
+              }}>
+                {product === 'Investor Relations'
+                  ? 'Request Investor Materials'
+                  : product === 'Pilot Program'
+                    ? 'Start Free CBOM+QBOM Pilot'
+                    : 'Submit Inquiry'}
+              </button>
+            </form>
+
+            <div style={{ marginTop: 20, padding: '12px 16px', background: 'var(--rq-code-bg)', borderRadius: 8, border: '1px solid var(--rq-border)', fontSize: '0.8rem', color: 'var(--rq-muted)' }}>
+              {product === 'Investor Relations'
+                ? 'Confidential. We\'ll share pitch deck, financial model, and market analysis upon NDA.'
+                : 'No commitment, no sales pitch. Free CBOM+QBOM pilot includes full encryption inventory Q-score report.'}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
+}
+
+const inputStyle: React.CSSProperties = {
+  width: '100%', padding: '10px 14px', borderRadius: 8, border: '1px solid var(--rq-border)',
+  background: 'var(--rq-code-bg)', color: 'var(--rq-text)', fontSize: '0.9rem',
+  fontFamily: 'inherit', outline: 'none',
 };
-
-const Enterprise: React.FC = () => {
-  return (
-    <article className="prose prose-slate max-w-none">
-      <header className="mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
-          FIPS 140-3 • Global Tier 1 Infrastructure
-        </div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-          Sovereign Security <br/>at <span className="text-sky-500">Global Scale.</span>
-        </h1>
-        <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
-          RivicQ Enterprise provides the high-assurance foundation for the world's most critical infrastructures. We don't just secure data; we secure permanence.
-        </p>
-      </header>
-
-      {/* End-to-End Demo Section */}
-      <section className="mb-24">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">The End-to-End Experience</h2>
-          <p className="text-slate-500 text-sm mt-2 uppercase tracking-widest font-bold">Automated Migration Lifecycle</p>
-        </div>
-        <EndToEndDemo />
-      </section>
-
-      {/* Enterprise Pillars */}
-      <section className="py-24 border-y border-slate-100 not-prose mb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-           {[
-             { title: "SLA Guaranteed", desc: "99.999% uptime for cryptographic operations across global regions.", icon: <Activity aria-hidden="true" className="text-sky-500"/> },
-             { title: "Dedicated vHSM", desc: "Physically isolated hardware segments for Tier 1 compliance.", icon: <Server aria-hidden="true" className="text-emerald-600"/> },
-             { title: "Active CBOM", desc: "Continuous auditing of every cryptographic bill of materials.", icon: <Layers aria-hidden="true" className="text-indigo-600"/> },
-             { title: "PQC Orchestration", desc: "NIST-standardized migration paths enforced by policy.", icon: <Zap aria-hidden="true" className="text-amber-600"/> }
-           ].map((item, i) => (
-             <div key={i} className="p-8 border border-slate-100 rounded-[2.5rem] bg-white hover:border-sky-200 transition-all shadow-sm">
-                <div className="p-3 bg-slate-50 rounded-xl w-fit mb-6 border border-slate-100">
-                  {item.icon}
-                </div>
-                <h4 className="text-base font-bold text-slate-900 mb-2">{item.title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed m-0">{item.desc}</p>
-             </div>
-           ))}
-        </div>
-      </section>
-
-      {/* Regulatory Context */}
-      <section className="mb-24">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 mb-6">Designed for Compliance.</h2>
-            <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              RivicQ Enterprise maps directly to global mandates like <strong>EU DORA</strong>, <strong>NIS2</strong>, and <strong>CNSA 2.0</strong>. We provide the proof of resilience required by modern regulators.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 p-4 bg-sky-50 border border-sky-100 rounded-2xl">
-                <CheckCircle2 aria-hidden="true" size={18} className="text-sky-500"/>
-                <span className="text-sm font-bold text-sky-900">NIST FIPS 203/204 Compliant</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl">
-                <ShieldCheck aria-hidden="true" size={18} className="text-emerald-600"/>
-                <span className="text-sm font-bold text-emerald-900">GDPR & Sovereign Compute Ready</span>
-              </div>
-            </div>
-          </div>
-          <div className="bg-slate-50 rounded-[3rem] p-12 border border-slate-200 relative overflow-hidden">
-             <div className="absolute top-0 right-0 p-8 opacity-5 text-slate-900">
-               <Globe aria-hidden="true" size={160} />
-             </div>
-             <h3 className="text-2xl font-serif font-bold text-slate-900 m-0 mb-6">Global Residency</h3>
-             <ul className="space-y-4 m-0 p-0 list-none">
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-sky-500"></div> Berlin Deep-Tech Hub (HQ)
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-slate-400"></div> Frankfurt Financial Mesh
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-slate-400"></div> AWS Nitro Enclaves Support
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-600">
-                  <div className="w-2 h-2 rounded-full bg-slate-400"></div> Google Cloud HSM Integration
-                </li>
-             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="not-prose bg-sky-500 text-white p-12 md:p-16 rounded-[4rem] text-center shadow-2xl relative overflow-hidden">
-        <div className="absolute inset-0 bg-technical opacity-10"></div>
-        <div className="relative z-10">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white m-0">Scale with Security.</h2>
-          <p className="text-sky-100 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            Join the elite circle of enterprises defining the post-quantum standard. Our strategic engineers are ready to scope your migration.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/pricing" className="px-10 py-4 bg-slate-900 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl">
-              Contact Enterprise Sales
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-        RivicQ Technologies • Enterprise Division
-      </footer>
-    </article>
-  );
-};
-
-export default Enterprise;

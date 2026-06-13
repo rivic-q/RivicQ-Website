@@ -1,102 +1,219 @@
-
-import React, { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { navItems, NavItem } from '../data/navigation';
+import Logo from './Logo';
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar() {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const navLinks = [
-    { name: 'Products', path: '/products' },
-    { name: 'Services', path: '/services' },
-    { name: 'Platform', path: '/platform' },
-    { name: 'Solutions', path: '/solutions' },
-    { name: 'Enterprise', path: '/enterprise' },
-    { name: 'Resources', path: '/resources' },
-    { name: 'Team', path: '/team' },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  const ctaLink = { name: 'Beta Signup', path: '/beta-signup' };
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenDropdown(null);
+  }, [location.pathname]);
 
-  const isActive = (path: string) => location.pathname === path;
+  const handleEnter = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpenDropdown(label);
+  };
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpenDropdown(null), 120);
+  };
+
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path;
+  };
+
+  const isParentActive = (item: NavItem) => {
+    if (item.children) return item.children.some(c => isActive(c.path));
+    return isActive(item.path);
+  };
 
   return (
-    <nav className="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          {/* Logo */}
-          <Link to="/" className="flex items-center group">
-            <span className="font-serif text-2xl font-bold text-slate-900 group-hover:text-sky-500 transition-colors">
-              RivicQ
-            </span>
-          </Link>
+    <nav
+      aria-label="Primary navigation"
+      style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: 68,
+        background: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid var(--rq-border-light)' : '1px solid transparent',
+        transition: 'all 300ms',
+      }}
+    >
+      <div className="page-container" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <Logo size="sm" />
+        </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex space-x-8 items-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(link.path)
-                    ? 'text-sky-500 font-semibold'
-                    : 'text-slate-600 hover:text-sky-500'
-                }`}
+        {/* Desktop nav */}
+        <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 1, height: '100%' }}>
+          {navItems.map((item) => {
+            const active = isParentActive(item);
+            return (
+              <div
+                key={item.label}
+                onMouseEnter={() => item.children && handleEnter(item.label)}
+                onMouseLeave={handleLeave}
+                style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}
               >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              to={ctaLink.path}
-              className="px-5 py-2.5 rounded-full bg-sky-500 text-white text-sm font-medium hover:bg-sky-600 transition-all shadow-md hover:shadow-lg"
-            >
-              {ctaLink.name}
-            </Link>
-          </div>
+                {item.children ? (
+                  <button
+                    aria-haspopup="true"
+                    aria-expanded={openDropdown === item.label}
+                    style={{
+                      background: 'none', border: 'none', cursor: 'pointer',
+                      padding: '8px 14px', borderRadius: 8,
+                      fontSize: '0.85rem', fontFamily: 'var(--rq-font-heading)',
+                      fontWeight: active ? 600 : 500,
+                      color: active ? 'var(--rq-primary)' : 'var(--rq-text-secondary)',
+                      transition: 'color 200ms', display: 'flex', alignItems: 'center', gap: 4,
+                    }}
+                  >
+                    {item.label}
+                    <ChevronDown size={14} style={{
+                      transition: 'transform 200ms',
+                      transform: openDropdown === item.label ? 'rotate(180deg)' : 'rotate(0deg)',
+                    }} />
+                  </button>
+                ) : (
+                  <Link
+                    to={item.path}
+                    style={{
+                      padding: '8px 14px', borderRadius: 8, fontSize: '0.85rem',
+                      fontFamily: 'var(--rq-font-heading)',
+                      fontWeight: active ? 600 : 500,
+                      color: active ? 'var(--rq-primary)' : 'var(--rq-text-secondary)',
+                      textDecoration: 'none', transition: 'color 200ms',
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                )}
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 hover:text-sky-500 focus:outline-none"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+                {item.children && openDropdown === item.label && (
+                  <div
+                    onMouseEnter={() => handleEnter(item.label)}
+                    onMouseLeave={handleLeave}
+                    style={{
+                      position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)',
+                      minWidth: 220, background: '#FFFFFF', border: '1px solid var(--rq-border-light)',
+                      borderRadius: 14, padding: '6px', boxShadow: '0 16px 48px rgba(0,0,0,0.08)',
+                      animation: 'slideDown 0.15s ease-out',
+                    }}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.path}
+                        to={child.path}
+                        onClick={() => setOpenDropdown(null)}
+                        style={{
+                          display: 'flex', flexDirection: 'column', gap: 1,
+                          padding: '10px 14px', borderRadius: 10,
+                          color: isActive(child.path) ? 'var(--rq-primary)' : 'var(--rq-text)',
+                          textDecoration: 'none', fontSize: '0.85rem',
+                          fontFamily: 'var(--rq-font-heading)',
+                          fontWeight: isActive(child.path) ? 600 : 500,
+                          transition: 'background 150ms',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = 'var(--rq-bg)'}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                      >
+                        {child.label}
+                        {(child as any).description && (
+                          <span style={{ fontSize: '0.72rem', color: 'var(--rq-muted)', fontWeight: 400, fontFamily: 'var(--rq-font-body)' }}>
+                            {(child as any).description}
+                          </span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          <Link to="/enterprise" className="btn btn-primary btn-sm" style={{ marginLeft: 16 }}>
+            Talk to Us
+            <ArrowRight size={14} />
+          </Link>
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          aria-label="Toggle navigation"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="hide-desktop"
+          style={{
+            background: 'none', border: 'none', cursor: 'pointer',
+            color: 'var(--rq-text)', padding: 8, display: 'flex', alignItems: 'center',
+          }}
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {isOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100">
-          <div className="px-4 pt-2 pb-6 space-y-1 shadow-inner">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-3 rounded-md text-base font-medium ${
-                  isActive(link.path)
-                    ? 'text-sky-500 bg-sky-50'
-                    : 'text-slate-600 hover:text-sky-500 hover:bg-slate-50'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              to={ctaLink.path}
-              onClick={() => setIsOpen(false)}
-              className="block w-full text-center mt-4 px-5 py-3 rounded-md bg-sky-500 text-white font-bold"
-            >
-              {ctaLink.name}
-            </Link>
-          </div>
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div style={{
+          position: 'fixed', top: 68, left: 0, right: 0, bottom: 0,
+          background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(16px)',
+          padding: '20px 24px', overflowY: 'auto', animation: 'fadeIn 0.2s ease-out',
+        }}>
+          {navItems.map((item) => (
+            <div key={item.label} style={{ marginBottom: 12 }}>
+              {item.children ? (
+                <>
+                  <div style={{
+                    fontFamily: 'var(--rq-font-heading)', fontWeight: 600,
+                    fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.06em',
+                    color: 'var(--rq-muted)', marginBottom: 6, padding: '0 4px',
+                  }}>{item.label}</div>
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.path} to={child.path}
+                      onClick={() => setMobileOpen(false)}
+                      style={{
+                        display: 'block', padding: '8px 4px',
+                        color: isActive(child.path) ? 'var(--rq-primary)' : 'var(--rq-text)',
+                        textDecoration: 'none', fontSize: '0.9rem',
+                        fontFamily: 'var(--rq-font-heading)',
+                        fontWeight: isActive(child.path) ? 600 : 400,
+                      }}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <Link
+                  to={item.path} onClick={() => setMobileOpen(false)}
+                  style={{
+                    display: 'block', padding: '8px 4px',
+                    color: isActive(item.path) ? 'var(--rq-primary)' : 'var(--rq-text)',
+                    textDecoration: 'none', fontSize: '0.9rem',
+                    fontFamily: 'var(--rq-font-heading)',
+                    fontWeight: isActive(item.path) ? 600 : 400,
+                  }}
+                >{item.label}</Link>
+              )}
+            </div>
+          ))}
+          <Link to="/enterprise" onClick={() => setMobileOpen(false)} className="btn btn-primary" style={{ marginTop: 12, width: '100%' }}>
+            Talk to Us <ArrowRight size={16} />
+          </Link>
         </div>
       )}
     </nav>
   );
-};
-
-export default Navbar;
+}

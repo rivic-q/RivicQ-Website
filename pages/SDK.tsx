@@ -1,108 +1,36 @@
+import { Badge } from '../components/Badge';
+import { SectionHeader } from '../components/SectionHeader';
+import { Terminal } from '../components/Terminal';
+import { CTABlock } from '../components/CTABlock';
+import AnimatedBackground from '../components/AnimatedBackground';
 
-import React, { useState } from 'react';
-import { Copy, Check, Terminal, Cpu, Lock, Globe, Zap, ArrowRight, ShieldCheck, Key } from 'lucide-react';
-
-const CodeSnippet: React.FC<{ code: string, lang: string }> = ({ code, lang }) => {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = () => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
+export default function SDK() {
   return (
-    <div className="not-prose bg-slate-900 rounded-xl overflow-hidden my-6 border border-slate-800 shadow-xl group">
-      <div className="bg-slate-800 px-4 py-2 flex justify-between items-center border-b border-slate-700">
-        <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{lang}</span>
-        <button onClick={handleCopy} className="text-slate-400 hover:text-white transition-colors">
-          {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
-        </button>
+    <div style={{ maxWidth: 900, margin: '0 auto', padding: '60px 24px', position: 'relative' }}>
+      <AnimatedBackground variant="hex" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <SectionHeader
+        title="Developer SDK"
+        subtitle="Language bindings for Python, Go, Rust, Java, and Node.js. NIST PQC encryption primitives, CBOM+QBOM generation API, and HSM client bindings."
+        badge={<Badge variant="encrypt">Beta · Encryption SDK</Badge>}
+        align="left"
+      />
+      <div style={{ marginBottom: 32 }}>
+        <Terminal>{`pip install rivicq-sdk
+  from rivicq import MLKEM, MLDSA, HSMClient
+
+  # Connect to CloudHSM
+  hsm = HSMClient(endpoint="https://hsm.rivicq.de", api_key="...")
+
+  # Generate ML-KEM-768 keypair inside HSM
+  key_id = hsm.generate_key(algorithm="ML-KEM-768")
+  
+  # Encrypt with HSM-backed key
+  ct, ss = hsm.encapsulate(key_id)
+
+  # QRNG entropy verified
+  assert hsm.entropy_source() == "QRNG"`}</Terminal>
       </div>
-      <div className="p-5 font-mono text-sm overflow-x-auto">
-        <pre className="m-0 text-slate-300"><code>{code}</code></pre>
-      </div>
+      <CTABlock title="Get the Encryption SDK" text="Early access to our SDK beta. Python, Go, Rust, Java, and Node.js. Full HSM client bindings." label="Join Beta" href="/beta-signup" />
     </div>
   );
-};
-
-const SDK: React.FC = () => {
-  return (
-    <article className="prose prose-lg prose-slate max-w-none">
-      <h1>Developer SDK</h1>
-      <p className="lead font-serif italic text-slate-600">Integrate quantum-safe primitives with high-level libraries.</p>
-
-      <section>
-        <div className="not-prose grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
-          {[
-            { icon: <Cpu aria-hidden="true" className="text-sky-500"/>, title: "PQC Native", desc: "ML-KEM and ML-DSA out of the box." },
-            { icon: <Lock aria-hidden="true" className="text-emerald-600"/>, title: "HSM Anchored", desc: "Private keys never leave hardware." },
-            { icon: <Globe aria-hidden="true" className="text-purple-600"/>, title: "Cross-Platform", desc: "Python, Go, and Rust support." },
-          ].map((item, i) => (
-            <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex flex-col items-center text-center">
-              <div className="mb-4">{item.icon}</div>
-              <h4 className="m-0 font-bold text-slate-900 text-sm">{item.title}</h4>
-              <p className="text-xs text-slate-500 mt-2 m-0">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <h2>Basic Integration: Python Signing</h2>
-      <CodeSnippet lang="python" code={`from rivicq import RivicQClient
-client = RivicQClient(api_key="hsm_key")
-signature = client.sign(payload="Authorize", algorithm="ML-DSA-65")`} />
-
-      <div className="my-16">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
-            <Key aria-hidden="true" size={20} />
-          </div>
-          <h2 className="m-0 text-2xl font-serif font-bold">KMS API: PQC Session Management</h2>
-        </div>
-        <p className="text-sm text-slate-600 mb-6">
-          RivicQ's Key Management Service (KMS) allows for the creation and automated rotation of high-entropy session keys. Session keys are generated within the physical HSM boundary using quantum-tunneling entropy sources.
-        </p>
-        <CodeSnippet lang="python" code={`# Create and manage a Quantum-Safe Session Key
-kms_client = client.kms()
-
-# Initialize a PQC-wrapped session key with 24h expiration
-session = kms_client.create_session_key(
-    algorithm="ML-KEM-768",
-    usage="ENCRYPT_DATA",
-    ttl_seconds=86400,
-    tags={"env": "prod", "tenant_id": "8c29"}
-)
-
-print(f"Session Key ID: {session.id}")
-print(f"Quantum Risk Score: {session.risk_score}")
-
-# Transparently rotate the key based on policy
-new_session = kms_client.rotate_key(session.id)`} />
-      </div>
-
-      {/* CTA SECTION */}
-      <section className="mt-16 not-prose">
-        <div className="bg-[#0f172a] text-white rounded-[3rem] p-10 md:p-16 relative overflow-hidden group">
-          <div className="absolute right-0 bottom-0 opacity-5 -mr-16 -mb-16 pointer-events-none group-hover:scale-110 transition-transform duration-1000">
-            <Zap aria-hidden="true" size={400} />
-          </div>
-          <div className="relative z-10">
-            <p className="text-slate-400 mb-10 max-w-xl text-lg leading-relaxed">
-              Need integration support for legacy C/C++, Embedded systems, or custom HSM hardware?
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-               <a href="https://github.com/rivic-q" target="_blank" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-slate-100 transition-all">
-                 <Terminal aria-hidden="true" size={18}/> Full API Docs
-               </a>
-               <a href="mailto:hello@rivicq.de" className="px-8 py-4 border border-slate-700 text-white font-bold rounded-xl text-sm flex items-center justify-center hover:bg-white/5 transition-all">
-                 Contact Engineering Support
-               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </article>
-  );
-};
-
-export default SDK;
+}

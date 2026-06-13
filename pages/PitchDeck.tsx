@@ -1,433 +1,103 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Target, TrendingUp, BarChart3, Globe2, LayoutGrid, ArrowRight, ExternalLink, Zap, Lock, Microscope, Beaker, ShieldCheck, PieChart, Users, Layers, TrendingDown, AlertTriangle, Info, CheckCircle2, Landmark, FileText, BarChart, Rocket, Shield, Quote, FileDown, Presentation, Send, Loader2 } from 'lucide-react';
-import { formService } from '../services/formService';
+import { Badge } from '../components/Badge';
+import { SectionHeader } from '../components/SectionHeader';
+import { CTABlock } from '../components/CTABlock';
+import QuantumCircuit from '../components/QuantumCircuit';
 
-const PitchDeck: React.FC = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ 
-    name: '', 
-    email: '', 
-    organization: '', 
-    role: '',
-    documentType: 'pitch-deck',
-    message: ''
-  });
+const metrics = [
+  { value: '€1.2M', label: 'EURA AG LOI & Revenue Pipeline' },
+  { value: '2', label: 'Offices (Berlin, US)' },
+  { value: '9', label: 'Team Members' },
+  { value: '6', label: 'NIST & Encryption Standards' },
+  { value: '6', label: 'Regulatory Frameworks Covered' },
+  { value: '5', label: 'Products (inc. QBOM)' },
+];
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      await formService.submit({
-        type: 'DOCUMENT_REQUEST',
-        ...formData
-      });
-      setFormSubmitted(true);
-    } catch (error) {
-      alert("Unable to process request. Please email us directly at hello@rivicq.de");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+export default function PitchDeck() {
   return (
-    <article className="prose prose-lg prose-slate max-w-none">
-      <header className="mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
-          RivicQ Private Placement • Series Pre-Seed • Q1 2026
+    <div style={{ position: 'relative' }}>
+      <QuantumCircuit complexity={5} />
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
+        <SectionHeader
+          title="Investor Materials"
+          subtitle="Pre-seed / Seed round — RivicQ is building the post-quantum encryption infrastructure layer for government and enterprise."
+          badge={<Badge variant="amber">Confidential · Pre-Seed / Seed</Badge>}
+        />
+
+        {/* Key Metrics */}
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12, marginBottom: 32,
+        }}>
+          {metrics.map(m => (
+            <div key={m.value} style={{
+              border: '1px solid var(--rq-border)', borderRadius: 10, padding: 20, textAlign: 'center',
+              animation: 'fadeInUp 0.5s ease-out forwards',
+              opacity: 0,
+            }}>
+              <div style={{
+                fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.6rem', fontWeight: 700,
+                color: 'var(--rq-encrypt)', marginBottom: 4,
+              }}>{m.value}</div>
+              <div style={{ color: 'var(--rq-muted)', fontSize: '0.78rem' }}>{m.label}</div>
+            </div>
+          ))}
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-          Robust Integrated Verified <br/><span className="text-sky-500">Infrastructure Computing & Quantum.</span>
-        </h1>
-        <p className="text-xl text-slate-500 font-serif italic max-w-3xl leading-relaxed">
-          Pioneering a full-stack quantum resilience platform bridging software visibility with hardware-native security.
+
+        {/* Investment Highlights */}
+        <div style={{ marginBottom: 32 }}>
+          <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.1rem', fontWeight: 700, margin: '0 0 12px' }}>Investment Highlights</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {[
+              { title: 'Regulatory Tailwind', desc: 'DORA in effect Jan 2025. NIS2 across EU. NIST PQC deadline 2035. Every regulated entity must migrate encryption — CBOM+QBOM is the mandatory first step.' },
+              { title: 'Deep Tech Moats', desc: 'FIPS 140-3 HSM in certification. ETSI delegate on PQC standards. QBOM specification co-author. Native hybrid PQC+classical key derivation.' },
+              { title: 'Enterprise Traction', desc: 'EURA AG LOI for HSM-backed encryption infrastructure. Government pilots in Berlin. Pipeline with GCC India operations.' },
+              { title: 'Global Team', desc: 'Engineers and operators across Berlin (HQ) and US (operations). TU Berlin research lineage. ETSI delegate on PQC standards.' },
+              { title: 'Open-Source Foundation', desc: 'CBOM Scanner is Apache 2.0 — community adoption drives top-of-funnel for QBOM, CloudHSM, and EaaS commercial products.' },
+            ].map((item, i) => (
+              <div key={item.title} style={{
+                border: '1px solid var(--rq-border)', borderRadius: 8, padding: 16,
+                animation: 'fadeInUp 0.5s ease-out forwards',
+                animationDelay: `${0.3 + i * 0.1}s`,
+                opacity: 0,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--rq-encrypt)', flexShrink: 0 }} />
+                  <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.9rem', fontWeight: 700, margin: 0 }}>{item.title}</h4>
+                </div>
+                <p style={{ color: 'var(--rq-muted)', fontSize: '0.82rem', margin: '4px 0 0 14px', lineHeight: 1.6 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Use of Funds */}
+        <div style={{
+          border: '1px solid rgba(37,99,235,0.2)', borderRadius: 12, padding: 24,
+          background: 'var(--rq-encrypt-dim)', marginBottom: 32,
+        }}>
+          <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.1rem', fontWeight: 700, margin: '0 0 12px' }}>Use of Funds — Seed Round</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }}>
+            {[
+              { pct: '35%', area: 'Engineering & Product' },
+              { pct: '25%', area: 'Sales & Marketing' },
+              { pct: '20%', area: 'HSM Certification' },
+              { pct: '10%', area: 'Compliance & Audit' },
+              { pct: '10%', area: 'Operations & G&A' },
+            ].map(item => (
+              <div key={item.area}>
+                <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.2rem', fontWeight: 700, color: 'var(--rq-encrypt)' }}>{item.pct}</div>
+                <div style={{ color: 'var(--rq-muted)', fontSize: '0.78rem' }}>{item.area}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p style={{ color: 'var(--rq-muted)', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: 20, padding: 16, borderLeft: '3px solid var(--rq-encrypt)', background: 'var(--rq-code-bg)', borderRadius: '0 8px 8px 0' }}>
+          Our investor materials (pitch deck, financial model, market analysis) are available upon request.
+          Please reach out with your investor profile for access.
         </p>
-      </header>
 
-      {/* 1. Market Opportunity & Validation */}
-      <section className="mb-24">
-        <div className="flex items-center gap-4 mb-10">
-          <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg shadow-sky-200">
-            <PieChart aria-hidden="true" size={24} />
-          </div>
-          <div>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Market Opportunity</h2>
-            <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Global PQC Transition & Infrastructure</p>
-          </div>
-        </div>
-        
-        <div className="not-prose grid md:grid-cols-3 gap-8 mb-10">
-          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-sky-200 transition-all relative group overflow-hidden">
-            <div className="flex justify-between items-start mb-4">
-              <span className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">TAM (2030)</span>
-              <div className="text-[9px] font-bold text-slate-400">Ref: [1,4]</div>
-            </div>
-            <h4 className="text-4xl font-bold text-slate-900 mt-2 mb-4">$13.5B</h4>
-            <p className="text-xs text-slate-500 leading-relaxed m-0">Combined PQC + HSM + Cryptographic Inventory market. 18.2% CAGR driven by global "Harvest Now, Decrypt Later" mandates.</p>
-          </div>
-          <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:border-indigo-200 transition-all relative group overflow-hidden">
-             <div className="flex justify-between items-start mb-4">
-              <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">SAM (2027)</span>
-              <div className="text-[9px] font-bold text-slate-400">Ref: [2,5]</div>
-            </div>
-            <h4 className="text-4xl font-bold text-slate-900 mt-2 mb-4">$4.2B</h4>
-            <p className="text-xs text-slate-500 leading-relaxed m-0">Total Addressable Market in EU & US Financial and Critical Infrastructure sectors requiring immediate DORA/CNSA 2.0 compliance.</p>
-          </div>
-          <div className="p-8 bg-slate-900 text-white rounded-[2.5rem] shadow-xl hover:scale-[1.02] transition-all relative group overflow-hidden">
-             <div className="flex justify-between items-start mb-4">
-              <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest">SOM (Target)</span>
-              <div className="text-[9px] font-bold text-slate-500">RivicQ v1.0</div>
-            </div>
-            <h4 className="text-4xl font-bold text-white mt-2 mb-4">$840M</h4>
-            <p className="text-xs text-slate-400 leading-relaxed m-0">Target capture of 20% SAM by 2030, focusing on the high-margin 'Transition Layer' services and SaaS-based CryptoBOM auditing.</p>
-          </div>
-        </div>
-        
-        {/* Market Sources */}
-        <div className="not-prose bg-slate-50 border border-slate-100 rounded-[2.5rem] p-10">
-          <div className="flex items-center gap-3 mb-8">
-            <Quote aria-hidden="true" size={20} className="text-sky-500" />
-            <h3 className="text-xl font-serif font-bold text-slate-900 m-0">Market Validation & References</h3>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-            <div className="flex gap-4">
-              <span className="font-bold text-sky-500 text-sm">[1]</span>
-              <p className="text-[11px] text-slate-500 leading-relaxed m-0">
-                <strong>MarketsandMarkets:</strong> Post-Quantum Cryptography Market Report 2024. Projects a surge from $0.3B to $1.8B for pure PQC software, with an additional $11.7B in hardware security module (HSM) upgrades.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <span className="font-bold text-sky-500 text-sm">[2]</span>
-              <p className="text-[11px] text-slate-500 leading-relaxed m-0">
-                <strong>EU Commission DORA Impact Assessment:</strong> Estimates €3.2B in initial ICT resilience spending for EU financial entities by 2025, specifically citing cryptographic agility as a core requirement.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <span className="font-bold text-sky-500 text-sm">[3]</span>
-              <p className="text-[11px] text-slate-500 leading-relaxed m-0">
-                <strong>Gartner Security & Risk Analysis:</strong> Forecasts that by 2026, 60% of Global 2000 enterprises will have a formal cryptographic inventory (CryptoBOM) as part of their compliance posture.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <span className="font-bold text-sky-500 text-sm">[4]</span>
-              <p className="text-[11px] text-slate-500 leading-relaxed m-0">
-                <strong>White House National Security Memorandum (NSM-10):</strong> Mandates all federal agencies to inventory and prioritize PQC migration, establishing a massive government service market (SAM-Gov).
-              </p>
-            </div>
-          </div>
-          
-          <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between">
-            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-              <Info aria-hidden="true" size={12} className="text-sky-400" /> Data synthesized from multiple industry sources as of Q4 2025.
-            </div>
-            <a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-sky-500 hover:text-slate-900 transition-colors uppercase tracking-widest flex items-center gap-1">
-              Cross-Verify Standards <ExternalLink aria-hidden="true" size={10} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Traction & Unfair Advantages */}
-      <section className="mb-24">
-        <div className="flex items-center gap-4 mb-10">
-          <div className="p-3 bg-emerald-600 text-white rounded-2xl shadow-lg">
-            <Rocket aria-hidden="true" size={24} />
-          </div>
-          <div>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Current Traction</h2>
-            <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Highly Validated Foundation</p>
-          </div>
-        </div>
-
-        <div className="not-prose grid md:grid-cols-2 gap-6">
-          <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
-            <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <CheckCircle2 aria-hidden="true" size={16} className="text-sky-500" /> Infrastructure Support
-            </h4>
-            <p className="text-xs text-slate-600 leading-relaxed m-0">
-              Secured <strong>$350K in Google Cloud AI Credits</strong> to build the RivicQ MVP without burning early investor capital.
-            </p>
-          </div>
-          <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
-            <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Landmark aria-hidden="true" size={16} className="text-sky-500" /> Accelerator Backing
-            </h4>
-            <p className="text-xs text-slate-600 leading-relaxed m-0">
-              Active residents of the <strong>Leap Berlin / Humboldt Innovation Quantum Accelerator</strong> and validated by <strong>SIB (Scholarship Program)</strong>.
-            </p>
-          </div>
-          <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
-            <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Users aria-hidden="true" size={16} className="text-sky-500" /> Academic Partnerships
-            </h4>
-            <p className="text-xs text-slate-600 leading-relaxed m-0">
-              Backed by research faculty from <strong>TU Berlin (Prof. Dr. Jean-Pierre Seifert)</strong> focusing on PQC validation.
-            </p>
-          </div>
-          <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
-            <h4 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
-              <Shield aria-hidden="true" size={16} className="text-sky-500" /> Open Source Traction
-            </h4>
-            <p className="text-xs text-slate-600 leading-relaxed m-0">
-              Early modular components live and gaining visibility at <strong>github.com/rivic-q</strong>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. The Ask */}
-      <section className="mb-24" id="whitepaper">
-        <div className="p-10 md:p-16 bg-white border border-slate-200 rounded-[3rem] shadow-sm">
-          <h2 className="text-3xl font-serif font-bold text-slate-900 mb-6 m-0">The Ask – Pre-Seed Round</h2>
-          <div className="flex items-baseline gap-2 mb-10">
-            <span className="text-5xl font-bold text-slate-900">€150-500k</span>
-          </div>
-          <p className="text-slate-600 mb-10">Capital to finalize the MVP, make strategic early hires (Co-founder/Engineering), and launch pilot programs with design partners.</p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="space-y-1">
-              <span className="text-2xl font-bold text-sky-500">40%</span>
-              <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Product & Eng.</span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-2xl font-bold text-indigo-600">30%</span>
-              <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">GTM & Sales</span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-2xl font-bold text-emerald-600">20%</span>
-              <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Compliance</span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-2xl font-bold text-slate-400">10%</span>
-              <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Operations</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Document Request Form */}
-      <section className="mb-24 not-prose">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Document Options */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-sky-500 text-white rounded-2xl shadow-lg">
-                <FileDown aria-hidden="true" size={24}/>
-              </div>
-              <div>
-                <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Request Documents</h2>
-                <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Investor & Partner Materials</p>
-              </div>
-            </div>
-
-            <p className="text-slate-600">
-              Access our confidential investor materials including the full pitch deck, technical whitepaper, and 2026-2032 revenue projections.
-            </p>
-
-            <div className="space-y-4">
-              <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-sky-300 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-sky-500 shrink-0">
-                    <Presentation aria-hidden="true" size={24}/>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-1">Pitch Deck</h4>
-                    <p className="text-xs text-slate-500">Comprehensive overview including market opportunity, traction, product roadmap, and investment terms.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-indigo-300 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 shrink-0">
-                    <FileText aria-hidden="true" size={24}/>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-1">Technical Whitepaper</h4>
-                    <p className="text-xs text-slate-500">In-depth technical documentation of RQSP protocol, cryptographic architecture, and compliance mapping.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-emerald-300 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 shrink-0">
-                    <BarChart aria-hidden="true" size={24}/>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-1">Financial Projections</h4>
-                    <p className="text-xs text-slate-500">2026-2032 revenue model with scenario analysis, customer acquisition projections, and unit economics.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
-              <h4 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
-                <ShieldCheck aria-hidden="true" size={16} className="text-sky-500"/> Confidentiality Notice
-              </h4>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                All materials are shared under strict confidentiality. By requesting access, you agree to keep this information confidential and not distribute to third parties without explicit consent from RivicQ.
-              </p>
-            </div>
-          </div>
-
-          {/* Right: Request Form */}
-          <div className="bg-white rounded-[3rem] p-8 md:p-12 border border-slate-200 shadow-xl">
-            {formSubmitted ? (
-              <div className="text-center py-12 animate-fadeIn">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <CheckCircle2 aria-hidden="true" size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">Request Received</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                  Our investor relations team will review your request and send the materials within 24-48 hours.
-                </p>
-                <p className="text-xs text-slate-400">
-                  Questions? Contact us at <a href="mailto:hello@rivicq.de" className="text-sky-500">hello@rivicq.de</a>
-                </p>
-                <button 
-                  onClick={() => setFormSubmitted(false)} 
-                  className="mt-8 px-6 py-3 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-slate-200 transition-all"
-                >
-                  Submit Another Request
-                </button>
-              </div>
-            ) : (
-              <>
-                <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">Request Access</h3>
-                <p className="text-sm text-slate-500 mb-8">Complete the form below to receive our confidential materials.</p>
-
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="space-y-1">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Full Name *</label>
-                      <input 
-                        required 
-                        value={formData.name} 
-                        onChange={e => setFormData({...formData, name: e.target.value})} 
-                        placeholder="Your Name"
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Email *</label>
-                      <input 
-                        required 
-                        type="email"
-                        value={formData.email} 
-                        onChange={e => setFormData({...formData, email: e.target.value})} 
-                        placeholder="name@company.com"
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="space-y-1">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Organization *</label>
-                      <input 
-                        required 
-                        value={formData.organization} 
-                        onChange={e => setFormData({...formData, organization: e.target.value})} 
-                        placeholder="Company / Fund Name"
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Role / Title</label>
-                      <input 
-                        value={formData.role} 
-                        onChange={e => setFormData({...formData, role: e.target.value})} 
-                        placeholder="Partner / Analyst / etc."
-                        className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Documents Requested *</label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                      {[
-                        { value: 'pitch-deck', label: 'Pitch Deck', icon: <Presentation aria-hidden="true" size={14}/> },
-                        { value: 'whitepaper', label: 'Whitepaper', icon: <FileText aria-hidden="true" size={14}/> },
-                        { value: 'projections', label: 'Projections', icon: <BarChart aria-hidden="true" size={14}/> }
-                      ].map((doc) => (
-                        <label 
-                          key={doc.value}
-                          className={`flex items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${
-                            formData.documentType === doc.value 
-                              ? 'border-sky-600 bg-sky-50 text-sky-500' 
-                              : 'border-slate-100 hover:border-slate-300'
-                          }`}
-                        >
-                          <input 
-                            type="radio" 
-                            name="documentType"
-                            value={doc.value}
-                            checked={formData.documentType === doc.value}
-                            onChange={e => setFormData({...formData, documentType: e.target.value})}
-                            className="sr-only"
-                          />
-                          {doc.icon}
-                          <span className="text-xs font-bold">{doc.label}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-[9px] font-bold uppercase tracking-widest text-slate-400 ml-1">Additional Notes</label>
-                    <textarea 
-                      value={formData.message} 
-                      onChange={e => setFormData({...formData, message: e.target.value})} 
-                      placeholder="Tell us about your investment focus or any questions..."
-                      className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-xl text-sm min-h-[100px] resize-none outline-none focus:ring-2 focus:ring-sky-600/20 focus:bg-white transition-all" 
-                    />
-                  </div>
-
-                  <button 
-                    type="submit" 
-                    disabled={isSubmitting} 
-                    className="w-full py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-sky-500 transition-all flex items-center justify-center gap-3 shadow-xl uppercase tracking-widest text-xs disabled:opacity-50"
-                  >
-                    {isSubmitting ? <Loader2 size={16} className="animate-spin"/> : <><Send size={16}/> Request Access</>}
-                  </button>
-
-                  <p className="text-[9px] text-slate-400 text-center leading-relaxed">
-                    By submitting, you agree to keep all received materials confidential. 
-                    <br/>RivicQ will process your request within 24-48 hours.
-                  </p>
-                </form>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Investor CTA */}
-      <section className="not-prose bg-[#0f172a] text-white p-12 md:p-16 rounded-[3rem] relative overflow-hidden text-center shadow-2xl">
-        <div className="absolute inset-0 bg-technical opacity-5"></div>
-        <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto mt-4 relative z-10 leading-relaxed">
-          Ready to join us in building the quantum-safe future?
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-          <a href="mailto:hello@rivicq.de?subject=Investor Inquiry" className="px-10 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-500 transition-all flex items-center gap-2 justify-center shadow-xl shadow-sky-500/20">
-            Connect with IR <ArrowRight aria-hidden="true" size={18}/>
-          </a>
-          <Link to="/team" className="px-10 py-4 border border-slate-700 text-white font-bold rounded-xl hover:bg-white/5 transition-all flex items-center gap-2 justify-center">
-            Meet the Team <Beaker aria-hidden="true" size={18}/>
-          </Link>
-        </div>
-      </section>
-      
-      <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-        RivicQ Technologies • Berlin
-      </footer>
-    </article>
+        <CTABlock title="Request Investor Access" text="Contact our team for the pitch deck, financials, and seed round details." label="Request Materials" href="/enterprise" />
+      </div>
+    </div>
   );
-};
-
-export default PitchDeck;
+}

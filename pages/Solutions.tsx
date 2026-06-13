@@ -1,137 +1,53 @@
+import { Link } from 'react-router-dom';
+import { Badge } from '../components/Badge';
+import { SectionHeader } from '../components/SectionHeader';
+import { CTABlock } from '../components/CTABlock';
+import { solutions } from '../data/products';
+import QuantumCircuit from '../components/QuantumCircuit';
+import AnimatedBackground from '../components/AnimatedBackground';
 
-import React from 'react';
-import { ShieldCheck, Server, Cpu, Database, Landmark, ShieldAlert, Cloud, Lock, ExternalLink, FileText, FileCheck } from 'lucide-react';
-
-const SolutionSection: React.FC<{ 
-  title: string, 
-  icon: React.ReactNode, 
-  children: React.ReactNode, 
-  reference: { title: string, link: string, code: string, authority: string } 
-}> = ({ title, icon, children, reference }) => (
-  <div className="mb-16 border-b border-slate-100 pb-12 last:border-0">
-    <div className="flex items-center gap-4 mb-6">
-      <div className="p-3 bg-sky-50 text-sky-500 rounded-2xl border border-sky-100/50">
-        {icon}
-      </div>
-      <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">{title}</h3>
-    </div>
-    
-    <div className="text-slate-600 leading-relaxed mb-8 text-lg">
-      {children}
-    </div>
-
-    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative overflow-hidden group hover:border-sky-300 transition-colors">
-      <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-        <FileCheck aria-hidden="true" size={100} className="text-slate-900"/>
-      </div>
-      <div className="relative z-10">
-        <div className="flex items-center gap-2 mb-2">
-          <ShieldCheck aria-hidden="true" size={16} className="text-emerald-600" />
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Verified Standard</span>
-        </div>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <h4 className="text-sm font-bold text-slate-900 m-0 flex items-center gap-2">
-              {reference.title}
-              <span className="px-2 py-0.5 bg-slate-200 text-slate-600 text-[9px] rounded-full">{reference.code}</span>
-            </h4>
-            <p className="text-xs text-slate-500 m-0 mt-1">Authority: {reference.authority}</p>
-          </div>
-          <a href={reference.link} target="_blank" rel="noopener noreferrer" className="shrink-0 px-4 py-2 bg-white border border-slate-200 text-sky-500 text-xs font-bold rounded-lg hover:bg-sky-50 hover:border-sky-200 transition-all flex items-center gap-2 uppercase tracking-widest shadow-sm">
-            See Official Rule <ExternalLink aria-hidden="true" size={12} />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const Solutions: React.FC = () => {
+export default function Solutions() {
   return (
-    <article className="prose prose-lg prose-slate max-w-none">
-      <header className="mb-16">
-        <h1 className="text-5xl font-bold mb-4 tracking-tight">Industry Solutions</h1>
-        <p className="lead font-serif italic text-slate-600 text-xl">
-          Quantum-safe security for industries that need to protect data for decades.
-        </p>
-      </header>
-      
-      <div className="not-prose">
-        <SolutionSection 
-          title="Banks & Payments"
-          icon={<Landmark aria-hidden="true" size={24}/>}
-          reference={{
-            title: "PCI DSS v4.0",
-            code: "SEC. 12.3.3",
-            authority: "PCI Security Standards Council",
-            link: "https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf"
-          }}
-        >
-          <p>
-            New rules say banks must use stronger encryption. RivicQ helps you upgrade your payment systems to use new, quantum-safe signatures. This ensures that every transaction is secure and cannot be hacked by future computers.
-          </p>
-        </SolutionSection>
+    <div style={{ position: 'relative' }}>
+      <AnimatedBackground variant="mixed" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <QuantumCircuit complexity={5} color="var(--rq-blue)" />
+      <div style={{ maxWidth: 1000, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
+        <SectionHeader
+          title="Solutions by Industry"
+          subtitle="Engineer-to-engineer encryption migration for your specific threat model. HSM-backed, QBOM-assessed, PQC-ready."
+          badge={<Badge variant="encrypt">Industry Encryption</Badge>}
+        />
 
-        <SolutionSection 
-          title="Fintech & Cloud Apps"
-          icon={<Cloud aria-hidden="true" size={24}/>}
-          reference={{
-            title: "EU DORA Act",
-            code: "EU 2022/2554",
-            authority: "European Parliament",
-            link: "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"
-          }}
-        >
-          <p>
-            European laws (DORA) now require financial apps to be resilient. Our Cloud HSMs secure the connections between your apps (APIs) so that customer data remains private and compliant with EU law.
-          </p>
-        </SolutionSection>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+          {solutions.map((sol, i) => (
+            <div key={sol.title} style={{
+              border: '1px solid var(--rq-border)', borderRadius: 12, padding: 24,
+              transition: 'border-color 200ms, box-shadow 200ms',
+              animation: 'fadeInUp 0.5s ease-out forwards',
+              animationDelay: `${i * 0.1}s`,
+              opacity: 0,
+            }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--rq-encrypt)'; e.currentTarget.style.boxShadow = '0 0 20px rgba(37,99,235,0.06)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--rq-border)'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <div style={{ fontSize: '1.5rem', marginBottom: 8 }}>{sol.icon}</div>
+              <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '1rem', margin: '0 0 6px' }}>{sol.title}</h3>
+              <p style={{ color: 'var(--rq-muted)', fontSize: '0.85rem', margin: '0 0 16px', lineHeight: 1.6 }}>{sol.tagline}</p>
+              <Link to={`/enterprise?product=${encodeURIComponent(sol.title)}`} style={{
+                padding: '6px 14px', borderRadius: 6, fontSize: '0.78rem',
+                background: 'var(--rq-encrypt)', color: '#fff',
+                textDecoration: 'none', fontWeight: 600,
+                fontFamily: "'Space Grotesk', sans-serif",
+                display: 'inline-block',
+              }}>Request Pilot →</Link>
+            </div>
+          ))}
+        </div>
 
-        <SolutionSection 
-          title="Government & Defense"
-          icon={<ShieldAlert aria-hidden="true" size={24}/>}
-          reference={{
-            title: "CNSA Suite 2.0",
-            code: "NSA/CSS",
-            authority: "National Security Agency",
-            link: "https://media.defense.gov/2022/Sep/07/2003071834/-1/-1/0/CSA_CNSA_2.0_ALGORITHMS_.PDF"
-          }}
-        >
-          <p>
-            Classified data is being stolen now to be decrypted later. We provide high-security, physical hardware solutions (air-gapped) that use the strongest random number generators to protect national secrets.
-          </p>
-        </SolutionSection>
-
-        <SolutionSection 
-          title="Infrastructure & Factories"
-          icon={<Server aria-hidden="true" size={24}/>}
-          reference={{
-            title: "Guide to OT Security",
-            code: "NIST SP 800-82r3",
-            authority: "NIST",
-            link: "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
-          }}
-        >
-          <p>
-            Factory systems often run for 20 years. We help you create a list of all your digital keys (CryptoBOM) and secure the ones used in your machinery, ensuring your supply chain is safe from cyber attacks.
-          </p>
-        </SolutionSection>
-      </div>
-
-      <div className="mt-16 bg-slate-900 rounded-[2.5rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
-        <div className="relative z-10">
-           <h3 className="text-2xl font-serif font-bold mb-4 m-0 text-white">Need help with regulations?</h3>
-           <p className="text-slate-400 text-sm mb-8 max-w-xl mx-auto">
-             Our team can check your systems and tell you exactly what you need to do to be compliant.
-           </p>
-           <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-500 transition-all text-xs uppercase tracking-widest">
-              Contact Us <FileText aria-hidden="true" size={16}/>
-           </a>
+        <div style={{ marginTop: 40 }}>
+          <CTABlock title="Not Sure Where to Start?" text="Free CBOM+QBOM pilot. We'll scan your encryption stack, Q-score every asset, and deliver a PQC migration roadmap with HSM recommendations." label="Request Free Encryption Audit" href="/enterprise" />
         </div>
       </div>
-
-    </article>
+    </div>
   );
-};
-
-export default Solutions;
+}

@@ -1,126 +1,32 @@
+import { Badge } from '../components/Badge';
+import { SectionHeader } from '../components/SectionHeader';
+import { MilestoneTimeline } from '../components/MilestoneTimeline';
+import { CTABlock } from '../components/CTABlock';
+import { milestones } from '../data/milestones';
+import QuantumCircuit from '../components/QuantumCircuit';
 
-import React from 'react';
-import { Award, Building2, Rocket, Landmark, Globe, Target, ShieldCheck as ShieldIcon, Share2, Cpu, Briefcase, Network } from 'lucide-react';
-
-const TimelineItem: React.FC<{ date: string, title: string, content: string, icon: React.ReactNode }> = ({ date, title, content, icon }) => (
-  <div className="relative pl-12 pb-12 last:pb-0 group">
-    <div className={`absolute left-0 top-1 w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center z-10 shadow-sm transition-transform group-hover:scale-110 group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900`}>
-      {icon}
-    </div>
-    <div className="absolute left-[17px] top-1 w-px h-full bg-slate-100 -z-0"></div>
-    <div className="flex flex-col">
-      <span className="text-[10px] font-mono font-bold text-sky-500 uppercase tracking-[0.2em] mb-1">{date}</span>
-      <h3 className="m-0 text-xl font-serif font-bold text-slate-900 mb-2 transition-colors group-hover:text-sky-500">{title}</h3>
-      <p className="text-sm text-slate-600 leading-relaxed m-0 max-w-xl">{content}</p>
-    </div>
-  </div>
-);
-
-const Story: React.FC = () => {
+export default function Story() {
   return (
-    <article className="prose prose-slate max-w-none">
-      <header className="mb-16">
-        <h1 className="text-5xl font-bold mb-4 tracking-tight text-slate-900">Corporate History</h1>
-        <p className="text-xl text-slate-500 font-serif italic max-w-2xl leading-relaxed">
-          The evolution of RivicQ: from fundamental cryptographic research to global infrastructure resilience.
-        </p>
-      </header>
-
-      <section className="mb-20">
-        <div className="bg-slate-50 p-10 md:p-16 rounded-[3rem] border border-slate-100 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none text-sky-500">
-                <Target aria-hidden="true" size={180} />
-            </div>
-            <p className="m-0 text-slate-700 text-lg leading-relaxed relative z-10 max-w-3xl">
-                RivicQ Technologies was established to address the critical obsolescence of global cryptographic infrastructure. Founded in the Berlin innovation ecosystem, we have systematically transitioned from theoretical research to the development of commercial-grade Post-Quantum Cryptography (PQC) orchestration platforms for high-assurance sectors.
-            </p>
+    <div style={{ position: 'relative' }}>
+      <QuantumCircuit complexity={5} color="var(--rq-primary)" />
+      <div style={{ maxWidth: 900, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
+        <SectionHeader
+          title="Our Story"
+          subtitle="From a Berlin encryption research lab to ETSI PQC delegate and EURA AG partner — in two years."
+          badge={<Badge variant="encrypt">Encryption Journey</Badge>}
+        />
+        <div style={{ lineHeight: 1.8, color: 'var(--rq-muted)', fontSize: '0.95rem', marginBottom: 40 }}>
+          <p>RivicQ was founded in 2024 by Revan Sai Ande, a security researcher and ETSI PQC Ambassador with a background in hardware security side-channel analysis and bug bounty hunting. The mission: make post-quantum encryption practical and auditable.</p>
+          <p>What started as research into cryptographic migration tools at TU Berlin quickly became a recognized deep-tech venture. The SIB Deep-Tech Grant (2025) funded the CBOM Scanner — an open-source tool for cryptographic asset discovery. By mid-2025, the team had published the QBOM specification draft, adding quantum vulnerability scoring (Q-score) to every cryptographic asset.</p>
+          <p>By early 2026, RivicQ had presented at the BSI Congress (PQC encryption track), joined the Leap Berlin Quantum Hub, and was selected for Science & Startups 100/100. The CloudHSM beta launched with FIPS 140-3 Level 3 compliance in process and the Encryption-as-a-Service API live.</p>
+          <p>Today, RivicQ is an ETSI / IQC QSC delegate driving post-quantum encryption standards, has a signed LOI with EURA AG for HSM deployment, and is partnering with Horizenlabs on PQC-blockchain integration. Our mission: make PQC encryption, HSM key management, and cryptographic auditing accessible to every organization.</p>
         </div>
-      </section>
-
-      <div className="not-prose mb-24">
-        <h2 className="font-serif text-3xl font-bold mb-16 text-slate-900 text-center uppercase tracking-widest">Strategic Milestones</h2>
-        
-        <div className="max-w-3xl mx-auto">
-          <TimelineItem 
-            date="Q3 2024"
-            title="Protocol Architecture & Standards Mapping"
-            icon={<Network aria-hidden="true" size={16}/>}
-            content="Formalized the Rivic Quantum Security Protocol (RQSP) architecture. Completed comprehensive mapping of lattice-based primitives against emerging NIST FIPS 203/204 draft standards."
-          />
-          <TimelineItem 
-            date="Q4 2024"
-            title="Technical Validation & Peer Review"
-            icon={<Share2 aria-hidden="true" size={16}/>}
-            content="Successful internal validation of the PQC orchestration layer. Peer review of cross-chain interoperability modules for high-throughput decentralized environments."
-          />
-          <TimelineItem 
-            date="January 2025"
-            title="Strategic Institutional Support"
-            icon={<Award aria-hidden="true" size={16}/>}
-            content="Secured foundational institutional support through the SIB framework, enabling the transition to commercial product engineering and FIPS 140-3 compliance roadmapping."
-          />
-          <TimelineItem 
-            date="February 2025"
-            title="Enterprise Strategy Finalization"
-            icon={<Briefcase aria-hidden="true" size={16}/>}
-            content="Conclusion of the SLB industrial acceleration program. Finalized the value proposition for the Cryptographic Bill of Materials (CBOM) as a core enterprise compliance asset."
-          />
-          <TimelineItem 
-            date="March 2025"
-            title="Governmental Sector Engagement"
-            icon={<Landmark aria-hidden="true" size={16}/>}
-            content="Presented architectural frameworks at the Bundeswehr Cyber Innovation Hub. Aligned internal R&D with federal defense requirements for long-term secure communications."
-          />
-          <TimelineItem 
-            date="April 2025"
-            title="Federal R&D Proposals"
-            icon={<ShieldIcon size={16}/>}
-            content="Submission of technical proposals to federal innovation agencies (SPRIN-D), focusing on sovereign infrastructure protection and decentralized network resilience."
-          />
-          <TimelineItem 
-            date="December 2025"
-            title="Global Infrastructure Launch"
-            icon={<Globe aria-hidden="true" size={16}/>}
-            content="Formally debuted the RivicQ enterprise suite. Established a permanent digital presence and initiated the Infrastructure Partner Program for global scale."
-          />
-          <TimelineItem 
-            date="January 2026"
-            title="Berlin Quantum Ecosystem Integration (Humboldt Innovation)"
-            icon={<Cpu aria-hidden="true" size={16}/>}
-            content="Formalized integration into Berlin's elite deep-tech research community via Humboldt Innovation. Establishing physical residency within specialized quantum validation facilities."
-          />
-          <TimelineItem 
-            date="February 2026"
-            title="WISTA Leap Berlin / Humboldt Innovation Residency"
-            icon={<Rocket aria-hidden="true" size={16}/>}
-            content="Operational start at the Leap Berlin / Humboldt Innovation Quantum Accelerator. Securing direct access to hardware benchmarks for Cloud HSM entropy validation."
-          />
+        <SectionHeader title="Milestones" />
+        <MilestoneTimeline items={milestones} />
+        <div style={{ marginTop: 40 }}>
+          <CTABlock title="Work With Us" text="Partnerships, encryption pilots, and investment inquiries welcome." label="Get in Touch" href="/enterprise" />
         </div>
       </div>
-
-      <section className="bg-slate-900 text-white p-12 md:p-20 rounded-[4rem] relative overflow-hidden mb-24 shadow-2xl">
-        <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none text-white">
-          <Landmark aria-hidden="true" size={240} />
-        </div>
-        <div className="relative z-10 max-w-2xl">
-            <h2 className="text-white text-4xl font-serif font-bold mb-8 m-0 leading-tight">Engineering for Permanence</h2>
-            <p className="text-slate-400 text-lg leading-relaxed italic mb-10">
-                Our trajectory is defined by structural validation and regulatory foresight. We view every technical challenge as a mandatory milestone toward securing the world's most critical data assets for the next fifty years.
-            </p>
-            <div className="flex items-center gap-6">
-               <div className="h-0.5 w-12 bg-sky-500"></div>
-               <p className="text-xs font-bold text-sky-500 m-0 uppercase tracking-[0.3em]">
-                 Established Berlin • Serving Globally
-               </p>
-            </div>
-        </div>
-      </section>
-
-      <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-        RivicQ Technologies • Berlin
-      </footer>
-    </article>
+    </div>
   );
-};
-
-export default Story;
+}

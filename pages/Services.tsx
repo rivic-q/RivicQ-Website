@@ -1,205 +1,143 @@
+import { Badge } from '../components/Badge';
+import { SectionHeader } from '../components/SectionHeader';
+import { CTABlock } from '../components/CTABlock';
+import QuantumCircuit from '../components/QuantumCircuit';
+import AnimatedBackground from '../components/AnimatedBackground';
 
-import React from 'react';
-import { ShieldAlert, Terminal, Activity, ArrowRight, CheckCircle2, Microscope, Search, GitBranch, Shield, Zap, Lock, ShieldCheck, Bot, Fingerprint } from 'lucide-react';
+const serviceList = [
+  {
+    title: 'CBOM+QBOM Encryption Audit',
+    desc: 'Full cryptographic inventory with quantum vulnerability scoring. Every key, cert, and encryption algorithm Q-score assessed across codebases, containers, and cloud VPCs.',
+    tags: ['CBOM', 'QBOM', 'Audit'],
+  },
+  {
+    title: 'PQC Encryption Migration',
+    desc: 'Gap analysis, priority mapping, and phased encryption migration roadmap aligned to NIST FIPS 203/204/205 and DORA/NIS2 regulatory deadlines.',
+    tags: ['PQC', 'NIST', 'Migration'],
+  },
+  {
+    title: 'HSM Deployment & EaaS Integration',
+    desc: 'On-prem or cloud FIPS 140-3 HSM deployment with PKCS#11 integration. Encryption-as-a-Service API setup with ML-KEM-768, AES-256-GCM, and hybrid key derivation. QRNG entropy source integration for quantum-grade randomness.',
+    tags: ['HSM', 'FIPS 140-3', 'EaaS', 'QRNG'],
+    highlight: true,
+  },
+  {
+    title: 'DevSecOps Encryption Pipeline',
+    desc: 'CI/CD-native cryptographic security. CBOM generation in build pipelines, automated PQC key rotation, Q-score gating for deployments, and HSM-backed secrets management integrated with GitHub Actions, GitLab CI, and Jenkins.',
+    tags: ['DevSecOps', 'CI/CD', 'CBOM', 'Pipeline'],
+    highlight: true,
+  },
+  {
+    title: 'QBOM Risk Scoring',
+    desc: 'Quantum vulnerability scoring for every cryptographic asset. Automated Q-score reporting with prioritized remediation based on data sensitivity and exposure window.',
+    tags: ['QBOM', 'Risk', 'Q-score'],
+  },
+  {
+    title: 'Compliance Audit Prep',
+    desc: 'DORA / NIS2 encryption readiness assessment. Cryptographic policy documentation, CBOM+QBOM generation, and audit evidence package for regulators.',
+    tags: ['DORA', 'NIS2', 'Compliance'],
+  },
+  {
+    title: 'HSM Engineering Workshops',
+    desc: 'Hands-on: HSM key lifecycle management, PQC encryption primitives, hybrid TLS migration, QRNG integration, and DevSecOps pipeline hardening.',
+    tags: ['HSM', 'Workshop', 'Training'],
+  },
+];
 
-const ServiceDetail: React.FC<{ 
-  title: string, 
-  desc: string, 
-  points: string[], 
-  icon: React.ReactNode,
-  badge?: string 
-}> = ({ title, desc, points, icon, badge }) => (
-  <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all group">
-    <div className="flex justify-between items-start mb-6">
-      <div className="p-4 bg-slate-50 text-slate-900 rounded-2xl group-hover:bg-slate-900 group-hover:text-white transition-all">
-        {icon}
-      </div>
-      {badge && (
-        <span className="px-3 py-1 bg-sky-50 text-sky-500 text-[9px] font-bold uppercase tracking-widest rounded-full">{badge}</span>
-      )}
-    </div>
-    <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4">{title}</h3>
-    <p className="text-sm text-slate-500 leading-relaxed mb-8">{desc}</p>
-    <ul className="space-y-3 m-0 p-0 list-none">
-      {points.map((p, i) => (
-        <li key={i} className="flex items-center gap-3 text-xs font-bold text-slate-700 uppercase tracking-wide">
-          <CheckCircle2 aria-hidden="true" size={14} className="text-emerald-500" /> {p}
-        </li>
-      ))}
-    </ul>
-    <div className="mt-10 pt-6 border-t border-slate-50">
-      <a href="mailto:hello@rivicq.de" className="text-xs font-bold text-sky-500 hover:text-slate-900 flex items-center gap-1 transition-colors uppercase tracking-widest">
-        Request Scope <ArrowRight aria-hidden="true" size={14}/>
-      </a>
-    </div>
-  </div>
-);
-
-const Services: React.FC = () => {
+export default function Services() {
   return (
-    <article className="prose prose-lg prose-slate max-w-none">
-      <header className="mb-16">
-        <h1 className="text-5xl font-bold mb-4 tracking-tight">Technical Services</h1>
-        <p className="lead text-xl text-gray-600 font-serif italic">
-          Security testing and compliance advisory for high-stakes environments.
-        </p>
-      </header>
+    <div style={{ position: 'relative' }}>
+      <AnimatedBackground variant="mixed" intensity="medium" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <QuantumCircuit complexity={6} />
+      <div style={{ maxWidth: 900, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
+        <SectionHeader
+          title="Professional Services"
+          subtitle="From encryption audit and HSM deployment to DevSecOps pipeline integration. Delivered by engineers who build the technology."
+          badge={<Badge variant="encrypt">Encryption Services</Badge>}
+        />
 
-      <div className="not-prose grid md:grid-cols-2 gap-8 mb-24">
-        <ServiceDetail 
-          icon={<ShieldAlert aria-hidden="true" size={24}/>}
-          title="Red Teaming"
-          badge="Adversary Simulation"
-          desc="Real-world attack simulations targeting your people, systems, and technology."
-          points={[
-            "Scenario-based adversary logic",
-            "Assume-Breach assessments",
-            "Hardware side-channel audit"
-          ]}
-        />
-        <ServiceDetail 
-          icon={<Terminal aria-hidden="true" size={24}/>}
-          title="Penetration Testing"
-          badge="Audit & Discovery"
-          desc="Deep security testing focused on logic flaws and old crypto."
-          points={[
-            "Web App & API security",
-            "Infrastructure cloud audit",
-            "PQC implementation review"
-          ]}
-        />
-        <ServiceDetail 
-          icon={<Search aria-hidden="true" size={24}/>}
-          title="Vulnerability Management"
-          badge="Proactive Defense"
-          desc="Continuous scanning that finds and prioritizes security flaws before attackers do."
-          points={[
-            "Asset inventory & tracking",
-            "Automated patch validation",
-            "Risk-based prioritization"
-          ]}
-        />
-        <ServiceDetail 
-          icon={<Microscope aria-hidden="true" size={24}/>}
-          title="PQC Advisory"
-          badge="Strategic Migration"
-          desc="Guidance on moving from RSA/ECC to NIST-standardized quantum-safe crypto."
-          points={[
-            "NIST FIPS 203/204/205 readiness",
-            "EU DORA gap analysis",
-            "Hybrid migration roadmaps"
-          ]}
-        />
-        <ServiceDetail 
-          icon={<Bot aria-hidden="true" size={24}/>}
-          title="Agentic Security Assessment"
-          badge="AI Agent Audit"
-          desc="Check your AI agents for crypto weaknesses, prompt injection risks, and workflow integrity."
-          points={[
-            "AI agent threat modeling",
-            "Autonomous workflow audit",
-            "Cryptographic boundary testing",
-            "Agent-to-agent channel security"
-          ]}
-        />
-        <ServiceDetail 
-          icon={<Fingerprint aria-hidden="true" size={24}/>}
-          title="Privacy Protocol Implementation"
-          badge="Zero-Knowledge"
-          desc="Deploy zero-knowledge privacy into your existing systems. ZK-proofs, secure computation, and privacy for regulated data."
-          points={[
-            "Zero-knowledge proof deployment",
-            "Secure multi-party computation setup",
-            "Differential privacy integration",
-            "GDPR / eIDAS compliance verification"
-          ]}
-        />
+        {/* HSM + DevSecOps highlight strip */}
+        <div style={{
+          display: 'flex', gap: 12, marginBottom: 24, flexWrap: 'wrap',
+          padding: 16, borderRadius: 10, border: '1px solid rgba(37,99,235,0.2)',
+          background: 'var(--rq-encrypt-dim)', animation: 'encryptPulse 3s ease-in-out infinite',
+        }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8, padding: '6px 14px',
+            borderRadius: 6, background: 'rgba(37,99,235,0.1)',
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rq-encrypt)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.8rem', color: 'var(--rq-encrypt)' }}>FIPS 140-3 HSM</span>
+          </div>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8, padding: '6px 14px',
+            borderRadius: 6, background: 'rgba(37,99,235,0.1)',
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rq-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.8rem', color: 'var(--rq-blue)' }}>DevSecOps Pipeline</span>
+          </div>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8, padding: '6px 14px',
+            borderRadius: 6, background: 'rgba(5,150,105,0.1)',
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rq-success)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.8rem', color: 'var(--rq-success)' }}>Quantum-Ready</span>
+          </div>
+        </div>
+
+        {/* Services with stagger animation */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {serviceList.map((s, i) => (
+            <div key={s.title} style={{
+              border: `1px solid ${s.highlight ? 'rgba(37,99,235,0.25)' : 'var(--rq-border)'}`,
+              borderRadius: 10, padding: 20,
+              background: s.highlight ? 'linear-gradient(135deg, var(--rq-encrypt-dim) 0%, transparent 100%)' : 'transparent',
+              transition: 'border-color 200ms, transform 200ms, box-shadow 200ms',
+              animation: 'fadeInUp 0.5s ease-out forwards',
+              animationDelay: `${i * 0.1}s`,
+              opacity: 0,
+            }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'var(--rq-encrypt)';
+                e.currentTarget.style.transform = 'translateX(4px)';
+                e.currentTarget.style.boxShadow = '-4px 0 12px rgba(37,99,235,0.08)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = s.highlight ? 'rgba(37,99,235,0.25)' : 'var(--rq-border)';
+                e.currentTarget.style.transform = 'translateX(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+                {s.highlight && (
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--rq-encrypt)" style={{ animation: 'gatePulse 2s ease-in-out infinite' }}>
+                    <circle cx="12" cy="12" r="8" />
+                  </svg>
+                )}
+                <h3 style={{
+                  fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 700,
+                  margin: 0, color: s.highlight ? 'var(--rq-encrypt)' : 'var(--rq-text)',
+                }}>{s.title}</h3>
+              </div>
+              <p style={{ color: 'var(--rq-muted)', fontSize: '0.85rem', margin: '0 0 10px', lineHeight: 1.6 }}>{s.desc}</p>
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                {s.tags.map(t => (
+                  <span key={t} style={{
+                    padding: '2px 8px', borderRadius: 4, fontSize: '0.7rem',
+                    background: s.highlight ? 'rgba(37,99,235,0.1)' : 'rgba(37,99,235,0.06)',
+                    color: s.highlight ? 'var(--rq-encrypt)' : 'var(--rq-muted)',
+                    fontFamily: "'JetBrains Mono', monospace",
+                  }}>{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 40 }}>
+          <CTABlock title="Need a Custom Encryption Engagement?" text="Contact our team for scoping, pricing, and availability. Pre-seed and pilot pricing available for qualifying enterprises." label="Contact Us" href="/enterprise" />
+        </div>
       </div>
-
-      {/* DevSecOps Enterprise Architecture Section */}
-      <section className="mb-24 py-16 border-t border-slate-100">
-        <div className="flex items-center gap-4 mb-10">
-          <div className="p-3 bg-indigo-600 text-white rounded-2xl shadow-lg">
-            <GitBranch aria-hidden="true" size={24} />
-          </div>
-          <div>
-            <h2 className="text-4xl font-serif font-bold text-slate-900 m-0">DevSecOps Architecture</h2>
-            <p className="text-xs text-indigo-600 font-bold uppercase tracking-widest mt-1">Security built into your development pipeline</p>
-          </div>
-        </div>
-
-        <div className="bg-slate-50 rounded-[3rem] p-10 md:p-16 border border-slate-100 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none text-slate-900 group-hover:scale-110 transition-transform duration-700">
-            <Shield aria-hidden="true" size={200} />
-          </div>
-          
-          <div className="relative z-10 max-w-3xl">
-            <p className="text-lg text-slate-700 leading-relaxed mb-12">
-              We build security into your development lifecycle. From AI agents to privacy protocols to PQC migration — security works at every stage.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-10 not-prose">
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <Zap aria-hidden="true" size={18}/>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm m-0">CI/CD Security Orchestration</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Automatically add quantum-safe wrappers and scan for crypto issues during builds.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <ShieldCheck aria-hidden="true" size={18}/>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm m-0">Infrastructure as Code (IaC)</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Secure Terraform and Kubernetes with hardware-backed identity and drift monitoring.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <Activity aria-hidden="true" size={18}/>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm m-0">Policy as Code (PaC)</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Enforce crypto standards across all clusters with policy-as-code.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100 text-indigo-600 h-fit">
-                    <Lock aria-hidden="true" size={18}/>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm m-0">Zero-Trust Networking</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">Micro-segmentation backed by physical HSM trust for all services.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12">
-               <a href="mailto:hello@rivicq.de?subject=Architecture Inquiry: DevSecOps" className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-indigo-600 transition-all text-xs uppercase tracking-widest shadow-xl shadow-slate-200">
-                Consult on Architecture <ArrowRight aria-hidden="true" size={16}/>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="text-center mt-24">
-         <h2 className="text-3xl font-serif font-bold mb-6">Talk to our team.</h2>
-         <p className="text-slate-500 mb-10 max-w-xl mx-auto">Our engineers are ready to discuss your security challenges.</p>
-         <a href="mailto:hello@rivicq.de" className="inline-flex items-center gap-2 bg-sky-500 text-white px-10 py-5 rounded-full font-bold hover:bg-sky-600 transition-all shadow-xl shadow-sky-500/20">
-            Consult our Team <ArrowRight aria-hidden="true" size={18}/>
-         </a>
-      </section>
-    </article>
+    </div>
   );
-};
-
-export default Services;
+}

@@ -1,16 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Cpu, Box, Lock, Zap, X, Atom, CheckCircle2, Sparkles, Activity, Loader2, Key, Cloud, Network, Server } from 'lucide-react';
+import { Cpu, Box, X, Atom, CheckCircle2, Zap, Cloud } from 'lucide-react';
 
 type Layer = 'physical' | 'engine' | 'quantum' | 'cloud' | null;
 
 const HSMBlueprint: React.FC = () => {
     const [activeLayer, setActiveLayer] = useState<Layer>(null);
-    const [isBooting, setIsBooting] = useState(false);
-    const [bootStep, setBootStep] = useState(0);
     const [entropyBits, setEntropyBits] = useState<string>('10101100');
 
-    // Simulated bitstream generation
     useEffect(() => {
         const interval = setInterval(() => {
             const bits = Array.from({ length: 8 }, () => Math.round(Math.random())).join('');
@@ -19,30 +15,7 @@ const HSMBlueprint: React.FC = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // Trigger secure boot animation steps when 'engine' is selected
-    useEffect(() => {
-        if (activeLayer === 'engine') {
-            setIsBooting(true);
-            setBootStep(0);
-            
-            const steps = [
-                () => setBootStep(1), // Initialization
-                () => setBootStep(2), // Root of Trust Handshake
-                () => setBootStep(3), // Signature Verification
-                () => setBootStep(4), // Success
-            ];
-
-            const timers = steps.map((step, i) => setTimeout(step, (i + 1) * 800));
-            const endTimer = setTimeout(() => setIsBooting(false), 4500);
-
-            return () => {
-                timers.forEach(clearTimeout);
-                clearTimeout(endTimer);
-            };
-        }
-    }, [activeLayer]);
-
-    const layerDetails: Record<string, { title: string, desc: string, stats: string[] }> = {
+    const layerDetails: Record<string, { title: string; desc: string; stats: string[] }> = {
         physical: {
             title: "Physical Boundary",
             desc: "A tamper-resistant magnesium-alloy chassis with active environmental monitoring.",
@@ -65,119 +38,260 @@ const HSMBlueprint: React.FC = () => {
         }
     };
 
-    return (
-        <div className="w-full py-12 md:py-24 md:py-36 flex flex-col items-center justify-center bg-white overflow-hidden relative group border-y border-slate-50 mb-8">
-            
-            {/* Background Decor */}
-            <div className="absolute inset-0 pointer-events-none" 
-                 style={{ 
-                     backgroundImage: 'linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)',
-                     backgroundSize: '100px 100px',
-                     maskImage: 'radial-gradient(circle at center, black 10%, transparent 80%)',
-                     opacity: 0.5
-                 }}>
-            </div>
+    const getLayerStyle = (layer: Layer) => {
+        if (!activeLayer) return {};
+        if (activeLayer === layer) return { zIndex: 100, opacity: 1 };
+        return { opacity: 0.08, pointerEvents: 'none' as const };
+    };
 
-            {/* Interaction Panel */}
+    return (
+        <div style={{
+            width: '100%', padding: '48px 0 48px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            background: 'var(--rq-white)', overflow: 'hidden', position: 'relative',
+            borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9',
+            marginBottom: 0,
+        }}>
+            <div style={{
+                position: 'absolute', inset: 0, pointerEvents: 'none',
+                backgroundImage: 'linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)',
+                backgroundSize: '100px 100px',
+                WebkitMaskImage: 'radial-gradient(circle at center, black 10%, transparent 80%)',
+                maskImage: 'radial-gradient(circle at center, black 10%, transparent 80%)',
+                opacity: 0.5,
+            }} />
+
             {activeLayer && (
-                <div className="absolute top-4 right-4 md:top-10 md:right-10 z-[60] w-[calc(100%-2rem)] md:w-80 bg-white/95 backdrop-blur-md border border-slate-100 rounded-3xl p-6 md:p-8 shadow-2xl animate-fadeIn ring-1 ring-blue-50">
-                    <button 
+                <div style={{
+                    position: 'absolute', top: 16, right: 16,
+                    width: 280, zIndex: 60,
+                    background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(12px)',
+                    border: '1px solid #f1f5f9', borderRadius: 24, padding: 24,
+                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
+                    animation: 'fadeIn 0.2s ease-out',
+                }}>
+                    <button
                         onClick={() => setActiveLayer(null)}
-                        className="absolute top-4 right-4 text-slate-300 hover:text-slate-900 transition-colors"
-                    >
-                        <X size={18} />
-                    </button>
-                    <div className="inline-block px-2 py-0.5 bg-blue-50 text-blue-600 text-[9px] font-bold uppercase tracking-widest rounded mb-3">
+                        style={{
+                            position: 'absolute', top: 16, right: 16,
+                            border: 'none', background: 'none', cursor: 'pointer',
+                            color: '#cbd5e1',
+                        }}
+                    ><X size={18} /></button>
+                    <div style={{
+                        display: 'inline-block', padding: '2px 8px',
+                        background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+                        fontSize: 9, fontWeight: 700, textTransform: 'uppercase' as const,
+                        letterSpacing: '0.05em', borderRadius: 4, marginBottom: 12,
+                    }}>
                         Subsystem Inspector
                     </div>
-                    <h4 className="text-xl md:text-2xl font-serif font-bold text-slate-900 mb-2 m-0">{layerDetails[activeLayer].title}</h4>
-                    <p className="text-xs md:text-sm text-slate-500 leading-relaxed mb-6 m-0">{layerDetails[activeLayer].desc}</p>
-                    <div className="space-y-2">
+                    <h4 style={{
+                        fontSize: '1.2rem', fontFamily: 'var(--rq-font-heading)',
+                        fontWeight: 700, margin: '0 0 6px', color: '#0f172a',
+                    }}>{layerDetails[activeLayer].title}</h4>
+                    <p style={{
+                        fontSize: '0.8rem', color: '#64748b', lineHeight: 1.6, margin: '0 0 20px',
+                    }}>{layerDetails[activeLayer].desc}</p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                         {layerDetails[activeLayer].stats.map((stat, i) => (
-                            <div key={i} className="flex items-center gap-2 text-[10px] font-bold text-slate-700 uppercase tracking-widest bg-slate-50 px-3 py-2 rounded-xl border border-slate-100">
-                                <CheckCircle2 aria-hidden="true" size={12} className="text-blue-500" /> {stat}
+                            <div key={i} style={{
+                                display: 'flex', alignItems: 'center', gap: 6,
+                                fontSize: 9, fontWeight: 700, color: '#334155',
+                                textTransform: 'uppercase' as const, letterSpacing: '0.05em',
+                                background: '#f8fafc', padding: '6px 10px',
+                                borderRadius: 10, border: '1px solid #f1f5f9',
+                            }}>
+                                <CheckCircle2 size={10} color="var(--rq-primary)" /> {stat}
                             </div>
                         ))}
                     </div>
                 </div>
             )}
 
-            {/* 3D Scene Container with Mobile Scaling */}
-            <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px] [perspective:4000px] mt-4 mb-16 scale-[0.85] md:scale-100">
-                
-                {/* Rotated Assembly */}
-                <div className={`relative w-full h-full [transform-style:preserve-3d] [transform:rotateX(55deg)_rotateZ(45deg)] transition-all duration-1000 ease-out ${activeLayer ? '[transform:rotateX(45deg)_rotateZ(15deg)_scale(0.85)]' : 'group-hover:[transform:rotateX(60deg)_rotateZ(45deg)_scale(0.95)]'}`}>
-                    
-                    {/* Layer 1: Physical Chassis */}
-                    <div 
+            <div style={{
+                position: 'relative',
+                width: 300, height: 300,
+                marginTop: 16, marginBottom: 40,
+                perspective: 4000,
+                transform: 'scale(0.85)',
+            }}>
+                <div style={{
+                    position: 'relative', width: '100%', height: '100%',
+                    transformStyle: 'preserve-3d',
+                    transform: activeLayer
+                        ? 'rotateX(45deg) rotateZ(15deg) scale(0.85)'
+                        : 'rotateX(55deg) rotateZ(45deg)',
+                    transition: 'all 1s ease-out',
+                    ...(!activeLayer ? { cursor: 'pointer' } : {}),
+                }}>
+                    {/* Layer 1: Physical */}
+                    <div
                         onClick={() => setActiveLayer('physical')}
-                        className={`absolute inset-0 bg-white border border-slate-200 rounded-[3rem] md:rounded-[4rem] shadow-[20px_20px_100px_rgba(15,23,42,0.1)] 
-                                  [transform:translateZ(0px)] transition-all duration-700 cursor-pointer hover:bg-slate-50
-                                  ${activeLayer === 'physical' ? '[transform:translateZ(-100px)] border-blue-600 border-2' : activeLayer ? 'opacity-10' : 'group-hover:[transform:translateZ(-40px)]'} flex items-center justify-center`}
+                        style={{
+                            position: 'absolute', inset: 0,
+                            background: '#fff', border: '1px solid #e2e8f0',
+                            borderRadius: 48, boxShadow: '20px 20px 100px rgba(15,23,42,0.1)',
+                            transform: activeLayer === 'physical'
+                                ? 'translateZ(-100px)'
+                                : 'translateZ(0px)',
+                            transition: 'all 0.7s',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            cursor: 'pointer',
+                            ...getLayerStyle('physical'),
+                            ...(activeLayer === 'physical' ? { borderColor: 'var(--rq-primary)', borderWidth: 2 } : {}),
+                        }}
                     >
-                         <div className="w-[85%] h-[85%] border-2 border-dashed border-slate-100 rounded-[2.5rem] md:rounded-[3.5rem] flex items-center justify-center relative overflow-hidden">
-                            <Box aria-hidden="true" size={40} md:size={56} className="text-slate-200" strokeWidth={0.5} />
-                         </div>
+                        <div style={{
+                            width: '85%', height: '85%',
+                            border: '2px dashed #f1f5f9', borderRadius: 40,
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            position: 'relative', overflow: 'hidden',
+                        }}>
+                            <Box size={36} color="#e2e8f0" strokeWidth={0.5} />
+                        </div>
                     </div>
 
-                    {/* Layer 2: Security Engine */}
-                    <div 
+                    {/* Layer 2: Engine */}
+                    <div
                         onClick={() => setActiveLayer('engine')}
-                        className={`absolute inset-0 bg-slate-900 border border-slate-800 rounded-[3rem] md:rounded-[4rem] shadow-2xl overflow-hidden
-                                  [transform:translateZ(90px)] transition-all duration-700 cursor-pointer
-                                  ${activeLayer === 'engine' ? '[transform:translateZ(20px)] border-blue-500 border-2 shadow-[0_0_50px_rgba(37,99,235,0.3)]' : activeLayer ? 'opacity-10' : 'group-hover:[transform:translateZ(70px)]'} flex items-center justify-center`}
+                        style={{
+                            position: 'absolute', inset: 0,
+                            background: '#0f172a', border: '1px solid #1e293b',
+                            borderRadius: 48, overflow: 'hidden',
+                            transform: activeLayer === 'engine'
+                                ? 'translateZ(20px)'
+                                : 'translateZ(90px)',
+                            transition: 'all 0.7s',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            cursor: 'pointer',
+                            ...getLayerStyle('engine'),
+                            ...(activeLayer === 'engine'
+                                ? { borderColor: '#3b82f6', borderWidth: 2, boxShadow: '0 0 50px rgba(37,99,235,0.3)' }
+                                : {}),
+                        }}
                     >
-                        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-                        <div className="relative z-10 flex flex-col items-center">
-                            <div className={`p-4 md:p-5 bg-slate-800 rounded-2xl md:rounded-3xl border border-slate-700 transition-all duration-500 ${activeLayer === 'engine' ? 'scale-110 border-blue-50' : ''}`}>
-                                <Cpu aria-hidden="true" size={40} md:size={48} className="text-blue-500" strokeWidth={1} />
+                        <div style={{
+                            display: 'flex', flexDirection: 'column', alignItems: 'center',
+                            position: 'relative', zIndex: 10,
+                        }}>
+                            <div style={{
+                                padding: 16, background: '#1e293b', borderRadius: 16,
+                                border: '1px solid #334155',
+                                transition: 'all 0.5s',
+                                ...(activeLayer === 'engine' ? { transform: 'scale(1.1)', borderColor: '#eff6ff' } : {}),
+                            }}>
+                                <Cpu size={32} color="#3b82f6" strokeWidth={1} />
                             </div>
                         </div>
                     </div>
 
-                    {/* Layer 3: Quantum Entropy Engine */}
-                    <div 
+                    {/* Layer 3: Quantum */}
+                    <div
                         onClick={() => setActiveLayer('quantum')}
-                        className={`absolute inset-0 w-[260px] h-[260px] md:w-[420px] md:h-[420px] m-auto bg-black border border-blue-500/20 shadow-[0_0_120px_rgba(37,99,235,0.2)] rounded-[3rem] md:rounded-[4rem] cursor-pointer
-                                  [transform:translateZ(180px)] transition-all duration-1000 overflow-visible
-                                  ${activeLayer === 'quantum' ? '[transform:translateZ(300px)_scale(1.1)] border-blue-400' : activeLayer ? 'opacity-5' : 'group-hover:[transform:translateZ(180px)]'} flex items-center justify-center z-50`}
+                        style={{
+                            position: 'absolute',
+                            width: 260, height: 260,
+                            top: '50%', left: '50%',
+                            transform: activeLayer === 'quantum'
+                                ? 'translate(-50%, -50%) translateZ(300px) scale(1.1)'
+                                : 'translate(-50%, -50%) translateZ(180px)',
+                            margin: 0,
+                            background: '#000', border: '1px solid rgba(59,130,246,0.2)',
+                            borderRadius: 48,
+                            boxShadow: '0 0 120px rgba(37,99,235,0.2)',
+                            transition: 'all 1s',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            cursor: 'pointer',
+                            zIndex: 50,
+                            ...getLayerStyle('quantum'),
+                            ...(activeLayer === 'quantum' ? { borderColor: '#60a5fa' } : {}),
+                        }}
                     >
-                         <div className="relative w-[92%] h-[92%] bg-slate-950 rounded-[2.5rem] md:rounded-[3.5rem] border border-blue-500/10 flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden shadow-inner">
-                             <div className="relative z-20 w-32 h-32 md:w-56 md:h-56 flex flex-col items-center justify-center">
-                                 <div className={`w-12 h-12 md:w-20 md:h-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl flex items-center justify-center shadow-[0_0_60px_rgba(37,99,235,0.7)]`}>
-                                     <Atom aria-hidden="true" size={24} md:size={32} className={`text-white animate-spin-slow`} />
-                                 </div>
-                             </div>
-                         </div>
+                        <div style={{
+                            width: '92%', height: '92%',
+                            background: '#020617', borderRadius: 40,
+                            border: '1px solid rgba(59,130,246,0.1)',
+                            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                            padding: 24, overflow: 'hidden',
+                            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.5)',
+                        }}>
+                            <div style={{
+                                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                                zIndex: 20, width: 128, height: 128,
+                            }}>
+                                <div style={{
+                                    width: 48, height: 48,
+                                    background: 'linear-gradient(135deg, #2563eb, #4338ca)',
+                                    borderRadius: 12,
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    boxShadow: '0 0 60px rgba(37,99,235,0.7)',
+                                }}>
+                                    <Atom size={24} color="#fff" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Layer 4: Cloud vHSM */}
-                    <div 
+                    <div
                         onClick={() => setActiveLayer('cloud')}
-                        className={`absolute inset-0 bg-blue-50/10 border border-blue-400/30 rounded-[3rem] md:rounded-[4rem] shadow-[0_0_80px_rgba(59,130,246,0.1)] backdrop-blur-sm
-                                  [transform:translateZ(270px)] transition-all duration-700 cursor-pointer hover:bg-blue-50/20
-                                  ${activeLayer === 'cloud' ? '[transform:translateZ(400px)] border-blue-400 border-2' : activeLayer ? 'opacity-5' : 'group-hover:[transform:translateZ(300px)]'} flex items-center justify-center z-[60]`}
+                        style={{
+                            position: 'absolute', inset: 0,
+                            background: 'rgba(239,246,255,0.1)',
+                            border: '1px solid rgba(59,130,246,0.3)',
+                            borderRadius: 48,
+                            boxShadow: '0 0 80px rgba(59,130,246,0.1)',
+                            backdropFilter: 'blur(4px)',
+                            transform: activeLayer === 'cloud'
+                                ? 'translateZ(400px)'
+                                : 'translateZ(270px)',
+                            transition: 'all 0.7s',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            cursor: 'pointer',
+                            zIndex: 60,
+                            ...getLayerStyle('cloud'),
+                            ...(activeLayer === 'cloud' ? { borderColor: '#60a5fa', borderWidth: 2 } : {}),
+                        }}
                     >
-                         <div className="flex flex-col items-center justify-center text-blue-300">
-                            <Cloud aria-hidden="true" size={48} md:size={64} strokeWidth={1} />
-                         </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#93c5fd' }}>
+                            <Cloud size={40} strokeWidth={1} />
+                        </div>
                     </div>
-
                 </div>
             </div>
-            
-            {/* Assembly Legend */}
-            <div className="text-center mt-6 md:mt-12 z-10 animate-fadeIn pointer-events-none px-6">
-                <h3 className="font-serif text-xl md:text-3xl text-slate-900 font-bold tracking-tight mb-3">
-                    {activeLayer ? layerDetails[activeLayer].title : 'System Architecture Exploration'}
+
+            <div style={{
+                textAlign: 'center', zIndex: 10, padding: '0 24px', pointerEvents: 'none',
+            }}>
+                <h3 style={{
+                    fontFamily: 'var(--rq-font-heading)',
+                    fontSize: '1.1rem', fontWeight: 700,
+                    margin: '0 0 12px', color: '#0f172a',
+                }}>
+                    {activeLayer ? layerDetails[activeLayer].title : 'HSM System Architecture'}
                 </h3>
-                <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-                    <span className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                        <Zap aria-hidden="true" size={12} className="text-blue-600"/> Quantum-Safe Hardware
+                <div style={{
+                    display: 'flex', flexWrap: 'wrap', alignItems: 'center',
+                    justifyContent: 'center', gap: 16,
+                }}>
+                    <span style={{
+                        fontSize: 10, fontWeight: 700, color: '#94a3b8',
+                        textTransform: 'uppercase', letterSpacing: '0.05em',
+                        display: 'flex', alignItems: 'center', gap: 6,
+                    }}>
+                        <Zap size={10} color="var(--rq-primary)" /> Quantum-Safe Hardware
                     </span>
-                    <div className="w-1.5 h-1.5 bg-slate-200 rounded-full hidden md:block"></div>
-                    <span className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                        <Cloud aria-hidden="true" size={12} className="text-blue-600"/> Cloud Virtualization
+                    <span style={{
+                        width: 6, height: 6, borderRadius: '50%',
+                        background: '#e2e8f0',
+                    }} />
+                    <span style={{
+                        fontSize: 10, fontWeight: 700, color: '#94a3b8',
+                        textTransform: 'uppercase', letterSpacing: '0.05em',
+                        display: 'flex', alignItems: 'center', gap: 6,
+                    }}>
+                        <Cloud size={10} color="var(--rq-primary)" /> Cloud Virtualization
                     </span>
                 </div>
             </div>

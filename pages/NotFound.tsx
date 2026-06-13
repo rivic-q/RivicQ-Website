@@ -1,64 +1,44 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Search, Shield, Lock } from 'lucide-react';
+import { Home, ArrowLeft } from 'lucide-react';
 
-const NotFound: React.FC = () => {
+export default function NotFound() {
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 py-20">
-      <div className="relative mb-8">
-        <div className="w-32 h-32 bg-sky-50 rounded-full flex items-center justify-center">
-          <Shield size={48} className="text-sky-300" />
+    <div style={{
+      minHeight: 'calc(100vh - 68px)', display: 'flex', alignItems: 'center',
+      justifyContent: 'center', padding: 24, textAlign: 'center',
+    }}>
+      <div>
+        <div style={{
+          width: 80, height: 80, borderRadius: 24,
+          background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          margin: '0 auto 20px',
+        }}>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
         </div>
-        <div className="absolute -top-2 -right-2 w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center">
-          <Lock size={20} className="text-white" />
-        </div>
-      </div>
-      
-      <div className="mb-4">
-        <span className="text-[80px] md:text-[120px] font-bold text-slate-100 leading-none">404</span>
-      </div>
-      
-      <h1 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4">
-        Page Not Found
-      </h1>
-      
-      <p className="text-slate-500 max-w-md mb-8 leading-relaxed">
-        The cryptographic path you're looking for doesn't exist or may have been migrated. 
-        Let's get you back to a secure location.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row gap-4">
-        <Link 
-          to="/"
-          className="px-8 py-4 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-600 transition-all flex items-center justify-center gap-2 shadow-xl"
-        >
-          <Home size={18} />
-          Return Home
-        </Link>
-        
-        <Link 
-          to="/products"
-          className="px-8 py-4 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl hover:border-sky-500 hover:text-sky-600 transition-all flex items-center justify-center gap-2"
-        >
-          <Search size={18} />
-          Explore Products
-        </Link>
-      </div>
-      
-      <div className="mt-16 pt-8 border-t border-slate-100">
-        <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-4">
-          Quick Links
+        <div style={{
+          fontFamily: 'var(--rq-font-heading)', fontSize: '4rem', fontWeight: 700,
+          color: 'var(--rq-primary)', lineHeight: 1, marginBottom: 8, letterSpacing: '-0.03em',
+        }}>404</div>
+        <h1 style={{
+          fontFamily: 'var(--rq-font-heading)', fontSize: '1.4rem', fontWeight: 700,
+          margin: '0 0 8px',
+        }}>Page Not Found</h1>
+        <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.9rem', margin: '0 0 28px' }}>
+          This cryptographic asset could not be located. Let's get you back to safety.
         </p>
-        <div className="flex flex-wrap justify-center gap-6 text-sm">
-          <Link to="/platform" className="text-slate-500 hover:text-sky-500 transition-colors">Platform</Link>
-          <Link to="/pricing" className="text-slate-500 hover:text-sky-500 transition-colors">Pricing</Link>
-          <Link to="/team" className="text-slate-500 hover:text-sky-500 transition-colors">Team</Link>
-          <Link to="/resources" className="text-slate-500 hover:text-sky-500 transition-colors">Resources</Link>
-          <Link to="/compliance" className="text-slate-500 hover:text-sky-500 transition-colors">Compliance</Link>
+        <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+          <Link to="/" className="btn btn-primary">
+            <Home size={16} /> Back to Home
+          </Link>
+          <button onClick={() => window.history.back()} className="btn btn-secondary">
+            <ArrowLeft size={16} /> Go Back
+          </button>
         </div>
       </div>
     </div>
   );
-};
-
-export default NotFound;
+}

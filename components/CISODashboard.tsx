@@ -95,11 +95,11 @@ const CISODashboard: React.FC = () => {
   ];
 
   const scanHistory = [
-    { date: '2026-04-02', assets: 1247, critical: 1, high: 3, medium: 8 },
-    { date: '2026-04-01', assets: 1189, critical: 2, high: 4, medium: 12 },
-    { date: '2026-03-31', assets: 1102, critical: 3, high: 5, medium: 15 },
-    { date: '2026-03-30', assets: 987, critical: 4, high: 6, medium: 18 },
-    { date: '2026-03-29', assets: 856, critical: 5, high: 8, medium: 22 },
+    { date: '2026-04-02', assets: 1247, critical: 1, high: 3, medium: 8, low: 0 },
+    { date: '2026-04-01', assets: 1189, critical: 2, high: 4, medium: 12, low: 0 },
+    { date: '2026-03-31', assets: 1102, critical: 3, high: 5, medium: 15, low: 0 },
+    { date: '2026-03-30', assets: 987, critical: 4, high: 6, medium: 18, low: 0 },
+    { date: '2026-03-29', assets: 856, critical: 5, high: 8, medium: 22, low: 0 },
   ];
 
   const getSeverityColor = (severity: string) => {

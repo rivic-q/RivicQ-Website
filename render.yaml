@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: rivicq-api
+    runtime: node
+    repo: https://github.com/rivic-q/RivicQ-Website
+    plan: free
+    branch: main
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+      - key: CORS_ORIGIN
+        value: https://rivicq.de,https://www.rivicq.de
+      - key: VITE_FORM_ENDPOINT
+        value: /api/contact
+      - key: SMTP_HOST
+        value: smtp-relay.brevo.com
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_SECURE
+        value: "false"
+      - key: SMTP_FROM
+        value: noreply@rivicq.de
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false

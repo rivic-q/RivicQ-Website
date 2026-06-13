@@ -2,10 +2,9 @@ import React, { Suspense } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import ErrorBoundary from './components/ErrorBoundary';
-import { Loader2 } from 'lucide-react';
 
 const Home = React.lazy(() => import('./pages/Home'));
-const Products = React.lazy(() => import('./pages/Products')); 
+const Products = React.lazy(() => import('./pages/Products'));
 const Platform = React.lazy(() => import('./pages/Platform'));
 const CloudHSM = React.lazy(() => import('./pages/CloudHSM'));
 const RQSP = React.lazy(() => import('./pages/RQSP'));
@@ -36,96 +35,128 @@ const BetaSignup = React.lazy(() => import('./pages/BetaSignup'));
 const CookiePolicy = React.lazy(() => import('./pages/CookiePolicy'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
+// New key screens
+const Dashboard = React.lazy(() => import('./pages/Dashboard'));
+const Login = React.lazy(() => import('./pages/Login'));
+const Signup = React.lazy(() => import('./pages/Signup'));
+const ForgotPassword = React.lazy(() => import('./pages/ForgotPassword'));
+const Profile = React.lazy(() => import('./pages/Profile'));
+const Settings = React.lazy(() => import('./pages/Settings'));
+const SearchPage = React.lazy(() => import('./pages/Search'));
+const Help = React.lazy(() => import('./pages/Help'));
+
+const titles: Record<string, string> = {
+  '/': 'RivicQ — Quantum-Safe Encryption Infrastructure',
+  '/products': 'PQC Encryption Products | RivicQ',
+  '/cloud-hsm': 'CloudHSM — FIPS 140-3 HSM Encryption-as-a-Service | RivicQ',
+  '/rqsp': 'RQSP — Hybrid PQC Transport Encryption Protocol | RivicQ',
+  '/platform': 'Encryption Platform Architecture | RivicQ',
+  '/sdk': 'PQC Encryption SDK — Developer Bindings | RivicQ',
+  '/solutions': 'Encryption Solutions by Industry | RivicQ',
+  '/services': 'PQC Encryption & HSM Professional Services | RivicQ',
+  '/compliance': 'PQC Encryption Compliance Deadlines | RivicQ',
+  '/pricing': 'Encryption Platform Pricing | RivicQ',
+  '/team': 'Encryption Engineering Team | RivicQ',
+  '/story': 'Our Encryption Journey | RivicQ',
+  '/careers': 'Encryption Engineering Careers | RivicQ',
+  '/investors': 'Encryption Infrastructure Investor Relations | RivicQ',
+  '/partner': 'Encryption Partner Program | RivicQ',
+  '/resources': 'PQC Encryption Resources & Library | RivicQ',
+  '/blog': 'PQC Encryption Blog & Insights | RivicQ',
+  '/trust': 'Encryption Trust Center | RivicQ',
+  '/glossary': 'PQC Encryption Glossary | RivicQ',
+  '/roadmap': 'Encryption Platform Roadmap | RivicQ',
+  '/use-cases': 'PQC Encryption Use Cases | RivicQ',
+  '/methodology': 'Encryption Migration Methodology | RivicQ',
+  '/legal': 'Legal & Imprint | RivicQ',
+  '/privacy': 'Privacy Policy | RivicQ',
+  '/cookie-policy': 'Cookie Policy | RivicQ',
+  '/beta-signup': 'PQC Encryption Beta Signup | RivicQ',
+  '/enterprise': 'Enterprise Encryption — Talk to Us | RivicQ',
+  '/pitch-deck': 'Encryption Infrastructure Investor Materials | RivicQ',
+  '/research': 'PQC Encryption Research & R&D | RivicQ',
+  '/dashboard': 'Encryption Dashboard | RivicQ',
+  '/login': 'Sign In | RivicQ',
+  '/signup': 'Create Account | RivicQ',
+  '/forgot-password': 'Reset Password | RivicQ',
+  '/profile': 'Profile Settings | RivicQ',
+  '/settings': 'Preferences | RivicQ',
+  '/search': 'Search | RivicQ',
+  '/help': 'Help & Support | RivicQ',
+};
+
 const RouteHandler = () => {
   const { pathname } = useLocation();
   React.useEffect(() => {
     window.scrollTo(0, 0);
-    const titles: Record<string, string> = {
-      '/': 'RivicQ | CSPM • PQC • Agentic Security • Privacy Protocol',
-      '/products': 'CSPM, PQC, Agentic Security & Privacy Protocol | RivicQ',
-      '/rqsp': 'RQSP Protocol | RivicQ',
-      '/platform': 'Platform Architecture | RivicQ',
-      '/cloud-hsm': 'Cloud HSM vHSM | RivicQ',
-      '/methodology': 'Scientific Methodology | RivicQ',
-      '/sdk': 'Developer SDK | RivicQ',
-      '/solutions': 'Industry Solutions | RivicQ',
-      '/services': 'CSPM, PQC, Agentic Security & Privacy Protocol Services | RivicQ',
-      '/use-cases': 'Use Cases | RivicQ',
-      '/roadmap': 'Enterprise Readiness Roadmap | RivicQ',
-      '/team': 'Our Team | RivicQ',
-      '/careers': 'Careers | RivicQ',
-      '/resources': 'Resources & Compliance | RivicQ',
-      '/blog': 'Blog & Insights | RivicQ',
-      '/story': 'Our Story | RivicQ',
-      '/compliance': 'PQC Compliance Deadlines | RivicQ',
-      '/pricing': 'Pricing & Infrastructure | RivicQ',
-      '/legal': 'Legal & IP Rights | RivicQ',
-      '/privacy': 'Privacy Policy | RivicQ',
-      '/trust': 'Trust Center | RivicQ',
-      '/glossary': 'Glossary of Quantum Terms | RivicQ',
-      '/partner': 'Partner Program | RivicQ',
-      '/investors': 'Investor Relations | RivicQ',
-      '/research': 'Quantum Research & R&D | RivicQ',
-      '/pitch-deck': 'Investor Materials | RivicQ',
-      '/enterprise': 'Enterprise | RivicQ',
-      '/beta-signup': 'Beta Signup | RivicQ',
-      '/cookie-policy': 'Cookie Policy | RivicQ'
-    };
-    document.title = titles[pathname] || 'RivicQ | Quantum-Safe Security';
+    document.title = titles[pathname] || 'RivicQ — Quantum-Safe Encryption Infrastructure';
   }, [pathname]);
   return null;
 };
 
 const PageLoader = () => (
-  <div className="flex items-center justify-center min-h-[60vh]">
-    <Loader2 className="animate-spin text-slate-200" size={32} />
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--rq-primary)" strokeWidth="2" style={{ animation: 'spin 1s linear infinite' }}>
+      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+    </svg>
   </div>
 );
 
 const App: React.FC = () => {
   return (
-    <ErrorBoundary>
-      <Router>
-        <RouteHandler />
-        <Layout>
+    <Router>
+      <RouteHandler />
+      <Layout>
+        <ErrorBoundary>
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/cloud-hsm" element={<CloudHSM />} />
               <Route path="/rqsp" element={<RQSP />} />
               <Route path="/platform" element={<Platform />} />
-              <Route path="/cloud-hsm" element={<CloudHSM />} />
-              <Route path="/methodology" element={<Methodology />} />
               <Route path="/sdk" element={<SDK />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/use-cases" element={<UseCases />} />
-              <Route path="/roadmap" element={<Roadmap />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/resources" element={<Resources />} />
-               <Route path="/blog" element={<Blog />} />
-               <Route path="/blog/:id" element={<BlogPost />} />
-              <Route path="/story" element={<Story />} />
               <Route path="/compliance" element={<Compliance />} />
               <Route path="/pricing" element={<Pricing />} />
-              <Route path="/legal" element={<Legal />} />
-              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/story" element={<Story />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/investors" element={<Investors />} />
+              <Route path="/partner" element={<Partner />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/trust" element={<TrustCenter />} />
               <Route path="/glossary" element={<Glossary />} />
-              <Route path="/partner" element={<Partner />} />
-              <Route path="/investors" element={<Investors />} />
-              <Route path="/research" element={<QuantumResearch />} />
-              <Route path="/pitch-deck" element={<PitchDeck />} />
-               <Route path="/enterprise" element={<Enterprise />} />
-               <Route path="/beta-signup" element={<BetaSignup />} />
+              <Route path="/roadmap" element={<Roadmap />} />
+              <Route path="/use-cases" element={<UseCases />} />
+              <Route path="/methodology" element={<Methodology />} />
+              <Route path="/legal" element={<Legal />} />
+              <Route path="/privacy" element={<Privacy />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />
+              <Route path="/beta-signup" element={<BetaSignup />} />
+              <Route path="/enterprise" element={<Enterprise />} />
+              <Route path="/pitch-deck" element={<PitchDeck />} />
+              <Route path="/research" element={<QuantumResearch />} />
+
+              {/* New key screens */}
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/help" element={<Help />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
-        </Layout>
-      </Router>
-    </ErrorBoundary>
+        </ErrorBoundary>
+      </Layout>
+    </Router>
   );
 };
 

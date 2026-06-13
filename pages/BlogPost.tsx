@@ -1,57 +1,38 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Calendar, Clock } from 'lucide-react';
-import { posts } from '../data/blogPosts';
+import { useParams, Link } from 'react-router-dom';
+import { Badge } from '../components/Badge';
+import { blogPosts } from '../data/blogPosts';
 
-const BlogPost: React.FC = () => {
+export default function BlogPost() {
   const { id } = useParams<{ id: string }>();
-  const post = posts.find(p => p.id === id);
+  const post = blogPosts.find(p => p.slug === id);
 
   if (!post) {
     return (
-      <article className="prose prose-slate max-w-none">
-        <div className="text-center py-24">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">Post Not Found</h1>
-          <p className="text-slate-500 mb-8">The article you're looking for doesn't exist.</p>
-          <Link to="/blog" className="text-sky-500 hover:text-sky-600 font-medium">
-            ← Back to Blog
-          </Link>
-        </div>
-      </article>
+      <div style={{ maxWidth: 700, margin: '0 auto', padding: '60px 24px', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.3rem', margin: '0 0 12px' }}>Post not found</h2>
+        <Link to="/blog" style={{ color: 'var(--rq-blue)' }}>← Back to blog</Link>
+      </div>
     );
   }
 
   return (
-    <article className="prose prose-slate max-w-none">
-      <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-sky-500 transition-colors mb-8 not-prose">
-        <ArrowLeft aria-hidden="true" size={16} /> Back to Blog
-      </Link>
-
-      <header className="mb-12">
-        <div className="flex items-center gap-3 mb-6 not-prose">
-          <span className={`px-3 py-1 text-xs font-bold rounded-full ${post.categoryColor}`}>
-            {post.category.replace('-', ' ')}
-          </span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">{post.title}</h1>
-        <div className="flex items-center gap-6 text-sm text-slate-500 not-prose">
-          <span className="flex items-center gap-2"><Calendar aria-hidden="true" size={14} /> {post.date}</span>
-          <span className="flex items-center gap-2"><Clock aria-hidden="true" size={14} /> {post.readTime} read</span>
-        </div>
-      </header>
-
-      <div className="text-slate-600 leading-relaxed text-lg max-w-3xl">
-        <p className="text-xl text-slate-700 font-medium mb-8">{post.excerpt}</p>
-        <p>{post.content}</p>
+    <article style={{ maxWidth: 700, margin: '0 auto', padding: '60px 24px' }}>
+      <Link to="/blog" style={{ color: 'var(--rq-muted)', fontSize: '0.85rem', display: 'block', marginBottom: 20 }}>← Back to blog</Link>
+      <div style={{ display: 'flex', gap: 8, marginBottom: 12, flexWrap: 'wrap' }}>
+        {post.tags.map(t => <Badge key={t} variant="blue">{t}</Badge>)}
       </div>
-
-      <div className="mt-16 pt-8 border-t border-slate-100 not-prose">
-        <Link to="/blog" className="text-sky-500 hover:text-sky-600 font-medium">
-          ← Back to Blog
-        </Link>
+      <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.6rem', fontWeight: 700, margin: '0 0 8px', lineHeight: 1.25 }}>{post.title}</h1>
+      <div style={{ color: 'var(--rq-muted)', fontSize: '0.85rem', marginBottom: 24 }}>{post.date} · {post.author}</div>
+      <div style={{
+        lineHeight: 1.8, fontSize: '0.95rem',
+      }}>
+        {post.content.split('\n').map((line, i) => {
+          if (line.startsWith('## ')) return <h2 key={i} style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.15rem', fontWeight: 700, margin: '28px 0 8px' }}>{line.replace('## ', '')}</h2>;
+          if (line.startsWith('- ')) return <li key={i} style={{ color: 'var(--rq-muted)', marginLeft: 16 }}>{line.replace('- ', '')}</li>;
+          if (line.trim() === '') return null;
+          return <p key={i} style={{ color: 'var(--rq-muted)', margin: '0 0 12px' }}>{line}</p>;
+        })}
       </div>
     </article>
   );
-};
-
-export default BlogPost;
+}

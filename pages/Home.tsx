@@ -1,285 +1,522 @@
-
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, ArrowRight, Lock, Zap, Activity, Cloud, Search, CheckCircle2, ShieldAlert, Cpu, Globe, Info, Target, Users, Microscope, Database, RefreshCw, Layers, Terminal, Server, CreditCard, Key, Settings, BarChart3, Landmark, Box, Github, GraduationCap } from 'lucide-react';
+import { Badge } from '../components/Badge';
 import HSMBlueprint from '../components/HSMBlueprint';
+import QuantumCircuit from '../components/QuantumCircuit';
+import { Shield, Search, FileCode, Lock, ArrowRight, ChevronRight, Sparkles, Zap, Globe, Layers, TrendingUp, Users, BookOpen, Terminal, Award, ExternalLink } from 'lucide-react';
 
-const EcosystemSection: React.FC = () => (
-  <section className="not-prose py-24 border-y border-slate-100 bg-white -mx-8 md:-mx-16 px-8 md:px-16">
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-sm font-bold text-slate-400 uppercase tracking-[0.4em] mb-4">Strategic Ecosystem & Support</h2>
-        <div className="h-px w-24 bg-sky-500 mx-auto"></div>
-      </div>
-
-      {/* Tier 1: Academic & Institutional Foundation */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 items-center opacity-70 hover:opacity-100 transition-opacity duration-500">
-        <div className="flex flex-col items-center group">
-          <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <Landmark aria-hidden="true" size={32} className="text-slate-900" />
-          </div>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">SIB Berlin<br/><span className="text-[8px] font-medium">Investitionsbank</span></span>
-        </div>
-        <div className="flex flex-col items-center group">
-          <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <Activity aria-hidden="true" size={32} className="text-sky-500" />
-          </div>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Leap Berlin<br/><span className="text-[8px] font-medium">Quantum Hub</span></span>
-        </div>
-        <div className="flex flex-col items-center group">
-          <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <GraduationCap aria-hidden="true" size={32} className="text-slate-900" />
-          </div>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Humboldt Innovation<br/><span className="text-[8px] font-medium">Innovation Hub</span></span>
-        </div>
-        <div className="flex flex-col items-center group">
-          <div className="p-4 bg-slate-50 rounded-2xl mb-3 group-hover:bg-sky-50 transition-colors">
-            <Microscope aria-hidden="true" size={32} className="text-slate-900" />
-          </div>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">TU Berlin<br/><span className="text-[8px] font-medium">Security in IT</span></span>
-        </div>
-      </div>
-
-      {/* Tier 2: Technical Infrastructure Partners */}
-      <div className="bg-slate-50 rounded-[3rem] p-10 md:p-16 border border-slate-100">
-        <h3 className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em] text-center mb-12">Integrated Infrastructure Stack</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 items-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-          <div className="flex flex-col items-center gap-2">
-            <Cpu aria-hidden="true" size={28} className="text-sky-500"/>
-            <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">IBM Q</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <Cloud aria-hidden="true" size={28} className="text-sky-500"/>
-            <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">GCP</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <Github aria-hidden="true" size={28} className="text-slate-900"/>
-            <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">GitHub</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <Box aria-hidden="true" size={28} className="text-orange-500"/>
-            <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">AWS</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <Zap aria-hidden="true" size={28} className="text-indigo-600"/>
-            <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">KIPU Q</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <Settings aria-hidden="true" size={28} className="text-emerald-600"/>
-            <span className="text-[9px] font-bold text-slate-900 uppercase tracking-widest">Q-CTRL</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-const EndToEndScope: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const steps = [
-    {
-      title: "1. AI Discovery",
-      icon: <Search aria-hidden="true" className="text-sky-500" />,
-      desc: "Scan codebases and cloud VPCs to find hidden cryptographic liabilities.",
-      action: "SaaS Layer: Infrastructure Scanners",
-      bg: "bg-sky-50"
-    },
-    {
-      title: "2. Dynamic Inventory",
-      icon: <Database aria-hidden="true" className="text-indigo-500" />,
-      desc: "Generate a live Cryptographic Bill of Materials (CryptoBOM) for compliance.",
-      action: "Asset Layer: CycloneDX Reporting",
-      bg: "bg-indigo-50"
-    },
-    {
-      title: "3. HSM Transformation",
-      icon: <RefreshCw aria-hidden="true" className="text-emerald-500" />,
-      desc: "Wrap vulnerable keys in NIST-standard PQC layers within physical vaults.",
-      action: "Hardware Layer: FIPS 140-3 HSM",
-      bg: "bg-emerald-50"
-    },
-    {
-      title: "4. Unified Governance",
-      icon: <Settings aria-hidden="true" className="text-slate-900" />,
-      desc: "Manage multi-tenant isolation, policies, and quantum-safe identity.",
-      action: "Orchestration Layer: Control Plane",
-      bg: "bg-slate-100"
-    }
-  ];
+function AnimatedTerminal() {
+  const [text, setText] = useState('');
+  const fullText = '$ rivicq scan --cbom --deep --risk-score\n  ✓ Scanning 1,247 files...\n  ✓ 89 cryptographic assets found\n  ✓ QBOM generated: inventory.cbom.json\n  ✓ Q-score: 0.32 — Moderate Risk';
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveStep(s => (s + 1) % steps.length);
-    }, 4000);
-    return () => clearInterval(timer);
+    let i = 0;
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) clearInterval(interval);
+    }, 30);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="not-prose grid lg:grid-cols-2 gap-8 lg:gap-12 items-center bg-white p-6 md:p-16 rounded-[2.5rem] md:rounded-[4rem] border border-slate-100 shadow-sm relative overflow-hidden">
-      <div className="absolute inset-0 bg-technical opacity-5"></div>
-      
-      <div className="relative z-10 space-y-4 md:space-y-6 order-2 lg:order-1">
-        {steps.map((step, i) => (
-          <div key={i} className={`flex items-start gap-4 p-4 md:p-6 rounded-2xl md:rounded-3xl transition-all duration-500 border ${activeStep === i ? 'bg-white border-sky-100 shadow-xl scale-[1.02]' : 'bg-transparent border-transparent opacity-40 scale-95'}`}>
-            <div className={`p-2 md:p-3 rounded-xl md:rounded-2xl ${activeStep === i ? step.bg : 'bg-slate-50'}`}>
-              {step.icon}
-            </div>
-            <div>
-              <h4 className="text-base md:text-lg font-bold text-slate-900 m-0">{step.title}</h4>
-              <p className="text-xs md:text-sm text-slate-500 mt-1 m-0">{step.desc}</p>
-              {activeStep === i && <p className="text-[9px] md:text-[10px] font-bold text-sky-500 uppercase mt-2 md:mt-3 tracking-widest">{step.action}</p>}
-            </div>
-          </div>
+    <div style={{
+      background: '#0E141B', borderRadius: 12, padding: '20px 24px',
+      fontFamily: 'var(--rq-font-mono)', fontSize: '0.8rem', lineHeight: 1.8,
+      border: '1px solid #1E293B', boxShadow: '0 8px 40px rgba(0,0,0,0.3)',
+      overflow: 'hidden',
+    }}>
+      <div style={{ display: 'flex', gap: 6, marginBottom: 14, paddingBottom: 12, borderBottom: '1px solid #1E293B' }}>
+        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ff5f56' }} />
+        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ffbd2e' }} />
+        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#27c93f' }} />
+        <span style={{ fontSize: '0.6rem', color: '#475569', marginLeft: 8 }}>rivicq-scan — bash</span>
+      </div>
+      <pre style={{ margin: 0, color: '#94A3B8', whiteSpace: 'pre-wrap' }}>
+        {text.split('\n').map((line, i) => (
+          <div key={i} style={{
+            color: line.startsWith('$') ? '#93C5FD' : line.startsWith('  ✓') ? '#10B981' : line === '' ? '' : '#94A3B8',
+          }}>{line || '\u00A0'}</div>
         ))}
-      </div>
-
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[300px] md:min-h-[400px] order-1 lg:order-2">
-        <div className="w-full aspect-square max-w-[280px] md:max-w-[320px] rounded-full border-2 border-slate-100 flex flex-col items-center justify-center p-6 md:p-8 text-center animate-fadeIn relative group">
-           <div className="absolute inset-0 border-2 border-dashed border-sky-200 rounded-full animate-spin-slow"></div>
-           <div className={`w-16 h-16 md:w-24 md:h-24 rounded-[1.5rem] md:rounded-[2.5rem] flex items-center justify-center mb-4 md:mb-6 shadow-2xl transition-colors duration-1000 ${activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-sky-500 text-white'}`}>
-             {steps[activeStep].icon}
-           </div>
-           <div className="font-mono text-[9px] md:text-[10px] text-sky-500 font-bold uppercase tracking-widest mb-2">Operational Scope</div>
-           <div className="text-slate-900 font-bold text-base md:text-lg leading-tight h-14">{steps[activeStep].action}</div>
-        </div>
-      </div>
+        {text.length < fullText.length && <span style={{ color: '#10B981', animation: 'blink 1s step-end infinite' }}>▌</span>}
+      </pre>
     </div>
   );
-};
+}
 
-const Home: React.FC = () => {
+function StatsBar() {
+  const stats = [
+    { value: '6', label: 'NIST PQC Standards' },
+    { value: '6', label: 'Regulatory Frameworks' },
+    { value: '5', label: 'Products' },
+    { value: '2', label: 'ETSI + IQC Delegate' },
+  ];
   return (
-    <article className="prose prose-slate max-w-none">
-      
-      {/* 1. Hero Section */}
-      <section className="pt-6 md:pt-16 mb-20 px-4 md:px-0">
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900 text-white text-[9px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm">
-            <Activity aria-hidden="true" size={10} className="text-sky-400 animate-pulse"/>
-            System Status: Operational • Berlin Innovation Labs
-          </div>
-          
-          <div className="mb-4">
-             <p className="text-[10px] md:text-[12px] font-mono font-bold text-sky-500 uppercase tracking-[0.4em] mb-6 border-l-2 border-sky-600 pl-4 leading-relaxed">
-               Integrated Verified Infrastructure <br className="md:hidden" /> Computing & Quantum
-             </p>
-             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[0.95] tracking-tight text-slate-900">
-                Secure your <span className="text-sky-500">digital infrastructure.</span>
-             </h1>
-          </div>
-
-           <p className="text-xl md:text-2xl text-slate-500 font-serif italic leading-relaxed m-0 max-w-3xl">
-             One platform to discover, manage, and secure all your cryptographic assets. Combines CryptoBOM intelligence, AI-driven security, and quantum-safe cryptography — with hardware-verified protection.
-           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 not-prose mt-12">
-            <a href="#scope" className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-slate-200 flex items-center justify-center gap-2 group">
-              Explore Platform <ArrowRight aria-hidden="true" size={14} className="group-hover:translate-x-1 transition-transform"/>
-            </a>
-            <Link to="/pricing" className="px-10 py-5 bg-white border border-slate-200 text-slate-600 rounded-2xl font-bold text-xs uppercase tracking-widest hover:border-slate-900 transition-all text-center">
-              Request Lab Access
-            </Link>
-          </div>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: 'var(--rq-border-light)', borderRadius: 16, overflow: 'hidden' }}>
+      {stats.map((s, i) => (
+        <div key={i} style={{ background: 'var(--rq-white)', padding: '24px 16px', textAlign: 'center' }}>
+          <div style={{ fontFamily: 'var(--rq-font-heading)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--rq-primary)', letterSpacing: '-0.03em' }}>{s.value}</div>
+          <div style={{ fontSize: '0.78rem', color: 'var(--rq-text-secondary)', marginTop: 4 }}>{s.label}</div>
         </div>
-      </section>
-
-      <EcosystemSection />
-
-      {/* 2. End-to-End Scope */}
-      <section id="scope" className="py-24 scroll-mt-24 px-4 md:px-0">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 m-0">End-to-End Protection</h2>
-          <p className="text-slate-500 text-xs md:text-sm mt-3 uppercase tracking-widest font-bold">From discovery to defense</p>
-        </div>
-        <EndToEndScope />
-      </section>
-
-      {/* 3. Regulatory Alignment Section */}
-      <section className="py-24 border-y border-slate-100 bg-slate-50 -mx-8 md:-mx-16 px-8 md:px-16 not-prose">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">Compliance Ready</h2>
-          <p className="text-xs text-sky-500 font-bold uppercase tracking-[0.2em] mt-3">Aligns with global regulations</p>
-        </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 px-4 md:px-0">
-          {[
-            { name: "DORA", label: "Finance (EU)" },
-            { name: "NIS2", label: "Critical Infra" },
-            { name: "CRA", label: "Resilience Act" },
-            { name: "CNSA", label: "Defense (US)" },
-            { name: "NIST", label: "PQC Standards" },
-            { name: "BSI", label: "BSI Germany" }
-          ].map((reg, i) => (
-            <div key={i} className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:border-sky-500 transition-all group shadow-sm">
-              <div className="text-lg font-black text-slate-900 mb-1 group-hover:text-sky-500 transition-colors">{reg.name}</div>
-              <div className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">{reg.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. Identity Triad */}
-      <section className="py-24 border-y border-slate-100 not-prose px-4 md:px-0">
-        <div className="grid md:grid-cols-3 gap-12">
-          <div className="space-y-6">
-            <div className="w-14 h-14 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center border border-sky-100 shadow-sm">
-              <Users aria-hidden="true" size={24}/>
-            </div>
-            <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">The Berlin Hub</h3>
-            <p className="text-sm text-slate-600 leading-relaxed m-0">
-              Based in Berlin's innovation hub, we work directly with quantum hardware and deep-tech partners.
-            </p>
-          </div>
-          <div className="space-y-6">
-            <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center border border-emerald-100 shadow-sm">
-              <Target aria-hidden="true" size={24}/>
-            </div>
-            <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">Data Longevity</h3>
-            <p className="text-sm text-slate-600 leading-relaxed m-0">
-               Defeat "Harvest Now, Decrypt Later" attacks. Your digital infrastructure stays protected.
-            </p>
-          </div>
-          <div className="space-y-6">
-            <div className="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center border border-indigo-100 shadow-sm">
-              <Cpu aria-hidden="true" size={24}/>
-            </div>
-            <h3 className="text-2xl font-serif font-bold text-slate-900 m-0">Verified RoT</h3>
-            <p className="text-sm text-slate-600 leading-relaxed m-0">
-              Hardware-based trust rooted in physical, tamper-proof HSM chassis verified by NIST FIPS 140-3.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Hardware Visualization */}
-      <section className="not-prose -mx-8 md:-mx-16 mb-24 bg-white py-12 md:py-24 border-y border-slate-50 px-4 md:px-0">
-        <div className="px-8 md:px-16 mb-12 text-center">
-            <h2 className="text-3xl font-serif font-bold text-slate-900 m-0">FIPS 140-3 HSM Architecture</h2>
-            <p className="text-sm text-slate-500 mt-3 font-bold uppercase tracking-widest">Virtualized, physically secure</p>
-        </div>
-        <HSMBlueprint />
-      </section>
-
-      {/* 6. CTA */}
-      <section className="py-24 text-center not-prose bg-slate-900 text-white rounded-[3rem] md:rounded-[4rem] px-8 md:px-16 mb-24 relative overflow-hidden shadow-2xl mx-4 md:mx-0">
-        <div className="absolute inset-0 bg-technical opacity-5"></div>
-        <div className="relative z-10">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-white m-0 leading-tight">Prepare for the <br className="md:hidden" /> Quantum Era.</h2>
-          <p className="text-slate-400 text-base md:text-lg mb-12 max-w-xl mx-auto italic leading-relaxed">
-            "Your cryptographic keys are your biggest risk. Start securing them today."
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/pricing" className="px-10 py-5 bg-sky-500 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-sky-500 transition-all shadow-xl shadow-sky-500/20 text-center">
-              Get Started
-            </Link>
-            <a href="mailto:hello@rivicq.de" className="px-10 py-5 border border-slate-700 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-white/5 transition-all text-center">
-              Talk to an Engineer
-            </a>
-          </div>
-        </div>
-      </section>
-
-    </article>
+      ))}
+    </div>
   );
-};
+}
 
-export default Home;
+export default function Home() {
+  return (
+    <>
+      {/* Hero */}
+      <section style={{
+        minHeight: 'calc(100vh - 68px)', display: 'flex', alignItems: 'center',
+        justifyContent: 'center', padding: '100px 24px 60px', textAlign: 'center',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        {/* Background effects */}
+        <div style={{
+          position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none',
+        }}>
+          <div style={{
+            position: 'absolute', top: '20%', left: '10%', width: 400, height: 400,
+            borderRadius: '50%', background: 'radial-gradient(circle, rgba(26,86,219,0.08) 0%, transparent 70%)',
+            animation: 'float 8s ease-in-out infinite',
+          }} />
+          <div style={{
+            position: 'absolute', bottom: '10%', right: '5%', width: 300, height: 300,
+            borderRadius: '50%', background: 'radial-gradient(circle, rgba(11,170,138,0.06) 0%, transparent 70%)',
+            animation: 'float 6s ease-in-out infinite',
+          }} />
+        </div>
+
+        <div style={{ maxWidth: 900, position: 'relative', zIndex: 1 }}>
+          <Badge variant="primary">PQC Encryption · HSM · QBOM/CBOM</Badge>
+          <h1 style={{
+            fontFamily: 'var(--rq-font-heading)',
+            fontSize: 'clamp(2.2rem, 5.5vw, 3.6rem)',
+            fontWeight: 700, lineHeight: 1.1, margin: '24px 0 16px',
+            letterSpacing: '-0.03em',
+          }}>
+            Quantum-Safe{' '}
+            <span style={{
+              background: 'linear-gradient(135deg, var(--rq-primary), var(--rq-accent))',
+              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+            }}>
+              Encryption
+            </span>
+            <br />
+            Infrastructure for the Post-Quantum Era
+          </h1>
+          <p style={{
+            color: 'var(--rq-text-secondary)', fontSize: '1.05rem', maxWidth: 680,
+            margin: '0 auto 32px', lineHeight: 1.7,
+          }}>
+            Berlin-founded deep tech at the intersection of post-quantum encryption,
+            FIPS 140-3 Hardware Security Modules, QBOM cryptographic inventory,
+            and EU regulatory compliance (DORA/NIS2/BSI).
+          </p>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <Link to="/enterprise" className="btn btn-primary btn-lg">
+              Start Your Encryption Audit
+              <ArrowRight size={18} />
+            </Link>
+            <Link to="/compliance" className="btn btn-secondary btn-lg">
+              Compliance Deadlines
+            </Link>
+          </div>
+
+          <div style={{ marginTop: 48, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
+            <AnimatedTerminal />
+          </div>
+        </div>
+      </section>
+
+      {/* Urgency bar */}
+      <div style={{
+        background: 'var(--rq-primary-dim)', borderTop: '1px solid rgba(26,86,219,0.12)',
+        borderBottom: '1px solid rgba(26,86,219,0.12)', padding: '14px 24px', textAlign: 'center',
+      }}>
+        <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--rq-primary)', fontFamily: 'var(--rq-font-mono)' }}>
+          HNDL threat active · DORA in effect since Jan 2025 · NIST PQC deadline 2035 · QBOM standardizing 2026
+        </p>
+      </div>
+
+      {/* Stats */}
+      <section className="section-padding">
+        <div className="page-container" style={{ maxWidth: 900 }}>
+          <StatsBar />
+        </div>
+      </section>
+
+      {/* Problem → Solution → RivicQ */}
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
+        <div className="page-container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+            <div className="card">
+              <div style={{ color: 'var(--rq-warning)', fontSize: '0.72rem', fontWeight: 600, fontFamily: 'var(--rq-font-heading)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>The Problem</div>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>Harvest Now, Decrypt Later</h3>
+              <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
+                Every byte of encrypted data collected today — TLS sessions, VPN tunnels, encrypted databases, code signatures — will be decrypted by quantum computers tomorrow. PKI, UPI, Aadhaar, and 50+ year data lifespans are all vulnerable.
+              </p>
+            </div>
+            <div className="card">
+              <div style={{ color: 'var(--rq-primary)', fontSize: '0.72rem', fontWeight: 600, fontFamily: 'var(--rq-font-heading)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>The Solution</div>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>NIST PQC Encryption</h3>
+              <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
+                FIPS 203 (<span className="mono">ML-KEM</span>) for key exchange, FIPS 204 (<span className="mono">ML-DSA</span>) for signatures, AES-256-GCM for bulk encryption. Hybrid classical+PQC key derivation. The question is not <em>if</em> but <em>how</em> to migrate.
+              </p>
+            </div>
+            <div className="card card-accent" style={{ borderColor: 'var(--rq-primary)' }}>
+              <div style={{ color: 'var(--rq-primary)', fontSize: '0.72rem', fontWeight: 600, fontFamily: 'var(--rq-font-heading)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>Enter RivicQ</div>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>QBOM → HSM → Encryption</h3>
+              <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
+                Discover your encryption posture with <span className="mono">CBOM+QBOM</span> Scanner. Secure keys with FIPS 140-3 CloudHSM. Migrate with <span className="mono">RQSP</span> hybrid PQC transport. Quantify risk with QBOM Q-scores.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pipeline section */}
+      <section className="section-padding">
+        <div className="page-container" style={{ maxWidth: 1000 }}>
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <Badge variant="primary">DevSecOps · CBOM+QBOM</Badge>
+            <h2 style={{
+              fontFamily: 'var(--rq-font-heading)', fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+              fontWeight: 700, marginTop: 14, letterSpacing: '-0.02em',
+            }}>RivicQ DevSecOps Pipeline</h2>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.95rem', marginTop: 10, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+              Automated cryptographic discovery, risk scoring, and PQC remediation — embedded in your CI/CD.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+            {[
+              { icon: Search, label: 'Discover', title: 'CBOM Scanner', desc: 'Deep discovery of all cryptographic assets', color: '#3B82F6' },
+              { icon: FileCode, label: 'Analyze', title: 'QBOM Risk Scoring', desc: 'Quantum vulnerability Q-score for each asset', color: '#2563EB' },
+              { icon: Shield, label: 'Remediate', title: 'PQC Migration', desc: 'Automated RSA→ML-KEM, ECDSA→ML-DSA', color: '#1D4ED8' },
+              { icon: Lock, label: 'Deploy', title: 'HSM-Backed Encryption', desc: 'FIPS 140-3 keys with PQC hybrid transport', color: '#143FA8' },
+            ].map((stage, i) => {
+              const Icon = stage.icon;
+              return (
+                <div key={i} className="card" style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: 44, height: 44, borderRadius: 12, margin: '0 auto 12px',
+                    background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <Icon size={20} />
+                  </div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--rq-muted)', fontFamily: 'var(--rq-font-heading)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 4 }}>{stage.label}</div>
+                  <h3 style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: 6 }}>{stage.title}</h3>
+                  <p style={{ fontSize: '0.78rem', color: 'var(--rq-text-secondary)', lineHeight: 1.5, margin: 0 }}>{stage.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Products overview */}
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
+        <div className="page-container" style={{ maxWidth: 1000 }}>
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <Badge variant="primary">Encryption Platform</Badge>
+            <h2 style={{
+              fontFamily: 'var(--rq-font-heading)', fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+              fontWeight: 700, marginTop: 14, letterSpacing: '-0.02em',
+            }}>Complete Encryption Stack</h2>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.95rem', marginTop: 10, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+              From cryptographic discovery to HSM-backed deployment — the full post-quantum lifecycle.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+            {[
+              { icon: Search, title: 'CBOM Scanner', desc: 'Deep cryptographic discovery across repos, containers, and cloud VPCs. Detects every encryption primitive, cert, and key.', href: '/products' },
+              { icon: TrendingUp, title: 'QBOM Analyzer', desc: 'Quantum vulnerability scoring. Each asset gets a Q-score (0.0–1.0). Maps to NIST PQC replacements with priority ordering.', href: '/products' },
+              { icon: Shield, title: 'CloudHSM', desc: 'FIPS 140-3 Level 3 HSM as a Service. REST/gRPC API, PKCS#11, QRNG entropy injection, automated key rotation.', href: '/cloud-hsm' },
+              { icon: Layers, title: 'RQSP Protocol', desc: 'Hybrid classical+PQC transport encryption. X25519+ML-KEM key agreement with AES-256-GCM bulk encryption.', href: '/rqsp' },
+              { icon: Globe, title: 'Platform', desc: 'Enterprise encryption architecture. On-prem, cloud vHSM, hybrid split-key. DORA/NIS2 ready.', href: '/platform' },
+              { icon: Terminal, title: 'SDK & APIs', desc: 'Developer bindings for Python, Go, Rust, TypeScript. Integrate PQC encryption in minutes.', href: '/sdk' },
+            ].map((product, i) => {
+              const Icon = product.icon;
+              return (
+                <Link key={i} to={product.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <div className="card card-hover" style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                    <div style={{
+                      width: 40, height: 40, borderRadius: 10,
+                      background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                    }}>
+                      <Icon size={18} />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: 4 }}>{product.title}</h3>
+                      <p style={{ fontSize: '0.82rem', color: 'var(--rq-text-secondary)', lineHeight: 1.6, margin: 0 }}>{product.desc}</p>
+                    </div>
+                    <ChevronRight size={16} style={{ color: 'var(--rq-muted)', flexShrink: 0, marginTop: 4 }} />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* QBOM Section */}
+      <section className="section-padding">
+        <div className="page-container" style={{ maxWidth: 900 }}>
+          <div className="card card-accent" style={{ padding: 32 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+              <Badge variant="primary">New</Badge>
+              <span style={{ fontFamily: 'var(--rq-font-heading)', fontSize: '0.72rem', color: 'var(--rq-primary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Quantum Bill of Materials</span>
+            </div>
+            <h3 style={{
+              fontFamily: 'var(--rq-font-heading)', fontSize: '1.3rem', fontWeight: 700, marginBottom: 8,
+            }}>
+              QBOM: Know Your Encryption Risk <span className="mono" style={{ color: 'var(--rq-primary)', fontSize: '0.95rem' }}>Q-score</span>
+            </h3>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: 20 }}>
+              Every cryptographic asset gets a quantum vulnerability score. <span className="mono">Q-score 0.0</span> = safe (AES-256). <span className="mono">Q-score 1.0</span> = critical (RSA-2048). Map your entire encryption inventory to NIST PQC replacements with automated remediation prioritization.
+            </p>
+            <div style={{
+              background: '#0E141B', borderRadius: 10, padding: '16px 20px',
+              fontFamily: 'var(--rq-font-mono)', fontSize: '0.8rem', lineHeight: 1.8,
+              color: '#94A3B8', border: '1px solid #1E293B',
+            }}>
+              <div style={{ color: '#93C5FD' }}>$ rivicq qbom scan --risk-score</div>
+              <div style={{ color: '#10B981' }}>  ✓ RSA-2048 key  → Q-score 0.92 → migrate to ML-KEM-768</div>
+              <div style={{ color: '#10B981' }}>  ✓ ECDSA P-256   → Q-score 0.85 → migrate to ML-DSA-65</div>
+              <div style={{ color: '#10B981' }}>  ✓ AES-256-GCM   → Q-score 0.08 → PQ-safe</div>
+              <div style={{ color: '#10B981' }}>  ✓ CBOM+QBOM generated: inventory.cdx.json</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* HSM Architecture */}
+      <section className="section-padding" style={{ background: 'var(--rq-white)', position: 'relative', overflow: 'hidden' }}>
+        <QuantumCircuit complexity={6} color="var(--rq-primary)" />
+        <div className="page-container" style={{ maxWidth: 1000, position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: 32 }}>
+            <Badge variant="primary">CloudHSM</Badge>
+            <h2 style={{
+              fontFamily: 'var(--rq-font-heading)', fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+              fontWeight: 700, marginTop: 14, letterSpacing: '-0.02em',
+            }}>HSM-Backed Encryption Architecture</h2>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.95rem', marginTop: 10, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+              Every encryption operation originates from a FIPS 140-3 hardware boundary. Tap a layer to inspect.
+            </p>
+          </div>
+
+          <HSMBlueprint />
+
+          {/* Telecom HSM use case */}
+          <div className="card card-accent" style={{ marginTop: 8, padding: 24, borderColor: 'var(--rq-primary)' }}>
+            <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+              <div style={{
+                width: 48, height: 48, borderRadius: 12,
+                background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+              }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <div style={{ flex: 1, minWidth: 250 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700 }}>Telecommunications HSM Deployment</h3>
+                  <Badge variant="accent">5G · ETSI QSC</Badge>
+                </div>
+                <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
+                  RivicQ CloudHSM supports telecom-grade key management for 5G core networks, SIM/eSIM
+                  provisioning, and ETSI QSC-compliant PQC migration. HSM-backed key storage with
+                  FIPS 140-3 Level 3 protection for subscriber authentication, network slicing
+                  encryption, and signaling integrity. On-prem and vHSM deployment models available
+                  for mobile network operators and infrastructure providers.
+                </p>
+                <div style={{ display: 'flex', gap: 6, marginTop: 10, flexWrap: 'wrap' }}>
+                  {['5G Core Encryption', 'SIM/eSIM Key Mgmt', 'ETSI QSC 001', 'Subscriber Privacy', 'Network Slicing'].map(t => (
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Target segments */}
+      <section className="section-padding">
+        <div className="page-container">
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <Badge variant="primary">Target Segments</Badge>
+            <h2 style={{
+              fontFamily: 'var(--rq-font-heading)', fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+              fontWeight: 700, marginTop: 14, letterSpacing: '-0.02em',
+            }}>Built for These Teams</h2>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.95rem', marginTop: 10, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+              Engineer-to-engineer. Real encryption migration for real threat models.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
+            {[
+              { icon: Shield, title: 'CISOs', desc: 'QBOM compliance for DORA/NIS2 board reporting. Full encryption posture visibility.' },
+              { icon: Users, title: 'Security Engineers', desc: 'CBOM scanner + HSM API. Automate crypto discovery and remediation.' },
+              { icon: BookOpen, title: 'DevSecOps', desc: 'Embed PQC migration into CI/CD pipelines. From scan to deploy.' },
+              { icon: Globe, title: 'Government', desc: 'FIPS 140-3, BSI-approved. Sovereign encryption infrastructure.' },
+              { icon: Zap, title: 'Telecom', desc: '5G core encryption, SIM/eSIM key management, ETSI QSC compliance.' },
+            ].map((segment, i) => {
+              const Icon = segment.icon;
+              return (
+                <div key={i} className="card" style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 10, margin: '0 auto 12px',
+                    background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <Icon size={18} />
+                  </div>
+                  <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: 6 }}>{segment.title}</h3>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--rq-text-secondary)', lineHeight: 1.6, margin: 0 }}>{segment.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Investor Section */}
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
+        <div className="page-container" style={{ maxWidth: 900 }}>
+          <div className="card card-accent" style={{ padding: 36, textAlign: 'center' }}>
+            <Badge variant="primary">Pre-Seed / Seed</Badge>
+            <h3 style={{
+              fontFamily: 'var(--rq-font-heading)', fontSize: '1.3rem', fontWeight: 700,
+              marginTop: 14, marginBottom: 10,
+            }}>Building the Post-Quantum Encryption Layer</h3>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 600, margin: '0 auto 20px' }}>
+              RivicQ is closing its seed round. Berlin-founded deep tech at the intersection of PQC encryption,
+              FIPS 140-3 HSM, QBOM cryptographic inventory, and EU regulatory compliance. Enterprise pilots underway
+              with government and critical infrastructure.
+            </p>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 24 }}>
+              {['ETSI / IQC Delegate', 'Horizenlabs Partner', 'BSI Congress', 'EURA AG LOI', 'Leap Berlin', '6 Standards'].map(t => (
+                <span key={t} className="tag">{t}</span>
+              ))}
+            </div>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/pitch-deck" className="btn btn-primary">
+                View Investor Materials <ArrowRight size={16} />
+              </Link>
+              <Link to="/enterprise" className="btn btn-secondary">
+                Request Enterprise Pilot
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Achievements */}
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
+        <div className="page-container" style={{ maxWidth: 1000 }}>
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <Badge variant="accent">Recent Achievements</Badge>
+            <h2 style={{
+              fontFamily: 'var(--rq-font-heading)', fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+              fontWeight: 700, marginTop: 14, letterSpacing: '-0.02em',
+            }}>Standards & Partnerships</h2>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.95rem', marginTop: 10, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+              Driving post-quantum encryption standards globally and building strategic partnerships.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+            <div className="card card-accent" style={{ borderColor: 'var(--rq-primary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                <div style={{
+                  width: 44, height: 44, borderRadius: 12,
+                  background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                }}>
+                  <Award size={20} />
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--rq-font-heading)', fontWeight: 600, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--rq-muted)' }}>May 2026</div>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700 }}>ETSI / IQC QSC Delegate</h3>
+                </div>
+              </div>
+              <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
+                RivicQ is now an official ETSI / IQC Quantum-Safe Cryptography (QSC) delegate, actively contributing to post-quantum encryption standards. This recognition places RivicQ at the table where PQC migration standards are defined for European telecommunications and critical infrastructure.
+              </p>
+              <a href="https://www.etsi.org/technologies/quantum-safe-cryptography" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 12, color: 'var(--rq-primary)', fontSize: '0.85rem', fontWeight: 600 }}>
+                Learn about ETSI QSC <ExternalLink size={14} />
+              </a>
+            </div>
+
+            <div className="card card-accent" style={{ borderColor: 'var(--rq-accent)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                <div style={{
+                  width: 44, height: 44, borderRadius: 12,
+                  background: 'var(--rq-accent-light)', color: 'var(--rq-accent-dark)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                }}>
+                  <Zap size={20} />
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--rq-font-heading)', fontWeight: 600, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--rq-muted)' }}>2026</div>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700 }}>Horizenlabs Partnership</h3>
+                </div>
+              </div>
+              <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
+                Strategic partnership with Horizenlabs to integrate RivicQ's PQC encryption and QBOM capabilities into next-generation blockchain and zero-knowledge proof infrastructure. Combining post-quantum cryptography with distributed systems for long-term data protection.
+              </p>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 12, color: 'var(--rq-accent-dark)', fontSize: '0.85rem', fontWeight: 600 }}>
+                <Badge variant="accent">Strategic Partner</Badge>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding">
+        <div className="page-container" style={{ maxWidth: 900 }}>
+          <div style={{
+            background: 'linear-gradient(135deg, var(--rq-primary-dark) 0%, var(--rq-primary) 100%)',
+            borderRadius: 20, padding: '56px 40px', textAlign: 'center',
+            position: 'relative', overflow: 'hidden',
+          }}>
+            <div style={{
+              position: 'absolute', top: '-30%', right: '-10%', width: 400, height: 400,
+              borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
+            }} />
+            <div style={{ position: 'relative' }}>
+              <h3 style={{
+                fontFamily: 'var(--rq-font-heading)', fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
+                fontWeight: 700, color: '#FFFFFF', marginBottom: 12,
+              }}>Ready to Quantum-Proof Your Encryption?</h3>
+              <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.95rem', maxWidth: 560, margin: '0 auto 28px', lineHeight: 1.7 }}>
+                Free CBOM+QBOM pilot for government and critical infrastructure. We'll scan your stack, Q-score every encryption asset, and deliver a prioritized PQC migration roadmap.
+              </p>
+              <Link to="/enterprise" style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '14px 32px', background: '#FFFFFF', color: 'var(--rq-primary-dark)',
+                borderRadius: 10, fontWeight: 700, fontFamily: 'var(--rq-font-heading)',
+                fontSize: '0.9rem', textDecoration: 'none', transition: 'box-shadow 200ms',
+              }}
+                onMouseEnter={e => e.currentTarget.style.boxShadow = '0 0 30px rgba(255,255,255,0.2)'}
+                onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
+              >
+                Request Free Encryption Audit <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

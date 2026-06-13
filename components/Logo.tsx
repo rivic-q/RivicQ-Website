@@ -1,26 +1,61 @@
 import React from 'react';
 
-const Logo: React.FC<{ className?: string, showTagline?: boolean, dark?: boolean }> = ({ className = "h-10", showTagline = true, dark = false }) => {
-  const textColor = dark ? "text-white" : "text-black";
-  const subTextColor = dark ? "text-gray-300" : "text-gray-900";
+type LogoSize = 'sm' | 'md' | 'lg';
+
+interface LogoProps {
+  size?: LogoSize;
+  showTagline?: boolean;
+  variant?: 'light' | 'dark';
+  className?: string;
+}
+
+const sizeMap: Record<LogoSize, { icon: number; text: string; tagline: string }> = {
+  sm: { icon: 28, text: '1rem', tagline: '0.55rem' },
+  md: { icon: 36, text: '1.25rem', tagline: '0.6rem' },
+  lg: { icon: 48, text: '1.6rem', tagline: '0.7rem' },
+};
+
+const Logo: React.FC<LogoProps> = ({
+  size = 'md',
+  showTagline = true,
+  variant = 'dark',
+  className = '',
+}) => {
+  const s = sizeMap[size];
+  const textColor = variant === 'light' ? '#FFFFFF' : '#0E141B';
+  const accentColor = variant === 'light' ? '#FFFFFF' : '#1A56DB';
+  const mutedColor = variant === 'light' ? 'rgba(255,255,255,0.6)' : '#8896A6';
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      {/* Stylized R Icon */}
-      <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-        <path d="M40 45C40 47.7614 37.7614 50 35 50C32.2386 50 30 47.7614 30 45C30 42.2386 32.2386 40 35 40C37.7614 40 40 42.2386 40 45Z" fill="currentColor" className={textColor}/>
-        <path d="M30 30H60C76.5685 30 90 43.4315 90 60C90 65.6565 88.2045 70.9169 85.103 75.346L70 95" stroke="currentColor" strokeWidth="8" strokeLinecap="round" className={textColor}/>
-        <path d="M35 50L55 70L75 95" stroke="currentColor" strokeWidth="8" strokeLinecap="round" className={textColor}/>
+    <div className={className} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <svg width={s.icon} height={s.icon} viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+        <rect x="2" y="2" width="32" height="32" rx="8" fill={accentColor} />
+        <path d="M10 18C10 13.5817 13.5817 10 18 10C22.4183 10 26 13.5817 26 18C26 22.4183 22.4183 26 18 26" stroke={variant === 'light' ? '#0E141B' : '#FFFFFF'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 18C10 22.4183 13.5817 26 18 26" stroke={variant === 'light' ? '#0E141B' : '#FFFFFF'} strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M14 14L22 22" stroke={variant === 'light' ? '#0E141B' : '#FFFFFF'} strokeWidth="2" strokeLinecap="round" />
+        <circle cx="18" cy="18" r="2.5" fill={variant === 'light' ? '#0E141B' : '#FFFFFF'} />
       </svg>
-      
-      {/* Text Branding */}
-      <div className="flex flex-col justify-center">
-        <span className={`font-heading font-bold tracking-[0.2em] leading-none text-2xl ${textColor}`}>
-          RIVIC
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <span style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontWeight: 700,
+          fontSize: s.text,
+          color: textColor,
+          letterSpacing: '-0.03em',
+          lineHeight: 1,
+        }}>
+          Rivi<span style={{ color: accentColor }}>cQ</span>
         </span>
         {showTagline && (
-          <span className={`text-[0.6rem] uppercase tracking-[0.15em] font-medium mt-1 ${subTextColor}`}>
-            Quantum Safe Security
+          <span style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: s.tagline,
+            color: mutedColor,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            marginTop: 3,
+          }}>
+            Quantum-Safe Encryption
           </span>
         )}
       </div>
