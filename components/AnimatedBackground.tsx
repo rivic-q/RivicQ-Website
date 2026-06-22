@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 interface Props {
-  variant?: 'mesh' | 'grid' | 'hex' | 'crypto' | 'mixed';
+  variant?: 'mesh' | 'grid' | 'hex' | 'crypto' | 'circuit' | 'particles' | 'mixed';
   intensity?: 'low' | 'medium' | 'high';
   gradient?: string[];
   className?: string;
@@ -19,7 +19,7 @@ const AnimatedBackground: React.FC<Props> = ({
     position: 'absolute',
     inset: 0,
     background: `
-      radial-gradient(ellipse at 20% 50%, ${gradient[0]}12 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 50%, ${gradient[0]}0C 0%, transparent 60%),
       radial-gradient(ellipse at 80% 20%, ${gradient[1]}08 0%, transparent 50%),
       radial-gradient(ellipse at 50% 80%, ${gradient[2]}05 0%, transparent 50%)
     `,
@@ -30,9 +30,10 @@ const AnimatedBackground: React.FC<Props> = ({
     zIndex: 0,
   }), [gradient, opacityMultiplier]);
 
-  const showMesh = variant === 'mesh' || variant === 'mixed';
+  const showCircuit = variant === 'circuit' || variant === 'mixed';
   const showHex = variant === 'hex' || variant === 'mixed';
   const showGrid = variant === 'grid' || variant === 'mixed';
+  const showMesh = variant === 'mesh' || variant === 'mixed';
 
   const floatingHexes = useMemo(() => {
     if (!showHex) return [];
@@ -58,6 +59,30 @@ const AnimatedBackground: React.FC<Props> = ({
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#bg-grid)" />
+        </svg>
+      )}
+
+      {showCircuit && (
+        <svg width="100%" height="100%" className="absolute inset-0" style={{ opacity: 0.04 * opacityMultiplier }}>
+          <defs>
+            <pattern id="dt-dot" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="12" cy="12" r="0.5" fill="#2563EB" opacity="0.15" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dt-dot)" />
+          {[...Array(4)].map((_, i) => {
+            const x1 = 10 + Math.random() * 80;
+            const y1 = 10 + Math.random() * 80;
+            const x2 = x1 + (Math.random() - 0.5) * 40;
+            const y2 = y1 + (Math.random() - 0.5) * 40;
+            return (
+              <g key={i}>
+                <line x1={`${x1}%`} y1={`${y1}%`} x2={`${x2}%`} y2={`${y2}%`}
+                  stroke="#2563EB" strokeWidth="0.4" opacity="0.25" className="animate-circuit-flow" />
+                <circle cx={`${x1}%`} cy={`${y1}%`} r="1.5" fill="#2563EB" opacity="0.2" className="animate-node-connect" />
+              </g>
+            );
+          })}
         </svg>
       )}
 

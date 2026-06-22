@@ -1,122 +1,205 @@
 
 import React from 'react';
-import { Github, Terminal, Database, ShieldAlert, Lock, ArrowRight, Server, Cloud, Activity } from 'lucide-react';
+import { Terminal, Database, Lock, ArrowRight, Server, Cloud, Activity, Cpu } from 'lucide-react';
 
 const SystemArchitecture3D: React.FC = () => {
   const steps = [
     {
       label: "Discovery",
-      title: "SAST & DAST",
-      icon: <Github size={20} />,
-      color: "blue",
-      details: "Source & HANDSHAKES",
-      sub: "Legacy scan"
+      title: "CSPM Scanner",
+      icon: <Database size={18} />,
+      color: "#2563EB",
+      bg: "rgba(37,99,235,0.08)",
+      details: "Deep cryptographic asset discovery",
+      sub: "Git / Cloud / Containers"
     },
     {
-      label: "Catalog",
-      title: "CSPM Engine",
-      icon: <Database size={20} />,
-      color: "indigo",
-      details: "CycloneDX Inventory",
-      sub: "Risk scoring"
+      label: "Analyze",
+      title: "QBOM Engine",
+      icon: <Cpu size={18} />,
+      color: "#7C3AED",
+      bg: "rgba(124,58,237,0.08)",
+      details: "Q-score risk assessment",
+      sub: "PQC vulnerability mapping"
     },
     {
       label: "Remediate",
       title: "HSM Mesh",
-      icon: <Lock size={20} />,
-      color: "emerald",
-      details: "PQC Rotation",
-      sub: "Kyber/Dilithium"
+      icon: <Lock size={18} />,
+      color: "#059669",
+      bg: "rgba(5,150,105,0.08)",
+      details: "ML-KEM / ML-DSA migration",
+      sub: "FIPS 140-3 key wrapping"
     }
   ];
 
   return (
-    <div className="w-full py-24 bg-white overflow-hidden relative border-y border-slate-50 mb-12 flex flex-col items-center">
-      {/* Background technical grid */}
+    <div style={{
+      width: '100%', padding: '80px 0',
+      background: '#ffffff', overflow: 'hidden', position: 'relative',
+      borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9',
+    }}>
+      {/* Background dot grid */}
       <div style={{
-            position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.4,
-            backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px)',
-            backgroundSize: '20px 20px',
-          }}></div>
+        position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.5,
+        backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+      }} />
 
-      <div className="relative z-10 text-center mb-16 px-6">
-        <h3 className="text-4xl font-serif font-bold text-slate-900 m-0">CryptoBOM DevSecOps Lifecycle</h3>
-        <p className="text-xs text-blue-600 font-bold uppercase tracking-[0.3em] mt-3">Discover • Catalog • Orchestrate</p>
+      {/* Section header */}
+      <div style={{ textAlign: 'center', marginBottom: 48, position: 'relative', zIndex: 1, padding: '0 24px' }}>
+        <span style={{
+          display: 'inline-block', padding: '4px 12px', borderRadius: 100,
+          background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
+          fontSize: '0.68rem', fontWeight: 600, fontFamily: 'var(--rq-font-heading)',
+          textTransform: 'uppercase', letterSpacing: '0.06em',
+          marginBottom: 14,
+        }}>DevSecOps Pipeline</span>
+        <h3 style={{
+          fontFamily: 'var(--rq-font-heading)',
+          fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
+          fontWeight: 700, color: '#0f172a', margin: '0 0 8px',
+        }}>CryptoBOM Lifecycle</h3>
+        <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: 'var(--rq-font-mono)', letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0 }}>
+          Discover · Analyze · Remediate
+        </p>
       </div>
 
-      <div className="relative w-full max-w-5xl px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* Connecting Line - Behind */}
-        <div className="hidden md:block absolute top-1/2 left-20 right-20 h-0.5 bg-slate-100 -z-0"></div>
+      {/* Pipeline cards */}
+      <div style={{
+        display: 'flex', gap: 0, maxWidth: 900, margin: '0 auto',
+        padding: '0 24px', position: 'relative', zIndex: 1,
+        flexWrap: 'wrap', justifyContent: 'center',
+      }}>
+        {/* Connecting line */}
+        <div style={{
+          position: 'absolute', top: '50%', left: '15%', right: '15%',
+          height: '1px', background: 'linear-gradient(90deg, transparent, #e2e8f0, transparent)',
+          display: 'none',
+        }} className="md:block" />
 
         {steps.map((step, i) => (
-          <div key={i} className="relative z-10 w-full md:w-1/3 flex flex-col items-center group">
-            {/* The Node Card */}
-            <div className={`w-full max-w-[280px] p-8 rounded-[2.5rem] bg-white border-2 border-slate-100 shadow-sm transition-all duration-500
-                            hover:border-${step.color}-500 hover:shadow-2xl hover:shadow-${step.color}-500/10 hover:-translate-y-2 cursor-default`}>
-              
-              <div className="flex justify-between items-start mb-8">
-                <div className={`p-4 bg-${step.color}-50 text-${step.color}-600 rounded-2xl group-hover:bg-${step.color}-600 group-hover:text-white transition-all`}>
-                  {step.icon}
-                </div>
-                <span className={`text-[10px] font-bold text-${step.color}-600 uppercase tracking-widest`}>Phase 0{i+1}</span>
+          <div key={i} style={{
+            flex: '1 1 250px', maxWidth: 300,
+            padding: '32px 24px', margin: 8,
+            background: '#ffffff',
+            border: '1px solid #f1f5f9',
+            borderRadius: 20,
+            transition: 'all 0.3s',
+            cursor: 'default',
+            position: 'relative',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.04)',
+          }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = step.color;
+              e.currentTarget.style.boxShadow = `0 12px 32px ${step.color}12`;
+              e.currentTarget.style.transform = 'translateY(-4px)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = '#f1f5f9';
+              e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.04)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20,
+            }}>
+              <div style={{
+                width: 44, height: 44, borderRadius: 12,
+                background: step.bg, color: step.color,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                {step.icon}
               </div>
-
-              <div className="mb-6">
-                <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-1">{step.label}</h4>
-                <h5 className="text-xl font-serif font-bold text-slate-900 m-0 group-hover:text-blue-600 transition-colors">{step.title}</h5>
-              </div>
-
-              <div className="space-y-3 pt-4 border-t border-slate-50">
-                <div className="flex items-center gap-2">
-                  <div className={`w-1.5 h-1.5 rounded-full bg-${step.color}-500`}></div>
-                  <span className="text-[10px] font-bold text-slate-600 uppercase tracking-tight">{step.details}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className={`w-1.5 h-1.5 rounded-full bg-slate-200`}></div>
-                  <span className="text-[10px] font-medium text-slate-400 uppercase tracking-tight">{step.sub}</span>
-                </div>
-              </div>
+              <span style={{
+                fontSize: '9px', fontWeight: 700, color: step.color,
+                textTransform: 'uppercase', letterSpacing: '0.1em',
+                fontFamily: 'var(--rq-font-heading)',
+              }}>Phase 0{i + 1}</span>
             </div>
 
-            {/* Stage Indicator Arrow */}
-            {i < steps.length - 1 && (
-              <div className="md:hidden my-6 text-slate-200">
-                <ArrowRight className="rotate-90" />
+            <div style={{ marginBottom: 16 }}>
+              <div style={{
+                fontSize: '9px', fontWeight: 700, color: '#94a3b8',
+                textTransform: 'uppercase', letterSpacing: '0.15em',
+                fontFamily: 'var(--rq-font-heading)', marginBottom: 6,
+              }}>{step.label}</div>
+              <h4 style={{
+                fontSize: '1.1rem', fontWeight: 700, color: '#0f172a',
+                fontFamily: 'var(--rq-font-heading)', margin: 0,
+              }}>{step.title}</h4>
+            </div>
+
+            <div style={{
+              borderTop: '1px solid #f1f5f9', paddingTop: 14,
+              display: 'flex', flexDirection: 'column', gap: 8,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ width: 6, height: 6, borderRadius: '50%', background: step.color }} />
+                <span style={{ fontSize: '9px', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{step.details}</span>
               </div>
-            )}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#e2e8f0' }} />
+                <span style={{ fontSize: '9px', fontWeight: 500, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{step.sub}</span>
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Infrastructure Details */}
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl px-8 w-full">
-        <div className="p-10 bg-slate-900 rounded-[3rem] text-white relative overflow-hidden group shadow-xl">
-           <div className="absolute top-0 right-0 p-8 opacity-5 text-blue-400 pointer-events-none group-hover:scale-110 transition-transform">
-              <Server size={140} />
-           </div>
-           <h4 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-             <Terminal size={14}/> Static Discovery
-           </h4>
-           <p className="text-xs text-slate-400 leading-relaxed m-0">
-             Continuous scanning of VCS repositories (Git) and CI/CD artifacts to identify "Cryptographic Debt" before deployment. Hooks into standard pipelines via RivicQ CLI.
-           </p>
+      <div style={{
+        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20,
+        maxWidth: 900, margin: '48px auto 0', padding: '0 24px',
+        position: 'relative', zIndex: 1,
+      }}>
+        <div style={{
+          padding: 32, background: '#0f172a',
+          borderRadius: 24, position: 'relative', overflow: 'hidden',
+        }}>
+          <div style={{ position: 'absolute', top: 0, right: 0, padding: 16, opacity: 0.04, color: '#60A5FA' }}>
+            <Server size={100} />
+          </div>
+          <h4 style={{
+            fontSize: '0.68rem', fontWeight: 700, color: '#60A5FA',
+            textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12,
+            display: 'flex', alignItems: 'center', gap: 8,
+            fontFamily: 'var(--rq-font-heading)',
+          }}><Terminal size={14} /> Static Discovery</h4>
+          <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.7, margin: 0, maxWidth: 350 }}>
+            Continuous scanning of VCS repositories (Git) and CI/CD artifacts to identify "Cryptographic Debt" before deployment. Hooks into standard pipelines via RivicQ CLI.
+          </p>
         </div>
 
-        <div className="p-10 bg-white border border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden group hover:border-blue-200 transition-all">
-           <div className="absolute top-0 right-0 p-8 opacity-5 text-slate-900 pointer-events-none group-hover:scale-110 transition-transform">
-              <Activity size={140} />
-           </div>
-           <h4 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4 flex items-center gap-2">
-             <Cloud size={14}/> Dynamic Remediation
-           </h4>
-           <p className="text-xs text-slate-500 leading-relaxed m-0">
-             Sidecar agents monitor TLS/RPC traffic in runtime clusters (K8s). Policy-driven orchestration forces legacy nodes to wrap classical keys in PQC tunnels (ML-KEM).
-           </p>
+        <div style={{
+          padding: 32, background: '#ffffff',
+          borderRadius: 24, position: 'relative', overflow: 'hidden',
+          border: '1px solid #f1f5f9',
+        }}>
+          <div style={{ position: 'absolute', top: 0, right: 0, padding: 16, opacity: 0.04, color: '#0f172a' }}>
+            <Activity size={100} />
+          </div>
+          <h4 style={{
+            fontSize: '0.68rem', fontWeight: 700, color: '#2563EB',
+            textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12,
+            display: 'flex', alignItems: 'center', gap: 8,
+            fontFamily: 'var(--rq-font-heading)',
+          }}><Cloud size={14} /> Dynamic Remediation</h4>
+          <p style={{ fontSize: '0.82rem', color: '#64748b', lineHeight: 1.7, margin: 0, maxWidth: 350 }}>
+            Sidecar agents monitor TLS/RPC traffic in runtime clusters (K8s). Policy-driven orchestration forces legacy nodes to wrap classical keys in PQC tunnels (ML-KEM).
+          </p>
         </div>
       </div>
 
-      <div className="mt-12 font-mono text-[10px] text-slate-400 tracking-[0.3em] uppercase font-bold">
-        RivicQ Protocol Pipeline • Secure-by-Design
+      {/* Bottom tag */}
+      <div style={{
+        textAlign: 'center', marginTop: 40,
+        fontFamily: 'var(--rq-font-mono)', fontSize: '9px',
+        color: '#94a3b8', letterSpacing: '0.3em',
+        fontWeight: 700, textTransform: 'uppercase',
+        position: 'relative', zIndex: 1,
+      }}>
+        RivicQ Protocol Pipeline · Secure-by-Design
       </div>
     </div>
   );
