@@ -16,38 +16,21 @@ export default function Login() {
     <div style={{
       minHeight: 'calc(100vh - 68px)', display: 'flex', alignItems: 'center',
       justifyContent: 'center', padding: '40px 24px',
-      background: 'var(--rq-bg)',
-      position: 'relative', overflow: 'hidden',
+      background: 'linear-gradient(135deg, var(--rq-bg) 0%, var(--rq-primary-dim) 100%)',
     }}>
-      {/* Circuit background */}
-      <svg width="100%" height="100%" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.03 }}>
-        <defs>
-          <pattern id="login-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#3B82F6" strokeWidth="0.3" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#login-grid)" />
-        {[...Array(3)].map((_, i) => (
-          <path key={i}
-            d={`M ${20 + i * 30}% ${100}% Q ${20 + i * 30}% ${50}%, ${30 + i * 25}% ${0}%`}
-            stroke="#3B82F6" strokeWidth="0.3" fill="none" opacity="0.3" className="animate-circuit-flow"
-            style={{ animationDelay: `${i * 0.6}s` }} />
-        ))}
-      </svg>
-
-      <div style={{ width: '100%', maxWidth: 420, position: 'relative', zIndex: 1 }}>
+      <div style={{ width: '100%', maxWidth: 420 }}>
         <div style={{ textAlign: 'center', marginBottom: 36 }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Logo size="md" variant="light" />
+            <Logo size="md" />
           </div>
         </div>
 
-        <div className="card" style={{ padding: 36, background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(12px)' }}>
+        <div className="card" style={{ padding: 36 }}>
           <div style={{
-            background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)',
+            background: 'rgba(217,119,6,0.08)', border: '1px solid rgba(217,119,6,0.2)',
             borderRadius: 8, padding: '10px 14px', marginBottom: 20,
             display: 'flex', alignItems: 'center', gap: 10,
-            fontSize: '0.78rem', color: '#FBBF24',
+            fontSize: '0.78rem', color: 'var(--rq-warning)',
           }}>
             <Info size={16} style={{ flexShrink: 0 }} />
             <span>Authentication backend coming soon. Dashboard data is for demo purposes.</span>
@@ -56,13 +39,13 @@ export default function Login() {
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <div style={{
               width: 48, height: 48, borderRadius: 14, margin: '0 auto 14px',
-              background: 'rgba(37,99,235,0.15)', color: '#60A5FA',
+              background: 'var(--rq-primary-dim)', color: 'var(--rq-primary)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
               <Lock size={22} />
             </div>
-            <h1 style={{ fontFamily: 'var(--rq-font-heading)', fontSize: '1.3rem', fontWeight: 700, color: '#F1F5F9' }}>Welcome back</h1>
-            <p style={{ color: '#94A3B8', fontSize: '0.85rem', marginTop: 4 }}>Sign in to your RivicQ dashboard</p>
+            <h1 style={{ fontFamily: 'var(--rq-font-heading)', fontSize: '1.3rem', fontWeight: 700 }}>Welcome back</h1>
+            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', marginTop: 4 }}>Sign in to your RivicQ dashboard</p>
           </div>
 
           <form onSubmit={handleSubmit}>

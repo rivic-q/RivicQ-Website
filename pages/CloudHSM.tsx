@@ -25,8 +25,8 @@ const encryptionFlow = [
 
 export default function CloudHSM() {
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--rq-bg)' }}>
-      <AnimatedBackground variant="circuit" intensity="medium" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
+      <AnimatedBackground variant="mesh" intensity="low" gradient={['#0E141B', '#1A56DB', '#0BAA8A']} />
       <div style={{ maxWidth: 1000, margin: '0 auto', padding: '80px 24px 60px', position: 'relative', zIndex: 1 }}>
         <SectionHeader
           title="CloudHSM"
@@ -38,11 +38,11 @@ export default function CloudHSM() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 12, marginTop: 32 }}>
           {specs.map(s => (
             <div key={s.label} style={{
-              background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: 16, padding: 20, backdropFilter: 'blur(8px)',
+              background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: 12, padding: 20, backdropFilter: 'blur(8px)',
             }}>
-              <div style={{ fontSize: '0.68rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#64748B', fontFamily: 'var(--rq-font-heading)', marginBottom: 6 }}>{s.label}</div>
-              <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#F1F5F9', marginBottom: 8 }}>{s.value}</div>
+              <div style={{ fontSize: '0.68rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#64748B', marginBottom: 6 }}>{s.label}</div>
+              <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#FFFFFF', marginBottom: 8 }}>{s.value}</div>
               <Badge variant="primary">{s.badge}</Badge>
             </div>
           ))}
@@ -50,19 +50,19 @@ export default function CloudHSM() {
 
         <div style={{ marginTop: 56 }}>
           <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748B', marginBottom: 20 }}>Encryption Flow</h3>
-          <div style={{ display: 'flex', gap: 0, flexWrap: 'wrap', borderRadius: 12, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+          <div style={{ display: 'flex', gap: 0, flexWrap: 'wrap' }}>
             {encryptionFlow.map((ef, i) => (
               <div key={ef.step} style={{
-                flex: '1 1 180px', borderRight: i < encryptionFlow.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
-                padding: 24, background: 'rgba(255,255,255,0.02)',
+                flex: '1 1 180px', border: '1px solid rgba(255,255,255,0.08)',
+                borderLeft: i === 0 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                padding: 24, background: 'rgba(255,255,255,0.03)',
                 position: 'relative',
               }}>
                 <div style={{ fontSize: '0.6rem', fontWeight: 700, color: '#3B82F6', fontFamily: "'JetBrains Mono', monospace", marginBottom: 8 }}>{ef.step}</div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#F1F5F9', marginBottom: 6 }}>{ef.title}</div>
+                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#FFFFFF', marginBottom: 6 }}>{ef.title}</div>
                 <div style={{ fontSize: '0.78rem', color: '#94A3B8', lineHeight: 1.5 }}>{ef.desc}</div>
                 {i < encryptionFlow.length - 1 && (
-                  <div style={{ position: 'absolute', top: '50%', right: -8, width: 16, height: 16, borderRadius: '50%', background: '#2563EB', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'translateY(-50%)', zIndex: 2 }}>
+                  <div style={{ position: 'absolute', top: '50%', right: -8, width: 16, height: 16, borderRadius: '50%', background: '#1A56DB', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'translateY(-50%)', zIndex: 2 }}>
                     <svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                   </div>
                 )}
@@ -72,19 +72,19 @@ export default function CloudHSM() {
         </div>
 
         <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
-          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 28 }}>
-            <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 700, color: '#F1F5F9', marginBottom: 6 }}>Telecom & 5G</h3>
+          <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 28 }}>
+            <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 700, color: '#FFFFFF', marginBottom: 6 }}>Telecom & 5G</h3>
             <p style={{ fontSize: '0.82rem', color: '#94A3B8', lineHeight: 1.7, margin: '0 0 14px' }}>
               Manage encryption keys for 5G core networks, secure SIM/eSIM provisioning, and meet ETSI QSC 001 standards.
             </p>
             <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
               {['5G Core', 'SIM/eSIM', 'ETSI QSC', 'Network Slicing'].map(t => (
-                <span key={t} className="tag">{t}</span>
+                <span key={t} style={{ padding: '2px 8px', borderRadius: 4, fontSize: '0.7rem', background: 'rgba(37,99,235,0.1)', color: '#60A5FA', fontFamily: "'JetBrains Mono', monospace" }}>{t}</span>
               ))}
             </div>
           </div>
-          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 28 }}>
-            <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 700, color: '#F1F5F9', marginBottom: 6 }}>EaaS API Demo</h3>
+          <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 28 }}>
+            <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 700, color: '#FFFFFF', marginBottom: 6 }}>EaaS API Demo</h3>
             <Terminal>{`curl -X POST https://api.rivicq.de/v1/encrypt \\
   -H "Authorization: Bearer $KEY" \\
   -d '{"plaintext": "c2Vuc2l0aXZlIGRhdGE=", "algorithm": "ML-KEM-768"}'`}</Terminal>

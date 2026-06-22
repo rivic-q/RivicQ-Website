@@ -77,25 +77,15 @@ export default function Home() {
           position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none',
         }}>
           <div style={{
-            position: 'absolute', top: '20%', left: '10%', width: 500, height: 500,
-            borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%)',
-            animation: 'gradientOrb 12s ease-in-out infinite',
+            position: 'absolute', top: '20%', left: '10%', width: 400, height: 400,
+            borderRadius: '50%', background: 'radial-gradient(circle, rgba(26,86,219,0.08) 0%, transparent 70%)',
+            animation: 'float 8s ease-in-out infinite',
           }} />
           <div style={{
-            position: 'absolute', bottom: '10%', right: '5%', width: 400, height: 400,
-            borderRadius: '50%', background: 'radial-gradient(circle, rgba(11,170,138,0.07) 0%, transparent 70%)',
-            animation: 'gradientOrb 10s ease-in-out infinite',
-            animationDelay: '3s',
+            position: 'absolute', bottom: '10%', right: '5%', width: 300, height: 300,
+            borderRadius: '50%', background: 'radial-gradient(circle, rgba(11,170,138,0.06) 0%, transparent 70%)',
+            animation: 'float 6s ease-in-out infinite',
           }} />
-          {/* Circuit traces */}
-          <svg width="100%" height="100%" className="absolute inset-0" style={{ opacity: 0.04, pointerEvents: 'none' }}>
-            {[...Array(5)].map((_, i) => (
-              <path key={i}
-                d={`M ${10 + i * 20}% ${100}% Q ${10 + i * 20}% ${60 + (i % 3) * 10}%, ${20 + i * 18}% ${(i % 2) * 30}%`}
-                stroke="#3B82F6" strokeWidth="0.5" fill="none" opacity="0.4" className="animate-circuit-flow"
-                style={{ animationDelay: `${i * 0.4}s` }} />
-            ))}
-          </svg>
         </div>
 
         <div style={{ maxWidth: 900, position: 'relative', zIndex: 1 }}>
@@ -143,16 +133,10 @@ export default function Home() {
 
       {/* Urgency bar */}
       <div style={{
-        background: 'rgba(37,99,235,0.08)', borderTop: '1px solid rgba(37,99,235,0.15)',
-        borderBottom: '1px solid rgba(37,99,235,0.15)', padding: '14px 24px', textAlign: 'center',
-        position: 'relative',
+        background: 'var(--rq-primary-dim)', borderTop: '1px solid rgba(26,86,219,0.12)',
+        borderBottom: '1px solid rgba(26,86,219,0.12)', padding: '14px 24px', textAlign: 'center',
       }}>
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(37,99,235,0.02) 20px, rgba(37,99,235,0.02) 21px)',
-        }} />
-        <p style={{ margin: 0, fontSize: '0.82rem', color: '#60A5FA', fontFamily: 'var(--rq-font-mono)', position: 'relative' }}>
-          <span style={{ color: '#F59E0B', marginRight: 8 }}>⚠</span>
+        <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--rq-primary)', fontFamily: 'var(--rq-font-mono)' }}>
           HNDL threat active · DORA in effect since Jan 2025 · NIST PQC deadline 2035 · QBOM standardizing 2026
         </p>
       </div>
@@ -165,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Problem → Solution → RivicQ */}
-      <section className="section-padding" style={{ background: 'var(--rq-surface)' }}>
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
         <div className="page-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: 20 }} className="md:grid-cols-3">
             <div className="card">
@@ -235,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* Products overview */}
-      <section className="section-padding" style={{ background: 'var(--rq-surface)' }}>
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
         <div className="page-container" style={{ maxWidth: 1000 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <Badge variant="primary">Encryption Platform</Badge>
@@ -313,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* HSM Architecture */}
-      <section className="section-padding" style={{ background: 'var(--rq-bg)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section-padding" style={{ background: 'var(--rq-white)', position: 'relative', overflow: 'hidden' }}>
         <QuantumCircuit complexity={6} color="var(--rq-primary)" />
         <div className="page-container" style={{ maxWidth: 1000, position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
@@ -406,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* Investor Section */}
-      <section className="section-padding" style={{ background: 'var(--rq-surface)' }}>
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
         <div className="page-container" style={{ maxWidth: 900 }}>
           <div className="card card-accent" style={{ padding: 36, textAlign: 'center' }}>
             <Badge variant="primary">Pre-Seed / Seed</Badge>
@@ -437,7 +421,7 @@ export default function Home() {
       </section>
 
       {/* Recent Achievements */}
-      <section className="section-padding" style={{ background: 'var(--rq-bg)' }}>
+      <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
         <div className="page-container" style={{ maxWidth: 1000 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <Badge variant="accent">Recent Achievements</Badge>
@@ -502,18 +486,13 @@ export default function Home() {
       <section className="section-padding">
         <div className="page-container" style={{ maxWidth: 900 }}>
           <div style={{
-            background: 'linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #1A56DB 100%)',
+            background: 'linear-gradient(135deg, var(--rq-primary-dark) 0%, var(--rq-primary) 100%)',
             borderRadius: 20, padding: '56px 40px', textAlign: 'center',
             position: 'relative', overflow: 'hidden',
-            border: '1px solid rgba(37,99,235,0.2)',
           }}>
             <div style={{
               position: 'absolute', top: '-30%', right: '-10%', width: 400, height: 400,
-              borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)',
-            }} />
-            <div style={{
-              position: 'absolute', bottom: '-20%', left: '-5%', width: 300, height: 300,
-              borderRadius: '50%', background: 'radial-gradient(circle, rgba(11,170,138,0.1) 0%, transparent 70%)',
+              borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
             }} />
             <div style={{ position: 'relative' }}>
               <h3 style={{
