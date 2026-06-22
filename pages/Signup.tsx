@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
-import { UserPlus, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
+import { UserPlus, Mail, Lock, User, Eye, EyeOff, Info } from 'lucide-react';
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement signup
   };
 
   return (
@@ -25,6 +24,16 @@ export default function Signup() {
         </div>
 
         <div className="card" style={{ padding: 36 }}>
+          <div style={{
+            background: 'rgba(217,119,6,0.08)', border: '1px solid rgba(217,119,6,0.2)',
+            borderRadius: 8, padding: '10px 14px', marginBottom: 20,
+            display: 'flex', alignItems: 'center', gap: 10,
+            fontSize: '0.78rem', color: 'var(--rq-warning)',
+          }}>
+            <Info size={16} style={{ flexShrink: 0 }} />
+            <span>Account creation is coming soon. Your data stays local for now.</span>
+          </div>
+
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <div style={{
               width: 48, height: 48, borderRadius: 14, margin: '0 auto 14px',

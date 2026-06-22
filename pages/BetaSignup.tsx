@@ -76,7 +76,7 @@ export default function BetaSignup() {
               <option value="cloudhsm" style={{ background: 'var(--rq-bg)' }}>CloudHSM / EaaS</option>
               <option value="sdk" style={{ background: 'var(--rq-bg)' }}>Encryption SDK</option>
               <option value="qbom" style={{ background: 'var(--rq-bg)' }}>QBOM Analyzer</option>
-              <option value="cbom" style={{ background: 'var(--rq-bg)' }}>CBOM Scanner</option>
+              <option value="cspm" style={{ background: 'var(--rq-bg)' }}>CSPM Scanner</option>
               <option value="other" style={{ background: 'var(--rq-bg)' }}>Other</option>
             </select>
           </div>

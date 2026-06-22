@@ -17,7 +17,7 @@ const specs: { label: string; value: string; note: string; highlight?: boolean }
 export default function RQSP() {
   return (
     <div style={{ maxWidth: 900, margin: '0 auto', padding: '60px 24px', position: 'relative' }}>
-      <AnimatedBackground variant="crypto" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <AnimatedBackground variant="mesh" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
       <SectionHeader
         title="RQSP Protocol"
         subtitle="RivicQ Security Protocol — hybrid post-quantum transport encryption. Dual-key derivation with ML-KEM-768 encapsulation and AES-256-GCM bulk encryption. Native TLS 1.3 extension."

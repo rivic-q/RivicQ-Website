@@ -5,10 +5,10 @@ import QuantumCircuit from '../components/QuantumCircuit';
 
 const plans = [
   {
-    name: 'CBOM+QBOM Scanner',
+    name: 'CSPM+QBOM Scanner',
     price: 'Free',
     desc: 'Open-source (Apache 2.0). Run in your CI/CD pipeline.',
-    features: ['Unlimited encryption scans', 'CycloneDX 1.6 CBOM+QBOM export', 'GitHub Actions integration', 'Q-score vulnerability reporting', 'Community support'],
+    features: ['Unlimited encryption scans', 'CycloneDX 1.6 CSPM+QBOM export', 'GitHub Actions integration', 'Q-score vulnerability reporting', 'Community support'],
     cta: 'Get Started Free',
     ctaLink: 'https://github.com/rivicq/cbom',
     highlight: false,

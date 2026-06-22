@@ -4,7 +4,7 @@ import { Search, BookOpen, MessageCircle, Mail, ChevronRight, FileText, Terminal
 
 const helpCategories = [
   { icon: Terminal, title: 'Getting Started', desc: 'Quick start guides and onboarding', href: '/resources' },
-  { icon: Search, title: 'CBOM Scanner', desc: 'How to scan and discover cryptographic assets', href: '/products' },
+  { icon: Search, title: 'CSPM Scanner', desc: 'How to scan and discover cryptographic assets', href: '/products' },
   { icon: Shield, title: 'CloudHSM Setup', desc: 'Deploy and configure your HSM', href: '/cloud-hsm' },
   { icon: FileText, title: 'API Documentation', desc: 'SDK reference and API guides', href: '/sdk' },
   { icon: BookOpen, title: 'PQC Migration', desc: 'Step-by-step migration playbooks', href: '/resources' },
@@ -12,10 +12,10 @@ const helpCategories = [
 ];
 
 const faqs = [
-  { q: 'What is a CBOM scan?', a: 'A Cryptographic Bill of Materials scan discovers every encryption asset in your codebase, containers, and cloud infrastructure.' },
+  { q: 'What is a CSPM scan?', a: 'A Cryptographic Security Posture Management scan discovers every encryption asset in your codebase, containers, and cloud infrastructure.' },
   { q: 'How is the Q-score calculated?', a: 'The Q-score (0.0–1.0) measures quantum vulnerability based on algorithm type, key size, and cryptographic strength.' },
   { q: 'What HSM form factors do you support?', a: 'Physical on-prem HSM, cloud virtual HSM (AWS/Azure/GCP), and hybrid split-key configurations.' },
-  { q: 'How long does a PQC migration take?', a: 'Timeline depends on scope. The CBOM+QBOM pilot takes 1–2 weeks. Full migration: 3–12 months.' },
+  { q: 'How long does a PQC migration take?', a: 'Timeline depends on scope. The CSPM+QBOM pilot takes 1–2 weeks. Full migration: 3–12 months.' },
 ];
 
 export default function Help() {

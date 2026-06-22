@@ -13,7 +13,7 @@ const deadlines: { label: string; value: string; note: string; highlight?: boole
   { label: 'BSI TR-03107', value: 'German cryptographic guideline', note: 'In effect', highlight: true },
   { label: 'PCI DSS v4.0', value: 'Payment card industry encryption standard', note: '2025 enforcement', highlight: false },
   { label: 'EU AI Act', value: 'AI cryptographic security requirements', note: '2026 phased', highlight: false },
-  { label: 'FDA/CYBER', value: 'Medical device cybersecurity (CBOM)', note: '2026 guidance', highlight: false },
+  { label: 'FDA/CYBER', value: 'Medical device cybersecurity (CSPM)', note: '2026 guidance', highlight: false },
   { label: 'EO 14028', value: 'US executive order on software supply chain', note: 'In effect', highlight: false },
 ];
 
@@ -68,7 +68,7 @@ export default function Compliance() {
         </div>
       </div>
       <div style={{ marginTop: 40 }}>
-        <CTABlock title="Assess Your Encryption Compliance" text="Free CBOM+QBOM pilot includes a regulatory gap analysis report." label="Request Compliance Audit" href="/enterprise" />
+        <CTABlock title="Assess Your Encryption Compliance" text="Free CSPM+QBOM pilot includes a regulatory gap analysis report." label="Request Compliance Audit" href="/enterprise" />
       </div>
     </div>
   );

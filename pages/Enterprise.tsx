@@ -11,19 +11,19 @@ const productOptions = [
   ...products.map(p => ({ value: p.name, label: p.name })),
   { value: 'Investor Relations', label: 'Investor Relations (Pre-Seed / Seed)' },
   { value: 'Partnership', label: 'Partnership Opportunity' },
-  { value: 'Pilot Program', label: 'Free CBOM+QBOM Pilot' },
+  { value: 'Pilot Program', label: 'Free CSPM+QBOM Pilot' },
 ];
 
 const subjectLabels: Record<string, string> = {
   '': 'Enterprise Inquiry',
   'Investor Relations': 'Investor Interest — Pre-Seed / Seed Round',
   'Partnership': 'Partnership Inquiry',
-  'Pilot Program': 'CBOM+QBOM Pilot Request',
+  'Pilot Program': 'CSPM+QBOM Pilot Request',
 };
 
 const placeholderText: Record<string, string> = {
   '': 'Tell us about your encryption infrastructure...',
-  'CBOM Scanner': 'How many repos, which languages, CI/CD platform?',
+  'CSPM Scanner': 'How many repos, which languages, CI/CD platform?',
   'QBOM Analyzer': 'What encryption assets do you need Q-scored?',
   'CloudHSM / vHSM': 'On-prem or cloud? Expected key volume? Compliance requirements?',
   'RQSP Protocol': 'Use case for hybrid PQC transport?',
@@ -104,7 +104,7 @@ export default function Enterprise() {
               {product === 'Investor Relations'
                 ? 'Our team will reach out with investor materials within 24 hours.'
                 : product === 'Pilot Program'
-                  ? 'We\'ll set up your free CBOM+QBOM pilot within 48 hours.'
+                  ? 'We\'ll set up your free CSPM+QBOM pilot within 48 hours.'
                   : 'We\'ll respond within 24 hours with next steps.'}
             </p>
           </div>
@@ -114,10 +114,10 @@ export default function Enterprise() {
               title={product === 'Investor Relations' ? 'Investor Relations' : 'Talk to Us'}
               subtitle={
                 product === 'Investor Relations'
-                  ? 'RivicQ is closing its seed round. Berlin-founded deep tech — PQC encryption, FIPS 140-3 HSM, QBOM/CBOM. ETSI delegate, BSI congress, EURA AG LOI.'
+                  ? 'RivicQ is closing its seed round. Berlin-founded deep tech — PQC encryption, FIPS 140-3 HSM, QBOM/CSPM. ETSI delegate, BSI congress, EURA AG LOI.'
                   : product === 'Pilot Program'
-                    ? 'Free CBOM+QBOM encryption audit for government and critical infrastructure. We\'ll Q-score your entire encryption stack with prioritized PQC migration roadmaps.'
-                    : 'Free CBOM+QBOM encryption audit for government and critical infrastructure. No commitment, no sales pitch. We\'ll Q-score your entire encryption stack.'
+                    ? 'Free CSPM+QBOM encryption audit for government and critical infrastructure. We\'ll Q-score your entire encryption stack with prioritized PQC migration roadmaps.'
+                    : 'Free CSPM+QBOM encryption audit for government and critical infrastructure. No commitment, no sales pitch. We\'ll Q-score your entire encryption stack.'
               }
               badge={
                 product === 'Investor Relations'
@@ -146,7 +146,7 @@ export default function Enterprise() {
                 <input name="name" required style={{ ...inputStyle, borderColor: touched.name && fieldErrors.name ? 'var(--rq-amber)' : 'var(--rq-border)' }} onBlur={handleBlur} />
                 {touched.name && fieldErrors.name && <div style={{ color: 'var(--rq-amber)', fontSize: '0.75rem', marginTop: 2 }}>{fieldErrors.name}</div>}
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12 }} className="sm:grid-cols-2">
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--rq-muted)', marginBottom: 4 }}>Email *</label>
                   <input name="email" type="email" required style={{ ...inputStyle, borderColor: touched.email && fieldErrors.email ? 'var(--rq-amber)' : 'var(--rq-border)' }} onBlur={handleBlur} />
@@ -170,7 +170,7 @@ export default function Enterprise() {
                 {product === 'Investor Relations'
                   ? 'Request Investor Materials'
                   : product === 'Pilot Program'
-                    ? 'Start Free CBOM+QBOM Pilot'
+                    ? 'Start Free CSPM+QBOM Pilot'
                     : 'Submit Inquiry'}
               </button>
             </form>
@@ -178,7 +178,7 @@ export default function Enterprise() {
             <div style={{ marginTop: 20, padding: '12px 16px', background: 'var(--rq-code-bg)', borderRadius: 8, border: '1px solid var(--rq-border)', fontSize: '0.8rem', color: 'var(--rq-muted)' }}>
               {product === 'Investor Relations'
                 ? 'Confidential. We\'ll share pitch deck, financial model, and market analysis upon NDA.'
-                : 'No commitment, no sales pitch. Free CBOM+QBOM pilot includes full encryption inventory Q-score report.'}
+                : 'No commitment, no sales pitch. Free CSPM+QBOM pilot includes full encryption inventory Q-score report.'}
             </div>
           </>
         )}

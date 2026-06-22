@@ -337,7 +337,7 @@ const CISODashboard: React.FC = () => {
         <button className="flex items-center gap-3 p-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all">
           <FileText size={20} />
           <div className="text-left">
-            <div className="text-xs font-bold">Generate CBOM</div>
+            <div className="text-xs font-bold">Generate CSPM</div>
             <div className="text-[10px] opacity-75">Export inventory</div>
           </div>
         </button>

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RivicQ — Quantum-Safe Encryption Infrastructure</title>
     <meta name="description" content="Berlin-founded deep tech at the intersection of post-quantum cryptography, hardware security (HSM/QRNG), QBOM, and EU regulatory compliance (DORA/NIS2/BSI). Encryption-as-a-Service platform for the post-quantum era." />
-    <meta name="keywords" content="PQC, ML-KEM, ML-DSA, CBOM, QBOM, HSM, FIPS 203, FIPS 204, NIST, DORA, NIS2, quantum-safe, cryptographic inventory, encryption, post-quantum encryption, quantum bill of materials, FIPS 140-3, PKCS#11, EaaS" />
+    <meta name="keywords" content="PQC, ML-KEM, ML-DSA, CSPM, QBOM, HSM, FIPS 203, FIPS 204, NIST, DORA, NIS2, quantum-safe, cryptographic inventory, encryption, post-quantum encryption, quantum bill of materials, FIPS 140-3, PKCS#11, EaaS" />
     <meta name="author" content="RivicQ" />
     <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://rivicq.de/" />
     <meta property="og:title" content="RivicQ — Quantum-Safe Encryption Infrastructure" />
-    <meta property="og:description" content="Berlin-founded deep tech. PQC encryption, FIPS 140-3 HSM, QBOM/CBOM, DORA/NIS2 compliance. Encryption-as-a-Service for the post-quantum era." />
+    <meta property="og:description" content="Berlin-founded deep tech. PQC encryption, FIPS 140-3 HSM, QBOM/CSPM, DORA/NIS2 compliance. Encryption-as-a-Service for the post-quantum era." />
     <meta property="og:image" content="/og-image.png" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="RivicQ" />
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://rivicq.de/" />
     <meta name="twitter:title" content="RivicQ — Quantum-Safe Encryption Infrastructure" />
-    <meta name="twitter:description" content="Berlin-founded deep tech. PQC encryption, FIPS 140-3 HSM, QBOM/CBOM, DORA/NIS2 compliance." />
+    <meta name="twitter:description" content="Berlin-founded deep tech. PQC encryption, FIPS 140-3 HSM, QBOM/CSPM, DORA/NIS2 compliance." />
     <meta name="twitter:image" content="/og-image.png" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -37,14 +37,14 @@
       "foundingDate": "2024",
       "email": "hello@rivicq.de",
       "areaServed": ["DE", "EU", "IN", "US"],
-      "knowsAbout": ["Post-Quantum Cryptography", "Hardware Security Modules", "CBOM", "QBOM", "FIPS 203", "FIPS 204", "DORA", "NIS2"],
+      "knowsAbout": ["Post-Quantum Cryptography", "Hardware Security Modules", "CSPM", "QBOM", "FIPS 203", "FIPS 204", "DORA", "NIS2"],
       "parentOrganization": {
         "@type": "Organization",
         "name": "RivicQ GmbH",
         "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" }
       },
       "offers": [
-        { "@type": "Offer", "name": "CBOM+QBOM Scanner", "category": "Open Source", "url": "https://github.com/rivicq/cbom" },
+        { "@type": "Offer", "name": "CSPM+QBOM Scanner", "category": "Open Source", "url": "https://github.com/rivicq/cbom" },
         { "@type": "Offer", "name": "CloudHSM (EaaS)", "category": "Enterprise" },
         { "@type": "Offer", "name": "Enterprise Encryption Suite", "category": "Enterprise" }
       ]
@@ -108,6 +108,13 @@
         --rq-shadow-xl:   0 20px 50px rgba(0,0,0,0.08);
         --rq-shadow-glow: 0 0 24px rgba(26,86,219,0.15);
 
+        --rq-encrypt:     #2563EB;
+        --rq-encrypt-dim: rgba(37,99,235,0.08);
+        --rq-blue:        #2563EB;
+        --rq-teal:        #0BAA8A;
+        --rq-amber:       #D97706;
+        --rq-code-bg:     var(--rq-surface);
+
         --rq-transition:  200ms cubic-bezier(0.4, 0, 0.2, 1);
       }
 
@@ -150,6 +157,10 @@
       @media (max-width: 768px) {
         .section-padding { padding: 48px 0; }
         .page-container { padding: 0 16px; }
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .section-padding { padding: 60px 0; }
+        .page-container { padding: 0 20px; }
       }
 
       /* ─── Design System Animations ─── */
@@ -208,6 +219,40 @@
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
+      @keyframes gatePulse {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+      @keyframes qubitFloat {
+        0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+        50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
+      }
+      @keyframes encryptPulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+      }
+      @keyframes circuitFlow {
+        0% { stroke-dashoffset: 20; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes nodeConnect {
+        0% { opacity: 0; }
+        50% { opacity: 0.4; }
+        100% { opacity: 0; }
+      }
+      @keyframes gradientOrb {
+        0%, 100% { transform: scale(1) translate(0, 0); }
+        33% { transform: scale(1.1) translate(2%, 2%); }
+        66% { transform: scale(0.95) translate(-1%, -1%); }
+      }
+      @keyframes cryptoStream {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100vh); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
 
       .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
       .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
@@ -222,6 +267,15 @@
       .animate-data-flow { animation: dataFlow 3s linear infinite; }
       .animate-hex-float { animation: hexFloat 20s linear infinite; }
       .animate-gradient-shift { animation: gradientShift 15s ease infinite; background-size: 200% 200%; }
+      .animate-circuit-flow { stroke-dasharray: 6 3; animation: circuitFlow 3s linear infinite; }
+      .animate-node-connect { animation: nodeConnect 3s ease-in-out infinite; }
+      .animate-gradient-orb { animation: gradientOrb 8s ease-in-out infinite; }
+      .animate-crypto-stream { animation: cryptoStream 6s linear infinite; }
+      .animate-gate-pulse { animation: gatePulse 2s ease-in-out infinite; }
+      .animate-node-glow { animation: gatePulse 2s ease-in-out infinite; }
+      .animate-entanglement { animation: gatePulse 3s ease-in-out infinite; }
+      .animate-qubit-float { animation: qubitFloat 2s ease-in-out infinite; }
+      .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 
       /* ─── Component Utilities ─── */
       .btn {
@@ -343,14 +397,35 @@
       @media (min-width: 769px) {
         .hide-desktop { display: none !important; }
       }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .hide-tablet { display: none !important; }
+      }
+
+      /* Footer responsive */
+      @media (max-width: 1024px) {
+        .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+        .footer-links-grid { grid-template-columns: repeat(3, 1fr) !important; }
+      }
+      @media (max-width: 600px) {
+        .footer-links-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      }
     </style>
-    <!-- Google Analytics (replace G-XXXXXXXXXX with your GA4 measurement ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Analytics — set VITE_GA_ID in .env or .env.production -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', { cookie_flags: 'samesite=none;secure' });
+      (function() {
+        var gaId = '__VITE_GA_ID__' !== 'undefined' ? '__VITE_GA_ID__' : (window.VITE_GA_ID || 'G-XXXXXXXXXX');
+        if (gaId && gaId !== 'G-XXXXXXXXXX') {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId, { cookie_flags: 'samesite=none;secure' });
+        }
+      })();
     </script>
 
     <!-- Conversion tracking event helper -->

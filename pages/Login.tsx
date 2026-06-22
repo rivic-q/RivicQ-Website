@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
-import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
+import { Lock, Mail, Eye, EyeOff, Info } from 'lucide-react';
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,7 +10,6 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement authentication
   };
 
   return (
@@ -20,15 +19,23 @@ export default function Login() {
       background: 'linear-gradient(135deg, var(--rq-bg) 0%, var(--rq-primary-dim) 100%)',
     }}>
       <div style={{ width: '100%', maxWidth: 420 }}>
-        {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 36 }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Logo size="md" />
           </div>
         </div>
 
-        {/* Card */}
         <div className="card" style={{ padding: 36 }}>
+          <div style={{
+            background: 'rgba(217,119,6,0.08)', border: '1px solid rgba(217,119,6,0.2)',
+            borderRadius: 8, padding: '10px 14px', marginBottom: 20,
+            display: 'flex', alignItems: 'center', gap: 10,
+            fontSize: '0.78rem', color: 'var(--rq-warning)',
+          }}>
+            <Info size={16} style={{ flexShrink: 0 }} />
+            <span>Authentication backend coming soon. Dashboard data is for demo purposes.</span>
+          </div>
+
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <div style={{
               width: 48, height: 48, borderRadius: 14, margin: '0 auto 14px',

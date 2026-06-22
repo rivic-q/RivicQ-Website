@@ -11,10 +11,10 @@ export default function Methodology() {
       />
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {[
-          { step: '01', title: 'Discover', desc: 'Automated CBOM scanning across codebases, containers, and cloud VPCs. Discovers every key, certificate, and cryptographic algorithm in your infrastructure.' },
+          { step: '01', title: 'Discover', desc: 'Automated CSPM scanning across codebases, containers, and cloud VPCs. Discovers every key, certificate, and cryptographic algorithm in your infrastructure.' },
           { step: '02', title: 'Assess', desc: 'Risk-based gap analysis against NIST PQC standards, DORA/NIS2 requirements, and organizational risk appetite. Priority mapping for migration.' },
           { step: '03', title: 'Migrate', desc: 'Phased migration with hybrid classical-PQC deployment. Drop-in algorithm replacement via SDK, HSM key rotation, and protocol upgrades.' },
-          { step: '04', title: 'Verify', desc: 'Continuous CBOM monitoring, automated compliance reporting, and penetration testing of migrated cryptographic controls.' },
+          { step: '04', title: 'Verify', desc: 'Continuous CSPM monitoring, automated compliance reporting, and penetration testing of migrated cryptographic controls.' },
         ].map(m => (
           <div key={m.step} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
             <div style={{

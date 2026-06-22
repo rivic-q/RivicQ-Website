@@ -2,170 +2,242 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rivicq.de/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/products</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/beta-signup</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/platform</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/solutions</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/services</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/pricing</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/cloud-hsm</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/rqsp</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/platform</loc>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/sdk</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rivicq.de/#/compliance</loc>
-    <lastmod>2026-04-02</lastmod>
+    <loc>https://rivicq.de/#/solutions</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/services</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/use-cases</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/telecom</loc>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/enterprise</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/pricing</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/beta-signup</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/ecosystem</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/learning</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/blog</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rivicq.de/#/research</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/glossary</loc>
-    <lastmod>2026-04-02</lastmod>
+    <loc>https://rivicq.de/#/story</loc>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://rivicq.de/#/methodology</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/trust</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rivicq.de/#/resources</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://rivicq.de/#/team</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/careers</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/investors</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/partner</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rivicq.de/#/roadmap</loc>
-    <lastmod>2026-04-02</lastmod>
+    <loc>https://rivicq.de/#/compliance</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/resources</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/glossary</loc>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://rivicq.de/#/story</loc>
-    <lastmod>2026-04-02</lastmod>
+    <loc>https://rivicq.de/#/methodology</loc>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rivicq.de/#/use-cases</loc>
-    <lastmod>2026-04-02</lastmod>
+    <loc>https://rivicq.de/#/research</loc>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rivicq.de/#/roadmap</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/trust</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rivicq.de/#/pitch-deck</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/legal</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/privacy</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rivicq.de/#/cookie-policy</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/dashboard</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/login</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/signup</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/forgot-password</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/help</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/search</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/profile</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rivicq.de/#/settings</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

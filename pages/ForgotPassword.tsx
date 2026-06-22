@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
-import { Mail, ArrowLeft, CheckCircle } from 'lucide-react';
+import { Mail, ArrowLeft, CheckCircle, Info } from 'lucide-react';
 
 export default function ForgotPassword() {
   const [sent, setSent] = useState(false);
@@ -27,6 +27,16 @@ export default function ForgotPassword() {
         </div>
 
         <div className="card" style={{ padding: 36 }}>
+          <div style={{
+            background: 'rgba(217,119,6,0.08)', border: '1px solid rgba(217,119,6,0.2)',
+            borderRadius: 8, padding: '10px 14px', marginBottom: 20,
+            display: 'flex', alignItems: 'center', gap: 10,
+            fontSize: '0.78rem', color: 'var(--rq-warning)',
+          }}>
+            <Info size={16} style={{ flexShrink: 0 }} />
+            <span>Password reset backend coming soon. Demo mode — no email will be sent.</span>
+          </div>
+
           {!sent ? (
             <>
               <div style={{ textAlign: 'center', marginBottom: 28 }}>

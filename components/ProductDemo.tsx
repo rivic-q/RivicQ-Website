@@ -82,7 +82,7 @@ const ProductDemo: React.FC = () => {
            
            {/* Step 1: Idle/Init */}
            {step <= 1 && (
-             <div className="text-center animate-fadeIn">
+             <div className="text-center animate-fade-in">
                <div className="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/20">
                  <Search size={32} className="text-blue-500 animate-pulse"/>
                </div>
@@ -93,7 +93,7 @@ const ProductDemo: React.FC = () => {
 
            {/* Step 2: Scanning */}
            {step === 2 && (
-             <div className="text-center animate-fadeIn">
+             <div className="text-center animate-fade-in">
                 <div className="relative w-20 h-20 mx-auto mb-4">
                   <div className="absolute inset-0 border-4 border-t-blue-500 border-r-transparent border-b-blue-500 border-l-transparent rounded-full animate-spin"></div>
                   <FileCode size={32} className="absolute inset-0 m-auto text-white"/>
@@ -105,7 +105,7 @@ const ProductDemo: React.FC = () => {
 
            {/* Step 3: Risk Mapping */}
            {step === 3 && (
-             <div className="text-center animate-fadeIn">
+             <div className="text-center animate-fade-in">
                 <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-red-500/20 animate-pulse">
                   <ShieldAlert size={32} className="text-red-500"/>
                 </div>
@@ -116,7 +116,7 @@ const ProductDemo: React.FC = () => {
 
            {/* Step 4: Remediation */}
            {step >= 4 && (
-             <div className="text-center animate-fadeIn">
+             <div className="text-center animate-fade-in">
                 <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
                   <CheckCircle2 size={32} className="text-emerald-500"/>
                 </div>

@@ -9,7 +9,7 @@ import AnimatedBackground from '../components/AnimatedBackground';
 export default function Solutions() {
   return (
     <div style={{ position: 'relative' }}>
-      <AnimatedBackground variant="mixed" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <AnimatedBackground variant="mesh" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
       <QuantumCircuit complexity={5} color="var(--rq-blue)" />
       <div style={{ maxWidth: 1000, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
         <SectionHeader
@@ -45,7 +45,7 @@ export default function Solutions() {
         </div>
 
         <div style={{ marginTop: 40 }}>
-          <CTABlock title="Not Sure Where to Start?" text="Free CBOM+QBOM pilot. We'll scan your encryption stack, Q-score every asset, and deliver a PQC migration roadmap with HSM recommendations." label="Request Free Encryption Audit" href="/enterprise" />
+           <CTABlock title="Not Sure Where to Start?" text="Free CSPM+QBOM pilot. We'll scan your encryption stack, Q-score every asset, and deliver a PQC migration roadmap with HSM recommendations." label="Request Free Encryption Audit" href="/enterprise" />
         </div>
       </div>
     </div>

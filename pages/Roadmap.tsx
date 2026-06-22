@@ -3,7 +3,7 @@ import { SectionHeader } from '../components/SectionHeader';
 
 const phases = [
   { phase: 'Q3 2026', title: 'CloudHSM GA + QBOM v1.0', items: ['FIPS 140-3 certification complete', 'AWS / Azure marketplace listing', 'Enterprise multi-tenant EaaS', 'QBOM specification v1.0 release'] },
-  { phase: 'Q4 2026', title: 'SDK v1.0 + RQSP Beta', items: ['SDK stable release (Python, Go, Rust, Java, Node)', 'CLI tooling GA with QBOM scan', 'RQSP protocol beta (TLS 1.3 extension)', 'CBOM+QBOM GitHub Actions marketplace'] },
+  { phase: 'Q4 2026', title: 'SDK v1.0 + RQSP Beta', items: ['SDK stable release (Python, Go, Rust, Java, Node)', 'CLI tooling GA with QBOM scan', 'RQSP protocol beta (TLS 1.3 extension)', 'CSPM+QBOM GitHub Actions marketplace'] },
   { phase: 'Q1 2027', title: 'RQSP v1.0 + EaaS GA', items: ['RQSP protocol specification v1.0', 'TLS 1.3 hybrid PQ extension RFC', 'Reference implementation audit', 'EaaS global region deployment'] },
   { phase: 'H2 2027', title: 'Platform GA + US Market', items: ['Full encryption platform commercial launch', 'SOC 2 Type II certification', 'US market entry (HSM + EaaS)', 'ISO 27001 certification'] },
 ];

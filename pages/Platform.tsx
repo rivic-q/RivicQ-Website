@@ -9,13 +9,13 @@ export default function Platform() {
       <AnimatedBackground variant="hex" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
       <SectionHeader
         title="Platform Architecture"
-        subtitle="End-to-end quantum-safe encryption platform. From cryptographic discovery (CBOM+QBOM) to HSM-backed key management and hybrid PQC transport."
+        subtitle="End-to-end quantum-safe encryption platform. From cryptographic discovery (CSPM+QBOM) to HSM-backed key management and hybrid PQC transport."
         badge={<Badge variant="encrypt">Encryption Architecture</Badge>}
         align="left"
       />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 16, marginTop: 20 }}>
         {[
-          { layer: 'Discovery & Risk', items: ['CBOM Scanner', 'QBOM Q-score analysis', 'GitHub Actions CI/CD', 'Cloud VPC scanning'] },
+          { layer: 'Discovery & Risk', items: ['CSPM Scanner', 'QBOM Q-score analysis', 'GitHub Actions CI/CD', 'Cloud VPC scanning'] },
           { layer: 'HSM Encryption Engine', items: ['CloudHSM (FIPS 140-3)', 'ML-KEM-768 key exchange', 'AES-256-GCM / ChaCha20', 'QRNG entropy source'] },
           { layer: 'Transport Security', items: ['RQSP Protocol (hybrid PQC)', 'TLS 1.3 hybrid extension', 'mTLS PQ certificate chains', 'gRPC interceptor'] },
           { layer: 'EaaS & SDK', items: ['Encryption-as-a-Service API', 'SDK (Python, Go, Rust, Java, Node)', 'REST / gRPC endpoints', 'CI/CD integration'] },

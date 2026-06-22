@@ -6,9 +6,9 @@ import AnimatedBackground from '../components/AnimatedBackground';
 
 const serviceList = [
   {
-    title: 'CBOM+QBOM Encryption Audit',
+    title: 'CSPM+QBOM Encryption Audit',
     desc: 'Full cryptographic inventory with quantum vulnerability scoring. Every key, cert, and encryption algorithm Q-score assessed across codebases, containers, and cloud VPCs.',
-    tags: ['CBOM', 'QBOM', 'Audit'],
+    tags: ['CSPM', 'QBOM', 'Audit'],
   },
   {
     title: 'PQC Encryption Migration',
@@ -23,8 +23,8 @@ const serviceList = [
   },
   {
     title: 'DevSecOps Encryption Pipeline',
-    desc: 'CI/CD-native cryptographic security. CBOM generation in build pipelines, automated PQC key rotation, Q-score gating for deployments, and HSM-backed secrets management integrated with GitHub Actions, GitLab CI, and Jenkins.',
-    tags: ['DevSecOps', 'CI/CD', 'CBOM', 'Pipeline'],
+    desc: 'CI/CD-native cryptographic security. CSPM generation in build pipelines, automated PQC key rotation, Q-score gating for deployments, and HSM-backed secrets management integrated with GitHub Actions, GitLab CI, and Jenkins.',
+    tags: ['DevSecOps', 'CI/CD', 'CSPM', 'Pipeline'],
     highlight: true,
   },
   {
@@ -34,7 +34,7 @@ const serviceList = [
   },
   {
     title: 'Compliance Audit Prep',
-    desc: 'DORA / NIS2 encryption readiness assessment. Cryptographic policy documentation, CBOM+QBOM generation, and audit evidence package for regulators.',
+    desc: 'DORA / NIS2 encryption readiness assessment. Cryptographic policy documentation, CSPM+QBOM generation, and audit evidence package for regulators.',
     tags: ['DORA', 'NIS2', 'Compliance'],
   },
   {
@@ -47,7 +47,7 @@ const serviceList = [
 export default function Services() {
   return (
     <div style={{ position: 'relative' }}>
-      <AnimatedBackground variant="mixed" intensity="medium" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <AnimatedBackground variant="mesh" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
       <QuantumCircuit complexity={6} />
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
         <SectionHeader

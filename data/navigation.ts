@@ -7,7 +7,7 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   {
     label: 'Products', path: '#', children: [
-      { label: 'CBOM Scanner', path: '/products', description: 'Cryptographic asset discovery' },
+      { label: 'CSPM Scanner', path: '/products', description: 'Cryptographic asset discovery' },
       { label: 'QBOM Analyzer', path: '/products', description: 'Quantum risk scoring' },
       { label: 'CloudHSM', path: '/cloud-hsm', description: 'FIPS 140-3 HSM as a Service' },
       { label: 'RQSP Protocol', path: '/rqsp', description: 'Hybrid PQC transport' },
@@ -16,6 +16,7 @@ export const navItems: NavItem[] = [
     ],
   },
   { label: 'Solutions', path: '/solutions' },
+  { label: 'Telecom', path: '/telecom' },
   {
     label: 'Resources', path: '#', children: [
       { label: 'Blog', path: '/blog', description: 'PQC insights & updates' },
@@ -25,12 +26,16 @@ export const navItems: NavItem[] = [
       { label: 'Guides', path: '/resources', description: 'Tutorials & docs' },
     ],
   },
+  { label: 'Ecosystem', path: '/ecosystem' },
+  { label: 'Learning', path: '/learning' },
   { label: 'Pricing', path: '/pricing' },
   {
     label: 'Company', path: '#', children: [
-      { label: 'About', path: '/story', description: 'Our mission & journey' },
+      { label: 'Vision', path: '/vision', description: 'A quantum-safe world' },
+      { label: 'Mission', path: '/mission', description: 'Make PQC practical' },
+      { label: 'Story', path: '/story', description: 'Our journey' },
       { label: 'Team', path: '/team', description: 'Meet the team' },
-      { label: 'Careers', path: '/careers', description: 'Join us' },
+      { label: 'Ambassador', path: '/careers', description: 'Ambassador program' },
       { label: 'Investors', path: '/investors', description: 'Investor relations' },
     ],
   },

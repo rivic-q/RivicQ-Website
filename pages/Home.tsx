@@ -52,7 +52,7 @@ function StatsBar() {
     { value: '2', label: 'ETSI + IQC Delegate' },
   ];
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: 'var(--rq-border-light)', borderRadius: 16, overflow: 'hidden' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, background: 'var(--rq-border-light)', borderRadius: 16, overflow: 'hidden' }} className="md:grid-cols-4">
       {stats.map((s, i) => (
         <div key={i} style={{ background: 'var(--rq-white)', padding: '24px 16px', textAlign: 'center' }}>
           <div style={{ fontFamily: 'var(--rq-font-heading)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--rq-primary)', letterSpacing: '-0.03em' }}>{s.value}</div>
@@ -89,7 +89,7 @@ export default function Home() {
         </div>
 
         <div style={{ maxWidth: 900, position: 'relative', zIndex: 1 }}>
-          <Badge variant="primary">PQC Encryption · HSM · QBOM/CBOM</Badge>
+          <Badge variant="primary">PQC Encryption · HSM · QBOM/CSPM</Badge>
           <h1 style={{
             fontFamily: 'var(--rq-font-heading)',
             fontSize: 'clamp(2.2rem, 5.5vw, 3.6rem)',
@@ -151,7 +151,7 @@ export default function Home() {
       {/* Problem → Solution → RivicQ */}
       <section className="section-padding" style={{ background: 'var(--rq-white)' }}>
         <div className="page-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: 20 }} className="md:grid-cols-3">
             <div className="card">
               <div style={{ color: 'var(--rq-warning)', fontSize: '0.72rem', fontWeight: 600, fontFamily: 'var(--rq-font-heading)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>The Problem</div>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>Harvest Now, Decrypt Later</h3>
@@ -170,7 +170,7 @@ export default function Home() {
               <div style={{ color: 'var(--rq-primary)', fontSize: '0.72rem', fontWeight: 600, fontFamily: 'var(--rq-font-heading)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>Enter RivicQ</div>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>QBOM → HSM → Encryption</h3>
               <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
-                Discover your encryption posture with <span className="mono">CBOM+QBOM</span> Scanner. Secure keys with FIPS 140-3 CloudHSM. Migrate with <span className="mono">RQSP</span> hybrid PQC transport. Quantify risk with QBOM Q-scores.
+                Discover your encryption posture with <span className="mono">CSPM+QBOM</span> Scanner. Secure keys with FIPS 140-3 CloudHSM. Migrate with <span className="mono">RQSP</span> hybrid PQC transport. Quantify risk with QBOM Q-scores.
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function Home() {
       <section className="section-padding">
         <div className="page-container" style={{ maxWidth: 1000 }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
-            <Badge variant="primary">DevSecOps · CBOM+QBOM</Badge>
+            <Badge variant="primary">DevSecOps · CSPM+QBOM</Badge>
             <h2 style={{
               fontFamily: 'var(--rq-font-heading)', fontSize: 'clamp(1.4rem, 3vw, 2rem)',
               fontWeight: 700, marginTop: 14, letterSpacing: '-0.02em',
@@ -191,9 +191,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }} className="md:grid-cols-4">
             {[
-              { icon: Search, label: 'Discover', title: 'CBOM Scanner', desc: 'Deep discovery of all cryptographic assets', color: '#3B82F6' },
+              { icon: Search, label: 'Discover', title: 'CSPM Scanner', desc: 'Deep discovery of all cryptographic assets', color: '#3B82F6' },
               { icon: FileCode, label: 'Analyze', title: 'QBOM Risk Scoring', desc: 'Quantum vulnerability Q-score for each asset', color: '#2563EB' },
               { icon: Shield, label: 'Remediate', title: 'PQC Migration', desc: 'Automated RSA→ML-KEM, ECDSA→ML-DSA', color: '#1D4ED8' },
               { icon: Lock, label: 'Deploy', title: 'HSM-Backed Encryption', desc: 'FIPS 140-3 keys with PQC hybrid transport', color: '#143FA8' },
@@ -232,9 +232,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: 16 }} className="md:grid-cols-2">
             {[
-              { icon: Search, title: 'CBOM Scanner', desc: 'Deep cryptographic discovery across repos, containers, and cloud VPCs. Detects every encryption primitive, cert, and key.', href: '/products' },
+              { icon: Search, title: 'CSPM Scanner', desc: 'Deep cryptographic discovery across repos, containers, and cloud VPCs. Detects every encryption primitive, cert, and key.', href: '/products' },
               { icon: TrendingUp, title: 'QBOM Analyzer', desc: 'Quantum vulnerability scoring. Each asset gets a Q-score (0.0–1.0). Maps to NIST PQC replacements with priority ordering.', href: '/products' },
               { icon: Shield, title: 'CloudHSM', desc: 'FIPS 140-3 Level 3 HSM as a Service. REST/gRPC API, PKCS#11, QRNG entropy injection, automated key rotation.', href: '/cloud-hsm' },
               { icon: Layers, title: 'RQSP Protocol', desc: 'Hybrid classical+PQC transport encryption. X25519+ML-KEM key agreement with AES-256-GCM bulk encryption.', href: '/rqsp' },
@@ -290,7 +290,7 @@ export default function Home() {
               <div style={{ color: '#10B981' }}>  ✓ RSA-2048 key  → Q-score 0.92 → migrate to ML-KEM-768</div>
               <div style={{ color: '#10B981' }}>  ✓ ECDSA P-256   → Q-score 0.85 → migrate to ML-DSA-65</div>
               <div style={{ color: '#10B981' }}>  ✓ AES-256-GCM   → Q-score 0.08 → PQ-safe</div>
-              <div style={{ color: '#10B981' }}>  ✓ CBOM+QBOM generated: inventory.cdx.json</div>
+              <div style={{ color: '#10B981' }}>  ✓ CSPM+QBOM generated: inventory.cdx.json</div>
             </div>
           </div>
         </div>
@@ -362,10 +362,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: 16 }} className="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {[
               { icon: Shield, title: 'CISOs', desc: 'QBOM compliance for DORA/NIS2 board reporting. Full encryption posture visibility.' },
-              { icon: Users, title: 'Security Engineers', desc: 'CBOM scanner + HSM API. Automate crypto discovery and remediation.' },
+              { icon: Users, title: 'Security Engineers', desc: 'CSPM scanner + HSM API. Automate crypto discovery and remediation.' },
               { icon: BookOpen, title: 'DevSecOps', desc: 'Embed PQC migration into CI/CD pipelines. From scan to deploy.' },
               { icon: Globe, title: 'Government', desc: 'FIPS 140-3, BSI-approved. Sovereign encryption infrastructure.' },
               { icon: Zap, title: 'Telecom', desc: '5G core encryption, SIM/eSIM key management, ETSI QSC compliance.' },
@@ -500,7 +500,7 @@ export default function Home() {
                 fontWeight: 700, color: '#FFFFFF', marginBottom: 12,
               }}>Ready to Quantum-Proof Your Encryption?</h3>
               <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.95rem', maxWidth: 560, margin: '0 auto 28px', lineHeight: 1.7 }}>
-                Free CBOM+QBOM pilot for government and critical infrastructure. We'll scan your stack, Q-score every encryption asset, and deliver a prioritized PQC migration roadmap.
+                Free CSPM+QBOM pilot for government and critical infrastructure. We'll scan your stack, Q-score every encryption asset, and deliver a prioritized PQC migration roadmap.
               </p>
               <Link to="/enterprise" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,

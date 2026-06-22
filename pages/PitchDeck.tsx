@@ -47,11 +47,11 @@ export default function PitchDeck() {
           <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.1rem', fontWeight: 700, margin: '0 0 12px' }}>Investment Highlights</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {[
-              { title: 'Regulatory Tailwind', desc: 'DORA in effect Jan 2025. NIS2 across EU. NIST PQC deadline 2035. Every regulated entity must migrate encryption — CBOM+QBOM is the mandatory first step.' },
+              { title: 'Regulatory Tailwind', desc: 'DORA in effect Jan 2025. NIS2 across EU. NIST PQC deadline 2035. Every regulated entity must migrate encryption — CSPM+QBOM is the mandatory first step.' },
               { title: 'Deep Tech Moats', desc: 'FIPS 140-3 HSM in certification. ETSI delegate on PQC standards. QBOM specification co-author. Native hybrid PQC+classical key derivation.' },
               { title: 'Enterprise Traction', desc: 'EURA AG LOI for HSM-backed encryption infrastructure. Government pilots in Berlin. Pipeline with GCC India operations.' },
               { title: 'Global Team', desc: 'Engineers and operators across Berlin (HQ) and US (operations). TU Berlin research lineage. ETSI delegate on PQC standards.' },
-              { title: 'Open-Source Foundation', desc: 'CBOM Scanner is Apache 2.0 — community adoption drives top-of-funnel for QBOM, CloudHSM, and EaaS commercial products.' },
+              { title: 'Open-Source Foundation', desc: 'CSPM Scanner is Apache 2.0 — community adoption drives top-of-funnel for QBOM, CloudHSM, and EaaS commercial products.' },
             ].map((item, i) => (
               <div key={item.title} style={{
                 border: '1px solid var(--rq-border)', borderRadius: 8, padding: 16,

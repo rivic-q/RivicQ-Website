@@ -10,7 +10,7 @@ export default function SDK() {
       <AnimatedBackground variant="hex" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
       <SectionHeader
         title="Developer SDK"
-        subtitle="Language bindings for Python, Go, Rust, Java, and Node.js. NIST PQC encryption primitives, CBOM+QBOM generation API, and HSM client bindings."
+        subtitle="Language bindings for Python, Go, Rust, Java, and Node.js. NIST PQC encryption primitives, CSPM+QBOM generation API, and HSM client bindings."
         badge={<Badge variant="encrypt">Beta · Encryption SDK</Badge>}
         align="left"
       />

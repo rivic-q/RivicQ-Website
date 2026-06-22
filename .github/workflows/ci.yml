@@ -148,6 +148,8 @@ jobs:
       - name: Deploy to staging server
         run: |
           echo "Deploying to staging..."
+          # Staging deployment — uses GitHub Pages artifact for preview
+          echo "Staging URL: https://staging.rivicq.de"
 
   deploy-production:
     name: Deploy to Production
@@ -174,6 +176,8 @@ jobs:
 
       - name: Deploy to production server
         run: |
-          echo "Deploying to production..."
+          echo "Deploying to production (GitHub Pages)..."
+          # Production deployment handled by deploy.yml workflow
+          # Triggered automatically on push to main branch
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_SSH_KEY }}

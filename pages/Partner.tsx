@@ -12,9 +12,9 @@ export default function Partner() {
       />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginTop: 20 }}>
         {[
-          { name: 'Technology Partners', desc: 'Integrate CBOM+QBOM and RQSP encryption into your platform. ISV-friendly licensing with revenue share options for EaaS.' },
+          { name: 'Technology Partners', desc: 'Integrate CSPM+QBOM and RQSP encryption into your platform. ISV-friendly licensing with revenue share options for EaaS.' },
           { name: 'System Integrators', desc: 'PQC encryption migration and HSM deployment practice for your consulting arm. Certification, training, and joint delivery.' },
-          { name: 'Cloud & CSP Partners', desc: 'Embedded HSM and CBOM+QBOM scanning for cloud marketplaces. AWS, Azure, GCP ready with hybrid deployment models.' },
+          { name: 'Cloud & CSP Partners', desc: 'Embedded HSM and CSPM+QBOM scanning for cloud marketplaces. AWS, Azure, GCP ready with hybrid deployment models.' },
         ].map(p => (
           <div key={p.name} style={{ border: '1px solid var(--rq-border)', borderRadius: 10, padding: 20 }}>
             <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', fontWeight: 700, margin: '0 0 6px' }}>{p.name}</h3>

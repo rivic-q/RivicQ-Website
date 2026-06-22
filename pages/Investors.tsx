@@ -31,7 +31,7 @@ export default function Investors() {
           <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
             {[
               'First-mover in QBOM (Quantum Bill of Materials) — new encryption audit category',
-              'CBOM+QBOM open-source adoption drives enterprise pipeline',
+              'CSPM+QBOM open-source adoption drives enterprise pipeline',
               'Regulatory tailwinds: DORA, NIS2, CISA EO, NCSC all mandate PQC encryption migration',
               'Berlin-founded: deep tech pedigree with EU encryption market access',
               'ETSI delegate and BSI-recognized — PQC encryption standards credibility',

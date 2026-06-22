@@ -4,8 +4,8 @@ import { CTABlock } from '../components/CTABlock';
 
 const sections = [
   { title: 'Encryption Whitepapers', items: ['Quantum-Safe Key Management Architecture', 'QBOM: Quantum Bill of Materials Specification v1.0', 'Hybrid PQC Encryption in TLS 1.3', 'HSM-Backed Encryption-as-a-Service Design'] },
-  { title: 'Technical Docs', items: ['CBOM+QBOM Scanner CLI Reference', 'CloudHSM EaaS API Documentation', 'RQSP Protocol Specification', 'SDK Encryption Quickstart Guides'] },
-  { title: 'Open Source', items: ['CBOM Scanner (Apache 2.0)', 'QBOM CycloneDX Extension', 'PQC Encryption Algorithm Benchmarks', 'HSM Integration Examples'] },
+  { title: 'Technical Docs', items: ['CSPM+QBOM Scanner CLI Reference', 'CloudHSM EaaS API Documentation', 'RQSP Protocol Specification', 'SDK Encryption Quickstart Guides'] },
+  { title: 'Open Source', items: ['CSPM Scanner (Apache 2.0)', 'QBOM CycloneDX Extension', 'PQC Encryption Algorithm Benchmarks', 'HSM Integration Examples'] },
 ];
 
 export default function Resources() {
@@ -29,7 +29,7 @@ export default function Resources() {
         ))}
       </div>
       <div style={{ marginTop: 20 }}>
-        <CTABlock title="Get the CBOM+QBOM Scanner" text="Open-source. Apache 2.0. Run it in 5 minutes." label="GitHub →" href="https://github.com/rivicq/cbom" external />
+        <CTABlock title="Get the CSPM+QBOM Scanner" text="Open-source. Apache 2.0. Run it in 5 minutes." label="GitHub →" href="https://github.com/rivicq/cbom" external />
       </div>
     </div>
   );

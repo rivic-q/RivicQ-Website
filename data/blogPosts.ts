@@ -136,21 +136,19 @@ For post-quantum cryptography, side-channel resistance is an active research are
   {
     id: 'cbom-cryptographic-bill-of-materials',
     title: 'Cryptographic Bill of Materials: The New Standard for Security Visibility',
-    excerpt: 'Just as SBOM transformed software supply chain security, CBOM is emerging as essential for cryptographic asset management. Understand the framework, tools, and regulatory requirements.',
-    date: '2026-02-28',
-    author: 'Revan Sai Ande',
-    category: 'compliance',
-    content: `A Cryptographic Bill of Materials (CBOM) catalogs every cryptographic algorithm, key, certificate, and protocol across an organization. It extends the proven Software Bill of Materials (SBOM) concept into the cryptographic domain, providing the visibility needed for vulnerability assessment, compliance reporting, and migration planning.
+    excerpt: 'Just as SBOM transformed software supply chain security, CSPM is emerging as essential for cryptographic asset management. Understand the framework, tools, and regulatory requirements.',
 
-The CBOM framework captures metadata about each cryptographic asset: algorithm type and parameters, key size, key usage (encryption, signing, authentication), validity period, revocation status, associated certificates, and the systems and applications that depend on each key. This inventory forms the foundation for all cryptographic governance activities.
+    content: `A Cryptographic Security Posture Management (CSPM) scan catalogs every cryptographic algorithm, key, certificate, and protocol across an organization. It extends the proven Software Bill of Materials (SBOM) concept into the cryptographic domain, providing the visibility needed for vulnerability assessment, compliance reporting, and migration planning.
 
-Regulatory drivers for CBOM adoption are accelerating. The EU Digital Operational Resilience Act (DORA) requires financial institutions to maintain cryptographic agility and demonstrate the ability to respond to cryptographic threats. The FDA has updated its cybersecurity guidance for medical devices to require SBOM and CBOM-like documentation. Industry standards like PCI DSS v4.0 mandate documentation of cryptographic implementations.
+The CSPM framework captures metadata about each cryptographic asset: algorithm type and parameters, key size, key usage (encryption, signing, authentication), validity period, revocation status, associated certificates, and the systems and applications that depend on each key. This inventory forms the foundation for all cryptographic governance activities.
 
-CBOM adoption directly enables PQC migration planning. Without an accurate inventory, organizations cannot prioritize which systems need upgrading first. The CBOM provides a risk-based prioritization framework: systems handling long-lived secrets with no cryptographic agility score highest on the migration priority list. The CBOM also enables "what if" analysis — simulating the impact of algorithm deprecation across the enterprise.
+Regulatory drivers for CSPM adoption are accelerating. The EU Digital Operational Resilience Act (DORA) requires financial institutions to maintain cryptographic agility and demonstrate the ability to respond to cryptographic threats. The FDA has updated its cybersecurity guidance for medical devices to require SBOM and CSPM-like documentation. Industry standards like PCI DSS v4.0 mandate documentation of cryptographic implementations.
 
-Implementing CBOM requires both tooling and process. Automated discovery tools scan network infrastructure, code repositories, certificate stores, and hardware security modules to build the initial inventory. Ongoing maintenance requires integration with change management processes — every cryptographic change should update the CBOM. Modern platforms like RivicQ's Cryptography Management Dashboard provide continuous CBOM generation and monitoring.
+CSPM adoption directly enables PQC migration planning. Without an accurate inventory, organizations cannot prioritize which systems need upgrading first. The CSPM provides a risk-based prioritization framework: systems handling long-lived secrets with no cryptographic agility score highest on the migration priority list. The CSPM also enables "what if" analysis — simulating the impact of algorithm deprecation across the enterprise.
 
-The business case for CBOM is straightforward: you cannot manage what you cannot measure. Organizations with comprehensive CBOM visibility respond to cryptographic incidents faster, pass audits with less effort, and execute migrations more efficiently. As cryptographic complexity continues to increase, CBOM is evolving from a best practice to a business necessity.`
+Implementing CSPM requires both tooling and process. Automated discovery tools scan network infrastructure, code repositories, certificate stores, and hardware security modules to build the initial inventory. Ongoing maintenance requires integration with change management processes — every cryptographic change should update the CSPM. Modern platforms like RivicQ's Cryptography Management Dashboard provide continuous CSPM generation and monitoring.
+
+The business case for CSPM is straightforward: you cannot manage what you cannot measure. Organizations with comprehensive CSPM visibility respond to cryptographic incidents faster, pass audits with less effort, and execute migrations more efficiently. As cryptographic complexity continues to increase, CSPM is evolving from a best practice to a business necessity.`
   },
   {
     id: 'dora-compliance-pqc',
@@ -165,7 +163,7 @@ Article 9 of DORA specifically requires that financial entities implement polici
 
 The regulatory scope is broad. DORA applies to banks, investment firms, payment processors, insurance companies, and critical ICT third-party providers. Non-compliance carries significant penalties: up to 2% of annual global turnover for the most serious violations. The regulation also establishes a framework for threat-led penetration testing (TLPT) that includes cryptographic testing requirements.
 
-DORA's ICT risk management requirements directly intersect with PQC migration. Institutions must maintain an inventory of all cryptographic assets (CBOM), conduct regular risk assessments that account for emerging cryptographic threats, and implement compensating controls where migration is not yet complete. The regulation's emphasis on testing and exercises means that institutions must practice their cryptographic migration procedures, not just document them.
+DORA's ICT risk management requirements directly intersect with PQC migration. Institutions must maintain an inventory of all cryptographic assets (CSPM), conduct regular risk assessments that account for emerging cryptographic threats, and implement compensating controls where migration is not yet complete. The regulation's emphasis on testing and exercises means that institutions must practice their cryptographic migration procedures, not just document them.
 
 Timeline pressure is building. While DORA was enacted in January 2025, the European Supervisory Authorities (ESAs) are expected to issue additional guidelines on cryptographic requirements, potentially including specific timelines for PQC adoption. Financial institutions that delay PQC migration risk both regulatory action and the accumulation of harvest-now-decrypt-later exposure on financial data that must remain confidential for decades.
 
@@ -186,7 +184,7 @@ Automated key rotation is a critical agility enabler. Systems that can rotate ke
 
 Centralized policy management allows organizations to enforce cryptographic standards across diverse environments. A policy engine can specify minimum key sizes, approved algorithms, maximum certificate validity periods, and revocation requirements. When algorithms are deprecated, the policy engine can automatically flag non-compliant assets and, in well-architected systems, enforce remediation.
 
-The role of cryptographic discovery and inventory cannot be overstated. Organizations with accurate CBOM data can execute migrations in weeks; those without it spend months in the discovery phase alone. Automated discovery tools scan networks, cloud environments, code repositories, and hardware security modules to build and maintain the cryptographic asset inventory.
+The role of cryptographic discovery and inventory cannot be overstated. Organizations with accurate CSPM data can execute migrations in weeks; those without it spend months in the discovery phase alone. Automated discovery tools scan networks, cloud environments, code repositories, and hardware security modules to build and maintain the cryptographic asset inventory.
 
 Cloud-native architectures offer inherent advantages for cryptographic agility. Managed services like AWS KMS, Azure Key Vault, and Google Cloud KMS abstract the underlying cryptographic implementation, enabling algorithm updates by the cloud provider. However, organizations must verify that their cloud provider supports the required PQC algorithms and has a documented migration timeline.
 
@@ -295,8 +293,8 @@ export const blogPosts: BlogPostData[] = postsRaw.map(p => ({
   slug: p.id,
   title: p.title,
   excerpt: p.excerpt,
-  date: p.date,
-  author: p.author,
-  tags: tagMap[p.category] || ['Security'],
+  date: p.date || '2026-01-01',
+  author: p.author || 'RivicQ Team',
+  tags: (p.category && tagMap[p.category as keyof typeof tagMap]) || ['Security'],
   content: p.content,
 }));

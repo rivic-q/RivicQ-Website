@@ -32,7 +32,12 @@ const QuantumResearch = React.lazy(() => import('./pages/QuantumResearch'));
 const PitchDeck = React.lazy(() => import('./pages/PitchDeck'));
 const Enterprise = React.lazy(() => import('./pages/Enterprise'));
 const BetaSignup = React.lazy(() => import('./pages/BetaSignup'));
+const Ecosystem = React.lazy(() => import('./pages/Ecosystem'));
+const Learning = React.lazy(() => import('./pages/Learning'));
+const Telecom = React.lazy(() => import('./pages/Telecom'));
 const CookiePolicy = React.lazy(() => import('./pages/CookiePolicy'));
+const Vision = React.lazy(() => import('./pages/Vision'));
+const Mission = React.lazy(() => import('./pages/Mission'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 // New key screens
@@ -58,7 +63,10 @@ const titles: Record<string, string> = {
   '/pricing': 'Encryption Platform Pricing | RivicQ',
   '/team': 'Encryption Engineering Team | RivicQ',
   '/story': 'Our Encryption Journey | RivicQ',
-  '/careers': 'Encryption Engineering Careers | RivicQ',
+  '/vision': 'Vision — Quantum-Safe World | RivicQ',
+  '/mission': 'Mission — Make PQC Practical | RivicQ',
+  '/careers': 'Ambassador Program | RivicQ',
+  '/learning': 'Learning Center | RivicQ',
   '/investors': 'Encryption Infrastructure Investor Relations | RivicQ',
   '/partner': 'Encryption Partner Program | RivicQ',
   '/resources': 'PQC Encryption Resources & Library | RivicQ',
@@ -72,10 +80,13 @@ const titles: Record<string, string> = {
   '/privacy': 'Privacy Policy | RivicQ',
   '/cookie-policy': 'Cookie Policy | RivicQ',
   '/beta-signup': 'PQC Encryption Beta Signup | RivicQ',
+  '/ecosystem': 'Research Ecosystem & Partners | RivicQ',
+  '/telecom': 'Telecommunications Encryption — 5G, HSM, ETSI QSC | RivicQ',
   '/enterprise': 'Enterprise Encryption — Talk to Us | RivicQ',
   '/pitch-deck': 'Encryption Infrastructure Investor Materials | RivicQ',
   '/research': 'PQC Encryption Research & R&D | RivicQ',
-  '/dashboard': 'Encryption Dashboard | RivicQ',
+  '/dashboard': 'CSPM Dashboard | RivicQ',
+  '/cspm': 'CSPM Dashboard | RivicQ',
   '/login': 'Sign In | RivicQ',
   '/signup': 'Create Account | RivicQ',
   '/forgot-password': 'Reset Password | RivicQ',
@@ -122,6 +133,8 @@ const App: React.FC = () => {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/team" element={<Team />} />
               <Route path="/story" element={<Story />} />
+              <Route path="/vision" element={<Vision />} />
+              <Route path="/mission" element={<Mission />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/investors" element={<Investors />} />
               <Route path="/partner" element={<Partner />} />
@@ -137,12 +150,16 @@ const App: React.FC = () => {
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />
               <Route path="/beta-signup" element={<BetaSignup />} />
+              <Route path="/ecosystem" element={<Ecosystem />} />
+              <Route path="/learning" element={<Learning />} />
+              <Route path="/telecom" element={<Telecom />} />
               <Route path="/enterprise" element={<Enterprise />} />
               <Route path="/pitch-deck" element={<PitchDeck />} />
               <Route path="/research" element={<QuantumResearch />} />
 
               {/* New key screens */}
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/cspm" element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />

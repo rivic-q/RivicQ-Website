@@ -274,16 +274,23 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
     return res.status(400).json({ error: 'Validation failed.', details: errors });
   }
 
-  const { type, name, email, company, role, message, timeline, documentType, organization } = req.body;
+  const {
+    type, subject, product, interest, product_interest,
+    name, email, company, role, message, timeline, documentType, organization,
+  } = req.body;
   const timestamp = new Date().toISOString();
 
+  const resolvedType = type || subject || 'general';
   const sanitizedName = sanitize(name);
   const sanitizedCompany = sanitize(company || '');
   const sanitizedMessage = sanitize(message || '');
   const sanitizedRole = sanitize(role || '');
+  const sanitizedProduct = sanitize(product || product_interest || '');
 
   console.log(`\n========= NEW INQUIRY [${timestamp}] =========`);
-  console.log(`TYPE:     ${type?.toUpperCase() || 'GENERAL'}`);
+  console.log(`TYPE:     ${resolvedType.toUpperCase()}`);
+  if (sanitizedProduct) console.log(`PRODUCT:  ${sanitizedProduct}`);
+  if (interest) console.log(`INTEREST: ${interest}`);
   console.log(`FROM:     ${sanitizedName} <${email}>`);
   if (sanitizedCompany) console.log(`COMPANY:  ${sanitizedCompany} (${sanitizedRole || 'N/A'})`);
   if (organization) console.log(`ORG TYPE: ${organization}`);
@@ -294,7 +301,10 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
 
   const leadData = {
     timestamp,
-    type: type || 'GENERAL',
+    type: resolvedType,
+    subject: subject || undefined,
+    product: sanitizedProduct || undefined,
+    interest: interest || undefined,
     name: sanitizedName,
     email,
     company: sanitizedCompany || undefined,
@@ -313,6 +323,20 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
     'demo-request': 'Dashboard Demo Request',
     'pitch-deck': 'Pitch Deck/Whitepaper Request',
     'general': 'General Inquiry',
+    'Encryption Beta Signup': 'Beta Signup Request',
+    'Enterprise Inquiry': 'Enterprise Inquiry',
+    'Investor Interest — Pre-Seed / Seed Round': 'Investor Interest',
+    'Partnership Inquiry': 'Partnership Inquiry',
+    'CSPM+QBOM Pilot Request': 'Pilot Program Request',
+    'Investor Relations': 'Investor Interest',
+    'Partnership': 'Partnership Inquiry',
+    'Pilot Program': 'Pilot Program Request',
+    'Enterprise Encryption Suite': 'Enterprise Encryption Suite',
+    'CSPM Scanner': 'CSPM Scanner',
+    'QBOM Analyzer': 'QBOM Analyzer',
+    'CloudHSM / vHSM': 'CloudHSM / vHSM',
+    'RQSP Protocol': 'RQSP Protocol',
+    'Developer SDK': 'Developer SDK',
   };
 
   const escapeHtml = (str) => {
@@ -326,7 +350,7 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
   };
 
   const emailHtml = `
-    <h2>New ${typeLabels[type] || 'Inquiry'} from RivicQ Website</h2>
+    <h2>New ${typeLabels[resolvedType] || typeLabels[type] || 'Inquiry'} from RivicQ Website</h2>
     <table style="border-collapse:collapse;width:100%">
       <tr style="border-bottom:1px solid #e5e7eb">
         <td style="padding:8px;font-weight:bold;color:#374151">Name:</td>
@@ -336,6 +360,14 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
         <td style="padding:8px;font-weight:bold;color:#374151">Email:</td>
         <td style="padding:8px"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td>
       </tr>
+      ${sanitizedProduct ? `<tr style="border-bottom:1px solid #e5e7eb">
+        <td style="padding:8px;font-weight:bold;color:#374151">Product:</td>
+        <td style="padding:8px">${escapeHtml(sanitizedProduct)}</td>
+      </tr>` : ''}
+      ${interest ? `<tr style="border-bottom:1px solid #e5e7eb">
+        <td style="padding:8px;font-weight:bold;color:#374151">Interest:</td>
+        <td style="padding:8px">${escapeHtml(interest)}</td>
+      </tr>` : ''}
       ${sanitizedCompany ? `<tr style="border-bottom:1px solid #e5e7eb">
         <td style="padding:8px;font-weight:bold;color:#374151">Company:</td>
         <td style="padding:8px">${escapeHtml(sanitizedCompany)}</td>
@@ -367,10 +399,12 @@ app.post('/api/contact', rateLimitMiddleware, csrfCheck, async (req, res) => {
 
   if (transporter) {
     try {
+      const label = typeLabels[resolvedType] || typeLabels[type] || 'New Inquiry';
+      const productSuffix = sanitizedProduct ? ` — ${sanitizedProduct}` : '';
       await transporter.sendMail({
         from: `"RivicQ Website" <${process.env.SMTP_FROM || 'noreply@rivicq.de'}>`,
         to: 'hello@rivicq.de',
-        subject: `[RivicQ] ${typeLabels[type] || 'New Inquiry'}: ${sanitizedName} from ${sanitizedCompany || email}`,
+        subject: `[RivicQ] ${label}${productSuffix}: ${sanitizedName} from ${sanitizedCompany || email}`,
         html: emailHtml,
         replyTo: email,
       });

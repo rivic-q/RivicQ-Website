@@ -8,12 +8,12 @@ import AnimatedBackground from '../components/AnimatedBackground';
 export default function Products() {
   return (
     <div style={{ position: 'relative' }}>
-      <AnimatedBackground variant="mixed" intensity="medium" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
+      <AnimatedBackground variant="mesh" intensity="low" gradient={['#2563EB', '#3B82F6', '#60A5FA']} />
       <QuantumCircuit complexity={6} color="var(--rq-blue)" />
       <div style={{ maxWidth: 1000, margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
         <SectionHeader
           title="Products"
-          subtitle="Open-source cryptographic discovery (CBOM+QBOM), FIPS 140-3 HSM with Encryption-as-a-Service, hybrid PQC transport, and developer SDK. Every product is built for production security engineering."
+          subtitle="Open-source cryptographic discovery (CSPM+QBOM), FIPS 140-3 HSM with Encryption-as-a-Service, hybrid PQC transport, and developer SDK. Every product is built for production security engineering."
           badge={<Badge variant="encrypt">Encryption Stack</Badge>}
         />
 

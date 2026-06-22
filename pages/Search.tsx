@@ -4,7 +4,7 @@ import { Badge } from '../components/Badge';
 import { Search as SearchIcon, FileCode, Shield, BookOpen, Globe, ArrowRight, X } from 'lucide-react';
 
 const searchResults = [
-  { icon: FileCode, title: 'CBOM Scanner', desc: 'Cryptographic asset discovery tool for repos, containers, and cloud VPCs.', category: 'Product', href: '/products', tags: ['CBOM', 'Scanner', 'Discovery'] },
+  { icon: FileCode, title: 'CSPM Scanner', desc: 'Cryptographic asset discovery tool for repos, containers, and cloud VPCs.', category: 'Product', href: '/products', tags: ['CSPM', 'Scanner', 'Discovery'] },
   { icon: Shield, title: 'CloudHSM', desc: 'FIPS 140-3 Level 3 Hardware Security Module as a Service.', category: 'Product', href: '/cloud-hsm', tags: ['HSM', 'FIPS 140-3', 'EaaS'] },
   { icon: Shield, title: 'ML-KEM (FIPS 203)', desc: 'Module-Lattice Key Encapsulation Mechanism — NIST PQC standard for key exchange.', category: 'Standard', href: '/glossary', tags: ['PQC', 'NIST', 'FIPS 203'] },
   { icon: BookOpen, title: 'PQC Migration Guide', desc: 'Step-by-step guide to migrating your encryption stack to post-quantum algorithms.', category: 'Guide', href: '/resources', tags: ['Migration', 'Guide'] },

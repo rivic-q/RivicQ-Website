@@ -5,11 +5,11 @@ export interface GlossaryEntry {
 }
 
 export const glossary: GlossaryEntry[] = [
-  { term: 'CBOM', definition: 'Cryptographic Bill of Materials. An inventory of all cryptographic assets (keys, certificates, algorithms) in a system, analogous to an SBOM for software dependencies.', related: ['CycloneDX', 'SBOM', 'QBOM'] },
-  { term: 'QBOM', definition: 'Quantum Bill of Materials. An extension of CBOM that adds quantum-vulnerability scoring (Q-score) to every cryptographic asset. Maps each key and algorithm to its Shor/Grover risk and the corresponding NIST PQC replacement.', related: ['CBOM', 'Q-Score', 'Shor'] },
+  { term: 'CSPM', definition: 'Cryptographic Security Posture Management. An inventory and risk assessment of all cryptographic assets (keys, certificates, algorithms) in a system, analogous to an SBOM for software dependencies.', related: ['CycloneDX', 'SBOM', 'QBOM'] },
+  { term: 'QBOM', definition: 'Quantum Bill of Materials. An extension of CSPM that adds quantum-vulnerability scoring (Q-score) to every cryptographic asset. Maps each key and algorithm to its Shor/Grover risk and the corresponding NIST PQC replacement.', related: ['CSPM', 'Q-Score', 'Shor'] },
   { term: 'Q-Score', definition: 'Quantum vulnerability score. A quantitative metric (0.0–1.0) measuring how urgently a cryptographic asset needs PQC migration. Based on key size, algorithm type, data sensitivity, and exposure window.', related: ['QBOM', 'Shor', 'Grover'] },
   { term: 'EaaS', definition: 'Encryption-as-a-Service. RivicQ\'s API-first encryption engine providing algorithm selection, key lifecycle management, and audit logging via HSM-backed REST/gRPC endpoints.', related: ['HSM', 'API', 'CloudHSM'] },
-  { term: 'CycloneDX', definition: 'An OWASP standard for SBOM formats. RivicQ extends CycloneDX 1.6 to include cryptographic asset metadata (CBOM) and quantum vulnerability scoring (QBOM).', related: ['CBOM', 'SBOM', 'QBOM'] },
+  { term: 'CycloneDX', definition: 'An OWASP standard for SBOM formats. RivicQ extends CycloneDX 1.6 to include cryptographic asset metadata (CSPM) and quantum vulnerability scoring (QBOM).', related: ['CSPM', 'SBOM', 'QBOM'] },
   { term: 'CRYSTALS-Kyber', definition: 'A lattice-based key encapsulation mechanism (KEM) selected by NIST for standardization as ML-KEM in FIPS 203. Primary PQC encryption primitive.', related: ['ML-KEM', 'FIPS 203', 'KEM'] },
   { term: 'CRYSTALS-Dilithium', definition: 'A lattice-based signature scheme selected by NIST for standardization as ML-DSA in FIPS 204.', related: ['ML-DSA', 'FIPS 204'] },
   { term: 'DORA', definition: 'Digital Operational Resilience Act. EU regulation requiring financial institutions to manage ICT risk, including cryptographic agility and encryption key management.', related: ['NIS2', 'Compliance'] },

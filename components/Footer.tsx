@@ -1,62 +1,98 @@
 import { Link } from 'react-router-dom';
-import { navItems, socialLinks } from '../data/navigation';
+import { socialLinks } from '../data/navigation';
 import Logo from './Logo';
 
-const footerLinks = [
+const footerSections = [
   {
     label: 'Products',
-    key: 'Products',
-  },
-  {
-    label: 'Resources',
-    key: 'Resources',
+    links: [
+      { label: 'CSPM Scanner', path: '/products' },
+      { label: 'CloudHSM', path: '/cloud-hsm' },
+      { label: 'RQSP Protocol', path: '/rqsp' },
+      { label: 'SDK & APIs', path: '/sdk' },
+      { label: 'Platform', path: '/platform' },
+    ],
   },
   {
     label: 'Company',
-    key: 'Company',
+    links: [
+      { label: 'Vision', path: '/vision' },
+      { label: 'Mission', path: '/mission' },
+      { label: 'Story', path: '/story' },
+      { label: 'Team', path: '/team' },
+      { label: 'Careers', path: '/careers' },
+      { label: 'Investors', path: '/investors' },
+    ],
+  },
+  {
+    label: 'Resources',
+    links: [
+      { label: 'Blog', path: '/blog' },
+      { label: 'Research', path: '/research' },
+      { label: 'Glossary', path: '/glossary' },
+      { label: 'Compliance', path: '/compliance' },
+      { label: 'Learning Center', path: '/learning' },
+    ],
+  },
+  {
+    label: 'Connect',
+    links: [
+      { label: 'Partner Program', path: '/partner' },
+      { label: 'Ecosystem', path: '/ecosystem' },
+      { label: 'Enterprise', path: '/enterprise' },
+      { label: 'Help & Support', path: '/help' },
+    ],
+  },
+  {
+    label: 'Legal',
+    links: [
+      { label: 'Privacy Policy', path: '/privacy' },
+      { label: 'Imprint', path: '/legal' },
+      { label: 'Cookie Policy', path: '/cookie-policy' },
+    ],
   },
 ];
 
-const legalLinks = [
-  { label: 'Privacy Policy', path: '/privacy' },
-  { label: 'Imprint / Legal', path: '/legal' },
-  { label: 'Cookie Policy', path: '/cookie-policy' },
+const socialItems = [
+  { label: 'LinkedIn', url: socialLinks.linkedin },
+  { label: 'GitHub', url: socialLinks.github },
+  { label: 'Substack', url: socialLinks.substack },
+  { label: 'Discord', url: socialLinks.discord },
+  { label: 'YouTube', url: socialLinks.youtube },
 ];
 
 export default function Footer() {
   return (
-    <footer style={{
-      borderTop: '1px solid var(--rq-border-light)',
-      background: 'var(--rq-white)',
-    }}>
-      <div className="page-container" style={{ paddingTop: 56, paddingBottom: 32 }}>
+    <footer style={{ background: '#0E141B', borderTop: '1px solid #1E293B', padding: '56px 0 32px' }}>
+      <div className="page-container">
+        {/* Top row: Brand + columns */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr 1fr',
-          gap: 40,
-        }}>
-          {/* Brand */}
+          gridTemplateColumns: '280px 1fr',
+          gap: 48,
+          marginBottom: 40,
+        }} className="footer-grid">
+          {/* Brand column */}
           <div>
-            <Logo size="sm" showTagline={false} />
-            <p style={{ color: 'var(--rq-text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, margin: '12px 0 0', maxWidth: 300 }}>
-              Robust Integrated Verified Identity Computing — quantum-safe encryption infrastructure for the post-quantum era.
+            <Logo size="md" variant="light" />
+            <p style={{
+              color: '#64748B', fontSize: '0.82rem', lineHeight: 1.7,
+              marginTop: 16, maxWidth: 260,
+            }}>
+              Berlin-founded deep tech building the post-quantum encryption stack.
+              PQC, HSM, and cryptographic auditing for the quantum-safe era.
             </p>
             <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-              {[
-                { icon: socialLinks.linkedin, label: 'LinkedIn' },
-                { icon: socialLinks.github, label: 'GitHub' },
-                { icon: socialLinks.substack, label: 'Substack' },
-                { icon: socialLinks.discord, label: 'Discord' },
-                { icon: socialLinks.youtube, label: 'YouTube' },
-              ].map(s => (
-                <a key={s.label} href={s.icon} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+              {socialItems.map(s => (
+                <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label}
                   style={{
-                    width: 34, height: 34, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: 'var(--rq-muted)', background: 'var(--rq-bg)', border: '1px solid var(--rq-border-light)',
+                    width: 34, height: 34, borderRadius: 8,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#475569', background: 'rgba(255,255,255,0.04)',
                     transition: 'all 200ms', fontSize: '0.75rem',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--rq-primary)'; e.currentTarget.style.borderColor = 'var(--rq-primary)'; e.currentTarget.style.background = 'var(--rq-primary-light)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--rq-muted)'; e.currentTarget.style.borderColor = 'var(--rq-border-light)'; e.currentTarget.style.background = 'var(--rq-bg)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.background = '#2563EB'; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = '#475569'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     {s.label === 'LinkedIn' && <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>}
@@ -70,59 +106,63 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Nav sections */}
-          {footerLinks.map(section => {
-            const navItem = navItems.find(n => n.label === section.key);
-            if (!navItem?.children) return null;
-            return (
-              <div key={section.key}>
+          {/* Link columns */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(5, 1fr)',
+            gap: 24,
+          }} className="footer-links-grid">
+            {footerSections.map(section => (
+              <div key={section.label}>
                 <h4 style={{
-                  fontFamily: 'var(--rq-font-heading)', fontSize: '0.8rem', fontWeight: 600,
-                  color: 'var(--rq-text)', margin: '0 0 14px',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: '0.72rem', fontWeight: 700,
+                  textTransform: 'uppercase', letterSpacing: '0.08em',
+                  color: '#94A3B8', marginBottom: 16,
                 }}>{section.label}</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  {navItem.children.map(child => (
-                    <Link key={child.path} to={child.path} style={{
-                      color: 'var(--rq-text-secondary)', textDecoration: 'none', fontSize: '0.82rem',
-                      transition: 'color 200ms',
-                    }}
-                      onMouseEnter={e => e.currentTarget.style.color = 'var(--rq-primary)'}
-                      onMouseLeave={e => e.currentTarget.style.color = 'var(--rq-text-secondary)'}
-                    >{child.label}</Link>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {section.links.map(link => (
+                    <li key={link.path}>
+                      <Link to={link.path} style={{
+                        color: '#64748B', textDecoration: 'none', fontSize: '0.82rem',
+                        transition: 'color 200ms',
+                      }}
+                        onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; }}
+                        onMouseLeave={e => { e.currentTarget.style.color = '#64748B'; }}
+                      >{link.label}</Link>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-            );
-          })}
-
-          {/* Legal */}
-          <div>
-            <h4 style={{
-              fontFamily: 'var(--rq-font-heading)', fontSize: '0.8rem', fontWeight: 600,
-              color: 'var(--rq-text)', margin: '0 0 14px',
-            }}>Legal</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {legalLinks.map(link => (
-                <Link key={link.path} to={link.path} style={{
-                  color: 'var(--rq-text-secondary)', textDecoration: 'none', fontSize: '0.82rem',
-                  transition: 'color 200ms',
-                }}
-                  onMouseEnter={e => e.currentTarget.style.color = 'var(--rq-primary)'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'var(--rq-text-secondary)'}
-                >{link.label}</Link>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
 
+        {/* Divider */}
+        <div style={{ height: 1, background: '#1E293B' }} />
+
         {/* Bottom bar */}
-        <div className="divider" style={{ margin: '40px 0 20px' }} />
         <div style={{
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          flexWrap: 'wrap', gap: 12, fontSize: '0.78rem', color: 'var(--rq-muted)',
+          flexWrap: 'wrap', gap: 16, paddingTop: 20,
         }}>
-          <span>&copy; {new Date().getFullYear()} RivicQ GmbH. All rights reserved.</span>
-          <span>Quantum-safe encryption infrastructure. Berlin-founded.</span>
+          <span style={{ color: '#475569', fontSize: '0.75rem' }}>
+            &copy; {new Date().getFullYear()} RivicQ GmbH. All rights reserved.
+          </span>
+          <div style={{ display: 'flex', gap: 20 }}>
+            <Link to="/privacy" style={{ color: '#475569', fontSize: '0.73rem', textDecoration: 'none', transition: 'color 200ms' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#475569'; }}
+            >Privacy</Link>
+            <Link to="/legal" style={{ color: '#475569', fontSize: '0.73rem', textDecoration: 'none', transition: 'color 200ms' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#475569'; }}
+            >Imprint</Link>
+            <Link to="/cookie-policy" style={{ color: '#475569', fontSize: '0.73rem', textDecoration: 'none', transition: 'color 200ms' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#475569'; }}
+            >Cookies</Link>
+          </div>
         </div>
       </div>
     </footer>

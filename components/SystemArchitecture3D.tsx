@@ -14,7 +14,7 @@ const SystemArchitecture3D: React.FC = () => {
     },
     {
       label: "Catalog",
-      title: "CBOM Engine",
+      title: "CSPM Engine",
       icon: <Database size={20} />,
       color: "indigo",
       details: "CycloneDX Inventory",
@@ -33,7 +33,11 @@ const SystemArchitecture3D: React.FC = () => {
   return (
     <div className="w-full py-24 bg-white overflow-hidden relative border-y border-slate-50 mb-12 flex flex-col items-center">
       {/* Background technical grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-40 bg-technical"></div>
+      <div style={{
+            position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.4,
+            backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px)',
+            backgroundSize: '20px 20px',
+          }}></div>
 
       <div className="relative z-10 text-center mb-16 px-6">
         <h3 className="text-4xl font-serif font-bold text-slate-900 m-0">CryptoBOM DevSecOps Lifecycle</h3>

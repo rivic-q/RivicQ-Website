@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Cpu, Box, X, Atom, CheckCircle2, Zap, Cloud } from 'lucide-react';
 
 type Layer = 'physical' | 'engine' | 'quantum' | 'cloud' | null;
@@ -6,6 +6,8 @@ type Layer = 'physical' | 'engine' | 'quantum' | 'cloud' | null;
 const HSMBlueprint: React.FC = () => {
     const [activeLayer, setActiveLayer] = useState<Layer>(null);
     const [entropyBits, setEntropyBits] = useState<string>('10101100');
+    const [rotation, setRotation] = useState(45);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -14,6 +16,14 @@ const HSMBlueprint: React.FC = () => {
         }, 150);
         return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+        if (activeLayer) return;
+        const anim = setInterval(() => {
+            setRotation(prev => prev + 0.3);
+        }, 50);
+        return () => clearInterval(anim);
+    }, [activeLayer]);
 
     const layerDetails: Record<string, { title: string; desc: string; stats: string[] }> = {
         physical: {
@@ -45,13 +55,28 @@ const HSMBlueprint: React.FC = () => {
     };
 
     return (
-        <div style={{
+        <div ref={containerRef} style={{
             width: '100%', padding: '48px 0 48px',
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             background: 'var(--rq-white)', overflow: 'hidden', position: 'relative',
             borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9',
-            marginBottom: 0,
         }}>
+            {/* Particle effects around HSM */}
+            {[...Array(20)].map((_, i) => (
+                <div key={i} style={{
+                    position: 'absolute',
+                    width: 2, height: 2,
+                    borderRadius: '50%',
+                    background: '#2563EB',
+                    left: `${30 + Math.random() * 40}%`,
+                    top: `${10 + Math.random() * 80}%`,
+                    opacity: 0.15 + Math.random() * 0.15,
+                    animation: `qubitFloat ${4 + Math.random() * 6}s ease-in-out infinite`,
+                    animationDelay: `${Math.random() * 4}s`,
+                    pointerEvents: 'none',
+                }} />
+            ))}
+
             <div style={{
                 position: 'absolute', inset: 0, pointerEvents: 'none',
                 backgroundImage: 'linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)',
@@ -120,9 +145,9 @@ const HSMBlueprint: React.FC = () => {
                     position: 'relative', width: '100%', height: '100%',
                     transformStyle: 'preserve-3d',
                     transform: activeLayer
-                        ? 'rotateX(45deg) rotateZ(15deg) scale(0.85)'
-                        : 'rotateX(55deg) rotateZ(45deg)',
-                    transition: 'all 1s ease-out',
+                        ? `rotateX(45deg) rotateZ(15deg) scale(0.85)`
+                        : `rotateX(55deg) rotateZ(${rotation}deg)`,
+                    transition: activeLayer ? 'all 1s ease-out' : 'none',
                     ...(!activeLayer ? { cursor: 'pointer' } : {}),
                 }}>
                     {/* Layer 1: Physical */}
@@ -226,8 +251,17 @@ const HSMBlueprint: React.FC = () => {
                                     borderRadius: 12,
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     boxShadow: '0 0 60px rgba(37,99,235,0.7)',
+                                    animation: 'gatePulse 2s ease-in-out infinite',
                                 }}>
                                     <Atom size={24} color="#fff" />
+                                </div>
+                                <div style={{
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    fontSize: '0.6rem', color: '#3b82f6', marginTop: 16,
+                                    letterSpacing: '0.2em',
+                                    animation: 'encryptPulse 1.5s ease-in-out infinite',
+                                }}>
+                                    {entropyBits}
                                 </div>
                             </div>
                         </div>
@@ -262,7 +296,7 @@ const HSMBlueprint: React.FC = () => {
             </div>
 
             <div style={{
-                textAlign: 'center', zIndex: 10, padding: '0 24px', pointerEvents: 'none',
+                textAlign: 'center', zIndex: 10, padding: '0 24px',
             }}>
                 <h3 style={{
                     fontFamily: 'var(--rq-font-heading)',
