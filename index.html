@@ -71,26 +71,26 @@
     <style>
       :root {
         --rq-white:       #FFFFFF;
-        --rq-bg:          #FAFBFC;
-        --rq-surface:     #F1F4F9;
-        --rq-border:      #DDE2E8;
-        --rq-border-light:#EBEFF3;
+        --rq-bg:          #0A0F1E;
+        --rq-surface:     #111827;
+        --rq-border:      #1E293B;
+        --rq-border-light:#1E293B;
 
-        --rq-primary:     #1A56DB;
-        --rq-primary-dark:#143FA8;
-        --rq-primary-light:#E8EEFE;
-        --rq-primary-dim: rgba(26,86,219,0.08);
+        --rq-primary:     #2563EB;
+        --rq-primary-dark:#1D4ED8;
+        --rq-primary-light:#1E3A5F;
+        --rq-primary-dim: rgba(37,99,235,0.12);
 
         --rq-accent:      #0BAA8A;
-        --rq-accent-dark: #088B71;
-        --rq-accent-light:#E6F8F4;
+        --rq-accent-dark: #059669;
+        --rq-accent-light:#0A2E28;
 
-        --rq-text:        #0E141B;
-        --rq-text-secondary:#4A5568;
-        --rq-muted:       #8896A6;
-        --rq-success:     #059669;
-        --rq-warning:     #D97706;
-        --rq-error:       #DC2626;
+        --rq-text:        #F1F5F9;
+        --rq-text-secondary:#94A3B8;
+        --rq-muted:       #64748B;
+        --rq-success:     #10B981;
+        --rq-warning:     #F59E0B;
+        --rq-error:       #EF4444;
 
         --rq-font-heading: 'Space Grotesk', sans-serif;
         --rq-font-body:   'Inter', system-ui, sans-serif;
@@ -100,20 +100,21 @@
         --rq-radius-md:   10px;
         --rq-radius-lg:   16px;
         --rq-radius-xl:   24px;
+        --rq-radius-2xl:  32px;
 
-        --rq-shadow-xs:   0 1px 2px rgba(0,0,0,0.04);
-        --rq-shadow-sm:   0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-        --rq-shadow-md:   0 4px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
-        --rq-shadow-lg:   0 10px 30px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
-        --rq-shadow-xl:   0 20px 50px rgba(0,0,0,0.08);
-        --rq-shadow-glow: 0 0 24px rgba(26,86,219,0.15);
+        --rq-shadow-xs:   0 1px 2px rgba(0,0,0,0.3);
+        --rq-shadow-sm:   0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+        --rq-shadow-md:   0 4px 12px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.4);
+        --rq-shadow-lg:   0 10px 30px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.4);
+        --rq-shadow-xl:   0 20px 50px rgba(0,0,0,0.6);
+        --rq-shadow-glow: 0 0 30px rgba(37,99,235,0.25);
 
-        --rq-encrypt:     #2563EB;
-        --rq-encrypt-dim: rgba(37,99,235,0.08);
+        --rq-encrypt:     #3B82F6;
+        --rq-encrypt-dim: rgba(37,99,235,0.1);
         --rq-blue:        #2563EB;
         --rq-teal:        #0BAA8A;
-        --rq-amber:       #D97706;
-        --rq-code-bg:     var(--rq-surface);
+        --rq-amber:       #F59E0B;
+        --rq-code-bg:     #0F172A;
 
         --rq-transition:  200ms cubic-bezier(0.4, 0, 0.2, 1);
       }
@@ -130,7 +131,7 @@
         line-height: 1.6;
       }
 
-      ::selection { background: rgba(26,86,219,0.14); color: var(--rq-text); }
+      ::selection { background: rgba(37,99,235,0.25); color: #fff; }
       ::-webkit-scrollbar { width: 4px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: var(--rq-border); border-radius: 10px; }
@@ -163,7 +164,7 @@
         .page-container { padding: 0 20px; }
       }
 
-      /* ─── Design System Animations ─── */
+      /* ─── DeepTech Design System Animations ─── */
       @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(16px); }
         to { opacity: 1; transform: translateY(0); }
@@ -185,8 +186,8 @@
         to { opacity: 1; transform: scale(1); }
       }
       @keyframes pulseGlow {
-        0%, 100% { box-shadow: 0 0 0 rgba(26,86,219,0); }
-        50% { box-shadow: 0 0 20px rgba(26,86,219,0.12); }
+        0%, 100% { box-shadow: 0 0 0 rgba(37,99,235,0); }
+        50% { box-shadow: 0 0 30px rgba(37,99,235,0.25); }
       }
       @keyframes spin {
         from { transform: rotate(0deg); }
@@ -210,8 +211,8 @@
       }
       @keyframes hexFloat {
         0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-        10% { opacity: 0.06; }
-        90% { opacity: 0.06; }
+        10% { opacity: 0.08; }
+        90% { opacity: 0.08; }
         100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
       }
       @keyframes gradientShift {
@@ -224,26 +225,26 @@
         50% { opacity: 1; transform: scale(1.05); }
       }
       @keyframes qubitFloat {
-        0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-        50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
+        0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+        50% { transform: translateY(-12px) scale(1.3); opacity: 0.8; }
       }
       @keyframes encryptPulse {
         0%, 100% { opacity: 0.5; }
         50% { opacity: 1; }
       }
       @keyframes circuitFlow {
-        0% { stroke-dashoffset: 20; }
+        0% { stroke-dashoffset: 24; }
         100% { stroke-dashoffset: 0; }
       }
       @keyframes nodeConnect {
         0% { opacity: 0; }
-        50% { opacity: 0.4; }
+        50% { opacity: 0.6; }
         100% { opacity: 0; }
       }
       @keyframes gradientOrb {
         0%, 100% { transform: scale(1) translate(0, 0); }
-        33% { transform: scale(1.1) translate(2%, 2%); }
-        66% { transform: scale(0.95) translate(-1%, -1%); }
+        33% { transform: scale(1.15) translate(3%, 3%); }
+        66% { transform: scale(0.9) translate(-2%, -2%); }
       }
       @keyframes cryptoStream {
         0% { transform: translateY(-100%); }
@@ -252,6 +253,32 @@
       @keyframes pulse {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.5; }
+      }
+      @keyframes scanLine {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+      @keyframes dataPulse {
+        0%, 100% { border-color: rgba(37,99,235,0.2); box-shadow: 0 0 0 rgba(37,99,235,0); }
+        50% { border-color: rgba(37,99,235,0.6); box-shadow: 0 0 20px rgba(37,99,235,0.15); }
+      }
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
+      }
+      @keyframes particleDrift {
+        0% { transform: translate(0, 0) scale(1); opacity: 0; }
+        20% { opacity: 0.6; }
+        80% { opacity: 0.6; }
+        100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+      }
+      @keyframes hsmRotate {
+        from { transform: rotateY(0deg); }
+        to { transform: rotateY(360deg); }
+      }
+      @keyframes signalPulse {
+        0%, 100% { r: 4; opacity: 0.8; }
+        50% { r: 12; opacity: 0; }
       }
 
       .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
@@ -263,11 +290,11 @@
       .animate-spin { animation: spin 1s linear infinite; }
       .animate-blink { animation: blink 1s step-end infinite; }
       .animate-float { animation: float 3s ease-in-out infinite; }
-      .animate-shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+      .animate-shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
       .animate-data-flow { animation: dataFlow 3s linear infinite; }
       .animate-hex-float { animation: hexFloat 20s linear infinite; }
       .animate-gradient-shift { animation: gradientShift 15s ease infinite; background-size: 200% 200%; }
-      .animate-circuit-flow { stroke-dasharray: 6 3; animation: circuitFlow 3s linear infinite; }
+      .animate-circuit-flow { stroke-dasharray: 8 4; animation: circuitFlow 2s linear infinite; }
       .animate-node-connect { animation: nodeConnect 3s ease-in-out infinite; }
       .animate-gradient-orb { animation: gradientOrb 8s ease-in-out infinite; }
       .animate-crypto-stream { animation: cryptoStream 6s linear infinite; }
@@ -276,8 +303,13 @@
       .animate-entanglement { animation: gatePulse 3s ease-in-out infinite; }
       .animate-qubit-float { animation: qubitFloat 2s ease-in-out infinite; }
       .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+      .animate-scan-line { animation: scanLine 3s linear infinite; }
+      .animate-data-pulse { animation: dataPulse 2s ease-in-out infinite; }
+      .animate-glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+      .animate-signal-pulse { animation: signalPulse 2s ease-in-out infinite; }
+      .animate-hsm-rotate { animation: hsmRotate 20s linear infinite; }
 
-      /* ─── Component Utilities ─── */
+      /* ─── DeepTech Component Utilities ─── */
       .btn {
         display: inline-flex; align-items: center; justify-content: center; gap: 8px;
         font-family: var(--rq-font-heading); font-weight: 600; font-size: 0.875rem;
@@ -286,45 +318,53 @@
         transition: all var(--rq-transition);
       }
       .btn-primary {
-        background: var(--rq-primary); color: var(--rq-white);
+        background: linear-gradient(135deg, var(--rq-primary), #3B82F6);
+        color: var(--rq-white); border: 1px solid rgba(37,99,235,0.3);
       }
       .btn-primary:hover {
-        background: var(--rq-primary-dark); box-shadow: var(--rq-shadow-glow);
+        box-shadow: var(--rq-shadow-glow); border-color: rgba(37,99,235,0.6);
+        transform: translateY(-1px);
       }
       .btn-secondary {
-        background: var(--rq-surface); color: var(--rq-text);
+        background: rgba(255,255,255,0.04); color: var(--rq-text);
         border: 1px solid var(--rq-border);
       }
       .btn-secondary:hover {
-        border-color: var(--rq-primary); background: var(--rq-primary-light);
+        border-color: var(--rq-primary); background: rgba(37,99,235,0.1);
       }
       .btn-accent {
-        background: var(--rq-accent); color: var(--rq-white);
+        background: linear-gradient(135deg, var(--rq-accent), #059669);
+        color: var(--rq-white); border: 1px solid rgba(11,170,138,0.3);
       }
       .btn-accent:hover {
-        background: var(--rq-accent-dark); box-shadow: 0 0 20px rgba(11,170,138,0.2);
+        box-shadow: 0 0 30px rgba(11,170,138,0.3); border-color: rgba(11,170,138,0.6);
+        transform: translateY(-1px);
       }
       .btn-ghost {
         background: transparent; color: var(--rq-text-secondary);
+        border: 1px solid transparent;
       }
       .btn-ghost:hover {
-        background: var(--rq-surface); color: var(--rq-text);
+        background: rgba(255,255,255,0.04); color: var(--rq-text);
+        border-color: var(--rq-border);
       }
       .btn-sm { padding: 7px 14px; font-size: 0.8rem; }
       .btn-lg { padding: 14px 28px; font-size: 1rem; }
       .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
       .card {
-        background: var(--rq-white); border: 1px solid var(--rq-border);
+        background: rgba(255,255,255,0.03); border: 1px solid var(--rq-border);
         border-radius: var(--rq-radius-lg); padding: 24px;
+        backdrop-filter: blur(8px);
         transition: all var(--rq-transition);
       }
       .card-hover:hover {
-        border-color: var(--rq-primary); box-shadow: var(--rq-shadow-md);
+        border-color: var(--rq-primary); box-shadow: var(--rq-shadow-glow);
+        background: rgba(37,99,235,0.06);
       }
       .card-accent {
-        border-color: var(--rq-primary);
-        background: linear-gradient(135deg, var(--rq-primary-dim) 0%, transparent 100%);
+        border-color: rgba(37,99,235,0.3);
+        background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(37,99,235,0.02) 100%);
       }
 
       .badge {
@@ -334,30 +374,38 @@
         letter-spacing: 0.04em; border: 1px solid;
       }
       .badge-primary {
-        background: var(--rq-primary-light); color: var(--rq-primary);
-        border-color: rgba(26,86,219,0.25);
+        background: rgba(37,99,235,0.15); color: #60A5FA;
+        border-color: rgba(37,99,235,0.3);
       }
       .badge-accent {
-        background: var(--rq-accent-light); color: var(--rq-accent-dark);
-        border-color: rgba(11,170,138,0.25);
+        background: rgba(11,170,138,0.15); color: #34D399;
+        border-color: rgba(11,170,138,0.3);
       }
       .badge-amber {
-        background: rgba(217,119,6,0.1); color: var(--rq-warning);
-        border-color: rgba(217,119,6,0.25);
+        background: rgba(245,158,11,0.15); color: #FBBF24;
+        border-color: rgba(245,158,11,0.3);
       }
       .badge-gray {
-        background: var(--rq-surface); color: var(--rq-muted);
+        background: rgba(255,255,255,0.04); color: var(--rq-muted);
         border-color: var(--rq-border);
+      }
+      .badge-blue {
+        background: rgba(37,99,235,0.15); color: #60A5FA;
+        border-color: rgba(37,99,235,0.3);
+      }
+      .badge-encrypt {
+        background: rgba(99,102,241,0.15); color: #818CF8;
+        border-color: rgba(99,102,241,0.3);
       }
 
       .input {
         width: 100%; padding: 10px 14px; font-size: 0.875rem;
         font-family: var(--rq-font-body); color: var(--rq-text);
-        background: var(--rq-white); border: 1px solid var(--rq-border);
+        background: rgba(255,255,255,0.04); border: 1px solid var(--rq-border);
         border-radius: var(--rq-radius-md); transition: all var(--rq-transition);
         outline: none;
       }
-      .input:focus { border-color: var(--rq-primary); box-shadow: 0 0 0 3px var(--rq-primary-dim); }
+      .input:focus { border-color: var(--rq-primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
       .input::placeholder { color: var(--rq-muted); }
 
       .label {
@@ -368,9 +416,10 @@
 
       .tag {
         display: inline-flex; align-items: center; gap: 4px;
-        padding: 2px 8px; border-radius: var(--rq-radius-sm);
-        font-size: 0.7rem; font-family: var(--rq-font-mono);
-        background: var(--rq-primary-dim); color: var(--rq-primary);
+        padding: 3px 10px; border-radius: var(--rq-radius-sm);
+        font-size: 0.68rem; font-family: var(--rq-font-mono);
+        background: rgba(37,99,235,0.12); color: #60A5FA;
+        border: 1px solid rgba(37,99,235,0.2);
       }
 
       .divider {

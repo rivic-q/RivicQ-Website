@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--rq-bg)' }}>
       <Navbar />
       <main id="main-content" style={{ flex: 1, paddingTop: 68 }}>
         {children}

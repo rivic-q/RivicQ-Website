@@ -45,9 +45,9 @@ export default function Navbar() {
       aria-label="Primary navigation"
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: 68,
-        background: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
+        background: scrolled ? 'rgba(10,15,30,0.92)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--rq-border-light)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid rgba(37,99,235,0.12)' : '1px solid transparent',
         transition: 'all 300ms',
       }}
     >
@@ -107,8 +107,8 @@ export default function Navbar() {
                     onMouseLeave={handleLeave}
                     style={{
                       position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)',
-                      minWidth: 220, background: '#FFFFFF', border: '1px solid var(--rq-border-light)',
-                      borderRadius: 14, padding: '6px', boxShadow: '0 16px 48px rgba(0,0,0,0.08)',
+                      minWidth: 220, background: '#111827', border: '1px solid rgba(37,99,235,0.15)',
+                      borderRadius: 14, padding: '6px', boxShadow: '0 16px 48px rgba(0,0,0,0.5)',
                       animation: 'slideDown 0.15s ease-out',
                     }}
                   >
@@ -120,7 +120,7 @@ export default function Navbar() {
                         style={{
                           display: 'flex', flexDirection: 'column', gap: 1,
                           padding: '10px 14px', borderRadius: 10,
-                          color: isActive(child.path) ? 'var(--rq-primary)' : 'var(--rq-text)',
+                          color: isActive(child.path) ? '#60A5FA' : '#E2E8F0',
                           textDecoration: 'none', fontSize: '0.85rem',
                           fontFamily: 'var(--rq-font-heading)',
                           fontWeight: isActive(child.path) ? 600 : 500,
@@ -167,7 +167,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div style={{
           position: 'fixed', top: 68, left: 0, right: 0, bottom: 0,
-          background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(16px)',
+          background: 'rgba(10,15,30,0.98)', backdropFilter: 'blur(16px)',
           padding: '20px 24px', overflowY: 'auto', animation: 'fadeIn 0.2s ease-out',
         }}>
           {navItems.map((item) => (
@@ -185,7 +185,7 @@ export default function Navbar() {
                       onClick={() => setMobileOpen(false)}
                       style={{
                         display: 'block', padding: '8px 4px',
-                        color: isActive(child.path) ? 'var(--rq-primary)' : 'var(--rq-text)',
+                        color: isActive(child.path) ? '#60A5FA' : '#E2E8F0',
                         textDecoration: 'none', fontSize: '0.9rem',
                         fontFamily: 'var(--rq-font-heading)',
                         fontWeight: isActive(child.path) ? 600 : 400,
@@ -200,7 +200,7 @@ export default function Navbar() {
                   to={item.path} onClick={() => setMobileOpen(false)}
                   style={{
                     display: 'block', padding: '8px 4px',
-                    color: isActive(item.path) ? 'var(--rq-primary)' : 'var(--rq-text)',
+                    color: isActive(item.path) ? '#60A5FA' : '#E2E8F0',
                     textDecoration: 'none', fontSize: '0.9rem',
                     fontFamily: 'var(--rq-font-heading)',
                     fontWeight: isActive(item.path) ? 600 : 400,
